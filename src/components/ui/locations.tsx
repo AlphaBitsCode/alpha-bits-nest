@@ -11,16 +11,16 @@ const Locations = () => {
       address: 'Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam',
       phone: '+84 28 1234 5678',
       hours: 'Monday-Friday: 9am-6pm',
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop',
-      mapUrl: 'https://maps.google.com/?q=Thu+Thiem+District+2+Ho+Chi+Minh+Vietnam'
+      image: 'images/office/office_1.jpg',
+      mapUrl: 'https://maps.app.goo.gl/Lqkdzj2wKofe11My9'
     },
     {
       name: 'AO Farm',
       address: 'Bien Hoa City, Dong Nai, Vietnam',
       phone: '+84 28 8765 4321',
       hours: 'Monday-Sunday: 8am-5pm',
-      image: 'https://images.unsplash.com/photo-1558731546-c483b1c8d2cf?q=80&w=1000&auto=format&fit=crop',
-      mapUrl: 'https://maps.google.com/?q=Bien+Hoa+Dong+Nai+Vietnam'
+      image: 'images/office/office_aofarm1.jpg',
+      mapUrl: 'https://maps.app.goo.gl/cbXZ6upchgHPwpWW8'
     }
   ];
 

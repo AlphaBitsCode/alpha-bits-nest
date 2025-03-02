@@ -73,7 +73,7 @@ const About = () => {
             <div className="relative scrolled-section">
               <div className="relative z-10 rounded-xl overflow-hidden shadow-xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1000&auto=format&fit=crop" 
+                  src="images/office/office_1.jpg" 
                   alt="Alpha Bits Office Space" 
                   className="w-full h-auto object-cover"
                 />
@@ -196,7 +196,7 @@ const About = () => {
                 </p>
                 <div className="rounded-xl overflow-hidden shadow-lg mb-6 h-72">
                   <img 
-                    src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop" 
+                    src="images/office/office_aofarm2.jpg'" 
                     alt="AO Farm Facility" 
                     className="w-full h-full object-cover"
                   />
@@ -228,35 +228,35 @@ const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 scrolled-section">
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1000&auto=format&fit=crop" 
+                src="images/office/office_1.jpg" 
                 alt="Alpha Bits Office Space" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg md:col-span-2">
               <img 
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1000&auto=format&fit=crop" 
+                src="images/office/office_2.jpg" 
                 alt="Alpha Bits Team" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop" 
+                src="images/office/office_5.jpg" 
                 alt="AO Farm" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg md:col-span-2">
               <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1000&auto=format&fit=crop" 
+                src="images/office/office_4.jpg" 
                 alt="Alpha Bits Office" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
             </div>
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg md:col-span-2">
               <img 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1000&auto=format&fit=crop" 
+                src="images/office/office_3.jpg" 
                 alt="Development Team" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
