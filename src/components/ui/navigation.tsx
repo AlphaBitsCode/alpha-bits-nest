@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall } from 'lucide-react';
-import DockNavigation from './dock-navigation';
+import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
   const location = useLocation();
@@ -29,7 +29,59 @@ const Navigation = () => {
     }
   }, [location]);
 
-  return <DockNavigation />;
+  const navData = {
+    logo: {
+      url: "/",
+      src: "/images/AB_Logo_icon.png",
+      alt: "Alpha Bits Logo",
+      title: "Alpha Bits",
+    },
+    menu: [
+      { title: "Home", url: "/" },
+      {
+        title: "Products",
+        url: "/products",
+        items: [
+          {
+            title: "Mushroom-in-a-Box",
+            description: "A complete kit for growing gourmet mushrooms at home",
+            icon: <Package className="size-5 shrink-0" />,
+            url: "/products/mushroom-in-a-box",
+          },
+          {
+            title: "Farm In Box",
+            description: "Educational package for schools to teach sustainable farming",
+            icon: <Home className="size-5 shrink-0" />,
+            url: "/products/farm-in-box",
+          },
+        ],
+      },
+      {
+        title: "Services",
+        url: "/services",
+        items: [
+          {
+            title: "AIoT Product Development",
+            description: "Smart, connected products that solve real-world problems",
+            icon: <Briefcase className="size-5 shrink-0" />,
+            url: "/services/aiot-product-development",
+          },
+          {
+            title: "CTO-as-a-Service",
+            description: "Access top-tier technical leadership without the overhead",
+            icon: <Users className="size-5 shrink-0" />,
+            url: "/services/cto-as-a-service",
+          },
+        ],
+      },
+      { title: "About", url: "/about" },
+      { title: "Experience", url: "/experience" },
+      { title: "Locations", url: "/locations" },
+      { title: "Contact", url: "/contact" },
+    ]
+  };
+
+  return <Navbar1 {...navData} />;
 };
 
 export default Navigation;
