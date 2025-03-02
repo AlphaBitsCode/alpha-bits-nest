@@ -90,7 +90,7 @@ const MushroomInBox = () => {
                 <div className="relative glassmorphism overflow-hidden rounded-lg p-1">
                   <div className="bg-white rounded-lg overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1608283234908-477a0c9b34c3?q=80&w=1000&auto=format&fit=crop" 
+                      src="/images/mushroom-box/mushroombox3.png" 
                       alt="Mushroom growing kit" 
                       className="w-full h-96 object-cover object-center"
                     />
