@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,9 +31,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Base route */}
           <Route path="/" element={<Index />} />
           
-          {/* Products routes with alternative paths */}
+          {/* Products routes */}
           <Route path="/products" element={<Products />} />
           <Route path="/product" element={<Navigate to="/products" replace />} />
           <Route path="/products/mushroom-in-a-box" element={<MushroomInBox />} />
@@ -45,7 +47,7 @@ const App = () => (
           <Route path="/products/farm" element={<DigitalTwinFarm />} />
           <Route path="/products/factory" element={<DigitalTwinFactory />} />
           
-          {/* Services routes with alternative paths */}
+          {/* Services routes */}
           <Route path="/services" element={<Services />} />
           <Route path="/service" element={<Navigate to="/services" replace />} />
           <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
@@ -62,7 +64,12 @@ const App = () => (
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/experiences" element={<Navigate to="/experience" replace />} />
           
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Privacy, Terms, and Cookie Policy routes */}
+          <Route path="/privacy-policy" element={<About />} /> {/* Temporary, replace with actual privacy policy page when created */}
+          <Route path="/terms-of-service" element={<About />} /> {/* Temporary, replace with actual terms page when created */}
+          <Route path="/cookie-policy" element={<About />} /> {/* Temporary, replace with actual cookie policy page when created */}
+          
+          {/* Catch-all route - must be last */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
