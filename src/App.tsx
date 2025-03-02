@@ -10,6 +10,8 @@ import Products from "./pages/Products";
 import MushroomInBox from "./pages/products/MushroomInBox";
 import FarmInBox from "./pages/products/FarmInBox";
 import Services from "./pages/Services";
+import LocationsPage from "./pages/Locations"
+import ContactPage from "./pages/Locations"
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import About from "./pages/About";
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
           <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />
           <Route path="/about" element={<About />} />
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
