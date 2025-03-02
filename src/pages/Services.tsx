@@ -270,11 +270,11 @@ const Services = () => {
               </p>
               <div className="inline-flex items-center justify-center space-x-2">
                 <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" alt="Client" className="w-full h-full object-cover" />
+                  <img src="#" alt="Client" className="w-full h-full object-cover" />
                 </div>
                 <div className="text-left">
-                  <p className="font-semibold text-gray-800">John Smith</p>
-                  <p className="text-sm text-gray-600">CTO, Tech Innovators Inc.</p>
+                  <p className="font-semibold text-gray-800">Sarah Chua</p>
+                  <p className="text-sm text-gray-600">CEO, SmartRetail, MY</p>
                 </div>
               </div>
             </motion.div>
