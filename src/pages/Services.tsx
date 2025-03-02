@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Cpu, Users, ChevronRight } from 'lucide-react';
+import { Cpu, Users, ChevronRight, ShieldAlert, CheckCircle2 } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -25,6 +25,12 @@ const Services = () => {
         'Cloud connectivity and data analytics',
         'Scalable production planning',
         'User experience design'
+      ],
+      painPoints: [
+        'Product development efforts that stall or fail to deliver ROI',
+        'Lack of in-house expertise to build connected solutions',
+        'Integration challenges between hardware, software, and cloud systems',
+        'Difficulty scaling prototypes to production-ready products'
       ]
     },
     {
@@ -38,6 +44,12 @@ const Services = () => {
         'Architecture and infrastructure planning',
         'Vendor selection and management',
         'Digital transformation strategy'
+      ],
+      painPoints: [
+        'Unclear technology strategy preventing business growth',
+        'Limited budget for a full-time senior technical leader',
+        'Challenges aligning technology decisions with business objectives',
+        'Difficulty hiring and managing technical talent'
       ]
     }
   ];
@@ -82,6 +94,54 @@ const Services = () => {
             </p>
           </div>
           
+          {/* Customer Pain Points Section */}
+          <div className="mb-16 scrolled-section">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+              <h2 className="text-2xl font-bold mb-6 text-center">Common Challenges Our Solutions Address</h2>
+              <p className="text-white/70 text-center max-w-3xl mx-auto mb-8">
+                We understand the obstacles you face on your innovation journey. Our services are designed to directly address these pain points.
+              </p>
+              
+              <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 flex-wrap">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:max-w-xs">
+                  <ShieldAlert className="w-10 h-10 text-red-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">Technology Gaps</h3>
+                  <p className="text-white/70 mb-3">
+                    Limited technical expertise prevents innovation and growth in today's competitive market.
+                  </p>
+                  <div className="flex items-start gap-2 mt-4">
+                    <CheckCircle2 className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <p className="text-white/80 text-sm">Our solutions provide immediate access to expert technical capabilities.</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:max-w-xs">
+                  <ShieldAlert className="w-10 h-10 text-red-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">Budget Constraints</h3>
+                  <p className="text-white/70 mb-3">
+                    Full-time senior technical leadership is expensive and often not feasible for growing businesses.
+                  </p>
+                  <div className="flex items-start gap-2 mt-4">
+                    <CheckCircle2 className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <p className="text-white/80 text-sm">Our services scale to your needs without the overhead of full-time employees.</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:max-w-xs">
+                  <ShieldAlert className="w-10 h-10 text-red-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-3">Time to Market</h3>
+                  <p className="text-white/70 mb-3">
+                    Product development cycles are too long, causing delays in capturing market opportunities.
+                  </p>
+                  <div className="flex items-start gap-2 mt-4">
+                    <CheckCircle2 className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                    <p className="text-white/80 text-sm">Our streamlined processes accelerate development and time to market.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-2 gap-10 scrolled-section">
             {services.map((service, index) => (
               <Link 
@@ -94,6 +154,23 @@ const Services = () => {
                   <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                   <p className="text-white/70 mb-6">{service.description}</p>
                   
+                  {/* Pain Points */}
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 mb-6">
+                    <h4 className="text-lg font-semibold mb-3 flex items-center">
+                      <ShieldAlert size={18} className="text-red-400 mr-2" />
+                      <span>Common Challenges We Solve</span>
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.painPoints.map((point, i) => (
+                        <li key={i} className="flex items-start">
+                          <ChevronRight size={16} className="text-red-400 mr-2 flex-shrink-0 mt-1" />
+                          <span className="text-white/80 text-sm">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <h4 className="text-lg font-semibold mb-3">Key Services</h4>
                   <ul className="space-y-3 mb-6">
                     {service.features.slice(0, 3).map((feature, i) => (
                       <li key={i} className="flex items-start">
