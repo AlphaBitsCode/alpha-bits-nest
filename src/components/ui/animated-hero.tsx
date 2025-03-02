@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["innovative", "empowering", "sustainable", "scalable", "smart"],
+    () => ["innovative", "empowering", "sustainable ", "scalable", "smart"],
     []
   );
 
