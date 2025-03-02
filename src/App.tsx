@@ -16,6 +16,9 @@ import ExperiencePage from "./pages/Experience";
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 
 // Import the new Digital Twin product pages
 import DigitalTwinOfficeHome from "./pages/products/DigitalTwinOfficeHome";
@@ -65,9 +68,9 @@ const App = () => (
           <Route path="/experiences" element={<Navigate to="/experience" replace />} />
           
           {/* Privacy, Terms, and Cookie Policy routes */}
-          <Route path="/privacy-policy" element={<About />} /> {/* Temporary, replace with actual privacy policy page when created */}
-          <Route path="/terms-of-service" element={<About />} /> {/* Temporary, replace with actual terms page when created */}
-          <Route path="/cookie-policy" element={<About />} /> {/* Temporary, replace with actual cookie policy page when created */}
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           
           {/* Catch-all route - must be last */}
           <Route path="*" element={<NotFound />} />

@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { ExternalLink, Github } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,6 +21,33 @@ const Footer = () => {
             <p className="text-white/70 leading-relaxed">
               Innovative technology solutions for modern businesses. Specializing in AIoT product development and digital transformation.
             </p>
+            
+            {/* GitHub Repository Link with Star Widget */}
+            <div className="mt-4 flex flex-col space-y-2">
+              <a 
+                href="https://github.com/AlphaBitsCode/alpha-bits-nest" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-white/70 hover:text-brand-teal transition-colors duration-200"
+              >
+                <Github className="h-5 w-5 mr-2" />
+                <span>GitHub Repository</span>
+                <ExternalLink className="h-4 w-4 ml-1" />
+              </a>
+              
+              {/* GitHub Star Button */}
+              <div className="mt-2">
+                <iframe 
+                  src="https://ghbtns.com/github-btn.html?user=AlphaBitsCode&repo=alpha-bits-nest&type=star&count=true" 
+                  frameBorder="0" 
+                  scrolling="0" 
+                  width="150" 
+                  height="20" 
+                  title="GitHub Stars"
+                  className="mt-1"
+                />
+              </div>
+            </div>
           </div>
           
           <div>
@@ -49,11 +77,6 @@ const Footer = () => {
               <li>
                 <Link to="/services/aiot-product-development" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   AIoT Development
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  CTO-as-a-Service
                 </Link>
               </li>
               <li>
