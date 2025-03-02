@@ -235,7 +235,7 @@ const MushroomInBox = () => {
                 <div className="relative glassmorphism overflow-hidden rounded-lg p-1">
                   <div className="bg-white rounded-lg overflow-hidden">
                     <img 
-                      src="/images/mushroom-box/mushroombox3.png" 
+                      src="/images/mushroom-box/mushroombox5.jpg" 
                       alt="Mushroom growing kit" 
                       className="w-full h-auto object-cover object-center"
                     />
@@ -265,7 +265,7 @@ const MushroomInBox = () => {
               </div>
               
               <div className="flex items-center justify-center">
-                <img src="/images/mushroom-box/mushroombox2.png" alt="Mushroom Box Benefits" className="rounded-lg max-h-96 object-contain" />
+                <img src="/images/mushroom-box/mushroombox3.png" alt="Mushroom Box Benefits" className="rounded-lg max-h-96 object-contain" />
               </div>
             </div>
           </div>
