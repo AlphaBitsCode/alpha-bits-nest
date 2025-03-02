@@ -54,14 +54,15 @@ const Experience = () => {
             EXPERIENCE
           </span>
           <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-            AO Farm - Digital Farm Labs
+            Decades of Industry Expertise
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Experience the future of agriculture through interactive tours and hands-on experiences at our digital farm laboratory.
+            Our team brings together diverse backgrounds in technology, agriculture, and business leadership to drive innovation.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center scrolled-section">
+        {/* AO Farm - Digital Farm Labs Section */}
+        <div className="grid md:grid-cols-2 gap-12 items-center scrolled-section mb-16">
           <div>
             <div className="relative">
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-brand-teal/20 to-brand-blue/20 blur-lg"></div>
@@ -76,9 +77,9 @@ const Experience = () => {
           </div>
           
           <div>
-            <h3 className="text-2xl font-bold text-brand-navy mb-4">Innovative Farming Tours</h3>
+            <h3 className="text-2xl font-bold text-brand-navy mb-4">AO Farm - Digital Farm Labs</h3>
             <p className="text-gray-600 mb-6">
-              AO Farm offers immersive tours of our state-of-the-art digital farming facilities. Learn about sustainable agriculture, advanced growing techniques, and the technology behind modern farming practices.
+              Experience the future of agriculture through interactive tours and hands-on experiences at our digital farm laboratory.
             </p>
             
             <div className="mb-8 space-y-4">
@@ -122,7 +123,7 @@ const Experience = () => {
           </div>
         </div>
         
-        <div className="mt-20 scrolled-section">
+        <div className="scrolled-section">
           <div className="bg-white rounded-xl shadow-lg p-8 md:p-10 border border-gray-100">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-brand-navy mb-2">Experience Highlights</h3>
