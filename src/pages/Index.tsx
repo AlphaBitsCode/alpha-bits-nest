@@ -39,20 +39,20 @@ const Index = () => {
     { 
       step: 'Products',
       title: 'Smart Solutions',
-      content: 'Smart, sustainable solutions for modern agriculture and education with our Mushroom-in-a-Box and Farm In Box products.', 
-      image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1000&auto=format&fit=crop' 
+      content: 'Sustainable solutions for modern agriculture and education.', 
+      image: '/images/mushroom-box/mushroombox1.png' 
     },
     { 
       step: 'Services',
       title: 'Expert Development',
-      content: 'Expert AIoT product development and CTO-as-a-Service offerings to guide your business through digital transformation.',
-      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2070&auto=format&fit=crop'
+      content: 'AIoT product development and CTO-as-a-Service to guide your digital transformation.',
+      image: '/images/office/office_3.jpg'
     },
     { 
       step: 'Experience',
       title: 'Industry Expertise',
-      content: 'Decades of combined expertise in technology leadership, product development, and sustainable innovation.',
-      image: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=2070&auto=format&fit=crop'
+      content: 'Decades of expertise in technology leadership and sustainable innovation.',
+      image: '/images/office/office_aofarm1.jpg'
     },
   ];
   
