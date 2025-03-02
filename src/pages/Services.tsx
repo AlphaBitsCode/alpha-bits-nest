@@ -1,6 +1,6 @@
 
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Cpu, 
   Users, 
@@ -12,7 +12,11 @@ import {
   LightbulbIcon, 
   Clock, 
   Database, 
-  BarChart 
+  BarChart,
+  FileText,
+  DollarSign,
+  LineChart,
+  TrendingUp
 } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
@@ -22,10 +26,23 @@ import { Button } from '@/components/ui/button';
 
 const Services = () => {
   useScrollAnimation();
+  const location = useLocation();
+  const contactRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     document.title = "Services | Alpha Bits";
-  }, []);
+    
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+    
+    // If there's a hash in the URL, scroll to that section
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
   
   const services = [
     {
@@ -49,7 +66,7 @@ const Services = () => {
       color: 'from-brand-teal/20 to-brand-blue/20',
       accentColor: 'bg-brand-teal',
       illustration: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop',
-      challengeIcon: <Database className="w-8 h-8 text-pink-400" />
+      challengeIcon: <Database className="w-8 h-8 text-brand-teal" />
     },
     {
       id: 'cto-as-a-service',
@@ -72,15 +89,15 @@ const Services = () => {
       color: 'from-blue-300/20 to-purple-300/20',
       accentColor: 'bg-blue-500',
       illustration: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-      challengeIcon: <Brain className="w-8 h-8 text-blue-400" />
+      challengeIcon: <Brain className="w-8 h-8 text-brand-blue" />
     }
   ];
 
   const challengeGroups = [
     {
       title: "Technical Challenges",
-      color: "bg-gradient-to-r from-red-100 to-red-200",
-      icon: <Brain className="w-8 h-8 text-red-500" />,
+      color: "bg-gradient-to-r from-gray-100 to-gray-200",
+      icon: <Brain className="w-8 h-8 text-gray-700" />,
       challenges: [
         "Keeping up with rapidly evolving technologies",
         "Integrating complex systems across platforms",
@@ -89,8 +106,8 @@ const Services = () => {
     },
     {
       title: "Business Challenges",
-      color: "bg-gradient-to-r from-amber-100 to-amber-200",
-      icon: <BarChart className="w-8 h-8 text-amber-500" />,
+      color: "bg-gradient-to-r from-slate-100 to-slate-200",
+      icon: <BarChart className="w-8 h-8 text-gray-700" />,
       challenges: [
         "Adapting business models for digital transformation",
         "Balancing innovation costs with ROI expectations",
@@ -99,8 +116,8 @@ const Services = () => {
     },
     {
       title: "Operational Challenges",
-      color: "bg-gradient-to-r from-emerald-100 to-emerald-200",
-      icon: <Clock className="w-8 h-8 text-emerald-500" />,
+      color: "bg-gradient-to-r from-stone-100 to-stone-200",
+      icon: <Clock className="w-8 h-8 text-gray-700" />,
       challenges: [
         "Accelerating time-to-market for new products",
         "Managing technical debt while innovating",
@@ -135,26 +152,15 @@ const Services = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      {/* Hero Section with Curved Design */}
-      <section className="relative pt-24 pb-32 bg-gradient-to-b from-brand-navy to-brand-blue text-white overflow-hidden">
-        {/* Curved bottom edge */}
-        <div className="absolute bottom-0 left-0 w-full h-16 overflow-hidden">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="absolute bottom-0 left-0 w-full h-full">
-            <path 
-              d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
-              opacity=".25" 
-              className="fill-white"
-            ></path>
-            <path 
-              d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" 
-              opacity=".5" 
-              className="fill-white"
-            ></path>
-            <path 
-              d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" 
-              className="fill-white"
-            ></path>
-          </svg>
+      {/* Hero Section with Fixed Curved Design */}
+      <section className="relative pt-16 pb-24 bg-gradient-to-b from-brand-navy to-brand-blue text-white overflow-hidden">
+        {/* Curved bottom edge with fixed image */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <img 
+            src="/lovable-uploads/1ff11976-eb1a-46b9-a334-d5dbcaa9d6d1.png" 
+            alt="Wave divider" 
+            className="w-full h-16 object-cover"
+          />
         </div>
 
         {/* Background pattern */}
@@ -239,17 +245,17 @@ const Services = () => {
             {challengeGroups.map((group, index) => (
               <motion.div 
                 key={index} 
-                className={`rounded-xl p-6 shadow-lg ${group.color} backdrop-blur-sm border border-white`}
+                className={`rounded-xl p-6 shadow-lg ${group.color} backdrop-blur-sm border border-gray-200`}
                 variants={itemVariants}
               >
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-4 shadow-md">
                   {group.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">{group.title}</h3>
                 <ul className="space-y-3">
                   {group.challenges.map((challenge, i) => (
                     <li key={i} className="flex items-start">
-                      <ShieldAlert size={18} className="text-red-500 mr-2 flex-shrink-0 mt-1" />
+                      <ShieldAlert size={18} className="text-gray-600 mr-2 flex-shrink-0 mt-1" />
                       <span className="text-gray-700">{challenge}</span>
                     </li>
                   ))}
@@ -331,7 +337,7 @@ const Services = () => {
                         <ul className="space-y-2">
                           {service.painPoints.slice(0, 2).map((point, i) => (
                             <li key={i} className="flex items-start text-white/90">
-                              <ShieldAlert size={16} className="text-red-400 mr-2 flex-shrink-0 mt-1" />
+                              <ShieldAlert size={16} className="text-gray-200 mr-2 flex-shrink-0 mt-1" />
                               <span className="text-sm">{point}</span>
                             </li>
                           ))}
