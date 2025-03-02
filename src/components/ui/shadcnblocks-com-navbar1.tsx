@@ -1,3 +1,4 @@
+
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -118,7 +119,8 @@ const Navbar1 = ({
   },
 }: Navbar1Props) => {
   return (
-    <section className="py-4">
+    // Reduced py-4 to py-2 to decrease vertical spacing
+    <section className="py-2">
       <div className="container">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -157,11 +159,12 @@ const Navbar1 = ({
             </Link>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" className="rounded-full">
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
+              {/* Updated SheetContent to be translucent and modern */}
+              <SheetContent className="overflow-y-auto bg-white/60 backdrop-blur-xl border border-white/30 shadow-xl">
                 <SheetHeader>
                   <SheetTitle>
                     <Link to={logo.url} className="flex items-center gap-2">
@@ -181,12 +184,12 @@ const Navbar1 = ({
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
                   {mobileExtraLinks.length > 0 && (
-                    <div className="border-t py-4">
+                    <div className="border-t border-gray-200/50 py-4">
                       <div className="grid grid-cols-2 justify-start">
                         {mobileExtraLinks.map((link, idx) => (
                           <Link
                             key={idx}
-                            className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                            className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-white/50 hover:text-primary"
                             to={link.url}
                           >
                             {link.name}
@@ -198,12 +201,12 @@ const Navbar1 = ({
                   {(auth.login.text || auth.signup.text) && (
                     <div className="flex flex-col gap-3">
                       {auth.login.text && (
-                        <Button asChild variant="outline">
+                        <Button asChild variant="outline" className="bg-white/50 backdrop-blur-sm">
                           <Link to={auth.login.url}>{auth.login.text}</Link>
                         </Button>
                       )}
                       {auth.signup.text && (
-                        <Button asChild>
+                        <Button asChild className="bg-primary/90 backdrop-blur-sm">
                           <Link to={auth.signup.url}>{auth.signup.text}</Link>
                         </Button>
                       )}
@@ -219,16 +222,17 @@ const Navbar1 = ({
   );
 };
 
+// Fixed renderMenuItem function to fix hover menu disappearing
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
-      <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger className="data-[state=open]:bg-accent/50">
+      <NavigationMenuItem key={item.title}>
+        <NavigationMenuTrigger className="z-50 data-[state=open]:bg-accent/50">
           <Link to={item.url} className="text-muted-foreground hover:text-accent-foreground">
             {item.title}
           </Link>
         </NavigationMenuTrigger>
-        <NavigationMenuContent className="z-50">
+        <NavigationMenuContent className="z-[1000]">
           <ul className="w-80 p-3">
             <NavigationMenuLink asChild>
               <div className="grid gap-2">
@@ -272,38 +276,49 @@ const renderMenuItem = (item: MenuItem) => {
   );
 };
 
+// Modernized mobile menu items with translucent style
 const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="py-0 font-semibold hover:no-underline">
+        <AccordionTrigger className="py-0 font-semibold hover:no-underline text-primary">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <Link
-              key={subItem.title}
-              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
-              to={subItem.url}
-            >
-              {subItem.icon}
-              <div>
-                <div className="text-sm font-semibold">{subItem.title}</div>
-                {subItem.description && (
-                  <p className="text-sm leading-snug text-muted-foreground">
-                    {subItem.description}
-                  </p>
+          <div className="glassmorphism bg-white/30 p-2 rounded-lg space-y-1">
+            {item.items.map((subItem) => (
+              <Link
+                key={subItem.title}
+                className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-white/50 hover:text-primary"
+                to={subItem.url}
+              >
+                {subItem.icon && (
+                  <div className="bg-brand-teal/10 p-2 rounded-full">
+                    {subItem.icon}
+                  </div>
                 )}
-              </div>
-            </Link>
-          ))}
+                <div>
+                  <div className="text-sm font-semibold">{subItem.title}</div>
+                  {subItem.description && (
+                    <p className="text-sm leading-snug text-muted-foreground">
+                      {subItem.description}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
         </AccordionContent>
       </AccordionItem>
     );
   }
 
   return (
-    <Link key={item.title} to={item.url} className="font-semibold">
+    <Link 
+      key={item.title} 
+      to={item.url} 
+      className="font-semibold bg-white/30 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center"
+    >
       {item.title}
     </Link>
   );
