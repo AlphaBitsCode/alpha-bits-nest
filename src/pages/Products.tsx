@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, BookOpen } from 'lucide-react';
+import { ChevronRight, Package, BookOpen, Home, Factory, Tree, Microscope } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -13,20 +13,55 @@ const Products = () => {
     document.title = "Products | Alpha Bits";
   }, []);
   
-  const products = [
+  const productCategories = [
     {
-      id: 'mushroom-in-a-box',
-      title: 'Mushroom-in-a-Box',
-      description: 'A complete kit for growing gourmet mushrooms at home with sustainable packaging and easy-to-follow instructions.',
-      icon: <Package size={40} className="text-brand-teal mb-4" />,
-      image: 'https://images.unsplash.com/photo-1608283234908-477a0c9b34c3?q=80&w=1000&auto=format&fit=crop',
+      id: 'digital-energy-twin',
+      title: 'Digital Energy Twin',
+      description: 'Advanced digital twin solutions to optimize energy consumption and performance across different environments.',
+      products: [
+        {
+          id: 'office-home',
+          title: 'Digital Twin for Office & Home',
+          description: 'Smart monitoring and optimization system for residential and office spaces to reduce energy consumption.',
+          icon: <Home size={32} className="text-brand-teal mb-2" />,
+          image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+        },
+        {
+          id: 'farm',
+          title: 'Digital Twin for Farm',
+          description: 'Comprehensive digital modeling for agricultural operations to maximize yield and minimize resource usage.',
+          icon: <Tree size={32} className="text-brand-green mb-2" />,
+          image: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+        },
+        {
+          id: 'factory',
+          title: 'Digital Twin for Factory',
+          description: 'End-to-end manufacturing process simulation and optimization for industrial facilities.',
+          icon: <Factory size={32} className="text-brand-navy mb-2" />,
+          image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+        }
+      ]
     },
     {
-      id: 'farm-in-box',
-      title: 'Farm In Box',
-      description: 'A comprehensive educational package designed for schools to teach sustainable farming practices and environmental science.',
-      icon: <BookOpen size={40} className="text-brand-teal mb-4" />,
-      image: 'https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop',
+      id: 'aiot-education',
+      title: 'AIoT Education Products',
+      description: 'Interactive and educational products that combine AI and IoT technologies to make learning fun and engaging.',
+      products: [
+        {
+          id: 'mushroom-in-a-box',
+          title: 'Mushroom-in-a-Box',
+          description: 'A complete kit for growing gourmet mushrooms at home with sustainable packaging and easy-to-follow instructions.',
+          icon: <Microscope size={32} className="text-brand-teal mb-2" />,
+          image: 'https://images.unsplash.com/photo-1608283234908-477a0c9b34c3?q=80&w=1000&auto=format&fit=crop',
+        },
+        {
+          id: 'farm-in-box',
+          title: 'Farm In Box',
+          description: 'A comprehensive educational package designed for schools to teach sustainable farming practices and environmental science.',
+          icon: <BookOpen size={32} className="text-brand-green mb-2" />,
+          image: 'https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop',
+        }
+      ]
     }
   ];
 
@@ -45,46 +80,72 @@ const Products = () => {
               Innovative Solutions
             </h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our cutting-edge products designed to revolutionize agriculture and education, making technology accessible to everyone.
+              Discover our cutting-edge products designed to revolutionize agriculture, energy management, and education, making technology accessible to everyone.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-10 scrolled-section">
-            {products.map((product, index) => (
-              <Link 
-                key={index} 
-                to={`/products/${product.id}`}
-                className="group relative bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-teal/5 rounded-bl-full"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-brand-navy/5 rounded-tr-full"></div>
-                
-                <div className="relative z-10">
-                  <div className="flex items-center justify-center md:justify-start">
-                    {product.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-brand-navy mb-3">{product.title}</h3>
-                  <p className="text-gray-600 mb-6">{product.description}</p>
-                  
-                  <div className="flex justify-center md:justify-start">
-                    <span className="inline-flex items-center text-brand-teal font-medium group-hover:underline">
-                      Learn more <ChevronRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="absolute -right-20 -bottom-20 w-40 h-40 opacity-10">
-                  <div className="w-full h-full relative overflow-hidden rounded-full">
-                    <img 
-                      src={product.image}
-                      alt={product.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {productCategories.map((category, catIndex) => (
+            <div key={category.id} className="mb-20 scrolled-section">
+              <div className="mb-10">
+                <h2 className="text-3xl font-bold text-brand-navy relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bg-brand-teal/50 after:left-0 after:bottom-0 after:rounded-full">
+                  {category.title}
+                </h2>
+                <p className="text-gray-600 mt-3 max-w-3xl">
+                  {category.description}
+                </p>
+              </div>
+              
+              <div className={`grid md:grid-cols-${category.products.length} gap-6 lg:gap-10`}>
+                {category.products.map((product, index) => (
+                  <Link 
+                    key={product.id} 
+                    to={`/products/${product.id}`}
+                    className={`group relative transition-all duration-500 ${
+                      catIndex % 2 === 0 
+                        ? 'transform hover:-translate-y-2' 
+                        : 'transform hover:translate-y-2'
+                    }`}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                      {/* Decorative elements for non-boxy feel */}
+                      <div className={`absolute ${index % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'} w-20 h-20 rounded-full bg-gradient-to-br from-brand-teal/30 to-brand-green/30 blur-lg`}></div>
+                      <div className={`absolute ${index % 2 === 0 ? '-bottom-10 -left-10' : '-top-10 -right-10'} w-16 h-16 rounded-full bg-gradient-to-br from-brand-navy/30 to-brand-blue/30 blur-lg`}></div>
+                      
+                      {/* Image with overlay */}
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img 
+                          src={product.image} 
+                          alt={product.title}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform transition-transform duration-500 group-hover:translate-y-2">
+                        <div className="flex items-start mb-2">
+                          <div className="p-2 bg-white/90 backdrop-blur-sm rounded-full">
+                            {product.icon}
+                          </div>
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          {product.title}
+                        </h3>
+                        <div className="h-0 overflow-hidden group-hover:h-auto group-hover:mt-2 transition-all duration-500">
+                          <p className="text-white/90 text-sm">
+                            {product.description}
+                          </p>
+                          <span className="inline-flex items-center text-white font-medium mt-3 group-hover:underline">
+                            Learn more <ChevronRight size={16} className="ml-1 transition-transform group-hover:translate-x-1" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       <Footer />
@@ -93,4 +154,3 @@ const Products = () => {
 };
 
 export default Products;
-

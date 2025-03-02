@@ -30,6 +30,10 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/products/mushroom-in-a-box" element={<MushroomInBox />} />
           <Route path="/products/farm-in-box" element={<FarmInBox />} />
+          {/* New Product Routes - These will display NotFound until implemented */}
+          <Route path="/products/office-home" element={<NotFound />} />
+          <Route path="/products/farm" element={<NotFound />} />
+          <Route path="/products/factory" element={<NotFound />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
           <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />
@@ -46,4 +50,3 @@ const App = () => (
 );
 
 export default App;
-
