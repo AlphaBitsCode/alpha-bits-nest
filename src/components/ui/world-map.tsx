@@ -22,7 +22,7 @@ export function WorldMap({
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
   // Since we're not using next-themes directly, we'll default to light theme
-  const theme = "light";
+  const theme: 'light' | 'dark' = "light";
 
   const svgMap = map.getSVG({
     radius: 0.22,
