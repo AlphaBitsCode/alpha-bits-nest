@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -28,7 +29,9 @@ function Hero() {
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
           <div>
             <Button variant="secondary" size="sm" className="gap-4">
-              Explore our solutions <MoveRight className="w-4 h-4" />
+              <Link to="/products">
+                Explore our solutions <MoveRight className="w-4 h-4" />
+              </Link>
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
@@ -61,17 +64,19 @@ function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              Building for the future, today. Alpha Bits brings cutting-edge AIoT solutions and leadership
-              to businesses ready to innovate. Our products and services are designed to simplify complexity
-              and empower sustainable growth in a rapidly evolving digital landscape.
+              Building future-ready tech solutions. Alpha Bits delivers AIoT innovations and leadership to help businesses grow sustainably in a digital world.
             </p>
           </div>
           <div className="flex flex-row gap-3">
             <Button size="lg" className="gap-4" variant="outline">
-              Contact us <PhoneCall className="w-4 h-4" />
+              <Link to="/contact">
+                Contact us <PhoneCall className="w-4 h-4" />
+              </Link>
             </Button>
             <Button size="lg" className="gap-4">
-              Learn more <MoveRight className="w-4 h-4" />
+              <Link to="/services">
+                Learn more <MoveRight className="w-4 h-4" />
+              </Link>
             </Button>
           </div>
         </div>

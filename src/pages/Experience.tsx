@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ExperiencePage = () => {
   const navData = {
@@ -49,8 +50,8 @@ const ExperiencePage = () => {
           },
         ],
       },
-      { title: "About", url: "/about" },
       { title: "Experience", url: "/experience" },
+      { title: "About", url: "/about" },
       { title: "Locations", url: "/locations" },
       { title: "Contact", url: "/contact" },
     ]
@@ -172,12 +173,12 @@ const ExperiencePage = () => {
               <p className="text-xl text-gray-600 font-medium mb-6 scrolled-section">
                 Book a tour of our AO Farm facility to see our innovations in action
               </p>
-              <a 
-                href="/contact" 
+              <Link 
+                to="/contact" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-brand-navy hover:bg-brand-navy/90 text-white font-medium rounded-lg transition-all duration-300 scrolled-section"
               >
                 Schedule a Visit
-              </a>
+              </Link>
             </div>
           </div>
         </section>

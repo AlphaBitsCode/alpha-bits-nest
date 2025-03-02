@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Rocket } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -74,10 +74,16 @@ const Navigation = () => {
           },
         ],
       },
-      { title: "About", url: "/about" },
       { title: "Experience", url: "/experience" },
+      { title: "About", url: "/about" },
       { title: "Locations", url: "/locations" },
       { title: "Contact", url: "/contact" },
+    ],
+    mobileExtraLinks: [
+      { name: "Experience", url: "/experience" },
+      { name: "About", url: "/about" },
+      { name: "Locations", url: "/locations" },
+      { name: "Contact", url: "/contact" },
     ]
   };
 
