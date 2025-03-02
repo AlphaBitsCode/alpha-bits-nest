@@ -175,7 +175,7 @@ const About = () => {
                 </p>
                 <div className="rounded-xl overflow-hidden shadow-lg mb-6 h-72">
                   <img 
-                    src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?q=80&w=1000&auto=format&fit=crop" 
+                    src="/images/office/office_1.jpg" 
                     alt="Alpha Bits HQ Office" 
                     className="w-full h-full object-cover"
                   />
@@ -196,7 +196,7 @@ const About = () => {
                 </p>
                 <div className="rounded-xl overflow-hidden shadow-lg mb-6 h-72">
                   <img 
-                    src="images/office/office_aofarm2.jpg'" 
+                    src="/images/office/office_aofarm2.jpg'" 
                     alt="AO Farm Facility" 
                     className="w-full h-full object-cover"
                   />

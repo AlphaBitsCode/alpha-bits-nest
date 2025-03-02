@@ -74,8 +74,8 @@ const Navigation = () => {
           },
         ],
       },
-      { title: "About", url: "/about" },
       { title: "Experience", url: "/experience" },
+      { title: "About", url: "/about" },
       { title: "Locations", url: "/locations" },
       { title: "Contact", url: "/contact" },
     ]
