@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["innovative", "empowering", "sustainable ", "scalable", "smart"],
+    () => ["solutions", "technology", "innovation", "transformation", "success"],
     []
   );
 
@@ -36,7 +36,7 @@ function Hero() {
           </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-brand-teal">We create</span>
+              <span className="text-brand-teal">Delivering</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -64,8 +64,8 @@ function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              AIoT solutions and leadership for businesses ready to innovate. 
-              Simplifying complexity and empowering growth in the digital landscape.
+              Smart technology solutions that power business growth. 
+              From AIoT development to technical leadership for organizations ready to innovate.
             </p>
           </div>
           <div className="flex flex-row gap-3">
@@ -76,7 +76,7 @@ function Hero() {
             </Link>
             <Link to="/services">
               <Button size="lg" className="gap-4">
-                Learn more <MoveRight className="w-4 h-4" />
+                Our services <MoveRight className="w-4 h-4" />
               </Button>
             </Link>
           </div>

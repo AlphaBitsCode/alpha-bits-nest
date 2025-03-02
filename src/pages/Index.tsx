@@ -38,20 +38,20 @@ const Index = () => {
   const features = [
     { 
       step: 'Products',
-      title: 'Smart Solutions',
-      content: 'Sustainable solutions for modern agriculture and education.', 
+      title: 'Innovative Solutions',
+      content: 'Smart, sustainable products for agriculture and education that solve real-world challenges.', 
       image: '/images/mushroom-box/mushroombox1.png' 
     },
     { 
       step: 'Services',
-      title: 'Expert Development',
-      content: 'AIoT product development and CTO-as-a-Service to guide your digital transformation.',
+      title: 'Technical Expertise',
+      content: 'AIoT development and strategic technical leadership to guide your digital transformation journey.',
       image: '/images/office/office_3.jpg'
     },
     { 
       step: 'Experience',
-      title: 'Industry Expertise',
-      content: 'Decades of expertise in technology leadership and sustainable innovation.',
+      title: 'Industry Knowledge',
+      content: 'Proven track record in agricultural technology and technical leadership across multiple sectors.',
       image: '/images/office/office_aofarm1.jpg'
     },
   ];
@@ -63,7 +63,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <FeatureSteps 
           features={features}
-          title="Our Core Pillars"
+          title="What We Offer"
           autoPlayInterval={4000}
           imageHeight="h-[400px]"
         />
