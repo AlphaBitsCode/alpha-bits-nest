@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -68,7 +68,7 @@ const Navigation = () => {
             title: "Mushroom-in-a-Box",
             description: "A complete kit for growing gourmet mushrooms at home",
             icon: <Package className="size-5 shrink-0" />,
-            url: "/products/mushroom-in-a-box",
+            url: "/products/mushroom-in-box",
           },
           {
             title: "Farm In Box",
@@ -96,10 +96,10 @@ const Navigation = () => {
           },
         ],
       },
-      { title: "Experience", url: "/experience" },
-      { title: "About", url: "/about" },
-      { title: "Locations", url: "/locations" },
-      { title: "Contact", url: "/contact" },
+      { title: "Experience", url: "/experience", icon: <Lightbulb className="size-5 shrink-0" /> },
+      { title: "About", url: "/about", icon: <Info className="size-5 shrink-0" /> },
+      { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
+      { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
     ]
   };
 
