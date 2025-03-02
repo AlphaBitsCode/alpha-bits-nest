@@ -17,6 +17,11 @@ import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import About from "./pages/About";
 
+// Import the new Digital Twin product pages
+import DigitalTwinOfficeHome from "./pages/products/DigitalTwinOfficeHome";
+import DigitalTwinFarm from "./pages/products/DigitalTwinFarm";
+import DigitalTwinFactory from "./pages/products/DigitalTwinFactory";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,10 +35,10 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/products/mushroom-in-a-box" element={<MushroomInBox />} />
           <Route path="/products/farm-in-box" element={<FarmInBox />} />
-          {/* New Product Routes - These will display NotFound until implemented */}
-          <Route path="/products/office-home" element={<NotFound />} />
-          <Route path="/products/farm" element={<NotFound />} />
-          <Route path="/products/factory" element={<NotFound />} />
+          {/* Digital Twin Product Routes */}
+          <Route path="/products/office-home" element={<DigitalTwinOfficeHome />} />
+          <Route path="/products/farm" element={<DigitalTwinFarm />} />
+          <Route path="/products/factory" element={<DigitalTwinFactory />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
           <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />

@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen } from 'lucide-react';
@@ -6,6 +7,7 @@ import { Navbar1 } from './shadcnblocks-com-navbar1';
 const Navigation = () => {
   const location = useLocation();
 
+  // Set document title based on location
   useEffect(() => {
     const path = location.pathname;
     
@@ -24,6 +26,11 @@ const Navigation = () => {
     } else if (path === '/experience') {
       document.title = 'Experiences | Alpha Bits';
     }
+  }, [location]);
+
+  // Scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [location]);
 
   const navData = {

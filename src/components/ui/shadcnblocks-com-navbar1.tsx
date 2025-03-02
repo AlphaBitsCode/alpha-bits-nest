@@ -1,5 +1,5 @@
 
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import {
@@ -91,13 +91,13 @@ const Navbar1 = ({
         {
           title: "AIoT Product Development",
           description: "Smart, connected products that solve real-world problems",
-          icon: <Zap className="size-5 shrink-0" />,
+          icon: <Briefcase className="size-5 shrink-0" />,
           url: "/services/aiot-product-development",
         },
         {
           title: "CTO-as-a-Service",
           description: "Access top-tier technical leadership without the overhead",
-          icon: <Sunset className="size-5 shrink-0" />,
+          icon: <Users className="size-5 shrink-0" />,
           url: "/services/cto-as-a-service",
         },
       ],
@@ -119,7 +119,7 @@ const Navbar1 = ({
   },
 }: Navbar1Props) => {
   return (
-    <section className="py-2">
+    <section className="py-1">
       <div className="container">
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
@@ -173,125 +173,130 @@ const Navbar1 = ({
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="my-6 flex flex-col gap-6">
-                  <div className="flex flex-col space-y-2">
-                    <Link 
-                      to="/" 
-                      className="bg-white/40 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center font-medium"
-                    >
-                      Home
-                    </Link>
-                    
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="products">
-                        <div className="flex items-center justify-between">
-                          <Link 
-                            to="/products" 
-                            className="flex-1 text-primary font-medium py-3 px-4"
-                          >
-                            Products
-                          </Link>
-                          <AccordionTrigger className="py-0 pr-3" />
-                        </div>
-                        <AccordionContent className="pt-2">
-                          <div className="glassmorphism bg-white/30 p-2 rounded-lg space-y-1">
-                            {menu[1].items?.map((item) => (
-                              <Link
-                                key={item.title}
-                                to={item.url}
-                                className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-white/50 hover:text-primary"
-                              >
-                                {item.icon && (
-                                  <div className="bg-brand-teal/10 p-2 rounded-full">
-                                    {item.icon}
-                                  </div>
-                                )}
-                                <div>
-                                  <div className="text-sm font-semibold">{item.title}</div>
-                                  {item.description && (
-                                    <p className="text-sm leading-snug text-muted-foreground">
-                                      {item.description}
-                                    </p>
-                                  )}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                    
-                    <Accordion type="single" collapsible className="w-full">
-                      <AccordionItem value="services">
-                        <div className="flex items-center justify-between">
-                          <Link 
-                            to="/services" 
-                            className="flex-1 text-primary font-medium py-3 px-4"
-                          >
-                            Services
-                          </Link>
-                          <AccordionTrigger className="py-0 pr-3" />
-                        </div>
-                        <AccordionContent className="pt-2">
-                          <div className="glassmorphism bg-white/30 p-2 rounded-lg space-y-1">
-                            {menu[2].items?.map((item) => (
-                              <Link
-                                key={item.title}
-                                to={item.url}
-                                className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-white/50 hover:text-primary"
-                              >
-                                {item.icon && (
-                                  <div className="bg-brand-teal/10 p-2 rounded-full">
-                                    {item.icon}
-                                  </div>
-                                )}
-                                <div>
-                                  <div className="text-sm font-semibold">{item.title}</div>
-                                  {item.description && (
-                                    <p className="text-sm leading-snug text-muted-foreground">
-                                      {item.description}
-                                    </p>
-                                  )}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
-                    
-                    <Link 
-                      to="/experience" 
-                      className="bg-white/40 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center font-medium"
-                    >
-                      Experience
-                    </Link>
-                    
-                    <Link 
-                      to="/about" 
-                      className="bg-white/40 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center font-medium"
-                    >
-                      About
-                    </Link>
-                    
-                    <Link 
-                      to="/locations" 
-                      className="bg-white/40 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center font-medium"
-                    >
-                      Locations
-                    </Link>
-                    
-                    <Link 
-                      to="/contact" 
-                      className="bg-white/40 backdrop-blur-sm px-4 py-3 rounded-lg hover:bg-white/50 transition-all duration-300 flex items-center font-medium"
-                    >
-                      Contact
-                    </Link>
-                  </div>
+                <div className="my-4 flex flex-col gap-2">
+                  <Link 
+                    to="/" 
+                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                  >
+                    <Home size={18} strokeWidth={2} className="text-brand-navy" />
+                    Home
+                  </Link>
                   
-                  <div className="border-t border-gray-200/50 pt-6 text-center">
-                    <p className="text-sm text-muted-foreground italic">
-                      Alpha Bits - Turning Ideas into Reality
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="products" className="border-none">
+                      <div className="flex items-center justify-between">
+                        <Link 
+                          to="/products" 
+                          className="flex-1 px-4 py-2 font-medium flex items-center gap-2"
+                        >
+                          <Package size={18} strokeWidth={2} className="text-brand-teal" />
+                          Products
+                        </Link>
+                        <AccordionTrigger className="py-0 pr-3" />
+                      </div>
+                      <AccordionContent className="pt-1 pb-1 shadow-none">
+                        <div className="glassmorphism bg-white/20 p-2 rounded-lg space-y-1 shadow-none">
+                          {menu[1].items?.map((item) => (
+                            <Link
+                              key={item.title}
+                              to={item.url}
+                              className="flex select-none gap-2 rounded-md p-2 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
+                            >
+                              {item.icon && (
+                                <div className="bg-brand-teal/10 p-1.5 rounded-full">
+                                  {item.icon}
+                                </div>
+                              )}
+                              <div>
+                                <div className="text-sm font-medium">{item.title}</div>
+                                {item.description && (
+                                  <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
+                                    {item.description}
+                                  </p>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="services" className="border-none">
+                      <div className="flex items-center justify-between">
+                        <Link 
+                          to="/services" 
+                          className="flex-1 px-4 py-2 font-medium flex items-center gap-2"
+                        >
+                          <Briefcase size={18} strokeWidth={2} className="text-brand-blue" />
+                          Services
+                        </Link>
+                        <AccordionTrigger className="py-0 pr-3" />
+                      </div>
+                      <AccordionContent className="pt-1 pb-1 shadow-none">
+                        <div className="glassmorphism bg-white/20 p-2 rounded-lg space-y-1 shadow-none">
+                          {menu[2].items?.map((item) => (
+                            <Link
+                              key={item.title}
+                              to={item.url}
+                              className="flex select-none gap-2 rounded-md p-2 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
+                            >
+                              {item.icon && (
+                                <div className="bg-brand-blue/10 p-1.5 rounded-full">
+                                  {item.icon}
+                                </div>
+                              )}
+                              <div>
+                                <div className="text-sm font-medium">{item.title}</div>
+                                {item.description && (
+                                  <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
+                                    {item.description}
+                                  </p>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  
+                  <Link 
+                    to="/experience" 
+                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                  >
+                    <Lightbulb size={18} strokeWidth={2} className="text-brand-green" />
+                    Experience
+                  </Link>
+                  
+                  <Link 
+                    to="/about" 
+                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                  >
+                    <InfoIcon size={18} strokeWidth={2} className="text-brand-navy" />
+                    About
+                  </Link>
+                  
+                  <Link 
+                    to="/locations" 
+                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                  >
+                    <MapPin size={18} strokeWidth={2} className="text-brand-blue" />
+                    Locations
+                  </Link>
+                  
+                  <Link 
+                    to="/contact" 
+                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                  >
+                    <PhoneCall size={18} strokeWidth={2} className="text-brand-teal" />
+                    Contact
+                  </Link>
+                  
+                  <div className="border-t border-gray-200/30 mt-2 pt-4 text-center">
+                    <p className="text-sm text-muted-foreground">
+                      <span className="italic font-medium">Alpha Bits</span> - Turning Ideas into Reality
                     </p>
                   </div>
                 </div>

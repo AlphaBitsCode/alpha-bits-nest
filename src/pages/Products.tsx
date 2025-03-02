@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope } from 'lucide-react';
@@ -67,11 +68,11 @@ const Products = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <section className="py-24 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section className="py-16 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16 scrolled-section">
+          <div className="text-center mb-12 scrolled-section">
             <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-teal/10 text-brand-teal rounded-full mb-3">
               OUR PRODUCTS
             </span>
