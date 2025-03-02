@@ -14,8 +14,6 @@ interface MapProps {
   lineColor?: string;
 }
 
-type Theme = "light" | "dark";
-
 export function WorldMap({
   dots = [],
   lineColor = "#0ea5e9",
@@ -24,7 +22,7 @@ export function WorldMap({
   const map = new DottedMap({ height: 100, grid: "diagonal" });
 
   // Since we're not using next-themes directly, we'll default to light theme
-  const theme: Theme = "light";
+  const theme = "light";
 
   const svgMap = map.getSVG({
     radius: 0.22,
