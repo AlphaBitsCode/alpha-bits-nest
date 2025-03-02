@@ -1,10 +1,12 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Check, Users, Award } from 'lucide-react';
+import { ArrowLeft, Check, Users, Award, Brain, CheckCircle2, Clock, Shield } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const CtoAsAService = () => {
   useScrollAnimation();
@@ -24,29 +26,81 @@ const CtoAsAService = () => {
   const benefits = [
     {
       title: 'Reduced Overhead',
-      description: 'Gain access to executive-level technical leadership without the full-time salary and benefits package.'
+      description: 'Gain access to executive-level technical leadership without the full-time salary and benefits package.',
+      icon: <Clock className="text-blue-500" size={24} />
     },
     {
       title: 'Expertise On Demand',
-      description: 'Draw from our diverse experience across industries and technologies as needed for your specific challenges.'
+      description: 'Draw from our diverse experience across industries and technologies as needed for your specific challenges.',
+      icon: <Brain className="text-indigo-500" size={24} />
     },
     {
       title: 'Risk Mitigation',
-      description: 'Leverage our proven methodologies and best practices to avoid costly technical mistakes.'
+      description: 'Leverage our proven methodologies and best practices to avoid costly technical mistakes.',
+      icon: <Shield className="text-green-500" size={24} />
     },
     {
       title: 'Scalable Approach',
-      description: 'Adjust our involvement based on your current needs and project phases.'
+      description: 'Adjust our involvement based on your current needs and project phases.',
+      icon: <CheckCircle2 className="text-amber-500" size={24} />
     },
     {
       title: 'Knowledge Transfer',
-      description: 'We mentor your team and build internal capabilities that remain after our engagement.'
+      description: 'We mentor your team and build internal capabilities that remain after our engagement.',
+      icon: <Users className="text-pink-500" size={24} />
     }
   ];
+
+  const processSteps = [
+    {
+      number: "01",
+      title: "Assessment & Discovery",
+      description: "We start by understanding your business goals, current technical state, and challenges."
+    },
+    {
+      number: "02",
+      title: "Strategy Development",
+      description: "We create a tailored technology roadmap aligned with your business objectives."
+    },
+    {
+      number: "03",
+      title: "Implementation Support",
+      description: "Our experienced CTOs guide your team through execution of the technology strategy."
+    },
+    {
+      number: "04",
+      title: "Optimization & Growth",
+      description: "We continuously refine the approach based on results and changing business needs."
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      
+      {/* Hero Section */}
       <section className="py-24 flex-grow bg-gradient-to-b from-brand-navy to-brand-blue text-white relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -80,8 +134,12 @@ const CtoAsAService = () => {
             </Link>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center scrolled-section">
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
               <div className="inline-flex items-center space-x-3 mb-4">
                 <Users size={30} className="text-brand-teal" />
                 <span className="text-white/80 text-sm uppercase tracking-wider">Service</span>
@@ -95,7 +153,12 @@ const CtoAsAService = () => {
                 Access top-tier technical leadership without the overhead. Our experienced CTOs guide your technology strategy, team building, and execution to achieve your business objectives efficiently.
               </p>
               
-              <div className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 mb-8">
+              <motion.div 
+                className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+              >
                 <h3 className="text-xl font-semibold mb-4">What We Offer</h3>
                 <ul className="space-y-3">
                   {features.map((feature, index) => (
@@ -105,17 +168,19 @@ const CtoAsAService = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
               
-              <Link 
-                to="/contact" 
-                className="inline-block px-8 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
-              >
-                Schedule a Consultation
-              </Link>
-            </div>
+              <Button asChild size="lg" className="bg-brand-teal hover:bg-brand-teal/90 text-white">
+                <Link to="/contact">Schedule a Consultation</Link>
+              </Button>
+            </motion.div>
             
-            <div className="relative">
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
               <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-brand-blue opacity-30 blur-lg rounded-xl"></div>
               <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <img 
@@ -131,43 +196,109 @@ const CtoAsAService = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div className="mt-20 scrolled-section">
-            <h2 className="text-2xl font-bold mb-12 text-center">Key Benefits</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 transition-all duration-300 hover:bg-white/10 hover:transform hover:scale-[1.01]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-brand-teal/20 flex items-center justify-center mb-4">
-                    <span className="text-brand-teal font-bold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                  <p className="text-white/70">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-16 text-center">
-              <div className="inline-block max-w-2xl bg-gradient-to-r from-brand-teal/20 to-brand-blue/20 p-8 rounded-xl">
-                <h3 className="text-2xl font-bold mb-4">Ready to accelerate your technical leadership?</h3>
-                <p className="text-white/80 mb-6">
-                  Our CTO-as-a-Service offering is tailored to your specific needs and can scale with your business.
-                </p>
-                <Link 
-                  to="/contact" 
-                  className="inline-block px-8 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  Contact Us Today
-                </Link>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-blue/10 text-brand-blue rounded-full mb-3">
+              OUR PROCESS
+            </span>
+            <h2 className="text-3xl font-bold mb-4 text-brand-navy">How We Work With You</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Our structured approach ensures we deliver maximum value while integrating seamlessly with your team.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div 
+              className="relative"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {/* Process connection line */}
+              <div className="absolute left-[40px] top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block"></div>
+              
+              <div className="space-y-10">
+                {processSteps.map((step, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="flex items-start gap-8"
+                    variants={itemVariants}
+                  >
+                    <div className="w-20 h-20 rounded-full bg-white border-2 border-brand-teal text-brand-teal flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-md z-10">
+                      {step.number}
+                    </div>
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 flex-1">
+                      <h3 className="text-xl font-bold mb-2 text-brand-navy">{step.title}</h3>
+                      <p className="text-gray-600">{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Benefits Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-teal/10 text-brand-teal rounded-full mb-3">
+              KEY BENEFITS
+            </span>
+            <h2 className="text-3xl font-bold mb-4 text-brand-navy">Why Choose Our CTO Service</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Our service is designed to provide all the advantages of executive technical leadership without the traditional overhead.
+            </p>
+          </div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {benefits.map((benefit, index) => (
+              <motion.div 
+                key={index}
+                className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+                variants={itemVariants}
+              >
+                <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-brand-navy via-brand-blue to-brand-teal text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-4">Ready to accelerate your technical leadership?</h3>
+            <p className="text-white/80 mb-6">
+              Our CTO-as-a-Service offering is tailored to your specific needs and can scale with your business.
+            </p>
+            <Button asChild size="lg" className="bg-white text-brand-navy hover:bg-white/90">
+              <Link to="/contact">Contact Us Today</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      
       <Footer />
     </div>
   );
