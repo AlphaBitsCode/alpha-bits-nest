@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src="/images/AB_Logo_white_icon.png" 
                 alt="Alpha Bits Logo" 
-                className="h-10 w-auto bg-white p-1 rounded"
+                className="h-10 w-auto p-1"
               />
               <span className="ml-3 text-xl font-bold">Alpha Bits</span>
             </div>
