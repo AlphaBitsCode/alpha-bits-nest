@@ -61,6 +61,7 @@ const Navigation = () => {
         { name: 'CTO-as-a-Service', path: '/services/cto-as-a-service' }
       ]
     },
+    { name: 'About', path: '/about' },
     { name: 'Experience', path: '/#experience' },
     { name: 'Locations', path: '/#locations' },
     { name: 'Contact', path: '/#contact' }

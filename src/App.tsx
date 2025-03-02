@@ -12,6 +12,7 @@ import FarmInBox from "./pages/products/FarmInBox";
 import Services from "./pages/Services";
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
           <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
