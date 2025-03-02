@@ -92,7 +92,7 @@ const FarmInBox = () => {
                 <div className="relative glassmorphism overflow-hidden rounded-lg p-1">
                   <div className="bg-white rounded-lg overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop" 
+                      src="/images/farminbox/farminbox_box2.jpg" 
                       alt="Farm in Box Educational Kit" 
                       className="w-full h-96 object-cover object-center"
                     />

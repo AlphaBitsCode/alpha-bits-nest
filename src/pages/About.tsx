@@ -228,7 +228,7 @@ const About = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 scrolled-section">
             <div className="relative rounded-xl overflow-hidden h-40 md:h-64 transition-all duration-300 hover:shadow-lg">
               <img 
-                src="images/office/office_1.jpg" 
+                src="images/aiot/alphabits_sign.jpg" 
                 alt="Alpha Bits Office Space" 
                 className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
