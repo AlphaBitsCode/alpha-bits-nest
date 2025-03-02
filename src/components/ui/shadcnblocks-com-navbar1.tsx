@@ -1,4 +1,3 @@
-
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -224,15 +223,15 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger>
+        <NavigationMenuTrigger className="data-[state=open]:bg-accent/50">
           <Link to={item.url} className="text-muted-foreground hover:text-accent-foreground">
             {item.title}
           </Link>
         </NavigationMenuTrigger>
-        <NavigationMenuContent>
+        <NavigationMenuContent className="z-50">
           <ul className="w-80 p-3">
             <NavigationMenuLink asChild>
-              <div>
+              <div className="grid gap-2">
                 {item.items.map((subItem) => (
                   <li key={subItem.title}>
                     <Link
@@ -311,4 +310,3 @@ const renderMobileMenuItem = (item: MenuItem) => {
 };
 
 export { Navbar1 };
-
