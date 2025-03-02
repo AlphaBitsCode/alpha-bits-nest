@@ -224,30 +224,36 @@ const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <NavigationMenuItem key={item.title} className="text-muted-foreground">
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
+        <NavigationMenuTrigger>
+          <Link to={item.url} className="text-muted-foreground hover:text-accent-foreground">
+            {item.title}
+          </Link>
+        </NavigationMenuTrigger>
         <NavigationMenuContent>
           <ul className="w-80 p-3">
-            <NavigationMenuLink>
-              {item.items.map((subItem) => (
-                <li key={subItem.title}>
-                  <Link
-                    className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
-                    to={subItem.url}
-                  >
-                    {subItem.icon}
-                    <div>
-                      <div className="text-sm font-semibold">
-                        {subItem.title}
+            <NavigationMenuLink asChild>
+              <div>
+                {item.items.map((subItem) => (
+                  <li key={subItem.title}>
+                    <Link
+                      className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground"
+                      to={subItem.url}
+                    >
+                      {subItem.icon}
+                      <div>
+                        <div className="text-sm font-semibold">
+                          {subItem.title}
+                        </div>
+                        {subItem.description && (
+                          <p className="text-sm leading-snug text-muted-foreground">
+                            {subItem.description}
+                          </p>
+                        )}
                       </div>
-                      {subItem.description && (
-                        <p className="text-sm leading-snug text-muted-foreground">
-                          {subItem.description}
-                        </p>
-                      )}
-                    </div>
-                  </Link>
-                </li>
-              ))}
+                    </Link>
+                  </li>
+                ))}
+              </div>
             </NavigationMenuLink>
           </ul>
         </NavigationMenuContent>
@@ -256,13 +262,14 @@ const renderMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <Link
-      key={item.title}
-      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-      to={item.url}
-    >
-      {item.title}
-    </Link>
+    <NavigationMenuItem key={item.title}>
+      <Link
+        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+        to={item.url}
+      >
+        {item.title}
+      </Link>
+    </NavigationMenuItem>
   );
 };
 
@@ -304,3 +311,4 @@ const renderMobileMenuItem = (item: MenuItem) => {
 };
 
 export { Navbar1 };
+
