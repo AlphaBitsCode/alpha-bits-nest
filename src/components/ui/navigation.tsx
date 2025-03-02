@@ -1,17 +1,14 @@
-
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Tree, BookOpen } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
   const location = useLocation();
 
-  // Determine the active tab based on the current location
   useEffect(() => {
     const path = location.pathname;
     
-    // Set active tab based on current path
     if (path === '/') {
       document.title = 'Home | Alpha Bits';
     } else if (path.startsWith('/products')) {
@@ -51,7 +48,7 @@ const Navigation = () => {
           {
             title: "Digital Twin for Farm",
             description: "Comprehensive digital modeling for agricultural operations",
-            icon: <Tree className="size-5 shrink-0" />,
+            icon: <Trees className="size-5 shrink-0" />,
             url: "/products/farm",
           },
           {

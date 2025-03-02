@@ -1,7 +1,6 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, BookOpen, Home, Factory, Tree, Microscope } from 'lucide-react';
+import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -30,7 +29,7 @@ const Products = () => {
           id: 'farm',
           title: 'Digital Twin for Farm',
           description: 'Comprehensive digital modeling for agricultural operations to maximize yield and minimize resource usage.',
-          icon: <Tree size={32} className="text-brand-green mb-2" />,
+          icon: <Trees size={32} className="text-brand-green mb-2" />,
           image: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
         },
         {
@@ -107,11 +106,9 @@ const Products = () => {
                     }`}
                   >
                     <div className="relative overflow-hidden rounded-2xl shadow-lg">
-                      {/* Decorative elements for non-boxy feel */}
                       <div className={`absolute ${index % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'} w-20 h-20 rounded-full bg-gradient-to-br from-brand-teal/30 to-brand-green/30 blur-lg`}></div>
                       <div className={`absolute ${index % 2 === 0 ? '-bottom-10 -left-10' : '-top-10 -right-10'} w-16 h-16 rounded-full bg-gradient-to-br from-brand-navy/30 to-brand-blue/30 blur-lg`}></div>
                       
-                      {/* Image with overlay */}
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <img 
@@ -121,7 +118,6 @@ const Products = () => {
                         />
                       </div>
                       
-                      {/* Content */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 z-20 transform transition-transform duration-500 group-hover:translate-y-2">
                         <div className="flex items-start mb-2">
                           <div className="p-2 bg-white/90 backdrop-blur-sm rounded-full">
