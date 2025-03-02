@@ -6,14 +6,7 @@ import { Button } from '@/components/ui/button';
 export function ServicesHero() {
   return (
     <section className="relative pt-16 pb-24 bg-gradient-to-b from-brand-navy to-brand-blue text-white overflow-hidden">
-      {/* Curved bottom edge with fixed image */}
-      <div className="absolute bottom-0 left-0 w-full">
-        <img 
-          src="/lovable-uploads/1ff11976-eb1a-46b9-a334-d5dbcaa9d6d1.png" 
-          alt="Wave divider" 
-          className="w-full h-16 object-cover"
-        />
-      </div>
+      
 
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">

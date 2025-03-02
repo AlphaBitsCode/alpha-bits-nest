@@ -29,31 +29,31 @@ const AiotProductDevelopment = () => {
       step: "Discovery & Requirements",
       title: "Step 1: Discovery",
       content: "We work closely with your team to understand your business needs, market opportunities, and technical requirements.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
+      image: ""
     },
     {
       step: "Concept & Design",
       title: "Step 2: Concept & Design",
       content: "Our expert designers and engineers develop initial concepts and technical specifications for your AIoT product.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop"
+      image: ""
     },
     {
       step: "Prototype Development",
       title: "Step 3: Prototyping",
       content: "We build functional prototypes to test and validate the core functionality and user experience.",
-      image: "https://images.unsplash.com/photo-1581092160607-ee22b8889e0c?q=80&w=1000&auto=format&fit=crop"
+      image: ""
     },
     {
       step: "Testing & Refinement",
       title: "Step 4: Testing",
       content: "Rigorous testing with real users helps us refine the product before moving to production.",
-      image: "https://images.unsplash.com/photo-1581092160562-01046f6f0cf7?q=80&w=1000&auto=format&fit=crop"
+      image: ""
     },
     {
       step: "Production & Deployment",
       title: "Step 5: Production",
       content: "We guide you through the production process and help with deployment and ongoing support.",
-      image: "https://images.unsplash.com/photo-1581091877018-dac6a371d50f?q=80&w=1000&auto=format&fit=crop"
+      image: ""
     }
   ];
 
@@ -181,11 +181,21 @@ const AiotProductDevelopment = () => {
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-brand-blue opacity-30 blur-lg rounded-xl"></div>
               <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=1000&auto=format&fit=crop"
-                  alt="AIoT Product Development"
-                  className="w-full h-auto rounded-lg mb-6"
-                />
+                <picture>
+                                  <source 
+                                    srcSet="/images/aiot/aoit-inhouse-project-1.webp" 
+                                    type="image/webp" 
+                                  />
+                                  <source 
+                                    srcSet="/images/aiot/digitalfarm_aofarm1.png" 
+                                    type="image/jpeg" 
+                                  />
+                                  <img 
+                                    src="/images/aiot/digitalfarm_aofarm1.png"
+                                    alt="AIoT Product Development"
+                                    className="w-full h-auto rounded-lg mb-6"
+                                  />
+                                </picture>
                 <div className="text-center">
                   <Zap size={30} className="text-brand-teal mx-auto mb-3" />
                   <h3 className="text-xl font-semibold mb-2">Accelerate Your Innovation</h3>
