@@ -23,21 +23,21 @@ const Products = () => {
           title: 'Digital Twin for Office & Home',
           description: 'Smart monitoring and optimization system for residential and office spaces to reduce energy consumption.',
           icon: <Home size={32} className="text-brand-teal mb-2" />,
-          image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+          image: '/images/aiot/energytwin_ss1.jpg',
         },
         {
           id: 'farm',
           title: 'Digital Twin for Farm',
           description: 'Comprehensive digital modeling for agricultural operations to maximize yield and minimize resource usage.',
           icon: <Trees size={32} className="text-brand-green mb-2" />,
-          image: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+          image: '/images/aiot/digitalfarm_aofarm1.png',
         },
         {
           id: 'factory',
           title: 'Digital Twin for Factory',
           description: 'End-to-end manufacturing process simulation and optimization for industrial facilities.',
           icon: <Factory size={32} className="text-brand-navy mb-2" />,
-          image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+          image: '/images/aiot/digitalfactory_1.jpg',
         }
       ]
     },
@@ -51,14 +51,14 @@ const Products = () => {
           title: 'Mushroom-in-a-Box',
           description: 'A complete kit for growing gourmet mushrooms at home with sustainable packaging and easy-to-follow instructions.',
           icon: <Microscope size={32} className="text-brand-teal mb-2" />,
-          image: 'https://images.unsplash.com/photo-1608283234908-477a0c9b34c3?q=80&w=1000&auto=format&fit=crop',
+          image: '/images/mushroom-box/mushroombox3.png',
         },
         {
           id: 'farm-in-box',
           title: 'Farm In Box',
           description: 'A comprehensive educational package designed for schools to teach sustainable farming practices and environmental science.',
           icon: <BookOpen size={32} className="text-brand-green mb-2" />,
-          image: 'https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?q=80&w=1000&auto=format&fit=crop',
+          image: '/images/farminbox/farminbox_box1.jpg',
         }
       ]
     }
