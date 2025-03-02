@@ -1,69 +1,53 @@
-# Welcome to your Lovable project
+# Alpha Bits - public website
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/b529dbe3-0507-4bfb-84ae-7fcb8d855756
+**URL**: https://alphabits.team
 
-## How can I edit this code?
+This project showcases the official website for Alpha Bits Technology Consulting Company, demonstrating our capability to deliver high-quality web solutions efficiently. The website features a modern design, smooth animations, and responsive layouts that effectively communicate our company's expertise in AIoT product development and digital transformation.
 
-There are several ways of editing your application.
+## Development Story
 
-**Use Lovable**
+We began building this website at noon on March 2nd, 2025, and completed the initial version by 9 PM on the same day. This rapid development, taking just about 7 hours, serves as a compelling case study of our ability to deliver professional results under time constraints.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b529dbe3-0507-4bfb-84ae-7fcb8d855756) and start prompting.
+The website includes:
+- Responsive hero section with dynamic typing animation and parallax effects
+- Comprehensive service offerings and case studies
+- Interactive contact form with AI-powered chat support
+- Modern UI components with smooth animations and transitions
+- Optimized performance and SEO considerations
 
-Changes made via Lovable will be committed automatically to this repo.
+## Features
 
-**Use your preferred IDE**
+- **Modern Design**: Implementing latest web design trends with glassmorphism and micro-interactions
+- **Responsive Layout**: Fully responsive design that works seamlessly across all devices
+- **Performance Optimized**: Fast loading times and optimal performance metrics
+- **SEO Ready**: Built with SEO best practices in mind
+- **Interactive Elements**: Engaging user interactions and smooth animations
+- **AI Integration**: Smart chatbot for instant customer support
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Development Philosophy
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Lovable.dev (Start Tier) serves as our integrated development platform, combining project management, development, DevOps, design, and business analysis capabilities.
+- Supabase serves as our BaaS (Backend-as-a-Service) solution, for cloud-based database management and authentication services, on free Tier.
+- Trae AI (https://www.trae.ai/) functions as our intelligent development assistant, handling code optimization, refactoring, syntax refinement, and small-scope content improvements.
+- Lovable.dev provides an almost realtime Prompt-to-Production within minutes. We literally imagine what we need, ask for it, and then go fetch a cup of coffee, comeback to see magical changes on Production. Time-saving is insane.
+- Human is the ultimate Konductor, giving strategic direction and quality control throughout the development lifecycle.
+- I think we will need a lot of AI Translator to translate human ideas into prompts and enventually build any kind of software we need for business to function, tailored to your exact needs, in all aspects. And fully compliance with the legal and ethical standards.
 
-Follow these steps:
+## Change Log
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Q1-2 2025: We are thinking of building a platform for Community Building or some sort of Private Membership System, any ideas ⁉️
+- 2025-03-03 TBC: HΞLL0 W0RLD! 🚀
+- 2025-03-02 9pm: Completed initial website development with all core features
+- 2025-03-02 Noon: Project kickoff and initial commit ✨
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Deployment
 
-# Step 3: Install the necessary dependencies.
-npm i
+The website is deployed and hosted at https://alphabits.team, showcasing our commitment to delivering professional web solutions efficiently. Playing our part in open-source software community.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Credits
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b529dbe3-0507-4bfb-84ae-7fcb8d855756) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Alpha Bits Team
+- Trae AI (Beta) - Paid subscription for development assistance
+- Lovable.dev (Starter plan) - Paid subscription for development tools
