@@ -168,7 +168,7 @@ const ContactPage = () => {
                     
                     <div className="text-center">
                       <p className="text-lg font-medium text-brand-navy mb-2">Scan to Chat</p>
-                      <p className="text-gray-600">Or find us at <span className="font-medium text-brand-teal">@alpha_bits_bot</span></p>
+                      <p className="text-gray-600">Telegram <span className="font-medium text-brand-teal">@alpha_bits_bot</span></p>
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const ContactPage = () => {
                       <Phone size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
                       <div>
                         <p className="text-base font-medium text-brand-navy">Phone</p>
-                        <p className="text-base text-gray-600">+84 888 900 317</p>
+                        <p className="text-base text-gray-600">+84 868 000 317</p>
                       </div>
                     </div>
                     

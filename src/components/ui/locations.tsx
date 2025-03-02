@@ -11,14 +11,14 @@ const Locations = () => {
     {
       name: 'HQ Office',
       address: 'Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam',
-      phone: '+84 28 1234 5678',
+      phone: '+84 868 000 317',
       image: 'images/office/office_1.jpg',
       mapUrl: 'https://maps.app.goo.gl/Lqkdzj2wKofe11My9'
     },
     {
       name: 'AO Farm',
       address: 'Bien Hoa City, Dong Nai, Vietnam',
-      phone: '+84 28 8765 4321',
+      phone: '+84 868 000 317',
       image: 'images/office/office_aofarm1.jpg',
       mapUrl: 'https://maps.app.goo.gl/cbXZ6upchgHPwpWW8'
     }
