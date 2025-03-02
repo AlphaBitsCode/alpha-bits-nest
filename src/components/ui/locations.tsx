@@ -1,6 +1,8 @@
 
 import { MapPin, Phone, Clock } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Locations = () => {
   useScrollAnimation();
@@ -10,7 +12,6 @@ const Locations = () => {
       name: 'HQ Office',
       address: 'Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam',
       phone: '+84 28 1234 5678',
-      hours: 'Monday-Friday: 9am-6pm',
       image: 'images/office/office_1.jpg',
       mapUrl: 'https://maps.app.goo.gl/Lqkdzj2wKofe11My9'
     },
@@ -18,7 +19,6 @@ const Locations = () => {
       name: 'AO Farm',
       address: 'Bien Hoa City, Dong Nai, Vietnam',
       phone: '+84 28 8765 4321',
-      hours: 'Monday-Sunday: 8am-5pm',
       image: 'images/office/office_aofarm1.jpg',
       mapUrl: 'https://maps.app.goo.gl/cbXZ6upchgHPwpWW8'
     }
@@ -77,11 +77,6 @@ const Locations = () => {
                       <Phone size={20} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
                       <p className="text-gray-600">{location.phone}</p>
                     </div>
-                    
-                    <div className="flex items-start">
-                      <Clock size={20} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
-                      <p className="text-gray-600">{location.hours}</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -93,12 +88,9 @@ const Locations = () => {
           <p className="text-gray-600 mb-6">
             Planning a visit? Contact us in advance to schedule a meeting or tour.
           </p>
-          <a 
-            href="#contact" 
-            className="inline-block px-8 py-3 bg-brand-navy hover:bg-brand-navy/90 text-white font-medium rounded-lg transition-all duration-300"
-          >
-            Contact Us
-          </a>
+          <Button asChild>
+            <Link to="/contact">Contact Us</Link>
+          </Button>
         </div>
       </div>
     </section>

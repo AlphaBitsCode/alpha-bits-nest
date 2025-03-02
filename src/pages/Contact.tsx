@@ -1,18 +1,124 @@
 
 import { useEffect } from 'react';
-import DockNavigation from '@/components/ui/dock-navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Calendar, Clock, Globe } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
+import { Button } from '@/components/ui/button';
+import { WorldMap } from '@/components/ui/world-map';
+import { motion } from 'framer-motion';
 
 const ContactPage = () => {
   useScrollAnimation();
   
+  const navData = {
+    logo: {
+      url: "/",
+      src: "/images/AB_Logo_icon.png",
+      alt: "Alpha Bits Logo",
+      title: "Alpha Bits",
+    },
+    menu: [
+      { title: "Home", url: "/" },
+      {
+        title: "Products",
+        url: "/products",
+        items: [
+          {
+            title: "Mushroom-in-a-Box",
+            description: "A complete kit for growing gourmet mushrooms at home",
+            icon: <MapPin className="size-5 shrink-0" />,
+            url: "/products/mushroom-in-a-box",
+          },
+          {
+            title: "Farm In Box",
+            description: "Educational package for schools to teach sustainable farming",
+            icon: <MapPin className="size-5 shrink-0" />,
+            url: "/products/farm-in-box",
+          },
+        ],
+      },
+      {
+        title: "Services",
+        url: "/services",
+        items: [
+          {
+            title: "AIoT Product Development",
+            description: "Smart, connected products that solve real-world problems",
+            icon: <MapPin className="size-5 shrink-0" />,
+            url: "/services/aiot-product-development",
+          },
+          {
+            title: "CTO-as-a-Service",
+            description: "Access top-tier technical leadership without the overhead",
+            icon: <MapPin className="size-5 shrink-0" />,
+            url: "/services/cto-as-a-service",
+          },
+        ],
+      },
+      { title: "About", url: "/about" },
+      { title: "Experience", url: "/experience" },
+      { title: "Locations", url: "/locations" },
+      { title: "Contact", url: "/contact" },
+    ]
+  };
+  
   return (
     <div className="min-h-screen">
-      <DockNavigation />
+      <Navbar1 {...navData} />
       
       <div className="pt-24">
+        {/* World Map Hero Section */}
+        <div className="py-20 bg-white w-full">
+          <div className="max-w-7xl mx-auto text-center px-4">
+            <p className="font-bold text-xl md:text-4xl text-black">
+              Global{" "}
+              <span className="text-brand-teal">
+                {"Connections".split("").map((word, idx) => (
+                  <motion.span
+                    key={idx}
+                    className="inline-block"
+                    initial={{ x: -10, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: idx * 0.04 }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </span>
+            </p>
+            <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
+              We're building innovative solutions that connect people and businesses across continents. 
+              Based in Vietnam, we serve clients and partners worldwide.
+            </p>
+          </div>
+          <WorldMap
+            dots={[
+              {
+                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
+                end: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+              },
+              {
+                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
+                end: { lat: 51.5074, lng: -0.1278 }, // London
+              },
+              {
+                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
+                end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
+              },
+              {
+                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
+                end: { lat: 1.3521, lng: 103.8198 }, // Singapore
+              },
+              {
+                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
+                end: { lat: -33.8688, lng: 151.2093 }, // Sydney
+              },
+            ]}
+            lineColor="#36b6ad" // Use brand-teal color
+          />
+        </div>
+        
         <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 scrolled-section">
@@ -35,7 +141,7 @@ const ContactPage = () => {
                   
                   <div className="flex flex-col items-center justify-center space-y-6">
                     <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                      {/* This would be your QR code image. Replace with actual Telegram QR code */}
+                      {/* QR code image */}
                       <img 
                         src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://t.me/alpha_bits_bot" 
                         alt="Telegram QR Code for @alpha_bits_bot" 
@@ -80,33 +186,32 @@ const ContactPage = () => {
                         <p className="text-base text-gray-600">Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam</p>
                       </div>
                     </div>
+                    
+                    <div className="flex items-start">
+                      <Clock size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="text-base font-medium text-brand-navy">Timezone</p>
+                        <p className="text-base text-gray-600">GMT+7 (Vietnam Time Zone)</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
                 <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-                  <h3 className="text-xl font-bold text-brand-navy mb-6">Office Hours</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="font-medium">Monday - Friday</span>
-                      <span className="text-gray-600">9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="font-medium">Saturday</span>
-                      <span className="text-gray-600">10:00 AM - 4:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-medium">Sunday</span>
-                      <span className="text-gray-600">Closed</span>
-                    </div>
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-xl font-bold text-brand-navy">Schedule a Meeting</h3>
+                    <Calendar size={24} className="text-brand-teal" />
                   </div>
                   
-                  <div className="mt-8">
-                    <h4 className="font-medium text-brand-navy mb-2">Note</h4>
-                    <p className="text-gray-600">
-                      For urgent inquiries outside of business hours, please email us and we'll respond as soon as possible.
-                    </p>
-                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Book a 30-minute consultation with our team to discuss your project or learn more about our services.
+                  </p>
+                  
+                  <Button asChild className="w-full">
+                    <a href="https://cal.com/alphabits/mini" target="_blank" rel="noopener noreferrer">
+                      Book a 30-Minute Call
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
