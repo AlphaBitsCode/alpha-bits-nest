@@ -62,7 +62,7 @@ export function NavBar({ items, className }: NavBarProps) {
           <img src="/lovable-uploads/6b03cecc-24b9-4343-8e2c-23037cefb3c5.png" alt="Alpha Bits Logo" className="h-10" />
         </Link>
         
-        <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg md:gap-3">
           {items.map((item) => {
             const Icon = item.icon
             const isActive = activeTab === item.name
@@ -79,7 +79,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   to={item.url}
                   onClick={() => setActiveTab(item.name)}
                   className={cn(
-                    "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors flex items-center",
+                    "relative cursor-pointer text-sm font-semibold px-3 py-2 rounded-full transition-colors flex items-center md:px-6",
                     "text-foreground/80 hover:text-primary",
                     isActive && "bg-muted text-primary",
                   )}

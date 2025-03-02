@@ -20,6 +20,10 @@ const Navigation = () => {
       document.title = 'Services | Alpha Bits';
     } else if (path.startsWith('/about')) {
       document.title = 'About | Alpha Bits';
+    } else if (path === '/locations') {
+      document.title = 'Locations | Alpha Bits';
+    } else if (path === '/contact') {
+      document.title = 'Contact | Alpha Bits';
     }
   }, [location]);
 
@@ -56,17 +60,17 @@ const Navigation = () => {
     },
     { 
       name: 'Experience', 
-      url: '/#experience', 
+      url: '/experience', 
       icon: Users 
     },
     { 
       name: 'Locations', 
-      url: '/#locations', 
+      url: '/locations', 
       icon: MapPin 
     },
     { 
       name: 'Contact', 
-      url: '/#contact', 
+      url: '/contact', 
       icon: PhoneCall 
     }
   ];

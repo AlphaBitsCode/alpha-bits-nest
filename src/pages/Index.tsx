@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import Navigation from '@/components/ui/navigation';
 import { Hero } from '@/components/ui/animated-hero';
 import { FeatureSteps } from '@/components/ui/feature-section';
-import Locations from '@/components/ui/locations';
-import Contact from '@/components/ui/contact';
 import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 
@@ -70,8 +68,6 @@ const Index = () => {
           imageHeight="h-[400px]"
         />
       </section>
-      <Locations />
-      <Contact />
       <Footer />
     </div>
   );
