@@ -74,7 +74,7 @@ const Navbar1 = ({
           title: "Mushroom-in-a-Box",
           description: "A complete kit for growing gourmet mushrooms at home",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/products/mushroom-in-a-box",
+          url: "/products/mushroom-in-box",
         },
         {
           title: "Farm In Box",
@@ -173,10 +173,10 @@ const Navbar1 = ({
                     </Link>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="my-4 flex flex-col gap-2">
+                <div className="my-4 flex flex-col gap-1.5">
                   <Link 
                     to="/" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <Home size={18} strokeWidth={2} className="text-brand-navy" />
                     Home
@@ -184,10 +184,10 @@ const Navbar1 = ({
                   
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="products" className="border-none">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center">
                         <Link 
                           to="/products" 
-                          className="flex-1 px-4 py-2 font-medium flex items-center gap-2"
+                          className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
                         >
                           <Package size={18} strokeWidth={2} className="text-brand-teal" />
                           Products
@@ -195,12 +195,12 @@ const Navbar1 = ({
                         <AccordionTrigger className="py-0 pr-3" />
                       </div>
                       <AccordionContent className="pt-1 pb-1 shadow-none">
-                        <div className="glassmorphism bg-white/20 p-2 rounded-lg space-y-1 shadow-none">
+                        <div className="bg-transparent p-1 rounded-lg space-y-1 shadow-none">
                           {menu[1].items?.map((item) => (
                             <Link
                               key={item.title}
                               to={item.url}
-                              className="flex select-none gap-2 rounded-md p-2 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
+                              className="flex select-none gap-2 rounded-md p-1.5 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
                             >
                               {item.icon && (
                                 <div className="bg-brand-teal/10 p-1.5 rounded-full">
@@ -224,10 +224,10 @@ const Navbar1 = ({
                   
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="services" className="border-none">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center">
                         <Link 
                           to="/services" 
-                          className="flex-1 px-4 py-2 font-medium flex items-center gap-2"
+                          className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
                         >
                           <Briefcase size={18} strokeWidth={2} className="text-brand-blue" />
                           Services
@@ -235,12 +235,12 @@ const Navbar1 = ({
                         <AccordionTrigger className="py-0 pr-3" />
                       </div>
                       <AccordionContent className="pt-1 pb-1 shadow-none">
-                        <div className="glassmorphism bg-white/20 p-2 rounded-lg space-y-1 shadow-none">
+                        <div className="bg-transparent p-1 rounded-lg space-y-1 shadow-none">
                           {menu[2].items?.map((item) => (
                             <Link
                               key={item.title}
                               to={item.url}
-                              className="flex select-none gap-2 rounded-md p-2 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
+                              className="flex select-none gap-2 rounded-md p-1.5 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
                             >
                               {item.icon && (
                                 <div className="bg-brand-blue/10 p-1.5 rounded-full">
@@ -264,7 +264,7 @@ const Navbar1 = ({
                   
                   <Link 
                     to="/experience" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <Lightbulb size={18} strokeWidth={2} className="text-brand-green" />
                     Experience
@@ -272,7 +272,7 @@ const Navbar1 = ({
                   
                   <Link 
                     to="/about" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <InfoIcon size={18} strokeWidth={2} className="text-brand-navy" />
                     About
@@ -280,7 +280,7 @@ const Navbar1 = ({
                   
                   <Link 
                     to="/locations" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <MapPin size={18} strokeWidth={2} className="text-brand-blue" />
                     Locations
@@ -288,7 +288,7 @@ const Navbar1 = ({
                   
                   <Link 
                     to="/contact" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
+                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <PhoneCall size={18} strokeWidth={2} className="text-brand-teal" />
                     Contact

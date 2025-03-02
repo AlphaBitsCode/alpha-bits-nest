@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
@@ -53,11 +52,11 @@ const FarmInBox = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <section className="py-24 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-8">
+          <div className="mb-6">
             <Link to="/products" className="inline-flex items-center text-brand-navy hover:text-brand-teal transition-colors duration-300">
               <ArrowLeft size={16} className="mr-2" />
               Back to Products
@@ -102,7 +101,7 @@ const FarmInBox = () => {
             </div>
           </div>
           
-          <div className="mt-20 scrolled-section">
+          <div className="mt-16 scrolled-section">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
               <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Request Information</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
