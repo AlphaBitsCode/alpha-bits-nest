@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { MapPin, Phone, Mail, Calendar, Clock, Globe } from 'lucide-react';
@@ -7,9 +7,26 @@ import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { WorldMap } from '@/components/ui/world-map';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 
 const ContactPage = () => {
   useScrollAnimation();
+  const location = useLocation();
+  const contactSectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    // Scroll to top when the page loads
+    window.scrollTo(0, 0);
+    
+    // Check if there's a hash in the URL
+    if (location.hash === '#contact') {
+      setTimeout(() => {
+        contactSectionRef.current?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
+  }, [location]);
   
   const navData = {
     logo: {
@@ -67,9 +84,9 @@ const ContactPage = () => {
     <div className="min-h-screen">
       <Navbar1 {...navData} />
       
-      <div className="pt-24">
+      <div className="pt-16">
         {/* World Map Hero Section */}
-        <div className="py-20 bg-white w-full">
+        <div className="py-8 bg-white w-full">
           <div className="max-w-7xl mx-auto text-center px-4">
             <p className="font-bold text-xl md:text-4xl text-black">
               Global{" "}
@@ -119,9 +136,9 @@ const ContactPage = () => {
           />
         </div>
         
-        <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+        <section id="contact" ref={contactSectionRef} className="py-16 bg-gradient-to-b from-white to-gray-50 relative">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-16 scrolled-section">
+            <div className="text-center mb-12 scrolled-section">
               <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-navy/10 text-brand-navy rounded-full mb-3">
                 GET IN TOUCH
               </span>
