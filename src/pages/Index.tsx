@@ -46,7 +46,7 @@ const Index = () => {
       step: 'Services',
       title: 'Development Services',
       content: 'AIoT development and strategic technical leadership to guide your digital transformation journey.',
-      image: '/images/office/office_3.jpg'
+      image: '/images/office/office_2.jpg'
     },
     { 
       step: 'Experiences',
