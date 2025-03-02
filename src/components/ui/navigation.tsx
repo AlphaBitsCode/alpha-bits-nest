@@ -25,7 +25,7 @@ const Navigation = () => {
     } else if (path === '/contact') {
       document.title = 'Contact | Alpha Bits';
     } else if (path === '/experience') {
-      document.title = 'Experience | Alpha Bits';
+      document.title = 'Experiences | Alpha Bits';
     }
   }, [location]);
 
@@ -74,7 +74,7 @@ const Navigation = () => {
           },
         ],
       },
-      { title: "Experience", url: "/experience" },
+      { title: "Experiences", url: "/experience" },
       { title: "About", url: "/about" },
       { title: "Locations", url: "/locations" },
       { title: "Contact", url: "/contact" },
