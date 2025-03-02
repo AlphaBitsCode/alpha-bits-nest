@@ -68,12 +68,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-sm'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className="font-bold text-xl md:text-2xl text-brand-navy">Alpha Bits</span>
+            <img src="/lovable-uploads/de48a252-c8a0-4d34-842b-7fd4ba5745fd.png" alt="Alpha Bits Logo" className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -96,9 +96,7 @@ const Navigation = () => {
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center ${
                     isActive(item.path)
                       ? 'text-brand-teal'
-                      : isScrolled
-                      ? 'text-gray-700 hover:text-brand-teal'
-                      : 'text-gray-800 hover:text-brand-teal'
+                      : 'text-brand-navy hover:text-brand-teal'
                   }`}
                 >
                   {item.name}
@@ -146,7 +144,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-brand-teal focus:outline-none"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-brand-navy hover:text-brand-teal focus:outline-none"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -161,7 +159,7 @@ const Navigation = () => {
       <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
         isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       }`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
           {menuItems.map((item, index) => (
             <div key={index} className="flex flex-col">
               {item.dropdown ? (
@@ -172,7 +170,7 @@ const Navigation = () => {
                       if (item.name === 'Services') setServicesDropdownOpen(!servicesDropdownOpen);
                     }}
                     className={`flex justify-between items-center px-3 py-2 rounded-md text-base font-medium ${
-                      isActive(item.path) ? 'text-brand-teal' : 'text-gray-700 hover:text-brand-teal'
+                      isActive(item.path) ? 'text-brand-teal' : 'text-brand-navy hover:text-brand-teal'
                     }`}
                   >
                     {item.name}
@@ -199,7 +197,7 @@ const Navigation = () => {
                         className={`block px-4 py-2 text-sm rounded-md ${
                           isActive(subItem.path)
                             ? 'text-brand-teal bg-gray-50'
-                            : 'text-gray-600 hover:text-brand-teal hover:bg-gray-50'
+                            : 'text-gray-700 hover:text-brand-teal hover:bg-gray-50'
                         }`}
                       >
                         {subItem.name}
@@ -211,7 +209,7 @@ const Navigation = () => {
                 <Link
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-base font-medium ${
-                    isActive(item.path) ? 'text-brand-teal' : 'text-gray-700 hover:text-brand-teal'
+                    isActive(item.path) ? 'text-brand-teal' : 'text-brand-navy hover:text-brand-teal'
                   }`}
                 >
                   {item.name}
