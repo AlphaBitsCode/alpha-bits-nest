@@ -40,11 +40,6 @@ const Footer = () => {
                   Product Support
                 </Link>
               </li>
-              <li>
-                <Link to="/products" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Documentation
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -66,11 +61,6 @@ const Footer = () => {
                   AO Farm Experience
                 </Link>
               </li>
-              <li>
-                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  CTO-as-a-Service
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -90,11 +80,6 @@ const Footer = () => {
               <li>
                 <Link to="/contact" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Careers
                 </Link>
               </li>
             </ul>
