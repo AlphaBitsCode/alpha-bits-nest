@@ -38,20 +38,20 @@ const Index = () => {
   const features = [
     { 
       step: 'Products',
-      title: 'Innovative Solutions',
+      title: 'Products',
       content: 'Smart, sustainable products for agriculture and education that solve real-world challenges.', 
       image: '/images/mushroom-box/mushroombox1.png' 
     },
     { 
       step: 'Services',
-      title: 'Technical Expertise',
+      title: 'Development Services',
       content: 'AIoT development and strategic technical leadership to guide your digital transformation journey.',
       image: '/images/office/office_3.jpg'
     },
     { 
-      step: 'Experience',
-      title: 'Industry Knowledge',
-      content: 'Proven track record in agricultural technology and technical leadership across multiple sectors.',
+      step: 'Experiences',
+      title: 'AO Farm Experience',
+      content: 'One-of-a-kind Digital Farm Labs allowing visits to learn and immerse in a new world of Precision Agriculture.',
       image: '/images/office/office_aofarm1.jpg'
     },
   ];
