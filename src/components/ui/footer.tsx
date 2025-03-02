@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-6">
               <img 
-                src="/lovable-uploads/ab4e2f49-f675-4ebc-b152-16d6324970e5.png" 
+                src="/images/AB_Logo_white_icon.png" 
                 alt="Alpha Bits Logo" 
                 className="h-10 w-auto bg-white p-1 rounded"
               />

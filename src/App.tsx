@@ -11,7 +11,7 @@ import MushroomInBox from "./pages/products/MushroomInBox";
 import FarmInBox from "./pages/products/FarmInBox";
 import Services from "./pages/Services";
 import LocationsPage from "./pages/Locations"
-import ContactPage from "./pages/Locations"
+import ContactPage from "./pages/Contact"
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import About from "./pages/About";

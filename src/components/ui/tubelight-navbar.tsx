@@ -59,7 +59,7 @@ export function NavBar({ items, className }: NavBarProps) {
     >
       <div className="flex items-center justify-between w-full">
         <Link to="/" className="flex items-center mr-6">
-          <img src="/lovable-uploads/6b03cecc-24b9-4343-8e2c-23037cefb3c5.png" alt="Alpha Bits Logo" className="h-10" />
+          <img src="/images/AB_Logo_icon.png" alt="Alpha Bits Logo" className="h-10" />
         </Link>
         
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg md:gap-3">
