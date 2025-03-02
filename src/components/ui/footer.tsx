@@ -1,5 +1,4 @@
-
-import { Facebook, LinkedIn } from 'lucide-react';
+import { Facebook, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -39,7 +38,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
                 aria-label="LinkedIn"
               >
-                <LinkedIn size={18} />
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
