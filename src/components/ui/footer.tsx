@@ -1,5 +1,5 @@
 
-import { Youtube, Tiktok, Linkedin } from 'lucide-react';
+import { Youtube, Twitter, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
                 <Youtube size={18} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
-                <Tiktok size={18} />
+                <Twitter size={18} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
                 <Linkedin size={18} />
