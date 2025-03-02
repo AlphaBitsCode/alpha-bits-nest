@@ -39,13 +39,13 @@ const Index = () => {
   const features = [
     { 
       step: 'Products',
-      title: 'Products',
-      content: 'Smart, sustainable products for agriculture and education that solve real-world challenges.', 
-      image: '/images/mushroom-box/mushroombox1.png' 
+      title: 'AIoT Products',
+      content: 'Smart, sustainable products for Agriculture and Education that solve real-world challenges.', 
+      image: '/images/farminbox/farminbox_box1.jpg' 
     },
     { 
       step: 'Services',
-      title: 'Development Services',
+      title: 'AIoT Product Development',
       content: 'AIoT development and strategic technical leadership to guide your digital transformation journey.',
       image: '/images/office/office_2.jpg'
     },

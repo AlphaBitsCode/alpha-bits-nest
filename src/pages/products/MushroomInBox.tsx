@@ -482,7 +482,7 @@ const MushroomInBox = () => {
               <p className="text-gray-600 mb-6">
                 We are looking for partners and distributors to expand Mushroom Box ecosystem. Ideal partners are operators and suppliers of mushroom seeds. Mushroom Box is designed and made in Vietnam.
               </p>
-              <p className="text-gray-700 font-medium">If you're interested, please reach out:</p>
+              <p className="text-gray-700 font-medium">If you're interested, please reach out.</p>
               <div className="flex justify-center mt-6">
                 <Button className="px-6 py-3 bg-brand-navy hover:bg-brand-navy/90 text-white font-medium rounded-lg transition-all duration-300">
                   Contact Us
