@@ -267,7 +267,7 @@ const Contact = () => {
                   <Phone size={18} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm font-medium text-brand-navy">Phone</p>
-                    <p className="text-sm text-gray-600">+84 28 1234 5678</p>
+                    <p className="text-sm text-gray-600">+84 888 900 317</p>
                   </div>
                 </div>
                 
@@ -275,7 +275,7 @@ const Contact = () => {
                   <Mail size={18} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-sm font-medium text-brand-navy">Email</p>
-                    <p className="text-sm text-gray-600">info@alphabits.com</p>
+                    <p className="text-sm text-gray-600">contact@alphabits.team</p>
                   </div>
                 </div>
                 
