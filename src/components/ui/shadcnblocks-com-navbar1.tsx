@@ -74,7 +74,7 @@ const Navbar1 = ({
           title: "Mushroom-in-a-Box",
           description: "A complete kit for growing gourmet mushrooms at home",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/products/mushroom-in-box",
+          url: "/products/mushroom-in-a-box",
         },
         {
           title: "Farm In Box",

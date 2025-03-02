@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -66,7 +65,8 @@ const Services = () => {
       color: 'from-brand-teal/20 to-brand-blue/20',
       accentColor: 'bg-brand-teal',
       illustration: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop',
-      challengeIcon: <Database className="w-8 h-8 text-brand-teal" />
+      challengeIcon: <Database className="w-8 h-8 text-brand-teal" />,
+      url: '/services/aiot-product-development'
     },
     {
       id: 'cto-as-a-service',
@@ -89,7 +89,8 @@ const Services = () => {
       color: 'from-blue-300/20 to-purple-300/20',
       accentColor: 'bg-blue-500',
       illustration: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-      challengeIcon: <Brain className="w-8 h-8 text-brand-blue" />
+      challengeIcon: <Brain className="w-8 h-8 text-brand-blue" />,
+      url: '/services/cto-as-a-service'
     }
   ];
 
@@ -378,7 +379,7 @@ const Services = () => {
                   </div>
                   
                   <Link 
-                    to={`/services/${service.id}`}
+                    to={service.url}
                     className="inline-flex items-center px-6 py-3 rounded-lg bg-brand-navy text-white font-medium hover:bg-brand-blue transition-colors"
                   >
                     Learn more <ChevronRight size={16} className="ml-1" />
