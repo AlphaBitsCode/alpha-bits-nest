@@ -1,13 +1,13 @@
-import { Facebook, Linkedin } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-brand-navy text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+    <footer className="bg-brand-navy text-white py-16">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
               <img 
@@ -17,101 +17,110 @@ const Footer = () => {
               />
               <span className="ml-3 text-xl font-bold">Alpha Bits</span>
             </div>
-            <p className="text-white/70 mb-6">
+            <p className="text-white/70 leading-relaxed">
               Innovative technology solutions for modern businesses. Specializing in AIoT product development and digital transformation.
             </p>
-            <div className="flex space-x-4">
-              {/* External links should still use <a> tags but with proper security attributes */}
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-            </div>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Products</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-6 text-white/90">Products</h3>
+            <ul className="space-y-4">
               <li>
-                <Link to="/products/mushroom-in-a-box" className="text-white/70 hover:text-white transition-colors duration-200">Mushroom-in-a-Box</Link>
+                <Link to="/products/mushroom-in-a-box" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Mushroom-in-a-Box
+                </Link>
               </li>
               <li>
-                <Link to="/products/farm-in-box" className="text-white/70 hover:text-white transition-colors duration-200">Farm In Box</Link>
+                <Link to="/products/farm-in-box" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Farm In Box
+                </Link>
               </li>
               <li>
-                <Link to="/products" className="text-white/70 hover:text-white transition-colors duration-200">Product Support</Link>
+                <Link to="/products" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Product Support
+                </Link>
               </li>
               <li>
-                <Link to="/products" className="text-white/70 hover:text-white transition-colors duration-200">Documentation</Link>
+                <Link to="/products" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Documentation
+                </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-6 text-white/90">Services</h3>
+            <ul className="space-y-4">
               <li>
-                <Link to="/services/aiot-product-development" className="text-white/70 hover:text-white transition-colors duration-200">AIoT Development</Link>
+                <Link to="/services/aiot-product-development" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  AIoT Development
+                </Link>
               </li>
               <li>
-                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-white transition-colors duration-200">CTO-as-a-Service</Link>
+                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  CTO-as-a-Service
+                </Link>
               </li>
               <li>
-                <Link to="/experience" className="text-white/70 hover:text-white transition-colors duration-200">AO Farm Experience</Link>
+                <Link to="/experience" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  AO Farm Experience
+                </Link>
               </li>
               <li>
-                <Link to="/services" className="text-white/70 hover:text-white transition-colors duration-200">Consulting</Link>
+                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  CTO-as-a-Service
+                </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-6 text-white/90">Company</h3>
+            <ul className="space-y-4">
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white transition-colors duration-200">About Us</Link>
+                <Link to="/about" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to="/locations" className="text-white/70 hover:text-white transition-colors duration-200">Locations</Link>
+                <Link to="/locations" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Locations
+                </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/70 hover:text-white transition-colors duration-200">Contact Us</Link>
+                <Link to="/contact" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Contact Us
+                </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white transition-colors duration-200">Careers</Link>
+                <Link to="/about" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Careers
+                </Link>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/10 text-center sm:text-left sm:flex sm:justify-between sm:items-center">
-          <p className="text-white/70 text-sm">
+        <div className="pt-10 mt-10 border-t border-white/10 text-center sm:text-left sm:flex sm:justify-between sm:items-center">
+          <p className="text-white/60 text-sm">
             &copy; {currentYear} Alpha Bits. All rights reserved.
           </p>
-          <div className="mt-4 sm:mt-0">
-            <ul className="flex flex-wrap justify-center sm:justify-end space-x-8">
+          <div className="mt-6 sm:mt-0">
+            <ul className="flex flex-wrap justify-center sm:justify-end gap-8">
               <li>
-                <Link to="/privacy-policy" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</Link>
+                <Link to="/privacy-policy" className="text-white/60 hover:text-brand-teal text-sm transition-colors duration-200">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Service</Link>
+                <Link to="/terms-of-service" className="text-white/60 hover:text-brand-teal text-sm transition-colors duration-200">
+                  Terms of Service
+                </Link>
               </li>
               <li>
-                <Link to="/cookie-policy" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Cookie Policy</Link>
+                <Link to="/cookie-policy" className="text-white/60 hover:text-brand-teal text-sm transition-colors duration-200">
+                  Cookie Policy
+                </Link>
               </li>
             </ul>
           </div>
