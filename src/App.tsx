@@ -12,6 +12,7 @@ import FarmInBox from "./pages/products/FarmInBox";
 import Services from "./pages/Services";
 import LocationsPage from "./pages/Locations"
 import ContactPage from "./pages/Contact"
+import ExperiencePage from "./pages/Experience";
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import About from "./pages/About";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

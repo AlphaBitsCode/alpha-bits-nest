@@ -1,5 +1,6 @@
 
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,16 +41,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Products</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#products" className="text-white/70 hover:text-white transition-colors duration-200">Mushroom-in-a-Box</a>
+                <Link to="/products/mushroom-in-a-box" className="text-white/70 hover:text-white transition-colors duration-200">Mushroom-in-a-Box</Link>
               </li>
               <li>
-                <a href="#products" className="text-white/70 hover:text-white transition-colors duration-200">Farm In Box</a>
+                <Link to="/products/farm-in-box" className="text-white/70 hover:text-white transition-colors duration-200">Farm In Box</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-200">Product Support</a>
+                <Link to="/products" className="text-white/70 hover:text-white transition-colors duration-200">Product Support</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-200">Documentation</a>
+                <Link to="/products" className="text-white/70 hover:text-white transition-colors duration-200">Documentation</Link>
               </li>
             </ul>
           </div>
@@ -58,16 +59,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-white/70 hover:text-white transition-colors duration-200">AIoT Development</a>
+                <Link to="/services/aiot-product-development" className="text-white/70 hover:text-white transition-colors duration-200">AIoT Development</Link>
               </li>
               <li>
-                <a href="#services" className="text-white/70 hover:text-white transition-colors duration-200">CTO-as-a-Service</a>
+                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-white transition-colors duration-200">CTO-as-a-Service</Link>
               </li>
               <li>
-                <a href="#experience" className="text-white/70 hover:text-white transition-colors duration-200">AO Farm Experience</a>
+                <Link to="/experience" className="text-white/70 hover:text-white transition-colors duration-200">AO Farm Experience</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-200">Consulting</a>
+                <Link to="/services" className="text-white/70 hover:text-white transition-colors duration-200">Consulting</Link>
               </li>
             </ul>
           </div>
@@ -76,16 +77,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Company</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-200">About Us</a>
+                <Link to="/about" className="text-white/70 hover:text-white transition-colors duration-200">About Us</Link>
               </li>
               <li>
-                <a href="#locations" className="text-white/70 hover:text-white transition-colors duration-200">Locations</a>
+                <Link to="/locations" className="text-white/70 hover:text-white transition-colors duration-200">Locations</Link>
               </li>
               <li>
-                <a href="#contact" className="text-white/70 hover:text-white transition-colors duration-200">Contact Us</a>
+                <Link to="/contact" className="text-white/70 hover:text-white transition-colors duration-200">Contact Us</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors duration-200">Careers</a>
+                <Link to="/about" className="text-white/70 hover:text-white transition-colors duration-200">Careers</Link>
               </li>
             </ul>
           </div>
@@ -98,13 +99,13 @@ const Footer = () => {
           <div className="mt-4 sm:mt-0">
             <ul className="flex flex-wrap justify-center sm:justify-end space-x-8">
               <li>
-                <a href="#" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
+                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Service</a>
+                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Service</Link>
               </li>
               <li>
-                <a href="#" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Cookie Policy</a>
+                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Cookie Policy</Link>
               </li>
             </ul>
           </div>
