@@ -1,5 +1,5 @@
 
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, LinkedIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -22,11 +22,24 @@ const Footer = () => {
               Innovative technology solutions for modern businesses. Specializing in AIoT product development and digital transformation.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+              {/* External links should still use <a> tags but with proper security attributes */}
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
+                aria-label="Facebook"
+              >
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
-                <Linkedin size={18} />
+              <a 
+                href="https://linkedin.com" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <LinkedIn size={18} />
               </a>
             </div>
           </div>
@@ -93,13 +106,13 @@ const Footer = () => {
           <div className="mt-4 sm:mt-0">
             <ul className="flex flex-wrap justify-center sm:justify-end space-x-8">
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</Link>
+                <Link to="/privacy-policy" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Service</Link>
+                <Link to="/terms-of-service" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Terms of Service</Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Cookie Policy</Link>
+                <Link to="/cookie-policy" className="text-white/70 hover:text-white text-sm transition-colors duration-200">Cookie Policy</Link>
               </li>
             </ul>
           </div>

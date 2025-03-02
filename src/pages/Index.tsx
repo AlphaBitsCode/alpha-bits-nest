@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/ui/navigation';
@@ -12,7 +11,6 @@ const Index = () => {
   useParallax();
   
   useEffect(() => {
-    // Smooth scroll to section when URL hash changes
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
@@ -26,10 +24,8 @@ const Index = () => {
       }
     };
 
-    // Initial check for hash in URL
     handleHashChange();
 
-    // Listen for hash changes
     window.addEventListener('hashchange', handleHashChange);
     
     return () => {
@@ -77,7 +73,6 @@ const Index = () => {
     }
   ];
   
-  // Featured products and services to highlight
   const highlightedItems = [
     {
       type: 'product',
@@ -140,7 +135,6 @@ const Index = () => {
       <Navigation />
       <Hero />
       
-      {/* Customer Pain Points Section */}
       <section className="py-16 bg-brand-navy text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -171,9 +165,9 @@ const Index = () => {
           </div>
           
           <div className="mt-10 text-center">
-            <a href="/services" className="inline-block px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300">
+            <Link to="/services" className="inline-block px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300">
               See How We Can Help
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -187,7 +181,6 @@ const Index = () => {
         />
       </section>
       
-      {/* Featured Products and Services Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
