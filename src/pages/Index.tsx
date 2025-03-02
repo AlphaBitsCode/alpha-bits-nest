@@ -1,9 +1,8 @@
 
 import { useEffect } from 'react';
 import Navigation from '@/components/ui/navigation';
-import Hero from '@/components/ui/hero';
-import Products from '@/components/ui/products';
-import Services from '@/components/ui/services';
+import { Hero } from '@/components/ui/animated-hero';
+import { FeaturedSection } from '@/components/ui/featured-section';
 import Experience from '@/components/ui/experience';
 import Locations from '@/components/ui/locations';
 import Contact from '@/components/ui/contact';
@@ -43,8 +42,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <Hero />
-      <Products />
-      <Services />
+      <FeaturedSection />
       <Experience />
       <Locations />
       <Contact />
