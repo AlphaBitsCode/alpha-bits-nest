@@ -1,7 +1,6 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { SmtpClient } from "https://deno.land/x/smtp@v0.7.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -27,93 +26,45 @@ const handler = async (req: Request): Promise<Response> => {
     // Get environment variables
     const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
-    const smtpHost = Deno.env.get("SMTP_HOST") || "smtp.gmail.com";
-    const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "465");
-    const smtpUser = Deno.env.get("SMTP_USER") || "";
-    const smtpPass = Deno.env.get("SMTP_PASS") || "";
-    const senderEmail = Deno.env.get("SENDER_EMAIL") || "Alpha Bits <dev@alphabits.team>";
-
-    if (!smtpUser || !smtpPass) {
-      throw new Error("SMTP credentials not configured");
-    }
-
+    
+    // Create Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    // Parse request body
     const { to, name, product, institutionName, institutionType, message }: EmailRequest = await req.json();
 
-    // Configure SMTP client
-    const client = new SmtpClient();
-    await client.connectTLS({
-      hostname: smtpHost,
-      port: smtpPort,
-      username: smtpUser,
-      password: smtpPass,
-    });
+    // Log information
+    console.log(`Sending confirmation email to ${to} for product ${product}`);
 
-    // Create email content with HTML formatting
+    // For now, we'll log the email content instead of sending it
+    // Later we'll integrate with a proper email service
     const emailContent = `
-      <html>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-          <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
-            <h2 style="color: #2e7d32;">Thank you for your interest in ${product}!</h2>
-            <p>Dear ${name},</p>
-            ${product === 'Farm In Box' ? `
-            <p>Thank you for your interest in implementing ${product} at ${institutionName}. We're excited to help bring hands-on sustainable farming education to your institution.</p>
-            <p>Our team has received your inquiry and we're looking forward to discussing how ${product} can enhance your educational curriculum through practical, engaging experiences in sustainable agriculture and environmental science.</p>
-            ` : `
-            <p>We're thrilled that you're interested in our ${product} solution! It's wonderful to connect with someone who shares our passion for sustainable farming and education.</p>
-            <p>Our team has received your inquiry and we're excited to tell you more about how ${product} can bring hands-on growing experiences to your space.</p>
-            `}
-            <p>We will review your requirements in detail and get back to you very soon with more information tailored to your needs.</p>
-            ${message ? `
-            <div style="background-color: #f9f9f9; padding: 15px; margin: 20px 0; border-radius: 5px;">
-              <p style="color: #666; margin: 0;"><strong>Your Additional Information:</strong></p>
-              <p style="margin: 10px 0 0 0;">${message}</p>
-            </div>
-            ` : ''}
-            <p>If you have any immediate questions or thoughts in the meantime, please don't hesitate to reply to this email.</p>
-            <p style="margin-top: 30px;">Best regards,</p>
-            <p><strong>The Alpha Bits Team</strong></p>
-            
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #eaeaea;" />
-            <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 0.9em;">
-              <p style="color: #666; margin: 0 0 10px 0;">Request Information Log:</p>
-              <pre style="margin: 0; white-space: pre-wrap;">
-Timestamp: ${new Date().toISOString()}
-Product: ${product}
-Name: ${name}
-Email: ${to}
-${institutionName ? `Institution: ${institutionName}` : ''}
-${institutionType ? `Institution Type: ${institutionType}` : ''}
-              </pre>
-            </div>
-          </div>
-        </body>
-      </html>
+      Email To: ${to}
+      Subject: Thank you for your interest in ${product}!
+      
+      Dear ${name},
+      
+      Thank you for your interest in our ${product} solution. We've received your inquiry and will get back to you soon.
+      
+      Product: ${product}
+      ${institutionName ? `Institution: ${institutionName}` : ''}
+      ${institutionType ? `Institution Type: ${institutionType}` : ''}
+      ${message ? `Your message: ${message}` : ''}
+      
+      Best regards,
+      The Alpha Bits Team
     `;
-
-    // Send the email
-    await client.send({
-      from: "Alpha Bits <dev@alphabits.team>",
-      to: to,
-      cc: "contact@alphabits.team",
-      replyTo: "contact@alphabits.team",
-      subject: `Thank you for your interest in ${product}`,
-      content: "Please view this email in an HTML-compatible email client.",
-      html: emailContent,
-    });
-
-    // Close the connection
-    await client.close();
-
-    // Return success response
+    
+    console.log("Email content that would be sent:");
+    console.log(emailContent);
+    
+    // Return a success response
     const emailResponse = {
       to,
       subject: `Thank you for your interest in ${product}`,
-      status: "sent",
+      status: "simulated",
+      message: "Email sending simulated (not actually sent)"
     };
-
-    console.log("Email sent successfully to:", to);
 
     return new Response(JSON.stringify(emailResponse), {
       status: 200,
