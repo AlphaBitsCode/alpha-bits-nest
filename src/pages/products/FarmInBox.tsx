@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
+import { LeadForm } from '@/components/ui/lead-form';
+import { Toaster } from '@/components/ui/sonner';
 
 const FarmInBox = () => {
   useScrollAnimation();
@@ -11,35 +14,6 @@ const FarmInBox = () => {
   useEffect(() => {
     document.title = "Farm In Box | Alpha Bits";
   }, []);
-  
-  const [form, setForm] = useState({
-    institutionName: '',
-    contactPerson: '',
-    email: '',
-    phone: '',
-    institutionType: '',
-    message: ''
-  });
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Farm form submitted:', form);
-    alert('Thank you for your interest! We will send more information shortly.');
-    setForm({
-      institutionName: '',
-      contactPerson: '',
-      email: '',
-      phone: '',
-      institutionType: '',
-      message: ''
-    });
-  };
 
   const features = [
     'Interactive learning materials',
@@ -52,6 +26,7 @@ const FarmInBox = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      <Toaster />
       <section className="py-12 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
@@ -83,6 +58,14 @@ const FarmInBox = () => {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-8">
+                <LeadForm 
+                  productName="Farm In Box" 
+                  buttonText="Request Information"
+                  className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
+                />
+              </div>
             </div>
             
             <div className="flex justify-center">
@@ -103,98 +86,65 @@ const FarmInBox = () => {
           
           <div className="mt-16 scrolled-section">
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Request Information</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="institutionName" className="block text-sm font-medium text-gray-700 mb-1">Institution Name</label>
-                    <input
-                      type="text"
-                      id="institutionName"
-                      name="institutionName"
-                      value={form.institutionName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
-                    />
+              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Why Farm In Box?</h2>
+              
+              <div className="space-y-4">
+                <p className="text-gray-600">
+                  Farm In Box is designed to bridge the gap between theoretical education and practical experience in sustainable farming. 
+                  It provides students with a hands-on approach to learning about agriculture, biology, and environmental science.
+                </p>
+                
+                <p className="text-gray-600">
+                  Our comprehensive kit includes everything educators need to implement a successful farming program in their institutions,
+                  with step-by-step guides, curriculum integration materials, and ongoing support.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-semibold text-brand-navy mb-2">For Educators</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Ready-to-use curriculum materials</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Professional development resources</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Assessment tools and rubrics</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div>
-                    <label htmlFor="contactPerson" className="block text-sm font-medium text-gray-700 mb-1">Contact Person</label>
-                    <input
-                      type="text"
-                      id="contactPerson"
-                      name="contactPerson"
-                      value={form.contactPerson}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
-                    />
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-semibold text-brand-navy mb-2">For Students</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Hands-on learning experience</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Development of practical skills</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
+                        <span className="text-sm">Understanding of sustainable practices</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div>
-                  <label htmlFor="institutionType" className="block text-sm font-medium text-gray-700 mb-1">Institution Type</label>
-                  <select
-                    id="institutionType"
-                    name="institutionType"
-                    value={form.institutionType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
-                  >
-                    <option value="">Select Institution Type</option>
-                    <option value="Primary School">Primary School</option>
-                    <option value="Secondary School">Secondary School</option>
-                    <option value="College">College</option>
-                    <option value="University">University</option>
-                    <option value="Research Institute">Research Institute</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Additional Information</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={3}
-                    value={form.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"
+                
+                <div className="text-center mt-8">
+                  <LeadForm 
+                    productName="Farm In Box" 
+                    buttonText="Request Information"
+                    className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
                   />
                 </div>
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
-                  >
-                    Request Information
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
