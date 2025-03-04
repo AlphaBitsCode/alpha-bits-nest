@@ -18,7 +18,7 @@ const Footer = () => {
               />
               <span className="ml-3 text-xl font-bold">Alpha Bits</span>
             </div>
-            <p className="text-white/70 leading-relaxed text-sm">
+            <p className="text-white/70 leading-relaxed text-xs">
               Innovative technology solutions for modern businesses. Specializing in AIoT product development and digital transformation.
             </p>
             
@@ -90,8 +90,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/experience" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  AO Farm Experience
+                <Link to="/experiences" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Experiences
                 </Link>
               </li>
             </ul>

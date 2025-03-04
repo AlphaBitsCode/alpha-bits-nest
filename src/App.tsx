@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,19 +11,25 @@ import FarmInBox from "./pages/products/FarmInBox";
 import Services from "./pages/Services";
 import LocationsPage from "./pages/Locations"
 import ContactPage from "./pages/Contact"
-import ExperiencePage from "./pages/Experience";
-import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
-import CtoAsAService from "./pages/services/CtoAsAService";
-import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 
-// Import the new Digital Twin product pages
+// Import the Digital Twin product pages
 import DigitalTwinOfficeHome from "./pages/products/DigitalTwinOfficeHome";
 import DigitalTwinFarm from "./pages/products/DigitalTwinFarm";
 import DigitalTwinFactory from "./pages/products/DigitalTwinFactory";
+
+// Import service pages
+import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
+import CtoAsAService from "./pages/services/CtoAsAService";
+import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
+
+// Import the experiences pages
+import ExperiencesIndex from "./pages/experiences/ExperiencesIndex";
+import AoFarmPage from "./pages/experiences/AoFarmPage";
+import EventsPage from "./pages/experiences/EventsPage";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +65,12 @@ function App() {
             <Route path="/services/software-development" element={<SoftwareDevelopment />} />
             <Route path="/services/cto-as-service" element={<Navigate to="/services/cto-as-a-service" replace />} />
             
+            {/* Experiences routes */}
+            <Route path="/experiences" element={<ExperiencesIndex />} />
+            <Route path="/experience" element={<Navigate to="/experiences" replace />} />
+            <Route path="/experiences/ao-farm" element={<AoFarmPage />} />
+            <Route path="/experiences/events" element={<EventsPage />} />
+            
             {/* Other main routes with alternative paths */}
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<Navigate to="/about" replace />} />
@@ -67,8 +78,6 @@ function App() {
             <Route path="/location" element={<Navigate to="/locations" replace />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
-            <Route path="/experience" element={<ExperiencePage />} />
-            <Route path="/experiences" element={<Navigate to="/experience" replace />} />
             
             {/* Privacy, Terms, and Cookie Policy routes */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -23,7 +23,7 @@ const Navigation = () => {
       document.title = 'Locations | Alpha Bits';
     } else if (path === '/contact') {
       document.title = 'Contact | Alpha Bits';
-    } else if (path === '/experience') {
+    } else if (path.startsWith('/experiences')) {
       document.title = 'Experiences | Alpha Bits';
     }
   }, [location]);
@@ -102,7 +102,24 @@ const Navigation = () => {
           },
         ],
       },
-      { title: "Experience", url: "/experience", icon: <Lightbulb className="size-5 shrink-0" /> },
+      {
+        title: "Experiences",
+        url: "/experiences",
+        items: [
+          {
+            title: "AO Farm",
+            description: "Visit our sustainable agriculture research facility",
+            icon: <Trees className="size-5 shrink-0" />,
+            url: "/experiences/ao-farm",
+          },
+          {
+            title: "Events & Meet-ups",
+            description: "Join our community events and technology discussions",
+            icon: <Calendar className="size-5 shrink-0" />,
+            url: "/experiences/events",
+          },
+        ],
+      },
       { title: "About", url: "/about", icon: <Info className="size-5 shrink-0" /> },
       { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
       { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
