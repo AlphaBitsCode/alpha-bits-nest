@@ -1,6 +1,7 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, Code, Database, BarChart, GitBranch, Workflow, Brain } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Code, Database, BarChart, GitBranch, Workflow, Brain, Zap, Clock, Bot, Blocks, LineChart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
@@ -49,6 +50,33 @@ const SoftwareDevelopment = () => {
     }
   ];
 
+  const aiTools = [
+    {
+      tool: "Lovable.dev",
+      role: "Project Management",
+      description: "Serves as our integrated development platform, combining project management, development, DevOps, design, and business analysis capabilities.",
+      icon: <Blocks className="w-10 h-10 text-brand-blue p-1" />
+    },
+    {
+      tool: "Trae AI",
+      role: "Coding Assistant",
+      description: "Handles code optimization, refactoring, syntax refinement, and small-scope content improvements.",
+      icon: <Code className="w-10 h-10 text-brand-teal p-1" />
+    },
+    {
+      tool: "Google Gemini",
+      role: "Data Analyst",
+      description: "Powers our data analysis, generating insights, and helping us understand complex datasets to inform business decisions.",
+      icon: <LineChart className="w-10 h-10 text-brand-green p-1" />
+    },
+    {
+      tool: "Warp AI",
+      role: "DevOps Engineer",
+      description: "Acts as our trusted DevOps engineer, streamlining deployment pipelines, infrastructure management, and system optimization.",
+      icon: <GitBranch className="w-10 h-10 text-brand-navy p-1" />
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -74,10 +102,10 @@ const SoftwareDevelopment = () => {
                 SERVICE
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-                Software Development Services
+                AI-Powered Software Development
               </h1>
               <p className="text-gray-600 mb-6 text-lg">
-                Full-suite software development services including custom ERP, CRM, HRM systems, AI platforms, business automation, data mining, and data pipeline setup. Led by founder Kent Nguyen with decades of experience in software operations.
+                We build software at unprecedented speed by embracing AI tools and focusing on data-driven approaches to solve business problems. Our team created this very website in just 7 hours, demonstrating our commitment to efficiency without compromising quality.
               </p>
               
               <div className="mt-8">
@@ -112,6 +140,140 @@ const SoftwareDevelopment = () => {
         </div>
       </section>
       
+      {/* AI-Powered Development Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-teal/10 text-brand-teal rounded-full mb-3">
+              OUR APPROACH
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-navy">
+              Rapid Software Delivery
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We believe software development lead time should be measured in days, not months. Our AI-enhanced approach allows us to build high-quality solutions at unprecedented speed.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100">
+                <div className="flex items-center mb-6">
+                  <div className="bg-brand-teal/10 p-3 rounded-full mr-4">
+                    <Zap className="w-8 h-8 text-brand-teal" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-brand-navy">Super Efficiency</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  We built this entire website in just 7 hours straight - a task that would typically take weeks using conventional methods. Check out our GitHub repo to see the development history!
+                </p>
+                <ul className="space-y-3 mt-6">
+                  <li className="flex items-start">
+                    <Clock className="text-brand-blue mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">Software lead time in days, not months</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Zap className="text-brand-blue mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">Rapid prototyping and iteration</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Bot className="text-brand-blue mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">AI-augmented development teams</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100">
+                <div className="flex items-center mb-6">
+                  <div className="bg-brand-blue/10 p-3 rounded-full mr-4">
+                    <Database className="w-8 h-8 text-brand-blue" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-brand-navy">Data-Driven Approach</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  We start by dissecting your data needs and business processes, creating a solid foundation before building user interfaces and tools.
+                </p>
+                <ul className="space-y-3 mt-6">
+                  <li className="flex items-start">
+                    <Database className="text-brand-teal mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">Focus on data layer first</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Workflow className="text-brand-teal mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">Process digitization and optimization</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Brain className="text-brand-teal mr-3 flex-shrink-0 mt-1" size={18} />
+                    <span className="text-gray-700">Intelligent agents built on top of your data</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* AI Tools Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-blue/10 text-brand-blue rounded-full mb-3">
+              OUR TOOLKIT
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-navy">
+              AI-Powered Development Stack
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We leverage cutting-edge AI tools to enhance every aspect of the software development lifecycle, from planning to deployment.
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {aiTools.map((tool, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className="bg-gray-50 p-3 rounded-xl shadow-sm inline-block mb-4">
+                  {tool.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-1 text-brand-navy">{tool.tool}</h3>
+                <p className="text-sm text-brand-blue font-medium mb-3">{tool.role}</p>
+                <p className="text-gray-600 text-sm">{tool.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Services Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -129,7 +291,7 @@ const SoftwareDevelopment = () => {
               Comprehensive Software Solutions
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We deliver high-quality software solutions tailored to your specific business needs, leveraging cutting-edge technologies and industry best practices.
+              We deliver high-quality software solutions tailored to your specific business needs, leveraging cutting-edge technologies and AI-enhanced development practices.
             </p>
           </motion.div>
           
@@ -171,7 +333,7 @@ const SoftwareDevelopment = () => {
               Our Development Process
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We follow a structured yet flexible development methodology to ensure your project's success from conception to deployment.
+              We follow a structured yet flexible development methodology, enhanced by AI tools, to ensure your project's success from conception to deployment.
             </p>
           </motion.div>
           
@@ -181,24 +343,24 @@ const SoftwareDevelopment = () => {
               
               {[
                 {
-                  title: "Discovery & Planning",
-                  description: "We start by understanding your business needs, goals, and challenges. Our team works closely with you to define the project scope, requirements, and timeline."
+                  title: "Data Analysis & Planning",
+                  description: "We start by understanding your data structure, business processes, and challenges, using AI-powered analytics to identify optimal solutions."
                 },
                 {
-                  title: "Design & Architecture",
-                  description: "We create detailed system architecture and design specifications, ensuring a solid foundation for your software solution."
+                  title: "Architecture & Design",
+                  description: "Our AI tools help create efficient system architecture and design specifications, ensuring a solid foundation for your software solution."
                 },
                 {
-                  title: "Development & Testing",
-                  description: "Our experienced development team builds your software using agile methodologies, with regular testing to ensure quality and performance."
+                  title: "Rapid Development",
+                  description: "Using AI-assisted coding and agile methodologies, we build your software with unprecedented speed without sacrificing quality."
                 },
                 {
                   title: "Deployment & Integration",
-                  description: "We carefully deploy your software and ensure seamless integration with your existing systems and workflows."
+                  description: "Our AI-powered DevOps ensures smooth deployment and seamless integration with your existing systems and workflows."
                 },
                 {
-                  title: "Maintenance & Support",
-                  description: "Our relationship doesn't end at deployment. We provide ongoing maintenance, updates, and support to keep your software running optimally."
+                  title: "Continuous Improvement",
+                  description: "We leverage AI to monitor performance, identify optimization opportunities, and continuously enhance your software over time."
                 }
               ].map((step, index) => (
                 <motion.div 
@@ -230,9 +392,9 @@ const SoftwareDevelopment = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business with Custom Software?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business with AI-Powered Software?</h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-8">
-              Let's discuss how our software development expertise can help you achieve your business goals and overcome technical challenges.
+              Let's discuss how our AI-enhanced development approach can help you achieve your business goals with record-breaking efficiency.
             </p>
             <div className="flex justify-center">
               <LeadForm 
