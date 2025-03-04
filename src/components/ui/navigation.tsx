@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -93,6 +93,12 @@ const Navigation = () => {
             description: "Access top-tier technical leadership without the overhead",
             icon: <Users className="size-5 shrink-0" />,
             url: "/services/cto-as-a-service",
+          },
+          {
+            title: "Software Development",
+            description: "Custom ERP, CRM, HRM systems and AI-powered solutions",
+            icon: <Code className="size-5 shrink-0" />,
+            url: "/services/software-development",
           },
         ],
       },

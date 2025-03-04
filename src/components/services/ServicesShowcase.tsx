@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Cpu, Users, ShieldAlert, CheckCircle2, LightbulbIcon, Database, Brain, ChevronRight } from 'lucide-react';
+import { Cpu, Users, ShieldAlert, CheckCircle2, LightbulbIcon, Database, Brain, ChevronRight, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ServiceData {
@@ -66,6 +66,30 @@ export function ServicesShowcase() {
       illustration: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
       challengeIcon: <Brain className="w-8 h-8 text-brand-blue" />,
       url: '/services/cto-as-a-service'
+    },
+    {
+      id: 'software-development',
+      title: 'Software Development Services',
+      description: 'Full-suite custom software solutions including ERP, CRM, HRM systems, AI platforms, business automation, and data mining led by experienced professionals.',
+      icon: <Code size={40} className="text-brand-blue mb-4" />,
+      features: [
+        'Custom ERP, CRM, and HRM solutions',
+        'AI platforms and business automation',
+        'Data mining and analytics systems',
+        'Data pipeline implementation',
+        'Remote development team'
+      ],
+      painPoints: [
+        'Inefficient business processes slowing down operations',
+        'Fragmented systems creating data silos',
+        'Inability to scale with existing software',
+        'High costs of off-the-shelf solutions with limited customization'
+      ],
+      color: 'from-brand-navy/20 to-brand-blue/20',
+      accentColor: 'bg-brand-navy',
+      illustration: 'https://images.unsplash.com/photo-1607705703571-c5a8695f18f6?q=80&w=800&auto=format&fit=crop',
+      challengeIcon: <Code className="w-8 h-8 text-brand-navy" />,
+      url: '/services/software-development'
     }
   ];
 

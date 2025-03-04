@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +15,7 @@ import ContactPage from "./pages/Contact"
 import ExperiencePage from "./pages/Experience";
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
+import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -55,6 +57,7 @@ function App() {
             <Route path="/service" element={<Navigate to="/services" replace />} />
             <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
             <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />
+            <Route path="/services/software-development" element={<SoftwareDevelopment />} />
             <Route path="/services/cto-as-service" element={<Navigate to="/services/cto-as-a-service" replace />} />
             
             {/* Other main routes with alternative paths */}
