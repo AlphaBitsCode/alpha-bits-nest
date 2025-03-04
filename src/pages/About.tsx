@@ -1,9 +1,9 @@
-
 import { useEffect } from 'react';
-import { Building, Users, Lightbulb, Image } from 'lucide-react';
+import { Building, Users, Lightbulb, Image, ChevronRight } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
+import { motion } from 'framer-motion';
 
 const About = () => {
   useScrollAnimation();
@@ -80,6 +80,98 @@ const About = () => {
               </div>
               <div className="absolute -z-10 top-10 -right-10 w-full h-full bg-brand-teal/20 rounded-xl"></div>
             </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Leadership Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-5 gap-8 items-center scrolled-section">
+            <motion.div 
+              className="md:col-span-2"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-brand-navy to-brand-blue rounded-lg opacity-20 blur-lg"></div>
+                <div className="relative rounded-xl overflow-hidden">
+                  <img 
+                    src="/images/office/profile.jpg"
+                    alt="Kent Nguyen" 
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              className="md:col-span-3"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-navy/10 text-brand-navy rounded-full mb-3">
+                LEADERSHIP
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-navy">
+                Kent Nguyen, Founder
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Kent Nguyen, the visionary founder of Alpha Bits, is a serial entrepreneur and technologist with a rich background in innovation and deep-tech solutions. Known for pioneering advancements in energy storage, Kent is the inventor behind the Alternō Sand Battery in 2023—a groundbreaking, zero-emission thermal energy solution developed in Vietnam.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Over a career spanning more than a decade, Kent has founded and led several successful startups, with expertise that extends from software engineering to venture partnerships and high-impact leadership roles at prominent companies like Grab. Kent's work is driven by a passion for integrating cutting-edge technology into everyday business processes, addressing critical global issues like energy independence and food security.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Kent's commitment to fostering sustainable tech solutions continues to shape Alpha Bits' mission to help businesses and communities thrive in a rapidly evolving technological landscape.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 shadow-sm">
+                  <h3 className="font-semibold text-brand-navy mb-2">Recent Experience</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Founder/CEO of Second Brains, 2024 – present</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Founder/Inventor of Alternō "Sand Battery", 2023 – 2024</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Founder/Technologist, Anatics, Vietnam, 2019 – 2022</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 shadow-sm">
+                  <h3 className="font-semibold text-brand-navy mb-2">Previous Roles</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>CTO, OP3N LLC, USA & Vietnam, 2020 – 2022</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Venture Partner, Viet Capital Ventures, Vietnam, 2018 – 2021</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Head of Engineer for Grab, Vietnam, 2017</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Co-founder/CTO, Silicon Straits, Singapore, 2012 – 2017</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

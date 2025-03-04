@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Code, Database, BarChart, GitBranch, Workflow, Brain } from 'lucide-react';
@@ -218,67 +217,6 @@ const SoftwareDevelopment = () => {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Team Leadership */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-5 gap-8 items-center">
-            <motion.div 
-              className="md:col-span-2"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-brand-navy to-brand-blue rounded-lg opacity-20 blur-lg"></div>
-                <div className="relative rounded-xl overflow-hidden">
-                  <img 
-                    src="/images/office/profile.jpg"
-                    alt="Kent Nguyen" 
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="md:col-span-3"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-navy/10 text-brand-navy rounded-full mb-3">
-                LEADERSHIP
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-navy">
-                Led by Kent Nguyen
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Our software development services are led by founder Kent Nguyen, who brings decades of experience in software engineering and operations. Under his leadership, our team has successfully delivered complex software solutions for clients across various industries.
-              </p>
-              <p className="text-gray-600 mb-6">
-                With a remote development team based in Vietnam, we combine technical excellence with cost efficiency, ensuring high-quality deliverables while maintaining competitive pricing.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <ChevronRight size={20} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
-                  <span>Decades of software engineering experience</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight size={20} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
-                  <span>Expertise in building scalable, enterprise-grade software</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight size={20} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
-                  <span>Remote development team with 24/7 support capabilities</span>
-                </li>
-              </ul>
-            </motion.div>
           </div>
         </div>
       </section>
