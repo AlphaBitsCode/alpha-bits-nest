@@ -57,34 +57,136 @@ const handler = async (req: Request): Promise<Response> => {
     // Prepare email content
     const emailSubject = "Thank you for pre-ordering the Mushroom-in-a-Box!";
     const logoUrl = "https://alphabits.team/images/AB_Logo_full_text.png";
+    const productUrl = "https://alphabits.team/products/mushroom-in-box";
     
     const emailHtml = `
+      <!DOCTYPE html>
       <html>
         <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <style>
-            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
-            .container { max-width: 600px; margin: 0 auto; padding: 0; }
-            .header { background-color: #1e40af; color: white; padding: 20px; text-align: center; }
-            .logo { max-width: 250px; height: auto; margin-bottom: 10px; }
-            .content { padding: 30px; background-color: #f9fafb; }
-            .preorder-details { background-color: #e5e7eb; padding: 20px; border-radius: 8px; margin: 20px 0; }
-            .footer { padding: 20px; text-align: center; font-size: 0.8em; color: #6b7280; background-color: #f3f4f6; }
-            .button { display: inline-block; background-color: #0ea5e9; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin-top: 15px; }
-            h1, h2 { color: #1e40af; }
-            .highlight { color: #0ea5e9; font-weight: bold; }
+            * {
+              font-family: 'Arial', sans-serif;
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            body {
+              background-color: #f9f9f9;
+              color: #333;
+              line-height: 1.6;
+            }
+            .wrapper {
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border-radius: 12px;
+              overflow: hidden;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+            .header {
+              padding: 30px;
+              text-align: center;
+              background-color: #ffffff;
+            }
+            .logo {
+              max-width: 200px;
+              height: auto;
+            }
+            .title {
+              padding: 20px 30px;
+              text-align: center;
+              background-color: #f7f7f7;
+              border-bottom: 1px solid #eaeaea;
+            }
+            .title h1 {
+              color: #1e40af;
+              font-size: 22px;
+              font-weight: 600;
+            }
+            .content {
+              padding: 30px;
+            }
+            .greeting {
+              margin-bottom: 20px;
+            }
+            .message {
+              margin-bottom: 25px;
+            }
+            .details {
+              background-color: #f7f7f7;
+              border-radius: 10px;
+              padding: 25px;
+              margin-bottom: 25px;
+            }
+            .details h2 {
+              color: #1e40af;
+              font-size: 18px;
+              margin-bottom: 15px;
+              font-weight: 600;
+            }
+            .details p {
+              margin-bottom: 10px;
+            }
+            .details strong {
+              font-weight: 600;
+            }
+            .cta {
+              text-align: center;
+              margin: 25px 0;
+            }
+            .button {
+              display: inline-block;
+              background-color: #1e40af;
+              color: white;
+              text-decoration: none;
+              padding: 12px 25px;
+              border-radius: 30px;
+              font-weight: 500;
+              font-size: 16px;
+            }
+            .footer {
+              background-color: #f7f7f7;
+              padding: 20px 30px;
+              text-align: center;
+              color: #666;
+              font-size: 14px;
+              border-top: 1px solid #eaeaea;
+            }
+            .highlight {
+              color: #1e40af;
+              font-weight: 600;
+            }
+            @media only screen and (max-width: 600px) {
+              .wrapper {
+                width: 100%;
+                border-radius: 0;
+              }
+              .content {
+                padding: 20px;
+              }
+            }
           </style>
         </head>
         <body>
-          <div class="container">
+          <div class="wrapper">
             <div class="header">
               <img src="${logoUrl}" alt="Alpha Bits Logo" class="logo" />
+            </div>
+            <div class="title">
               <h1>Pre-order Confirmation</h1>
             </div>
             <div class="content">
-              <p>Dear ${name},</p>
-              <p>Thank you for pre-ordering the <span class="highlight">Mushroom-in-a-Box</span>! We're excited that you'll be among the first to experience our innovative mushroom growing solution.</p>
+              <div class="greeting">
+                <p>Dear ${name},</p>
+              </div>
+              <div class="message">
+                <p>Thank you for pre-ordering the <span class="highlight">Mushroom-in-a-Box</span>! We're excited that you'll be among the first to experience our innovative mushroom growing solution.</p>
+              </div>
               
-              <div class="preorder-details">
+              <div class="details">
                 <h2>Pre-order Details:</h2>
                 <p><strong>Quantity:</strong> ${quantity}</p>
                 <p><strong>Shipping Address:</strong> ${address}</p>
@@ -93,19 +195,23 @@ const handler = async (req: Request): Promise<Response> => {
               </div>
               
               <p>Your pre-order has been recorded and we'll keep you updated on:</p>
-              <ul>
+              <ul style="margin-left: 20px; margin-bottom: 20px;">
                 <li>Production progress</li>
                 <li>Shipping timeline</li>
                 <li>Additional product features</li>
               </ul>
               
-              <p>If you have any questions about your pre-order, please don't hesitate to reach out to us at <a href="mailto:contact@alphabits.team">contact@alphabits.team</a>.</p>
+              <div class="cta">
+                <a href="${productUrl}" class="button">View Product Page</a>
+              </div>
               
-              <p>Best regards,<br>The Alpha Bits Team</p>
+              <p>If you have any questions about your pre-order, please don't hesitate to reach out to us at <a href="mailto:contact@alphabits.team" style="color: #1e40af; text-decoration: underline;">contact@alphabits.team</a>.</p>
+              
+              <p style="margin-top: 20px;">Best regards,<br>The Alpha Bits Team</p>
             </div>
             <div class="footer">
-              <p>&copy; 2024 Alpha Bits. All rights reserved.</p>
-              <p>Alpha Bits - Innovative Digital Solutions for a Sustainable Future</p>
+              <p>&copy; ${new Date().getFullYear()} Alpha Bits. All rights reserved.</p>
+              <p style="margin-top: 5px;">Alpha Bits - Innovative Digital Solutions for a Sustainable Future</p>
             </div>
           </div>
         </body>

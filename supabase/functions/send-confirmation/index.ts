@@ -54,36 +54,163 @@ const handler = async (req: Request): Promise<Response> => {
       },
     });
 
+    // Map product to URL for the button link
+    let productUrl = "https://alphabits.team/products";
+    if (product.toLowerCase().includes("digital twin factory")) {
+      productUrl = "https://alphabits.team/products/digital-twin-factory";
+    } else if (product.toLowerCase().includes("digital twin farm")) {
+      productUrl = "https://alphabits.team/products/digital-twin-farm";
+    } else if (product.toLowerCase().includes("digital twin office")) {
+      productUrl = "https://alphabits.team/products/digital-twin-office-home";
+    } else if (product.toLowerCase().includes("farm in box")) {
+      productUrl = "https://alphabits.team/products/farm-in-box";
+    } else if (product.toLowerCase().includes("mushroom")) {
+      productUrl = "https://alphabits.team/products/mushroom-in-box";
+    }
+
     // Prepare email content
     const emailSubject = `Thank you for your interest in ${product}!`;
+    const logoUrl = "https://alphabits.team/images/AB_Logo_full_text.png";
+    
     const emailHtml = `
+      <!DOCTYPE html>
       <html>
         <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background-color: #1e40af; color: white; padding: 20px; text-align: center; }
-            .content { padding: 20px; background-color: #f9fafb; }
-            .footer { padding: 20px; text-align: center; font-size: 0.8em; color: #6b7280; }
+            * {
+              font-family: 'Arial', sans-serif;
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            body {
+              background-color: #f9f9f9;
+              color: #333;
+              line-height: 1.6;
+            }
+            .wrapper {
+              max-width: 600px;
+              margin: 0 auto;
+              background-color: #ffffff;
+              border-radius: 12px;
+              overflow: hidden;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            }
+            .header {
+              padding: 30px;
+              text-align: center;
+              background-color: #ffffff;
+            }
+            .logo {
+              max-width: 200px;
+              height: auto;
+            }
+            .title {
+              padding: 20px 30px;
+              text-align: center;
+              background-color: #f7f7f7;
+              border-bottom: 1px solid #eaeaea;
+            }
+            .title h1 {
+              color: #1e40af;
+              font-size: 22px;
+              font-weight: 600;
+            }
+            .content {
+              padding: 30px;
+            }
+            .greeting {
+              margin-bottom: 20px;
+            }
+            .message {
+              margin-bottom: 25px;
+            }
+            .details {
+              background-color: #f7f7f7;
+              border-radius: 10px;
+              padding: 25px;
+              margin-bottom: 25px;
+            }
+            .details p {
+              margin-bottom: 10px;
+            }
+            .details strong {
+              font-weight: 600;
+            }
+            .cta {
+              text-align: center;
+              margin: 25px 0;
+            }
+            .button {
+              display: inline-block;
+              background-color: #1e40af;
+              color: white;
+              text-decoration: none;
+              padding: 12px 25px;
+              border-radius: 30px;
+              font-weight: 500;
+              font-size: 16px;
+            }
+            .footer {
+              background-color: #f7f7f7;
+              padding: 20px 30px;
+              text-align: center;
+              color: #666;
+              font-size: 14px;
+              border-top: 1px solid #eaeaea;
+            }
+            .highlight {
+              color: #1e40af;
+              font-weight: 600;
+            }
+            @media only screen and (max-width: 600px) {
+              .wrapper {
+                width: 100%;
+                border-radius: 0;
+              }
+              .content {
+                padding: 20px;
+              }
+            }
           </style>
         </head>
         <body>
-          <div class="container">
+          <div class="wrapper">
             <div class="header">
+              <img src="${logoUrl}" alt="Alpha Bits Logo" class="logo" />
+            </div>
+            <div class="title">
               <h1>Thank You for Your Interest!</h1>
             </div>
             <div class="content">
-              <p>Dear ${name},</p>
-              <p>Thank you for your interest in our <strong>${product}</strong> solution. We've received your inquiry and will get back to you soon.</p>
-              <p><strong>Product:</strong> ${product}</p>
-              ${institutionName ? `<p><strong>Institution:</strong> ${institutionName}</p>` : ''}
-              ${institutionType ? `<p><strong>Institution Type:</strong> ${institutionType}</p>` : ''}
-              ${message ? `<p><strong>Your message:</strong> ${message}</p>` : ''}
-              <p>If you have any questions in the meantime, please don't hesitate to reach out to us at contact@alphabits.team.</p>
-              <p>Best regards,<br>The Alpha Bits Team</p>
+              <div class="greeting">
+                <p>Dear ${name},</p>
+              </div>
+              <div class="message">
+                <p>Thank you for your interest in our <span class="highlight">${product}</span> solution. We've received your inquiry and will get back to you soon.</p>
+              </div>
+              
+              <div class="details">
+                <p><strong>Product:</strong> ${product}</p>
+                ${institutionName ? `<p><strong>Institution:</strong> ${institutionName}</p>` : ''}
+                ${institutionType ? `<p><strong>Institution Type:</strong> ${institutionType}</p>` : ''}
+                ${message ? `<p><strong>Your message:</strong> ${message}</p>` : ''}
+              </div>
+              
+              <div class="cta">
+                <a href="${productUrl}" class="button">View Product Details</a>
+              </div>
+              
+              <p>If you have any questions in the meantime, please don't hesitate to reach out to us at <a href="mailto:contact@alphabits.team" style="color: #1e40af; text-decoration: underline;">contact@alphabits.team</a>.</p>
+              
+              <p style="margin-top: 20px;">Best regards,<br>The Alpha Bits Team</p>
             </div>
             <div class="footer">
-              <p>&copy; 2024 Alpha Bits. All rights reserved.</p>
+              <p>&copy; ${new Date().getFullYear()} Alpha Bits. All rights reserved.</p>
+              <p style="margin-top: 5px;">Alpha Bits - Innovative Digital Solutions for a Sustainable Future</p>
             </div>
           </div>
         </body>
