@@ -1,6 +1,7 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -26,6 +27,10 @@ const handler = async (req: Request): Promise<Response> => {
     // Get environment variables
     const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+    const smtpUser = Deno.env.get("SMTP_USER") || "";
+    const smtpPass = Deno.env.get("SMTP_PASS") || "";
+    const senderEmail = Deno.env.get("SENDER_EMAIL") || "dev@alphabits.team";
+    const ccEmail = "contact@alphabits.team";
     
     // Create Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
@@ -36,36 +41,79 @@ const handler = async (req: Request): Promise<Response> => {
     // Log information
     console.log(`Sending event confirmation email to ${email} for event ${eventTitle}`);
 
-    // For now, we'll log the email content instead of sending it
-    // In a production environment, you would integrate with an email service like SendGrid, Mailgun, etc.
-    const emailContent = `
-      Email To: ${email}
-      Subject: Your registration for ${eventTitle} is confirmed!
-      
-      Dear ${name},
-      
-      Thank you for registering for our event:
-      
-      Event: ${eventTitle}
-      Date: ${eventDate}
-      Time: ${eventTime}
-      Location: ${eventLocation}
-      
-      We're looking forward to seeing you there!
-      
-      Best regards,
-      The Alpha Bits Team
+    // Create SMTP client
+    const client = new SMTPClient({
+      connection: {
+        hostname: "smtp.gmail.com",
+        port: 465,
+        tls: true,
+        auth: {
+          username: smtpUser,
+          password: smtpPass,
+        },
+      },
+    });
+
+    // Prepare email content
+    const emailSubject = `Your registration for ${eventTitle} is confirmed!`;
+    const emailHtml = `
+      <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #1e40af; color: white; padding: 20px; text-align: center; }
+            .content { padding: 20px; background-color: #f9fafb; }
+            .event-details { background-color: #e5e7eb; padding: 15px; border-radius: 5px; margin: 15px 0; }
+            .footer { padding: 20px; text-align: center; font-size: 0.8em; color: #6b7280; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Your Event Registration is Confirmed!</h1>
+            </div>
+            <div class="content">
+              <p>Dear ${name},</p>
+              <p>Thank you for registering for our event. We're looking forward to seeing you there!</p>
+              
+              <div class="event-details">
+                <p><strong>Event:</strong> ${eventTitle}</p>
+                <p><strong>Date:</strong> ${eventDate}</p>
+                <p><strong>Time:</strong> ${eventTime}</p>
+                <p><strong>Location:</strong> ${eventLocation}</p>
+              </div>
+              
+              <p>If you have any questions or need to make changes to your registration, please contact us at contact@alphabits.team.</p>
+              <p>Best regards,<br>The Alpha Bits Team</p>
+            </div>
+            <div class="footer">
+              <p>&copy; 2024 Alpha Bits. All rights reserved.</p>
+            </div>
+          </div>
+        </body>
+      </html>
     `;
-    
-    console.log("Email content that would be sent:");
-    console.log(emailContent);
-    
+
+    // Send email
+    await client.send({
+      from: senderEmail,
+      to: email,
+      cc: ccEmail,
+      replyTo: "contact@alphabits.team",
+      subject: emailSubject,
+      html: emailHtml,
+    });
+
+    // Close the connection
+    await client.close();
+
     // Return a success response
     const emailResponse = {
       to: email,
-      subject: `Your registration for ${eventTitle} is confirmed!`,
-      status: "simulated",
-      message: "Email sending simulated (not actually sent)"
+      subject: emailSubject,
+      status: "sent",
+      message: "Email sending successful"
     };
 
     return new Response(JSON.stringify(emailResponse), {

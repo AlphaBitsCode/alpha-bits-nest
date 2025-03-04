@@ -1,6 +1,7 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -26,6 +27,10 @@ const handler = async (req: Request): Promise<Response> => {
     // Get environment variables
     const supabaseUrl = Deno.env.get("SUPABASE_URL") || "";
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+    const smtpUser = Deno.env.get("SMTP_USER") || "";
+    const smtpPass = Deno.env.get("SMTP_PASS") || "";
+    const senderEmail = Deno.env.get("SENDER_EMAIL") || "dev@alphabits.team";
+    const ccEmail = "contact@alphabits.team";
     
     // Create Supabase client
     const supabase = createClient(supabaseUrl, supabaseKey);
@@ -36,34 +41,74 @@ const handler = async (req: Request): Promise<Response> => {
     // Log information
     console.log(`Sending confirmation email to ${to} for product ${product}`);
 
-    // For now, we'll log the email content instead of sending it
-    // Later we'll integrate with a proper email service
-    const emailContent = `
-      Email To: ${to}
-      Subject: Thank you for your interest in ${product}!
-      
-      Dear ${name},
-      
-      Thank you for your interest in our ${product} solution. We've received your inquiry and will get back to you soon.
-      
-      Product: ${product}
-      ${institutionName ? `Institution: ${institutionName}` : ''}
-      ${institutionType ? `Institution Type: ${institutionType}` : ''}
-      ${message ? `Your message: ${message}` : ''}
-      
-      Best regards,
-      The Alpha Bits Team
+    // Create SMTP client
+    const client = new SMTPClient({
+      connection: {
+        hostname: "smtp.gmail.com",
+        port: 465,
+        tls: true,
+        auth: {
+          username: smtpUser,
+          password: smtpPass,
+        },
+      },
+    });
+
+    // Prepare email content
+    const emailSubject = `Thank you for your interest in ${product}!`;
+    const emailHtml = `
+      <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #1e40af; color: white; padding: 20px; text-align: center; }
+            .content { padding: 20px; background-color: #f9fafb; }
+            .footer { padding: 20px; text-align: center; font-size: 0.8em; color: #6b7280; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Thank You for Your Interest!</h1>
+            </div>
+            <div class="content">
+              <p>Dear ${name},</p>
+              <p>Thank you for your interest in our <strong>${product}</strong> solution. We've received your inquiry and will get back to you soon.</p>
+              <p><strong>Product:</strong> ${product}</p>
+              ${institutionName ? `<p><strong>Institution:</strong> ${institutionName}</p>` : ''}
+              ${institutionType ? `<p><strong>Institution Type:</strong> ${institutionType}</p>` : ''}
+              ${message ? `<p><strong>Your message:</strong> ${message}</p>` : ''}
+              <p>If you have any questions in the meantime, please don't hesitate to reach out to us at contact@alphabits.team.</p>
+              <p>Best regards,<br>The Alpha Bits Team</p>
+            </div>
+            <div class="footer">
+              <p>&copy; 2024 Alpha Bits. All rights reserved.</p>
+            </div>
+          </div>
+        </body>
+      </html>
     `;
-    
-    console.log("Email content that would be sent:");
-    console.log(emailContent);
+
+    // Send email
+    await client.send({
+      from: senderEmail,
+      to: to,
+      cc: ccEmail,
+      replyTo: "contact@alphabits.team",
+      subject: emailSubject,
+      html: emailHtml,
+    });
+
+    // Close the connection
+    await client.close();
     
     // Return a success response
     const emailResponse = {
       to,
-      subject: `Thank you for your interest in ${product}`,
-      status: "simulated",
-      message: "Email sending simulated (not actually sent)"
+      subject: emailSubject,
+      status: "sent",
+      message: "Email sent successfully"
     };
 
     return new Response(JSON.stringify(emailResponse), {
