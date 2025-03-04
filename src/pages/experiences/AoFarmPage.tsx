@@ -1,29 +1,18 @@
-
 import { useEffect } from 'react';
-import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
+import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
-import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/lib/animations';
+import { ChevronRight } from 'lucide-react';
 
 const AoFarmPage = () => {
-  useScrollAnimation();
-  
   useEffect(() => {
     document.title = "AO Farm | Alpha Bits";
   }, []);
-  
+
   return (
     <div className="min-h-screen">
-      <Navbar1
-        logo={{
-          url: "/",
-          src: "/images/AB_Logo_icon.png",
-          alt: "Alpha Bits Logo",
-          title: "Alpha Bits",
-        }}
-      />
+      <Navigation />
       
       <div className="pt-24">
         {/* AO Farm Section */}

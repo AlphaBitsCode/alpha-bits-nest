@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
+import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -16,14 +16,7 @@ const ExperiencesIndex = () => {
   
   return (
     <div className="min-h-screen">
-      <Navbar1
-        logo={{
-          url: "/",
-          src: "/images/AB_Logo_icon.png",
-          alt: "Alpha Bits Logo",
-          title: "Alpha Bits",
-        }}
-      />
+      <Navigation />
       
       <div className="pt-24">
         {/* Hero Section */}

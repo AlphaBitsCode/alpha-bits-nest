@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
+import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { toast } from 'sonner';
@@ -41,13 +41,19 @@ const EventsPage = () => {
     document.title = "Events & Meet-ups | Alpha Bits";
     
     // In a real application, we would fetch the actual remaining seats from the database
-    // This is just a placeholder for demonstration
     const fetchRemainingSeats = async () => {
       try {
-        // Simulate API call delay
-        setTimeout(() => {
-          setRemainingSeats(20);
-        }, 500);
+        // Fetch the count of existing bookings for this event
+        const { count, error } = await supabase
+          .from('event_bookings')
+          .select('*', { count: 'exact', head: true })
+          .eq('event_id', 'ai-meetup-12-apr-2025');
+        
+        if (error) throw error;
+        
+        // Calculate remaining seats
+        const bookedSeats = count || 0;
+        setRemainingSeats(Math.max(0, 20 - bookedSeats));
       } catch (error) {
         console.error('Error fetching remaining seats:', error);
       }
@@ -71,7 +77,14 @@ const EventsPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Insert the booking into Supabase (assuming we have an 'event_bookings' table)
+      // First check if there are seats available
+      if (remainingSeats <= 0) {
+        toast.error('Sorry, this event is now full.');
+        setIsSubmitting(false);
+        return;
+      }
+      
+      // Insert the booking into Supabase
       const { error } = await supabase.from('event_bookings').insert({
         event_id: 'ai-meetup-12-apr-2025', // A fixed ID for this specific event
         name: data.name,
@@ -83,11 +96,29 @@ const EventsPage = () => {
       
       if (error) throw error;
       
+      // Send confirmation email via the edge function
+      const eventDetails = {
+        name: data.name,
+        email: data.email,
+        eventTitle: "Let's talk about AI",
+        eventDate: "Friday, April 12, 2025",
+        eventTime: "4:30 PM - 6:30 PM (GMT+7)",
+        eventLocation: "Alpha Bits HQ, Ho Chi Minh City"
+      };
+      
+      const emailResponse = await supabase.functions.invoke('send-event-confirmation', {
+        body: eventDetails
+      });
+      
+      if (emailResponse.error) {
+        console.warn('Email confirmation could not be sent:', emailResponse.error);
+      }
+      
       toast.success('Your booking has been confirmed!', {
         description: 'We will send you an email with all the details.',
       });
       
-      // Update remaining seats (in a real app, this would be handled by the backend)
+      // Update remaining seats
       setRemainingSeats(prev => Math.max(0, prev - 1));
       
       // Reset the form
@@ -104,14 +135,7 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar1
-        logo={{
-          url: "/",
-          src: "/images/AB_Logo_icon.png",
-          alt: "Alpha Bits Logo",
-          title: "Alpha Bits",
-        }}
-      />
+      <Navigation />
       
       <div className="pt-24 pb-20">
         {/* Hero Section */}
