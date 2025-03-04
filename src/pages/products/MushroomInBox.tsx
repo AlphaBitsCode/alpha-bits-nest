@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Calendar, Clock, Store, Info, Leaf, Users, Camera, Thermometer, Monitor, Lightbulb, Battery, Smartphone } from 'lucide-react';
@@ -8,9 +7,13 @@ import { useScrollAnimation } from '@/lib/animations';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
+import { useToast } from "@/components/ui/use-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
 
 const MushroomInBox = () => {
   useScrollAnimation();
+  const { toast } = useToast();
   
   useEffect(() => {
     document.title = "Mushroom-in-a-Box | Alpha Bits";
@@ -21,27 +24,98 @@ const MushroomInBox = () => {
     email: '',
     quantity: 1,
     address: '',
+    country: '',
     message: ''
   });
+  
+  const [submitting, setSubmitting] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Mushroom form submitted:', form);
-    alert('Thank you for your pre-order! We will contact you soon.');
-    setForm({
-      name: '',
-      email: '',
-      quantity: 1,
-      address: '',
-      message: ''
-    });
+    
+    if (!form.country) {
+      toast({
+        title: "Country required",
+        description: "Please select a country for shipping",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setSubmitting(true);
+    
+    try {
+      // Send data to Supabase
+      const { error } = await supabase.from('preorders').insert([
+        {
+          name: form.name,
+          email: form.email,
+          quantity: form.quantity,
+          address: form.address,
+          country: form.country,
+          message: form.message
+        }
+      ]);
+      
+      if (error) throw error;
+      
+      // Show success toast
+      toast({
+        title: "Pre-order submitted!",
+        description: "Thank you for your interest in Mushroom-in-a-Box. We will contact you soon.",
+        duration: 5000
+      });
+      
+      // Reset form
+      setForm({
+        name: '',
+        email: '',
+        quantity: 1,
+        address: '',
+        country: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Error submitting pre-order:', error);
+      toast({
+        title: "Submission error",
+        description: "There was a problem submitting your pre-order. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  const countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", 
+    "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", 
+    "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", 
+    "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", 
+    "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", 
+    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", 
+    "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", 
+    "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", 
+    "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
+    "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", 
+    "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", 
+    "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", 
+    "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", 
+    "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", 
+    "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", 
+    "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", 
+    "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", 
+    "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", 
+    "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", 
+    "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", 
+    "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+  ];
 
   const features = [
     {
@@ -125,7 +199,6 @@ const MushroomInBox = () => {
             </Link>
           </div>
           
-          {/* Hero Section */}
           <div className="grid md:grid-cols-2 gap-12 items-center scrolled-section mb-20">
             <div>
               <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-teal/10 text-brand-teal rounded-full mb-3">
@@ -203,6 +276,25 @@ const MushroomInBox = () => {
                             />
                           </div>
                           <div>
+                            <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                            <Select
+                              value={form.country}
+                              onValueChange={(value) => setForm(prev => ({ ...prev, country: value }))}
+                              required
+                            >
+                              <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Select a country" />
+                              </SelectTrigger>
+                              <SelectContent className="max-h-80">
+                                {countries.map(country => (
+                                  <SelectItem key={country} value={country}>
+                                    {country}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
                             <textarea
                               id="message"
@@ -216,9 +308,10 @@ const MushroomInBox = () => {
                           <div className="text-center mt-4">
                             <button
                               type="submit"
-                              className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
+                              disabled={submitting}
+                              className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                              Submit Pre-order
+                              {submitting ? "Processing..." : "Submit Pre-order"}
                             </button>
                           </div>
                         </div>
@@ -245,7 +338,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Why Mushroom Box Section */}
           <div className="mb-20 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Why Mushroom Box?</h2>
@@ -270,7 +362,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Who Is It For Section */}
           <div className="mb-20 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Who Is It For?</h2>
@@ -290,7 +381,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Key Features Section */}
           <div className="mb-20 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Key Features</h2>
@@ -309,7 +399,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Companion Mobile App Section */}
           <div className="mb-20 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Companion Mobile App</h2>
@@ -344,7 +433,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Timeline & Pricing Section */}
           <div className="mb-20 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Timeline & Pricing</h2>
@@ -387,7 +475,6 @@ const MushroomInBox = () => {
                         </Button>
                       </SheetTrigger>
                       <SheetContent side="right" className="w-full sm:max-w-md overflow-y-auto">
-                        {/* Pre-order form content (same as above) */}
                         <div className="p-4">
                           <h2 className="text-2xl font-bold text-brand-navy mb-6">Pre-order Now</h2>
                           <form onSubmit={handleSubmit} className="space-y-4">
@@ -442,6 +529,25 @@ const MushroomInBox = () => {
                                 />
                               </div>
                               <div>
+                                <label htmlFor="country-drawer" className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                <Select
+                                  value={form.country}
+                                  onValueChange={(value) => setForm(prev => ({ ...prev, country: value }))}
+                                  required
+                                >
+                                  <SelectTrigger id="country-drawer" className="w-full">
+                                    <SelectValue placeholder="Select a country" />
+                                  </SelectTrigger>
+                                  <SelectContent className="max-h-80">
+                                    {countries.map(country => (
+                                      <SelectItem key={`drawer-${country}`} value={country}>
+                                        {country}
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                              <div>
                                 <label htmlFor="message-drawer" className="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
                                 <textarea
                                   id="message-drawer"
@@ -455,9 +561,10 @@ const MushroomInBox = () => {
                               <div className="text-center mt-4">
                                 <button
                                   type="submit"
-                                  className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
+                                  disabled={submitting}
+                                  className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                  Submit Pre-order
+                                  {submitting ? "Processing..." : "Submit Pre-order"}
                                 </button>
                               </div>
                             </div>
@@ -471,7 +578,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Partnerships Section */}
           <div className="mb-12 scrolled-section">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-brand-navy mb-4">Partnerships</h2>
@@ -491,7 +597,6 @@ const MushroomInBox = () => {
             </div>
           </div>
           
-          {/* Fixed Pre-order Button */}
           <div className="fixed bottom-8 right-8 z-20 md:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -554,6 +659,25 @@ const MushroomInBox = () => {
                         />
                       </div>
                       <div>
+                        <label htmlFor="country-mobile" className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                        <Select
+                          value={form.country}
+                          onValueChange={(value) => setForm(prev => ({ ...prev, country: value }))}
+                          required
+                        >
+                          <SelectTrigger id="country-mobile" className="w-full">
+                            <SelectValue placeholder="Select a country" />
+                          </SelectTrigger>
+                          <SelectContent className="max-h-80">
+                            {countries.map(country => (
+                              <SelectItem key={`mobile-${country}`} value={country}>
+                                {country}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
                         <label htmlFor="message-mobile" className="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
                         <textarea
                           id="message-mobile"
@@ -567,9 +691,10 @@ const MushroomInBox = () => {
                       <div className="text-center mt-4">
                         <button
                           type="submit"
-                          className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
+                          disabled={submitting}
+                          className="w-full px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                         >
-                          Submit Pre-order
+                          {submitting ? "Processing..." : "Submit Pre-order"}
                         </button>
                       </div>
                     </div>

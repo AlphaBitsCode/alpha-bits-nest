@@ -18,7 +18,7 @@ const Footer = () => {
               />
               <span className="ml-3 text-xl font-bold">Alpha Bits</span>
             </div>
-            <p className="text-white/70 leading-relaxed">
+            <p className="text-white/70 leading-relaxed text-sm">
               Innovative technology solutions for modern businesses. Specializing in AIoT product development and digital transformation.
             </p>
             
@@ -77,6 +77,16 @@ const Footer = () => {
               <li>
                 <Link to="/services/aiot-product-development" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   AIoT Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/software-development" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Software Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/cto-as-a-service" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  CTO-as-a-Service
                 </Link>
               </li>
               <li>

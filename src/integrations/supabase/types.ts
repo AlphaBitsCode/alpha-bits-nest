@@ -51,6 +51,42 @@ export type Database = {
         }
         Relationships: []
       }
+      preorders: {
+        Row: {
+          address: string
+          country: string
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          quantity: number
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          country: string
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          quantity?: number
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          country?: string
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          quantity?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

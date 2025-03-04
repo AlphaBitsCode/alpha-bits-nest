@@ -1,8 +1,7 @@
-
 import { useEffect, useRef } from 'react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
-import { MapPin, Phone, Mail, Calendar, Clock, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail, Calendar, Clock } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { WorldMap } from '@/components/ui/world-map';
@@ -150,30 +149,7 @@ const ContactPage = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 scrolled-section">
-              {/* Telegram QR Code */}
-              <div>
-                <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-                  <h3 className="text-xl font-bold text-brand-navy mb-6">Connect via Telegram</h3>
-                  
-                  <div className="flex flex-col items-center justify-center space-y-6">
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-                      {/* QR code image */}
-                      <img 
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://t.me/alpha_bits_bot" 
-                        alt="Telegram QR Code for @alpha_bits_bot" 
-                        className="w-64 h-64"
-                      />
-                    </div>
-                    
-                    <div className="text-center">
-                      <p className="text-lg font-medium text-brand-navy mb-2">Scan to Chat</p>
-                      <p className="text-gray-600">Telegram <span className="font-medium text-brand-teal">@alpha_bits_bot</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
+            <div className="grid md:grid-cols-1 gap-12 scrolled-section max-w-2xl mx-auto">
               {/* Contact Information */}
               <div className="flex flex-col h-full">
                 <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-6">
