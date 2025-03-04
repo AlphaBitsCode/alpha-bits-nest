@@ -237,7 +237,7 @@ const SoftwareDevelopment = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-brand-navy to-brand-blue rounded-lg opacity-20 blur-lg"></div>
                 <div className="relative rounded-xl overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"
+                    src="/images/office/profile.jpg"
                     alt="Kent Nguyen" 
                     className="w-full h-auto"
                   />
