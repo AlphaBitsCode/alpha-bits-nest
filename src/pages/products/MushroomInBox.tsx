@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Calendar, Clock, Store, Info, Leaf, Users, Camera, Thermometer, Monitor, Lightbulb, Battery, Smartphone } from 'lucide-react';
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from 'sonner';
 
 const MushroomInBox = () => {
   useScrollAnimation();
@@ -63,6 +65,22 @@ const MushroomInBox = () => {
       ]);
       
       if (error) throw error;
+
+      // Send confirmation email via edge function
+      const { error: emailError } = await supabase.functions.invoke('send-mushroom-preorder-confirmation', {
+        body: {
+          to: form.email,
+          name: form.name,
+          quantity: form.quantity,
+          address: form.address,
+          country: form.country,
+          message: form.message
+        }
+      });
+
+      if (emailError) {
+        console.error('Error sending confirmation email:', emailError);
+      }
       
       // Show success toast
       toast({
