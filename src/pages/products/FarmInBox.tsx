@@ -1,12 +1,13 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { LeadForm } from '@/components/ui/lead-form';
 import { Toaster } from '@/components/ui/sonner';
+import { Button } from '@/components/ui/button';
 
 const FarmInBox = () => {
   useScrollAnimation();
@@ -27,7 +28,47 @@ const FarmInBox = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <Toaster />
-      <section className="py-12 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+
+      {/* Hero Section with Video Background */}
+      <section className="relative w-full h-[80vh] overflow-hidden">
+        <div className="absolute inset-0 bg-brand-navy/40 z-10"></div>
+        <video 
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/images/farminbox/farminbox_timelapse1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        <div className="container mx-auto px-4 h-full flex items-center relative z-20">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Farm In Box
+            </h1>
+            <p className="text-xl text-white/85 mb-8">
+              Watch the fascinating journey of growth and sustainability with our educational farming kit. 
+              Perfect for classrooms, bringing hands-on learning to life.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90">
+                <Link to="#info" className="flex items-center">
+                  Learn More <ChevronRight size={16} className="ml-1" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20">
+                <Link to="#demo" className="flex items-center">
+                  Watch Live Demo <ExternalLink size={16} className="ml-1" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="info" className="py-12 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -79,6 +120,43 @@ const FarmInBox = () => {
                       className="w-full h-96 object-cover object-center"
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Live Demo Section */}
+          <div id="demo" className="mt-16 scrolled-section">
+            <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Live Public Demo</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <img 
+                    src="/images/farminbox/farminbox_screenshot2.png" 
+                    alt="Farm in Box Dashboard Screenshot" 
+                    className="w-full rounded-lg shadow-md"
+                  />
+                </div>
+                
+                <div>
+                  <p className="text-gray-600 mb-6">
+                    Experience our Farm In Box in action! We're running a live experiment growing mushrooms, and you can monitor it in real-time. 
+                    Our dashboard provides up-to-date timelapse footage, environmental readings, and growth data.
+                  </p>
+                  
+                  <p className="text-gray-600 mb-8">
+                    This is the exact same monitoring system that comes with every Farm In Box kit, allowing students and educators to track and analyze their growing projects.
+                  </p>
+                  
+                  <a 
+                    href="https://farminbox.alphabits.team/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center px-6 py-3 bg-brand-navy hover:bg-brand-navy/90 text-white font-medium rounded-lg transition-all duration-300"
+                  >
+                    Visit Live Dashboard <ExternalLink size={16} className="ml-2" />
+                  </a>
                 </div>
               </div>
             </div>
