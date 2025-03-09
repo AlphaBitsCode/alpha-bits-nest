@@ -58,10 +58,18 @@ const FarmInBox = () => {
                   Learn More <ChevronRight size={16} className="ml-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20">
-                <Link to="#demo" className="flex items-center">
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const demoSection = document.querySelector('#demo');
+                  if (demoSection) {
+                    demoSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                <span className="flex items-center">
                   Watch Live Demo <ExternalLink size={16} className="ml-1" />
-                </Link>
+                </span>
               </Button>
             </div>
           </div>
