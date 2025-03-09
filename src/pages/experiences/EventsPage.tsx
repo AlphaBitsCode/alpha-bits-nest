@@ -47,7 +47,7 @@ const EventsPage = () => {
         const { count, error } = await supabase
           .from('event_bookings')
           .select('*', { count: 'exact', head: true })
-          .eq('event_id', 'ai-meetup-12-apr-2025');
+          .eq('event_id', 'ai-meetup-19-mar-2025');
         
         if (error) throw error;
         
@@ -86,7 +86,7 @@ const EventsPage = () => {
       
       // Insert the booking into Supabase
       const { error } = await supabase.from('event_bookings').insert({
-        event_id: 'ai-meetup-12-apr-2025', // A fixed ID for this specific event
+        event_id: 'ai-meetup-19-mar-2025', // Updated event ID
         name: data.name,
         email: data.email,
         company: data.company || '',
@@ -101,7 +101,7 @@ const EventsPage = () => {
         name: data.name,
         email: data.email,
         eventTitle: "Let's talk about AI",
-        eventDate: "Friday, April 12, 2025",
+        eventDate: "Wednesday, March 19, 2025", // Updated date
         eventTime: "4:30 PM - 6:30 PM (GMT+7)",
         eventLocation: "Alpha Bits HQ, Ho Chi Minh City"
       };
@@ -186,7 +186,7 @@ const EventsPage = () => {
                         <Calendar className="h-5 w-5 text-brand-blue mr-3 mt-0.5" />
                         <div>
                           <p className="font-medium text-gray-900">Date</p>
-                          <p className="text-gray-600">Friday, April 12, 2025</p>
+                          <p className="text-gray-600">Wednesday, March 19, 2025</p>
                         </div>
                       </div>
                       <div className="flex items-start">
