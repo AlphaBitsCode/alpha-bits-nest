@@ -52,7 +52,7 @@ const About = () => {
                 At Alpha Bits, we envision a world where technology enhances human potential while respecting our planet's resources. Our mission is to develop innovative, sustainable solutions that bridge the gap between cutting-edge technology and everyday accessibility.
               </p>
               <p className="text-gray-700 mb-6">
-                Founded in 2020, we've quickly established ourselves as pioneers in AIoT product development and sustainable agricultural technology, with a focus on creating products that are both innovative and environmentally responsible.
+                Founded in 2023, we've quickly established ourselves as pioneers in AIoT product development and sustainable agricultural technology, with a focus on creating products that are both innovative and environmentally responsible.
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <div className="flex items-center gap-2 bg-brand-teal/10 text-brand-navy px-4 py-2 rounded-full text-sm font-medium">
