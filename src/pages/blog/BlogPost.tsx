@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Printer } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { BlogContent } from '@/components/ui/blog/blog-content';
@@ -69,19 +69,35 @@ export default function BlogPost() {
     navigate('/blog');
   };
   
+  const handlePrint = () => {
+    window.print();
+  };
+  
   return (
     <>
       <Navigation />
       
-      <main className="min-h-screen py-8">
+      <main className="min-h-screen py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <button
-            onClick={goBack}
-            className="flex items-center text-brand-navy hover:text-brand-teal mb-8 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to all posts
-          </button>
+          <div className="flex justify-between items-center mb-8">
+            <button
+              onClick={goBack}
+              className="flex items-center text-brand-navy hover:text-brand-teal transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to all posts
+            </button>
+            
+            {!loading && !error && post && (
+              <button
+                onClick={handlePrint}
+                className="flex items-center text-brand-navy hover:text-brand-teal transition-colors print:hidden"
+              >
+                <Printer className="h-4 w-4 mr-2" />
+                Print article
+              </button>
+            )}
+          </div>
           
           {loading ? (
             <div className="flex justify-center items-center py-20">
@@ -104,8 +120,8 @@ export default function BlogPost() {
                 <BlogContent post={post} />
               </div>
               
-              {/* Sidebar */}
-              <div className="lg:col-span-1">
+              {/* Sidebar - hidden when printing */}
+              <div className="lg:col-span-1 print:hidden">
                 <BlogSidebar posts={[...relatedPosts, post]} />
               </div>
             </div>
@@ -114,6 +130,27 @@ export default function BlogPost() {
       </main>
       
       <Footer />
+      
+      {/* Print styles */}
+      <style jsx global>{`
+        @media print {
+          nav, footer, .print:hidden {
+            display: none !important;
+          }
+          main {
+            padding: 0 !important;
+            background: white !important;
+          }
+          article {
+            box-shadow: none !important;
+            max-width: 100% !important;
+          }
+          .container {
+            max-width: 100% !important;
+            padding: 0 !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

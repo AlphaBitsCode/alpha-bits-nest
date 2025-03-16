@@ -1,9 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -166,4 +165,42 @@ img.loading {
 
 img.loaded {
   @apply opacity-100;
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  blockquote, table, pre {
+    page-break-inside: avoid;
+  }
+  
+  ul, ol, dl {
+    page-break-before: avoid;
+  }
+
+  article {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
