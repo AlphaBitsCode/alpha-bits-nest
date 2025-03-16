@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -25,6 +25,8 @@ const Navigation = () => {
       document.title = 'Contact | Alpha Bits';
     } else if (path.startsWith('/experiences')) {
       document.title = 'Experiences | Alpha Bits';
+    } else if (path.startsWith('/blog')) {
+      document.title = 'Blog | Alpha Bits';
     }
   }, [location]);
 
@@ -120,6 +122,7 @@ const Navigation = () => {
           },
         ],
       },
+      { title: "Blog", url: "/blog", icon: <FileText className="size-5 shrink-0" /> },
       { title: "About", url: "/about", icon: <Info className="size-5 shrink-0" /> },
       { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
       { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },

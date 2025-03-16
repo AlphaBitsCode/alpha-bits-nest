@@ -9,6 +9,117 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      assistant_skills: {
+        Row: {
+          assistant_id: string
+          created_at: string
+          id: string
+          skill_id: string
+        }
+        Insert: {
+          assistant_id: string
+          created_at?: string
+          id?: string
+          skill_id: string
+        }
+        Update: {
+          assistant_id?: string
+          created_at?: string
+          id?: string
+          skill_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assistant_skills_assistant_id_fkey"
+            columns: ["assistant_id"]
+            isOneToOne: false
+            referencedRelation: "assistants"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "assistant_skills_skill_id_fkey"
+            columns: ["skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      assistants: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          id: string
+          introduction: string
+          is_public: boolean
+          name: string
+          persona: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          id?: string
+          introduction: string
+          is_public?: boolean
+          name: string
+          persona: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          id?: string
+          introduction?: string
+          is_public?: boolean
+          name?: string
+          persona?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      blog_posts: {
+        Row: {
+          author: string
+          content: string
+          created_at: string
+          excerpt: string
+          featured_image: string | null
+          id: string
+          published_at: string
+          slug: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author?: string
+          content: string
+          created_at?: string
+          excerpt: string
+          featured_image?: string | null
+          id?: string
+          published_at: string
+          slug: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author?: string
+          content?: string
+          created_at?: string
+          excerpt?: string
+          featured_image?: string | null
+          id?: string
+          published_at?: string
+          slug?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       event_bookings: {
         Row: {
           company: string | null
@@ -87,6 +198,39 @@ export type Database = {
         }
         Relationships: []
       }
+      members: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       preorders: {
         Row: {
           address: string
@@ -120,6 +264,105 @@ export type Database = {
           name?: string
           quantity?: number
           updated_at?: string
+        }
+        Relationships: []
+      }
+      project_members: {
+        Row: {
+          created_at: string | null
+          id: string
+          member_id: string
+          project_id: string
+          role: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          member_id: string
+          project_id: string
+          role?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          member_id?: string
+          project_id?: string
+          role?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_members_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "members"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_members_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      projects: {
+        Row: {
+          client: string
+          created_at: string | null
+          deadline: string | null
+          description: string | null
+          google_sheet_id: string | null
+          google_sheet_range: string | null
+          id: string
+          name: string
+          progress: number | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          client: string
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          google_sheet_id?: string | null
+          google_sheet_range?: string | null
+          id?: string
+          name: string
+          progress?: number | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          client?: string
+          created_at?: string | null
+          deadline?: string | null
+          description?: string | null
+          google_sheet_id?: string | null
+          google_sheet_range?: string | null
+          id?: string
+          name?: string
+          progress?: number | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      skills: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
         }
         Relationships: []
       }

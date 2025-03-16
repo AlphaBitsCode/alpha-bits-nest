@@ -31,6 +31,10 @@ import ExperiencesIndex from "./pages/experiences/ExperiencesIndex";
 import AoFarmPage from "./pages/experiences/AoFarmPage";
 import EventsPage from "./pages/experiences/EventsPage";
 
+// Import blog pages
+import BlogIndex from "./pages/blog/BlogIndex";
+import BlogPost from "./pages/blog/BlogPost";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -70,6 +74,10 @@ function App() {
             <Route path="/experience" element={<Navigate to="/experiences" replace />} />
             <Route path="/experiences/ao-farm" element={<AoFarmPage />} />
             <Route path="/experiences/events" element={<EventsPage />} />
+            
+            {/* Blog routes */}
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             
             {/* Other main routes with alternative paths */}
             <Route path="/about" element={<About />} />
