@@ -7,6 +7,7 @@ import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { MasonryLayout, BlogPost } from '@/components/ui/blog/masonry-layout';
 import { BlogSidebar } from '@/components/ui/blog/blog-sidebar';
+import { calculateReadingTime } from '@/utils/calculateReadingTime';
 
 export default function BlogIndex() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,6 +17,7 @@ export default function BlogIndex() {
   
   const tagFilter = searchParams.get('tag');
   const yearFilter = searchParams.get('year');
+  const readingTimeFilter = searchParams.get('readingTime');
   
   useEffect(() => {
     async function fetchPosts() {
@@ -48,7 +50,27 @@ export default function BlogIndex() {
           throw error;
         }
         
-        setPosts(data as BlogPost[]);
+        let filteredPosts = data as BlogPost[];
+        
+        // Apply reading time filter if present
+        if (readingTimeFilter) {
+          filteredPosts = filteredPosts.filter(post => {
+            const readingTime = calculateReadingTime(post.content);
+            
+            switch (readingTimeFilter) {
+              case 'short':
+                return readingTime >= 1 && readingTime <= 3;
+              case 'medium':
+                return readingTime >= 4 && readingTime <= 10;
+              case 'long':
+                return readingTime > 10;
+              default:
+                return true;
+            }
+          });
+        }
+        
+        setPosts(filteredPosts);
       } catch (err) {
         console.error('Error fetching blog posts:', err);
         setError('Failed to load blog posts. Please try again later.');
@@ -58,10 +80,14 @@ export default function BlogIndex() {
     }
     
     fetchPosts();
-  }, [tagFilter, yearFilter]);
+  }, [tagFilter, yearFilter, readingTimeFilter]);
   
   const handleTagClick = (tag: string) => {
     setSearchParams({ tag });
+  };
+  
+  const handleReadingTimeClick = (readingTime: string) => {
+    setSearchParams({ readingTime });
   };
   
   const clearFilters = () => {
@@ -87,7 +113,7 @@ export default function BlogIndex() {
         <section className="py-16">
           <div className="container mx-auto px-4">
             {/* Active Filters */}
-            {(tagFilter || yearFilter) && (
+            {(tagFilter || yearFilter || readingTimeFilter) && (
               <div className="mb-8 p-4 bg-gray-50 rounded-lg flex items-center justify-between">
                 <div>
                   <span className="font-medium">Active filters:</span>
@@ -99,6 +125,11 @@ export default function BlogIndex() {
                   {yearFilter && (
                     <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full text-sm bg-brand-teal text-white">
                       Year: {yearFilter}
+                    </span>
+                  )}
+                  {readingTimeFilter && (
+                    <span className="ml-2 inline-flex items-center px-3 py-1 rounded-full text-sm bg-brand-teal text-white">
+                      Reading time: {readingTimeFilter === 'short' ? '1-3 min' : readingTimeFilter === 'medium' ? '4-10 min' : '10+ min'}
                     </span>
                   )}
                 </div>
@@ -142,7 +173,9 @@ export default function BlogIndex() {
                 <BlogSidebar 
                   posts={posts} 
                   activeTag={tagFilter || undefined} 
+                  activeReadingTime={readingTimeFilter || undefined}
                   onTagClick={handleTagClick} 
+                  onReadingTimeClick={handleReadingTimeClick}
                 />
               </div>
             </div>
