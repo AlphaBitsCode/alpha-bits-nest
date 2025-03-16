@@ -1,14 +1,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight, PhoneCall } from "lucide-react";
+import { MoveRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["solutions", "technology", "innovation", "transformation", "success"],
+    () => ["leadership", "expertise", "guidance", "strategy", "success"],
     []
   );
 
@@ -24,19 +24,19 @@ function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b from-brand-navy/95 to-brand-navy/80 text-white">
       <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
+        <div className="flex gap-8 py-20 lg:py-32 items-center justify-center flex-col">
           <div>
-            <Link to="/products">
+            <Link to="/services/cto-as-a-service">
               <Button variant="secondary" size="sm" className="gap-4">
-                Explore our solutions <MoveRight className="w-4 h-4" />
+                Fractional CTO Services <MoveRight className="w-4 h-4" />
               </Button>
             </Link>
           </div>
           <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-brand-teal">Delivering</span>
+            <h1 className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-center font-regular">
+              <span className="text-brand-teal">CTO-level</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -63,20 +63,20 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              Smart technology solutions that power business growth. 
-              From AIoT development to technical leadership for organizations ready to innovate.
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-white/80 max-w-2xl text-center">
+              Access senior CTO expertise without the full-time commitment.
+              Book your first complimentary consultation during our weekly open office hours.
             </p>
           </div>
-          <div className="flex flex-row gap-3">
-            <Link to="/contact">
-              <Button size="lg" className="gap-4" variant="outline">
-                Contact us <PhoneCall className="w-4 h-4" />
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <Link to="#cto-service">
+              <Button size="lg" className="gap-4" variant="default">
+                Book Trial Office Hour <Calendar className="w-4 h-4" />
               </Button>
             </Link>
-            <Link to="/services">
-              <Button size="lg" className="gap-4">
-                Our services <MoveRight className="w-4 h-4" />
+            <Link to="/services/cto-as-a-service">
+              <Button size="lg" className="gap-4" variant="outline">
+                Learn More <MoveRight className="w-4 h-4" />
               </Button>
             </Link>
           </div>

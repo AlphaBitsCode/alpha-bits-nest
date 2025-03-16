@@ -1,15 +1,15 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/ui/navigation';
 import { Hero } from '@/components/ui/animated-hero';
+import { CTOOfficeHours } from '@/components/ui/cto-office-hours';
 import { FeatureSteps } from '@/components/ui/feature-section';
 import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/components/ui/blog/masonry-layout';
 import { BlogCard } from '@/components/ui/blog/blog-card';
-import { AlertCircle, CheckCircle, ArrowRight, Home, Factory, Trees, Briefcase, Users, Package, BookOpen } from 'lucide-react';
+import { AlertCircle, CheckCircle, ArrowRight, Briefcase, Users, Package, BookOpen, Home, Factory, Trees } from 'lucide-react';
 
 const Index = () => {
   useParallax();
@@ -59,6 +59,12 @@ const Index = () => {
   
   const features = [
     { 
+      step: 'CTO Service',
+      title: 'Fractional CTO',
+      content: 'Access top-tier technical leadership on a part-time basis, ideal for startups and growing companies.', 
+      image: '/images/office/office_5.jpg' 
+    },
+    { 
       step: 'Products',
       title: 'AIoT Products',
       content: 'Smart, sustainable products for Agriculture and Education that solve real-world challenges.', 
@@ -69,35 +75,47 @@ const Index = () => {
       title: 'AIoT Product Development',
       content: 'AIoT development and strategic technical leadership to guide your digital transformation journey.',
       image: '/images/office/office_2.jpg'
-    },
-    { 
-      step: 'Experiences',
-      title: 'AO Farm Experience',
-      content: 'One-of-a-kind Digital Farm Labs allowing visits to learn and immerse in a new world of Precision Agriculture.',
-      image: '/images/office/office_aofarm1.jpg'
-    },
+    }
   ];
 
   const painPoints = [
     {
-      problem: "Outdated technology restricting growth",
-      solution: "Modern AIoT solutions that scale with your business"
+      problem: "Limited budget for a full-time CTO",
+      solution: "Fractional CTO services providing expertise when you need it"
     },
     {
-      problem: "Lack of expertise to implement digital transformation",
-      solution: "Expert CTO-level guidance without the full-time cost"
+      problem: "Unclear technology strategy and roadmap",
+      solution: "Strategic guidance from experienced technical leaders"
     },
     {
-      problem: "Inefficient agricultural processes wasting resources",
-      solution: "Smart farming solutions that optimize yield and reduce waste"
+      problem: "Technical debt slowing down development",
+      solution: "Expert assessment and prioritized remediation plans"
     },
     {
-      problem: "Complex product development cycles causing delays",
-      solution: "Streamlined development processes that bring products to market faster"
+      problem: "Difficulty hiring and managing technical talent",
+      solution: "Recruitment assistance and technical team leadership"
     }
   ];
   
   const highlightedItems = [
+    {
+      type: 'service',
+      title: 'CTO-as-a-Service',
+      description: 'Access top-tier technical leadership without the overhead.',
+      icon: <Users className="h-8 w-8 text-brand-blue" />,
+      image: '/images/office/office_5.jpg',
+      color: 'from-brand-blue/20 to-brand-navy/10',
+      url: '/services/cto-as-a-service'
+    },
+    {
+      type: 'service',
+      title: 'AIoT Product Development',
+      description: 'Smart, connected products that solve real-world problems.',
+      icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
+      image: '/images/office/office_2.jpg',
+      color: 'from-brand-teal/20 to-brand-navy/10',
+      url: '/services/aiot-product-development'
+    },
     {
       type: 'product',
       title: 'Digital Twin for Office & Home',
@@ -126,24 +144,6 @@ const Index = () => {
       url: '/products/farm-in-box'
     },
     {
-      type: 'service',
-      title: 'AIoT Product Development',
-      description: 'Smart, connected products that solve real-world problems.',
-      icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
-      image: '/images/office/office_2.jpg',
-      color: 'from-brand-teal/20 to-brand-navy/10',
-      url: '/services/aiot-product-development'
-    },
-    {
-      type: 'service',
-      title: 'CTO-as-a-Service',
-      description: 'Access top-tier technical leadership without the overhead.',
-      icon: <Users className="h-8 w-8 text-brand-blue" />,
-      image: '/images/office/office_5.jpg',
-      color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/services/cto-as-a-service'
-    },
-    {
       type: 'product',
       title: 'Mushroom-in-a-Box',
       description: 'A complete kit for growing gourmet mushrooms at home.',
@@ -159,13 +159,15 @@ const Index = () => {
       <Navigation />
       <Hero />
       
+      <CTOOfficeHours />
+      
       <section className="py-16 bg-brand-navy text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Challenges We Solve</h2>
+            <h2 className="text-3xl font-bold mb-4">Technical Challenges We Solve</h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Businesses face numerous obstacles in today's tech-driven world. 
-              See how we address your most pressing challenges.
+              See how our fractional CTO service addresses your most pressing challenges.
             </p>
           </div>
           
@@ -189,8 +191,8 @@ const Index = () => {
           </div>
           
           <div className="mt-10 text-center">
-            <Link to="/services" className="inline-block px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300">
-              See How We Can Help
+            <Link to="/services/cto-as-a-service" className="inline-block px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300">
+              Learn About Our CTO Services
             </Link>
           </div>
         </div>
@@ -199,7 +201,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <FeatureSteps 
           features={features}
-          title="What We Offer"
+          title="How We Help Businesses"
           autoPlayInterval={4000}
           imageHeight="h-[400px]"
         />
