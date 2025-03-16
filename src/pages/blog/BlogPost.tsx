@@ -131,10 +131,11 @@ export default function BlogPost() {
       
       <Footer />
       
-      {/* Print styles */}
-      <style jsx global>{`
+      {/* Print styles - Fixed the style tag to remove jsx and global props */}
+      <style>
+        {`
         @media print {
-          nav, footer, .print:hidden {
+          nav, footer, .print-hidden {
             display: none !important;
           }
           main {
@@ -150,7 +151,8 @@ export default function BlogPost() {
             padding: 0 !important;
           }
         }
-      `}</style>
+        `}
+      </style>
     </>
   );
 }
