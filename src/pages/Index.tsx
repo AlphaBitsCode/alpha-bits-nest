@@ -103,7 +103,7 @@ const Index = () => {
   
   const highlightedItems = [
     {
-      type: 'service',
+      type: 'service' as const,
       title: 'CTO-as-a-Service',
       description: 'Access top-tier technical leadership without the overhead.',
       icon: <Users className="h-8 w-8 text-brand-blue" />,
@@ -112,7 +112,7 @@ const Index = () => {
       url: '/services/cto-as-a-service'
     },
     {
-      type: 'service',
+      type: 'service' as const,
       title: 'AIoT Product Development',
       description: 'Smart, connected products that solve real-world problems.',
       icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
@@ -121,7 +121,7 @@ const Index = () => {
       url: '/services/aiot-product-development'
     },
     {
-      type: 'product',
+      type: 'product' as const,
       title: 'Digital Twin for Office & Home',
       description: 'Smart monitoring and optimization system for residential and office spaces.',
       icon: <Home className="h-8 w-8 text-brand-teal" />,
@@ -130,7 +130,7 @@ const Index = () => {
       url: '/products/office-home'
     },
     {
-      type: 'product',
+      type: 'product' as const,
       title: 'Digital Twin for Factory',
       description: 'End-to-end manufacturing process simulation and optimization.',
       icon: <Factory className="h-8 w-8 text-brand-blue" />,
@@ -139,7 +139,7 @@ const Index = () => {
       url: '/products/factory'
     },
     {
-      type: 'product',
+      type: 'product' as const,
       title: 'Farm In Box',
       description: 'Educational package for schools to teach sustainable farming practices.',
       icon: <BookOpen className="h-8 w-8 text-brand-green" />,
@@ -148,7 +148,7 @@ const Index = () => {
       url: '/products/farm-in-box'
     },
     {
-      type: 'product',
+      type: 'product' as const,
       title: 'Mushroom-in-a-Box',
       description: 'A complete kit for growing gourmet mushrooms at home.',
       icon: <Package className="h-8 w-8 text-brand-green" />,
