@@ -189,6 +189,27 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </div>
+
+                <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-xl font-bold text-brand-navy">Chat with AI Representative</h3>
+                    <img src="/images/AB_Logo_icon.png" alt="Alpha Bits AI" className="h-6 w-6" />
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6">
+                    Get instant assistance 24/7 by scanning the QR code below to chat with our AI representative on WhatsApp.
+                  </p>
+
+                  <div className="flex justify-center">
+                    <div className="bg-white p-4 rounded-xl border-2 border-brand-teal/20 shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <img
+                        src="/images/qr_whatsapp_ai.png"
+                        alt="WhatsApp QR Code"
+                        className="w-48 h-48 object-contain"
+                      />
+                    </div>
+                  </div>
+                </div>
                 
                 <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
                   <div className="flex items-center justify-between mb-6">
