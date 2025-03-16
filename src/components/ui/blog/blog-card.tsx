@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { format } from 'date-fns';
-import { CalendarIcon, User, ArrowRight } from 'lucide-react';
+import { CalendarIcon, User, ArrowRight, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { BlogPost } from './masonry-layout';
+import { calculateReadingTime } from '@/utils/calculateReadingTime';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -12,6 +13,7 @@ interface BlogCardProps {
 
 export function BlogCard({ post, featured = false }: BlogCardProps) {
   const navigate = useNavigate();
+  const readingTime = calculateReadingTime(post.content);
   
   const handleClick = () => {
     navigate(`/blog/${post.slug}`);
@@ -51,6 +53,11 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
           <div className="flex items-center">
             <User className="h-3 w-3 mr-1" />
             {post.author}
+          </div>
+          
+          <div className="flex items-center">
+            <Clock className="h-3 w-3 mr-1" />
+            {readingTime} min read
           </div>
         </div>
         

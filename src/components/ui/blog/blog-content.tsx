@@ -1,16 +1,19 @@
 
 import React from 'react';
 import { format } from 'date-fns';
-import { CalendarIcon, User, Tag } from 'lucide-react';
+import { CalendarIcon, User, Tag, Clock } from 'lucide-react';
 import { BlogPost } from './masonry-layout';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { calculateReadingTime } from '@/utils/calculateReadingTime';
 
 interface BlogContentProps {
   post: BlogPost;
 }
 
 export function BlogContent({ post }: BlogContentProps) {
+  const readingTime = calculateReadingTime(post.content);
+  
   return (
     <article className="max-w-4xl mx-auto bg-white shadow-md">
       {/* Paper-like container */}
@@ -42,6 +45,11 @@ export function BlogContent({ post }: BlogContentProps) {
               <div className="flex items-center">
                 <User className="h-4 w-4 mr-2" />
                 {post.author}
+              </div>
+              
+              <div className="flex items-center">
+                <Clock className="h-4 w-4 mr-2" />
+                {readingTime} min read
               </div>
               
               {post.tags && post.tags.length > 0 && (
