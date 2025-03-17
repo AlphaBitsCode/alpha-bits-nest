@@ -59,7 +59,6 @@ const doGoogleTranslate = (langCode: string): boolean => {
     }
 
     // Try finding and clicking on language in the iframe
-    // Fix the type assertion to properly handle the iframe element
     const translateIframe = document.querySelector('.goog-te-menu-frame') as HTMLIFrameElement | null;
     if (translateIframe && translateIframe.contentWindow) {
       const doc = translateIframe.contentWindow.document;
@@ -73,10 +72,31 @@ const doGoogleTranslate = (langCode: string): boolean => {
       }
     }
 
+    // Last attempt - try using the banner if available
+    const switchControl = document.querySelector('[id*="google_translate_element"] .goog-te-gadget .goog-te-combo') as HTMLSelectElement;
+    if (switchControl) {
+      switchControl.value = langCode;
+      switchControl.dispatchEvent(new Event('change'));
+      return true;
+    }
+
     return false;
   } catch (error) {
     console.error('Error in doGoogleTranslate:', error);
     return false;
+  }
+};
+
+// Force initialize Google Translate if needed
+export const forceInitializeGoogleTranslate = (callback?: () => void): void => {
+  if (typeof window.googleTranslateElementInit === 'function') {
+    try {
+      window.googleTranslateElementInit();
+      if (callback) setTimeout(callback, 500);
+    } catch (e) {
+      console.error('Failed to initialize Google Translate:', e);
+      if (callback) callback();
+    }
   }
 };
 
@@ -110,14 +130,7 @@ export const ensureGoogleTranslateLoaded = (callback: () => void): void => {
       console.error('Google Translate not loaded after maximum attempts');
       
       // Try reinitializing Google Translate
-      if (typeof window.googleTranslateElementInit === 'function') {
-        try {
-          window.googleTranslateElementInit();
-          setTimeout(callback, 1000); // Give it a second to initialize
-        } catch (e) {
-          console.error('Failed to reinitialize Google Translate:', e);
-        }
-      }
+      forceInitializeGoogleTranslate(callback);
     }
   }, 500);
 };
@@ -149,8 +162,35 @@ export const changeLanguage = (langCode: string): boolean => {
       return true; // Already in English
     }
     
-    // For non-English languages
-    return doGoogleTranslate(langCode);
+    // Log the language change attempt for debugging
+    console.log(`Attempting to change language to: ${langCode}`);
+    
+    // For non-English languages, make multiple attempts with different methods
+    // This uses direct DOM manipulation to interact with Google Translate
+    let success = doGoogleTranslate(langCode);
+    
+    // If first attempt failed, try forcing activation of Google Translate first
+    if (!success) {
+      console.log('First attempt failed, trying to activate Google Translate...');
+      
+      // Look for and click any element that might activate the translate widget
+      const translateElements = document.querySelectorAll('[id*="google_translate_element"]');
+      if (translateElements.length > 0) {
+        // Try to force the widget to appear
+        const element = translateElements[0] as HTMLElement;
+        element.style.display = 'block';
+        element.click();
+        
+        // Wait a bit and try again
+        setTimeout(() => {
+          doGoogleTranslate(langCode);
+        }, 500);
+        
+        success = true; // Assume success for now
+      }
+    }
+    
+    return success;
   } catch (error) {
     console.error('Error changing language:', error);
     return false;

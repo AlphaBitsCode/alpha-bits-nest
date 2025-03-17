@@ -15,7 +15,8 @@ import {
   getSelectedLanguage, 
   setSelectedLanguage, 
   changeLanguage,
-  ensureGoogleTranslateLoaded
+  ensureGoogleTranslateLoaded,
+  forceInitializeGoogleTranslate
 } from '@/lib/language-utils';
 
 export function LanguageSelector() {
@@ -28,44 +29,69 @@ export function LanguageSelector() {
     const savedLanguage = getSelectedLanguage();
     setSelectedLanguage(savedLanguage);
     
+    // Make sure Google Translate is properly initialized on component mount
+    forceInitializeGoogleTranslate();
+    
     // Apply saved language preference if not English
     if (savedLanguage !== 'en') {
-      ensureGoogleTranslateLoaded(() => {
-        handleLanguageChange(savedLanguage);
-      });
+      // Brief delay to ensure everything is loaded
+      setTimeout(() => {
+        ensureGoogleTranslateLoaded(() => {
+          handleLanguageChange(savedLanguage);
+        });
+      }, 1000);
     }
   }, []);
 
   const handleLanguageChange = (langCode: string) => {
     setIsTranslating(true);
+    console.log(`Language change requested: ${langCode}`);
     
+    // Make sure the Google Translate widget is loaded before proceeding
     ensureGoogleTranslateLoaded(() => {
-      // Try to change language
-      const success = changeLanguage(langCode);
+      // Try to change language with multiple attempts
+      let attempts = 0;
+      const maxAttempts = 3;
       
-      // Update state
-      setSelectedLanguage(langCode);
-      setIsTranslating(false);
-      
-      // Show feedback toast
-      if (success) {
-        const languageName = langCode === 'en' 
-          ? 'English' 
-          : languages.find(lang => lang.code === langCode)?.name || langCode;
+      const attemptChange = () => {
+        attempts++;
+        console.log(`Attempt ${attempts} to change language to ${langCode}`);
         
-        toast({
-          title: "Language Changed",
-          description: langCode === 'en'
-            ? "Returned to original English"
-            : `Page translated to ${languageName}`,
-        });
-      } else {
-        toast({
-          title: "Translation Failed",
-          description: "Could not change language. Please try again.",
-          variant: "destructive",
-        });
-      }
+        // Try to change language
+        const success = changeLanguage(langCode);
+        
+        if (success || attempts >= maxAttempts) {
+          // Update state
+          setSelectedLanguage(langCode);
+          setIsTranslating(false);
+          
+          // Show feedback toast
+          if (success) {
+            const languageName = langCode === 'en' 
+              ? 'English' 
+              : languages.find(lang => lang.code === langCode)?.name || langCode;
+            
+            toast({
+              title: "Language Changed",
+              description: langCode === 'en'
+                ? "Returned to original English"
+                : `Page translated to ${languageName}`,
+            });
+          } else {
+            toast({
+              title: "Translation Failed",
+              description: "Could not change language. Please try again.",
+              variant: "destructive",
+            });
+          }
+        } else {
+          // Try again after a short delay
+          setTimeout(attemptChange, 500);
+        }
+      };
+      
+      // Start the attempt process
+      attemptChange();
     });
   };
 
@@ -100,7 +126,7 @@ export function LanguageSelector() {
           
           {/* Asian languages - most relevant for your audience */}
           <div className="px-2 py-1.5 text-xs font-semibold">Asian Languages</div>
-          {languages.filter(lang => ['vi', 'th', 'ja', 'ko', 'tl', 'zh-TW', 'id', 'ms'].includes(lang.code)).map((lang) => (
+          {languages.filter(lang => ['vi', 'th', 'ja', 'ko', 'tl', 'zh-TW', 'zh-CN', 'id', 'ms'].includes(lang.code)).map((lang) => (
             <DropdownMenuItem
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
