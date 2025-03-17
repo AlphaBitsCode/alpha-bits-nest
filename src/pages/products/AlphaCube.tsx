@@ -52,7 +52,7 @@ const AlphaCube = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        repeatType: "reverse"
+        repeatType: "reverse"  // "reverse" is one of the allowed values: "loop" | "reverse" | "mirror"
       }
     }
   };
