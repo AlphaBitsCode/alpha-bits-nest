@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Code, Database, BarChart, GitBranch, Workflow, Brain, Zap, Clock, Bot, Blocks, LineChart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { LeadForm } from '@/components/ui/lead-form';
 import { Toaster } from '@/components/ui/sonner';
@@ -79,7 +79,7 @@ const SoftwareDevelopment = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
       <Toaster />
       
       {/* Hero Section */}

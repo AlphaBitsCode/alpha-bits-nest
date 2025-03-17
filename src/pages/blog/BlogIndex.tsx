@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Loader2 } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { MasonryLayout, BlogPost } from '@/components/ui/blog/masonry-layout';
 import { BlogSidebar } from '@/components/ui/blog/blog-sidebar';
@@ -96,7 +96,7 @@ export default function BlogIndex() {
   
   return (
     <>
-      <Navigation />
+      <Navbar1 />
       
       <main className="min-h-screen">
         {/* Hero Section */}

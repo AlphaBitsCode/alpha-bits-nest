@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import { Hero } from '@/components/ui/animated-hero';
 import { CTOOfficeHours } from '@/components/ui/cto-office-hours';
 import { CTOChallenges } from '@/components/ui/cto-challenges';
@@ -160,7 +160,7 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <Navbar1 />
       <Hero />
       
       <CTOOfficeHours />

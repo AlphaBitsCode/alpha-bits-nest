@@ -17,7 +17,7 @@ import {
   TrendingUp,
   MessageSquare
 } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { motion } from 'framer-motion';
@@ -146,7 +146,7 @@ const CtoAsAService = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
       
       {/* Hero Section */}
       <section className="py-16 flex-grow bg-gradient-to-b from-brand-navy to-brand-blue text-white relative overflow-hidden">

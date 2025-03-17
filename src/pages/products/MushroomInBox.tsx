@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Calendar, Clock, Store, Info, Leaf, Users, Camera, Thermometer, Monitor, Lightbulb, Battery, Smartphone } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -205,7 +205,7 @@ const MushroomInBox = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
       <section className="py-24 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         

@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap, Box } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 
@@ -76,7 +76,7 @@ const Products = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
       <section className="py-16 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         

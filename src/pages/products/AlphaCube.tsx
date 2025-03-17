@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { NotificationForm } from '@/components/ui/notification-form';
 import { Toaster } from '@/components/ui/sonner';
@@ -60,7 +60,7 @@ const AlphaCube = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
       <Toaster />
       
       <section className="flex-grow flex items-center justify-center bg-black relative overflow-hidden">

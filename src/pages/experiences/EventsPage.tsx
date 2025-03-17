@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { toast } from 'sonner';
@@ -135,7 +135,7 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <Navbar1 />
       
       <div className="pt-24 pb-20">
         {/* Hero Section */}

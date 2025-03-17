@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { ArrowLeft, Loader2, Printer } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { BlogContent } from '@/components/ui/blog/blog-content';
 import { BlogPost as BlogPostType } from '@/components/ui/blog/masonry-layout';
@@ -75,7 +75,7 @@ export default function BlogPost() {
   
   return (
     <>
-      <Navigation />
+      <Navbar1 />
       
       <main className="min-h-screen py-8 bg-gray-50">
         <div className="container mx-auto px-4">

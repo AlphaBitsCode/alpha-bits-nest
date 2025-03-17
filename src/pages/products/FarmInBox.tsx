@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock, ShoppingCart, Info } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
- import Footer from '@/components/ui/footer';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
+import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { Toaster } from '@/components/ui/sonner';
 import { Button } from '@/components/ui/button';
@@ -45,7 +45,7 @@ const FarmInBox = () => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
-      <Navigation />
+      <Navbar1 />
       <Toaster />
 
       {/* Hero Section with Video Background and Parallax Effect */}

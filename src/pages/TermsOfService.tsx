@@ -2,11 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar1 />
       <div className="flex-grow">
         <div className="container mx-auto px-6 py-12">
           <Link to="/" className="inline-flex items-center text-gray-600 mb-8 hover:text-brand-teal transition-colors">

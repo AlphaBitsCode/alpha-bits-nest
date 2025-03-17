@@ -1,7 +1,8 @@
 
 import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LanguageSelector } from "./language-selector";
+import { useEffect } from "react";
 
 import {
   Accordion,
@@ -197,6 +198,21 @@ const Navbar1 = ({
     signup: { text: "", url: "" },
   },
 }: Navbar1Props) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when the page loads
+    window.scrollTo(0, 0);
+
+    // Update document title based on current route
+    const currentPage = menu.find(item => item.url === location.pathname);
+    if (currentPage) {
+      document.title = `${currentPage.title} | Alpha Bits`;
+    } else {
+      document.title = "Alpha Bits";
+    }
+  }, [location, menu]);
+
   return (
     <section className="py-1">
       <div className="container">

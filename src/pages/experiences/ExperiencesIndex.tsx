@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,7 @@ const ExperiencesIndex = () => {
   
   return (
     <div className="min-h-screen">
-      <Navigation />
+      <Navbar1 />
       
       <div className="pt-24">
         {/* Hero Section */}

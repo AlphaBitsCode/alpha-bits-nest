@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Factory, ArrowLeft, ChevronRight } from 'lucide-react';
-import Navigation from '@/components/ui/navigation';
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/lib/animations';
@@ -16,7 +16,7 @@ const DigitalTwinFactory = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      <Navbar1 />
 
       <div className="flex-grow container mx-auto px-4 py-12">
         <div className="flex items-center mb-8">
