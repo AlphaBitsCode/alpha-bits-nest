@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope } from 'lucide-react';
+import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -15,9 +15,10 @@ const Products = () => {
   
   const productCategories = [
     {
-      id: 'digital-energy-twin',
-      title: 'Digital Energy Twin',
-      description: 'Advanced digital twin solutions to optimize energy consumption and performance across different environments.',
+      id: 'commercial-iot-solutions',
+      title: 'Commercial IoT Solutions',
+      description: 'Smart digital twin technologies designed for businesses and organizations to optimize operations and improve efficiency.',
+      icon: <Server size={40} className="text-brand-navy mb-4" />,
       products: [
         {
           id: 'office-home',
@@ -43,9 +44,10 @@ const Products = () => {
       ]
     },
     {
-      id: 'aiot-education',
-      title: 'AIoT Education Products',
-      description: 'Interactive and educational products that combine AI and IoT technologies to make learning fun and engaging.',
+      id: 'education-products',
+      title: 'Education Products',
+      description: 'Interactive and educational products that combine AI and IoT technologies to make learning fun and engaging for students of all ages.',
+      icon: <GraduationCap size={40} className="text-brand-green mb-4" />,
       products: [
         {
           id: 'mushroom-in-a-box',
@@ -86,16 +88,19 @@ const Products = () => {
           
           {productCategories.map((category, catIndex) => (
             <div key={category.id} className="mb-20 scrolled-section">
-              <div className="mb-10">
-                <h2 className="text-3xl font-bold text-brand-navy relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bg-brand-teal/50 after:left-0 after:bottom-0 after:rounded-full">
-                  {category.title}
-                </h2>
-                <p className="text-gray-600 mt-3 max-w-3xl">
-                  {category.description}
-                </p>
+              <div className="mb-10 flex items-center">
+                {category.icon}
+                <div className="ml-4">
+                  <h2 className="text-3xl font-bold text-brand-navy relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bg-brand-teal/50 after:left-0 after:bottom-0 after:rounded-full">
+                    {category.title}
+                  </h2>
+                  <p className="text-gray-600 mt-3 max-w-3xl">
+                    {category.description}
+                  </p>
+                </div>
               </div>
               
-              <div className={`grid md:grid-cols-${category.products.length} gap-6 lg:gap-10`}>
+              <div className="grid md:grid-cols-3 gap-6 lg:gap-10">
                 {category.products.map((product, index) => (
                   <Link 
                     key={product.id} 

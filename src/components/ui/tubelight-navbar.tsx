@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { LucideIcon } from "lucide-react"
+import { LucideIcon, Server, GraduationCap } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {
@@ -50,6 +50,21 @@ export function NavBar({ items, className }: NavBarProps) {
     }
   }
 
+  // Update the products menu items with categories
+  const updatedItems = items.map(item => {
+    if (item.name === "Products") {
+      return {
+        ...item,
+        dropdown: true,
+        items: [
+          { name: "Commercial IoT Solutions", url: "/products#commercial-iot-solutions" },
+          { name: "Education Products", url: "/products#education-products" }
+        ]
+      }
+    }
+    return item
+  })
+
   return (
     <div
       className={cn(
@@ -63,7 +78,7 @@ export function NavBar({ items, className }: NavBarProps) {
         </Link>
         
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg md:gap-3">
-          {items.map((item) => {
+          {updatedItems.map((item) => {
             const Icon = item.icon
             const isActive = activeTab === item.name
             const isExpanded = expandedItem === item.name

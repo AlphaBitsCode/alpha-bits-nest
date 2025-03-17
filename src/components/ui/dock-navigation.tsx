@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Home, Package, Briefcase, Info, Users, MapPin, PhoneCall } from 'lucide-react';
+import { Home, Package, Briefcase, Info, Users, MapPin, PhoneCall, GraduationCap, Server } from 'lucide-react';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 import { useLocation } from "react-router-dom";
 
@@ -14,9 +14,14 @@ const DockNavigation = () => {
       icon: <Home className="h-full w-full text-neutral-600 dark:text-neutral-300" />
     },
     { 
-      name: 'Products', 
+      name: 'IoT Solutions', 
       url: '/products',
-      icon: <Package className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      icon: <Server className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+    },
+    { 
+      name: 'Education', 
+      url: '/products',
+      icon: <GraduationCap className="h-full w-full text-neutral-600 dark:text-neutral-300" />
     },
     { 
       name: 'Services', 

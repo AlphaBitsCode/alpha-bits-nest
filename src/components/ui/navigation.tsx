@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText, Server, GraduationCap } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -49,34 +49,50 @@ const Navigation = () => {
         url: "/products",
         items: [
           {
-            title: "Digital Twin for Office & Home",
-            description: "Smart monitoring and optimization system for energy management",
-            icon: <Home className="size-5 shrink-0" />,
-            url: "/products/office-home",
+            title: "Commercial IoT Solutions",
+            description: "Smart digital twin solutions for businesses and organizations",
+            icon: <Server className="size-5 shrink-0" />,
+            url: "#",
+            items: [
+              {
+                title: "Digital Twin for Office & Home",
+                description: "Smart monitoring and optimization system for energy management",
+                icon: <Home className="size-5 shrink-0" />,
+                url: "/products/office-home",
+              },
+              {
+                title: "Digital Twin for Farm",
+                description: "Comprehensive digital modeling for agricultural operations",
+                icon: <Trees className="size-5 shrink-0" />,
+                url: "/products/farm",
+              },
+              {
+                title: "Digital Twin for Factory",
+                description: "End-to-end manufacturing process simulation and optimization",
+                icon: <Factory className="size-5 shrink-0" />,
+                url: "/products/factory",
+              },
+            ]
           },
           {
-            title: "Digital Twin for Farm",
-            description: "Comprehensive digital modeling for agricultural operations",
-            icon: <Trees className="size-5 shrink-0" />,
-            url: "/products/farm",
-          },
-          {
-            title: "Digital Twin for Factory",
-            description: "End-to-end manufacturing process simulation and optimization",
-            icon: <Factory className="size-5 shrink-0" />,
-            url: "/products/factory",
-          },
-          {
-            title: "Mushroom-in-a-Box",
-            description: "A complete kit for growing gourmet mushrooms at home",
-            icon: <Package className="size-5 shrink-0" />,
-            url: "/products/mushroom-in-box",
-          },
-          {
-            title: "Farm In Box",
-            description: "Educational package for schools to teach sustainable farming",
-            icon: <BookOpen className="size-5 shrink-0" />,
-            url: "/products/farm-in-box",
+            title: "Education Products",
+            description: "Interactive learning solutions for educational institutions",
+            icon: <GraduationCap className="size-5 shrink-0" />,
+            url: "#",
+            items: [
+              {
+                title: "Mushroom-in-a-Box",
+                description: "A complete kit for growing gourmet mushrooms at home",
+                icon: <Package className="size-5 shrink-0" />,
+                url: "/products/mushroom-in-box",
+              },
+              {
+                title: "Farm In Box",
+                description: "Educational package for schools to teach sustainable farming",
+                icon: <BookOpen className="size-5 shrink-0" />,
+                url: "/products/farm-in-box",
+              },
+            ]
           },
         ],
       },
