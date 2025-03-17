@@ -1,6 +1,6 @@
 import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { LanguageSelector } from "./language-selector";
+// Remove the LanguageSelector import
 import { useEffect } from "react";
 
 import {
@@ -230,7 +230,7 @@ const Navbar1 = ({
             </div>
           </div>
           <div className="flex gap-2">
-            <LanguageSelector />
+            {/* Remove LanguageSelector here */}
             {(auth.login.text || auth.signup.text) && (
               <div className="flex gap-2">
                 {auth.login.text && (
@@ -391,9 +391,7 @@ const Navbar1 = ({
                     Contact
                   </Link>
                   
-                  <div className="flex justify-center mt-4 mb-2">
-                    <LanguageSelector />
-                  </div>
+                  {/* Remove the flex container for LanguageSelector */}
                   <div className="border-t border-gray-200/30 mt-2 pt-4 text-center">
                     <p className="text-sm text-muted-foreground">
                       <span className="italic font-medium">Alpha Bits</span> - Turning Ideas into Reality
@@ -405,7 +403,7 @@ const Navbar1 = ({
           </div>
         </div>
       </div>
-      {/* Make sure Google Translate element is accessible */}
+      {/* Keep the hidden Google Translate element */}
       <div id="google_translate_element" className="hidden"></div>
     </section>
   );
