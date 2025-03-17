@@ -59,7 +59,8 @@ const doGoogleTranslate = (langCode: string): boolean => {
     }
 
     // Try finding and clicking on language in the iframe
-    const translateIframe = document.querySelector('.goog-te-menu-frame') as HTMLIFrameElement;
+    // Fix the type assertion to properly handle the iframe element
+    const translateIframe = document.querySelector('.goog-te-menu-frame') as HTMLIFrameElement | null;
     if (translateIframe && translateIframe.contentWindow) {
       const doc = translateIframe.contentWindow.document;
       const links = doc.querySelectorAll('a.goog-te-menu2-item');
@@ -133,10 +134,13 @@ export const changeLanguage = (langCode: string): boolean => {
       if (document.documentElement.classList.contains('translated-ltr') || 
           document.documentElement.classList.contains('translated-rtl')) {
         // Try clicking "Show original" button if it exists
-        const showOriginal = document.querySelector('.goog-te-banner-frame')?.contentWindow?.document.querySelector('.goog-te-button button');
-        if (showOriginal) {
-          (showOriginal as HTMLButtonElement).click();
-          return true;
+        const showOriginalFrame = document.querySelector('.goog-te-banner-frame') as HTMLIFrameElement | null;
+        if (showOriginalFrame && showOriginalFrame.contentWindow) {
+          const showOriginal = showOriginalFrame.contentWindow.document.querySelector('.goog-te-button button');
+          if (showOriginal) {
+            (showOriginal as HTMLButtonElement).click();
+            return true;
+          }
         }
         
         // Try selecting English from dropdown
