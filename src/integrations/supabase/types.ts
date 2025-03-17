@@ -240,6 +240,7 @@ export type Database = {
           id: string
           message: string | null
           name: string
+          product: string
           quantity: number
           updated_at: string
         }
@@ -251,6 +252,7 @@ export type Database = {
           id?: string
           message?: string | null
           name: string
+          product?: string
           quantity?: number
           updated_at?: string
         }
@@ -262,6 +264,7 @@ export type Database = {
           id?: string
           message?: string | null
           name?: string
+          product?: string
           quantity?: number
           updated_at?: string
         }
