@@ -85,9 +85,9 @@ export function PreorderForm({
         message: data.message || ""
       };
       
-      // Insert data into Supabase
+      // Insert data into Supabase leads table
       const { error } = await supabase
-        .from('preorders')
+        .from('leads')
         .insert(preorderData);
 
       if (error) {

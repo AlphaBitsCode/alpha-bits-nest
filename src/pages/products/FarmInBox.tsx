@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
 import { PreorderForm } from '@/components/ui/preorder-form';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const FarmInBox = () => {
   useScrollAnimation();
@@ -140,13 +141,23 @@ const FarmInBox = () => {
               </div>
 
               <div className="mt-8 mb-8 transform hover:scale-[1.02] transition-transform duration-300">
-                <div className="bg-white/90 backdrop-blur-md rounded-lg shadow-lg border border-brand-teal/10 p-6">
-                  <h2 className="text-xl font-bold text-brand-navy mb-4">Pre-order Your Farm In Box</h2>
-                  <PreorderForm 
-                    defaultProduct="Farm-In-Box"
-                    buttonText="Request Pricing & Delivery"
-                  />
-                </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button size="lg" className="w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-semibold py-4">
+                      Pre-order Your Farm In Box
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[500px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-xl font-bold text-brand-navy mb-4">Pre-order Your Farm In Box</DialogTitle>
+                    </DialogHeader>
+                    <PreorderForm 
+                      defaultProduct="Farm-In-Box"
+                      buttonText="Request Pricing & Delivery"
+                      className="mt-4"
+                    />
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
             
