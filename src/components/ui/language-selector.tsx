@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Languages } from 'lucide-react';
 import {
@@ -7,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 
 interface Language {
   code: string;
@@ -30,6 +32,16 @@ const languages: Language[] = [
 
 export function LanguageSelector() {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
+  const [isTranslating, setIsTranslating] = useState<boolean>(false);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Check if we have a saved language preference
+    const savedLanguage = localStorage.getItem('preferred_language');
+    if (savedLanguage) {
+      setSelectedLanguage(savedLanguage);
+    }
+  }, []);
 
   useEffect(() => {
     let script: HTMLScriptElement | null = null;
@@ -48,6 +60,13 @@ export function LanguageSelector() {
           },
           'google_translate_element'
         );
+        
+        // Apply the saved language once Google Translate is initialized
+        setTimeout(() => {
+          if (selectedLanguage !== 'en') {
+            applySelectedLanguage(selectedLanguage);
+          }
+        }, 1000);
       } catch (error) {
         console.error('Failed to initialize Google Translate:', error);
         if (retryCount < maxRetries) {
@@ -78,9 +97,17 @@ export function LanguageSelector() {
 
     const initTranslate = async () => {
       try {
+        setIsTranslating(true);
         await loadTranslateScript();
+        setIsTranslating(false);
       } catch (error) {
         console.error('Error loading Google Translate:', error);
+        setIsTranslating(false);
+        toast({
+          title: "Translation Error",
+          description: "Unable to load translation service. Please try again later.",
+          variant: "destructive",
+        });
       }
     };
 
@@ -96,39 +123,50 @@ export function LanguageSelector() {
     };
   }, []);
 
-  useEffect(() => {
-    const initializeLanguage = () => {
-      const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-      if (select && selectedLanguage !== 'en') {
-        select.value = selectedLanguage;
-        select.dispatchEvent(new Event('change'));
-      }
-    };
-
-    // Check periodically for the select element as it's added dynamically
-    const checkInterval = setInterval(() => {
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        clearInterval(checkInterval);
-        initializeLanguage();
-      }
-    }, 100);
-
-    // Cleanup
-    return () => clearInterval(checkInterval);
-  }, [selectedLanguage]);
-
-  const handleLanguageChange = (langCode: string) => {
-    setSelectedLanguage(langCode);
+  const applySelectedLanguage = (langCode: string) => {
+    // Find the Google Translate select element
     const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
     if (select) {
       select.value = langCode;
       select.dispatchEvent(new Event('change'));
+      
+      // Wait for translation to complete before showing success toast
+      setTimeout(() => {
+        const langName = languages.find(lang => lang.code === langCode)?.name || langCode;
+        toast({
+          title: "Language Changed",
+          description: `Page translated to ${langName}`,
+        });
+      }, 1000);
+    } else {
+      console.error('Google Translate dropdown not found');
+      toast({
+        title: "Translation Failed",
+        description: "Please try again or refresh the page",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleLanguageChange = (langCode: string) => {
+    // Save the selection to localStorage
+    localStorage.setItem('preferred_language', langCode);
+    setSelectedLanguage(langCode);
+    
+    try {
+      applySelectedLanguage(langCode);
+    } catch (error) {
+      console.error('Error changing language:', error);
+      toast({
+        title: "Translation Error",
+        description: "Failed to change language. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div id="google_translate_element" className="hidden" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -136,11 +174,23 @@ export function LanguageSelector() {
             variant="ghost"
             size="icon"
             className="h-9 w-9 rounded-full bg-white/30 backdrop-blur-sm border-white/20 hover:bg-gray-800/20"
+            disabled={isTranslating}
           >
             <Languages className="h-4 w-4" />
+            {isTranslating && (
+              <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-brand-teal animate-ping"></span>
+            )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-[200px] bg-white/80 backdrop-blur-sm border-white/30">
+        <DropdownMenuContent align="end" className="w-[200px] bg-white/80 backdrop-blur-sm border-white/30 z-[9999]">
+          <DropdownMenuItem
+            key="en"
+            onClick={() => handleLanguageChange('en')}
+            className={`flex items-center justify-between ${selectedLanguage === 'en' ? 'bg-brand-teal/10 text-brand-teal' : ''}`}
+          >
+            <span>English</span>
+            <span className="text-xs text-muted-foreground">English</span>
+          </DropdownMenuItem>
           {languages.map((lang) => (
             <DropdownMenuItem
               key={lang.code}
