@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -74,21 +73,21 @@ export function PreorderForm({
     setIsSubmitting(true);
     
     try {
-      // Make sure all required fields are present
-      const preorderData = {
-        name: data.name,
+      // Map the form data to match the leads table schema
+      const leadData = {
+        contact_person: data.name,
         email: data.email,
-        quantity: data.quantity,
-        address: data.address,
+        institution_name: "Individual Preorder",
+        institution_type: "Customer",
         country: data.country,
         product: data.product,
-        message: data.message || ""
+        message: `Quantity: ${data.quantity}, Address: ${data.address}${data.message ? `, Additional Note: ${data.message}` : ''}`
       };
       
       // Insert data into Supabase leads table
       const { error } = await supabase
         .from('leads')
-        .insert(preorderData);
+        .insert(leadData);
 
       if (error) {
         throw error;

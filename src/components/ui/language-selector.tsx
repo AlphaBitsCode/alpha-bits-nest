@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Languages } from 'lucide-react';
 import {
   DropdownMenu,
@@ -33,7 +33,10 @@ const languages: Language[] = [
 export function LanguageSelector() {
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
   const [isTranslating, setIsTranslating] = useState<boolean>(false);
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const { toast } = useToast();
+  const scriptLoadingRef = useRef<boolean>(false);
+  const retryTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Check if we have a saved language preference
@@ -44,74 +47,97 @@ export function LanguageSelector() {
   }, []);
 
   useEffect(() => {
+    if (scriptLoadingRef.current) {
+      return; // Don't initialize multiple times
+    }
+    
     let script: HTMLScriptElement | null = null;
     let retryCount = 0;
-    const maxRetries = 3;
-    const retryDelay = 1000; // 1 second
+    const maxRetries = 5;
+    const retryDelay = 2000; // 2 seconds between retries
 
     const initGoogleTranslate = () => {
       try {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: 'en',
-            includedLanguages: languages.map(lang => lang.code).join(','),
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-          },
-          'google_translate_element'
-        );
-        
-        // Apply the saved language once Google Translate is initialized
-        setTimeout(() => {
-          if (selectedLanguage !== 'en') {
-            applySelectedLanguage(selectedLanguage);
+        if (window.google && window.google.translate) {
+          // Create a hidden div element for Google Translate
+          const translateElement = document.getElementById('google_translate_element');
+          if (!translateElement) {
+            console.error('Google Translate element not found');
+            return;
           }
-        }, 1000);
+
+          new window.google.translate.TranslateElement(
+            {
+              pageLanguage: 'en',
+              includedLanguages: languages.map(lang => lang.code).join(','),
+              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false,
+            },
+            'google_translate_element'
+          );
+          
+          setIsInitialized(true);
+          
+          // Apply the saved language once Google Translate is initialized - with longer delay
+          if (selectedLanguage !== 'en') {
+            setTimeout(() => {
+              applySelectedLanguage(selectedLanguage);
+            }, 2000);
+          }
+        } else {
+          if (retryCount < maxRetries) {
+            retryCount++;
+            console.log(`Google Translate not available yet, retrying (${retryCount}/${maxRetries})...`);
+            retryTimeoutRef.current = setTimeout(initGoogleTranslate, retryDelay);
+          } else {
+            console.error('Failed to initialize Google Translate after multiple retries');
+            setIsTranslating(false);
+            toast({
+              title: "Translation Error",
+              description: "Unable to load translation service. Please refresh the page.",
+              variant: "destructive",
+            });
+          }
+        }
       } catch (error) {
         console.error('Failed to initialize Google Translate:', error);
         if (retryCount < maxRetries) {
           retryCount++;
-          setTimeout(initGoogleTranslate, retryDelay);
+          retryTimeoutRef.current = setTimeout(initGoogleTranslate, retryDelay);
+        } else {
+          setIsTranslating(false);
+          toast({
+            title: "Translation Error",
+            description: "Unable to load translation service. Please try again later.",
+            variant: "destructive",
+          });
         }
       }
     };
 
     const loadTranslateScript = () => {
-      return new Promise<void>((resolve, reject) => {
-        script = document.createElement('script');
-        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        script.onerror = () => {
-          if (retryCount < maxRetries) {
-            retryCount++;
-            setTimeout(() => loadTranslateScript().then(resolve).catch(reject), retryDelay);
-          } else {
-            reject(new Error('Failed to load Google Translate script after multiple retries'));
-          }
-        };
-        script.onload = () => resolve();
-        window.googleTranslateElementInit = initGoogleTranslate;
-        document.body.appendChild(script);
-      });
-    };
-
-    const initTranslate = async () => {
-      try {
-        setIsTranslating(true);
-        await loadTranslateScript();
-        setIsTranslating(false);
-      } catch (error) {
-        console.error('Error loading Google Translate:', error);
+      scriptLoadingRef.current = true;
+      setIsTranslating(true);
+      
+      script = document.createElement('script');
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      script.onerror = () => {
+        script?.remove();
+        scriptLoadingRef.current = false;
         setIsTranslating(false);
         toast({
           title: "Translation Error",
-          description: "Unable to load translation service. Please try again later.",
+          description: "Failed to load translation script. Please refresh and try again.",
           variant: "destructive",
         });
-      }
+      };
+      
+      window.googleTranslateElementInit = initGoogleTranslate;
+      document.body.appendChild(script);
     };
 
-    initTranslate();
+    loadTranslateScript();
 
     return () => {
       if (script?.parentNode) {
@@ -120,13 +146,52 @@ export function LanguageSelector() {
       if (window.googleTranslateElementInit) {
         delete window.googleTranslateElementInit;
       }
+      if (retryTimeoutRef.current) {
+        clearTimeout(retryTimeoutRef.current);
+      }
+      scriptLoadingRef.current = false;
     };
   }, []);
 
-  const applySelectedLanguage = (langCode: string) => {
-    // Find the Google Translate select element
-    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+  const findGoogleTranslateCombo = (): HTMLSelectElement | null => {
+    // Try multiple strategies to find the Google Translate dropdown
+    // Strategy 1: Direct class selector
+    let select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    
+    // Strategy 2: Look for it in the Google Translate element's iframe
+    if (!select) {
+      const googleTranslateFrame = document.querySelector('iframe.goog-te-menu-frame') as HTMLIFrameElement;
+      if (googleTranslateFrame && googleTranslateFrame.contentDocument) {
+        select = googleTranslateFrame.contentDocument.querySelector('.goog-te-combo') as HTMLSelectElement;
+      }
+    }
+    
+    // Strategy 3: Look for any select element within the Google Translate element
+    if (!select) {
+      const translateElement = document.getElementById('google_translate_element');
+      if (translateElement) {
+        select = translateElement.querySelector('select') as HTMLSelectElement;
+      }
+    }
+    
+    return select;
+  };
+
+  const waitForTranslateDropdown = (langCode: string, attempts = 0, maxAttempts = 10): void => {
+    if (attempts >= maxAttempts) {
+      console.error('Google Translate dropdown not found after multiple attempts');
+      toast({
+        title: "Translation Failed",
+        description: "Please try again or refresh the page",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const select = findGoogleTranslateCombo();
+    
     if (select) {
+      // Apply the language change
       select.value = langCode;
       select.dispatchEvent(new Event('change'));
       
@@ -139,10 +204,26 @@ export function LanguageSelector() {
         });
       }, 1000);
     } else {
-      console.error('Google Translate dropdown not found');
+      // Try again after a short delay
+      setTimeout(() => waitForTranslateDropdown(langCode, attempts + 1, maxAttempts), 500);
+    }
+  };
+
+  const applySelectedLanguage = (langCode: string) => {
+    try {
+      if (!isInitialized) {
+        console.log('Google Translate not yet initialized, saving language preference...');
+        localStorage.setItem('preferred_language', langCode);
+        return;
+      }
+      
+      // Wait for the dropdown to be available
+      waitForTranslateDropdown(langCode);
+    } catch (error) {
+      console.error('Error changing language:', error);
       toast({
-        title: "Translation Failed",
-        description: "Please try again or refresh the page",
+        title: "Translation Error",
+        description: "Failed to change language. Please try again.",
         variant: "destructive",
       });
     }
@@ -166,7 +247,7 @@ export function LanguageSelector() {
   };
 
   return (
-    <div className="relative z-50">
+    <div className="relative z-[999]">
       <div id="google_translate_element" className="hidden" />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -174,15 +255,15 @@ export function LanguageSelector() {
             variant="ghost"
             size="icon"
             className="h-9 w-9 rounded-full bg-white/30 backdrop-blur-sm border-white/20 hover:bg-gray-800/20"
-            disabled={isTranslating}
+            disabled={isTranslating && !isInitialized}
           >
             <Languages className="h-4 w-4" />
-            {isTranslating && (
+            {isTranslating && !isInitialized && (
               <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-brand-teal animate-ping"></span>
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-[200px] bg-white/80 backdrop-blur-sm border-white/30 z-[9999]">
+        <DropdownMenuContent align="end" className="w-[200px] bg-white/90 backdrop-blur-sm border-white/30 z-[9999]">
           <DropdownMenuItem
             key="en"
             onClick={() => handleLanguageChange('en')}

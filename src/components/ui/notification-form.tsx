@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -39,15 +40,17 @@ export function NotificationForm({ className = "" }: NotificationFormProps) {
     setIsSubmitting(true);
     
     try {
-      // Insert data into Supabase leads table
+      // Insert data into Supabase leads table, matching the correct schema
       const { error } = await supabase
         .from('leads')
         .insert({
-          name: data.name,
-        email: data.email,
-          source: "Alpha-Cube",
-          type: "notification",
-          status: "new"
+          contact_person: data.name,
+          email: data.email,
+          institution_name: "Individual",
+          institution_type: "Other",
+          country: "Not specified",
+          product: "Alpha-Cube",
+          message: "Notification request for product launch"
         });
 
       if (error) {
