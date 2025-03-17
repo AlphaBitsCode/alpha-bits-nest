@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap } from 'lucide-react';
+import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap, Cube } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -62,6 +62,13 @@ const Products = () => {
           description: 'A comprehensive educational package designed for schools to teach sustainable farming practices and environmental science.',
           icon: <BookOpen size={32} className="text-brand-green mb-2" />,
           image: '/images/farminbox/farminbox_box1.jpg',
+        },
+        {
+          id: 'alpha-cube',
+          title: 'Alpha Cube',
+          description: 'Coming Summer 2025 - Our most innovative educational product yet. A mysterious combination of technology and nature.',
+          icon: <Cube size={32} className="text-brand-teal mb-2" />,
+          image: '/images/placeholder.svg',
         }
       ]
     }

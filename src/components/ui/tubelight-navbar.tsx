@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { LucideIcon, Server, GraduationCap } from "lucide-react"
+import { LucideIcon, Server, GraduationCap, Cube } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {

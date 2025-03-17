@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Products from "./pages/Products";
 import MushroomInBox from "./pages/products/MushroomInBox";
 import FarmInBox from "./pages/products/FarmInBox";
+import AlphaCube from "./pages/products/AlphaCube";
 import Services from "./pages/Services";
 import LocationsPage from "./pages/Locations"
 import ContactPage from "./pages/Contact"
@@ -55,6 +57,7 @@ function App() {
             <Route path="/products/mushroom-in-box" element={<Navigate to="/products/mushroom-in-a-box" replace />} />
             <Route path="/products/farm-in-box" element={<FarmInBox />} />
             <Route path="/products/farm-in-a-box" element={<Navigate to="/products/farm-in-box" replace />} />
+            <Route path="/products/alpha-cube" element={<AlphaCube />} />
             
             {/* Digital Twin Product Routes */}
             <Route path="/products/office-home" element={<DigitalTwinOfficeHome />} />
