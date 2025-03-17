@@ -68,7 +68,7 @@ const Products = () => {
           title: 'Alpha Cube',
           description: 'Coming Summer 2025 - Our most innovative educational product yet. A mysterious combination of technology and nature.',
           icon: <Box size={32} className="text-brand-teal mb-2" />,
-          image: '/images/placeholder.svg',
+          image: '/images/alpha-cube/teaser.png',
         }
       ]
     }

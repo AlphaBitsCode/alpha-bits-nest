@@ -50,7 +50,7 @@ const AlphaCube = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        repeatType: "reverse" // Fixed: now using literal "reverse" instead of string
+        repeatType: 'reverse' as const
       }
     }
   };
