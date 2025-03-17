@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { Home, Package, Briefcase, Info, Users, MapPin, PhoneCall, GraduationCap, Server, Cube } from 'lucide-react';
+import { Home, Package, Briefcase, Info, Users, MapPin, PhoneCall, GraduationCap, Server, Box } from 'lucide-react';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 import { useLocation } from "react-router-dom";
 
@@ -26,7 +25,7 @@ const DockNavigation = () => {
     { 
       name: 'Alpha Cube', 
       url: '/products/alpha-cube',
-      icon: <Cube className="h-full w-full text-neutral-600 dark:text-neutral-300" />
+      icon: <Box className="h-full w-full text-neutral-600 dark:text-neutral-300" />
     },
     { 
       name: 'Services', 

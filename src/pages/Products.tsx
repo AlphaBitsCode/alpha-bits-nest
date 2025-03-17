@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap, Cube } from 'lucide-react';
+import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Server, GraduationCap, Box } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
@@ -67,7 +67,7 @@ const Products = () => {
           id: 'alpha-cube',
           title: 'Alpha Cube',
           description: 'Coming Summer 2025 - Our most innovative educational product yet. A mysterious combination of technology and nature.',
-          icon: <Cube size={32} className="text-brand-teal mb-2" />,
+          icon: <Box size={32} className="text-brand-teal mb-2" />,
           image: '/images/placeholder.svg',
         }
       ]

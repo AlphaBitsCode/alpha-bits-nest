@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText, Server, GraduationCap, Cube } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText, Server, GraduationCap, Box } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
 
 const Navigation = () => {
@@ -95,7 +95,7 @@ const Navigation = () => {
               {
                 title: "Alpha Cube",
                 description: "Coming Summer 2025 - Our most innovative educational product yet",
-                icon: <Cube className="size-5 shrink-0" />,
+                icon: <Box className="size-5 shrink-0" />,
                 url: "/products/alpha-cube",
               },
             ]
