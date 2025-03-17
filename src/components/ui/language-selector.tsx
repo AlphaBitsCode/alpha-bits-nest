@@ -33,38 +33,61 @@ export function LanguageSelector() {
 
   useEffect(() => {
     let script: HTMLScriptElement | null = null;
+    let retryCount = 0;
+    const maxRetries = 3;
+    const retryDelay = 1000; // 1 second
 
-    const initTranslate = () => {
-      // Initialize Google Translate script
-      script = document.createElement('script');
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-
-      // Initialize Google Translate
-      window.googleTranslateElementInit = () => {
-        try {
-          new window.google.translate.TranslateElement(
-            {
-              pageLanguage: 'en',
-              includedLanguages: languages.map(lang => lang.code).join(','),
-              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false,
-            },
-            'google_translate_element'
-          );
-        } catch (error) {
-          console.error('Failed to initialize Google Translate:', error);
+    const initGoogleTranslate = () => {
+      try {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            includedLanguages: languages.map(lang => lang.code).join(','),
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          'google_translate_element'
+        );
+      } catch (error) {
+        console.error('Failed to initialize Google Translate:', error);
+        if (retryCount < maxRetries) {
+          retryCount++;
+          setTimeout(initGoogleTranslate, retryDelay);
         }
-      };
+      }
+    };
 
-      document.body.appendChild(script);
+    const loadTranslateScript = () => {
+      return new Promise<void>((resolve, reject) => {
+        script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+        script.onerror = () => {
+          if (retryCount < maxRetries) {
+            retryCount++;
+            setTimeout(() => loadTranslateScript().then(resolve).catch(reject), retryDelay);
+          } else {
+            reject(new Error('Failed to load Google Translate script after multiple retries'));
+          }
+        };
+        script.onload = () => resolve();
+        window.googleTranslateElementInit = initGoogleTranslate;
+        document.body.appendChild(script);
+      });
+    };
+
+    const initTranslate = async () => {
+      try {
+        await loadTranslateScript();
+      } catch (error) {
+        console.error('Error loading Google Translate:', error);
+      }
     };
 
     initTranslate();
 
-    // Cleanup
     return () => {
-      if (script && script.parentNode) {
+      if (script?.parentNode) {
         script.parentNode.removeChild(script);
       }
       if (window.googleTranslateElementInit) {
@@ -72,6 +95,28 @@ export function LanguageSelector() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const initializeLanguage = () => {
+      const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (select && selectedLanguage !== 'en') {
+        select.value = selectedLanguage;
+        select.dispatchEvent(new Event('change'));
+      }
+    };
+
+    // Check periodically for the select element as it's added dynamically
+    const checkInterval = setInterval(() => {
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        clearInterval(checkInterval);
+        initializeLanguage();
+      }
+    }, 100);
+
+    // Cleanup
+    return () => clearInterval(checkInterval);
+  }, [selectedLanguage]);
 
   const handleLanguageChange = (langCode: string) => {
     setSelectedLanguage(langCode);
@@ -90,7 +135,7 @@ export function LanguageSelector() {
           <Button
             variant="ghost"
             size="icon"
-            className="h-9 w-9 rounded-full bg-white/30 backdrop-blur-sm border-white/20 hover:bg-white/40"
+            className="h-9 w-9 rounded-full bg-white/30 backdrop-blur-sm border-white/20 hover:bg-gray-800/20"
           >
             <Languages className="h-4 w-4" />
           </Button>
