@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
-import { PreorderForm } from '@/components/ui/preorder-form';
+import { NotificationForm } from '@/components/ui/notification-form';
 import { Toaster } from '@/components/ui/sonner';
 
 const AlphaCube = () => {
@@ -125,13 +125,13 @@ const AlphaCube = () => {
               variants={textVariants}
               initial="hidden"
               animate={controls}
-              className="text-2xl md:text-3xl text-gray-400 tracking-wide mb-12"
+              className="text-2xl md:text-3xl text-gray-200 tracking-wide mb-12"
             >
               Summer 2025
             </motion.p>
           </div>
 
-          {/* Pre-order Form */}
+          {/* Interest Form */}
           <motion.div
             custom={3}
             variants={textVariants}
@@ -140,13 +140,9 @@ const AlphaCube = () => {
             className="max-w-xl w-full mx-auto bg-black/70 backdrop-blur-lg border border-teal-500/20 p-6 md:p-8 rounded-xl"
           >
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              Reserve Your <span className="text-teal-400">Alpha Cube</span>
+              Get notified about <span className="text-teal-400">Alpha Cube</span>
             </h2>
-            <PreorderForm 
-              defaultProduct="Alpha-Cube"
-              buttonText="Get Notified" 
-              className="text-white"
-            />
+            <NotificationForm className="text-white" />
           </motion.div>
         </div>
       </section>
