@@ -333,19 +333,24 @@ const renderMenuItem = (item: MenuItem) => {
     // Handle first level of nested items
     return (
       <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger className="z-50 data-[state=open]:bg-accent/50">
-          <Link to={item.url || "#"} className="text-muted-foreground hover:text-brand-teal transition-colors duration-200">
+        <Link to={item.url || "#"}>
+          <NavigationMenuTrigger className="z-50 data-[state=open]:bg-accent/50 text-muted-foreground hover:text-brand-teal transition-colors duration-200">
             {item.title}
-          </Link>
-        </NavigationMenuTrigger>
+          </NavigationMenuTrigger>
+        </Link>
         <NavigationMenuContent className="z-[1000]">
           <ul className="grid gap-3 p-4 w-[500px] md:w-[600px] grid-cols-2">
             {item.items.map((category) => (
               <li key={category.title} className="col-span-1">
-                <div className="font-medium mb-1 text-sm text-muted-foreground flex items-center">
-                  {category.icon && <span className="mr-2">{category.icon}</span>}
-                  {category.title}
-                </div>
+                <Link 
+                  to={category.url || "#"}
+                  className="block font-medium mb-1 text-sm text-muted-foreground hover:text-brand-teal transition-colors duration-200"
+                >
+                  <div className="flex items-center">
+                    {category.icon && <span className="mr-2">{category.icon}</span>}
+                    {category.title}
+                  </div>
+                </Link>
                 <p className="text-xs text-muted-foreground mb-2">{category.description}</p>
                 
                 <ul className="space-y-2">
