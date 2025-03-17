@@ -33,13 +33,13 @@ const FarmInBox = () => {
     'Individual slot with individual web & app account login',
     'Timelapse playback',
     'Super Admin account with full manual control',
-    'Remote monitoring app'
+    'Remote monitoring mobile app',
+    'Proudly Made in Vietnam 🇻🇳'
   ];
 
   const eduFeatures = [
     'Scratch plugins available',
-    'Custom LMS integration is possible',
-    'Made in Vietnam'
+    'Custom LMS integration is possible'
   ];
 
   return (
