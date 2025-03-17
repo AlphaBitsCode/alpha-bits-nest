@@ -44,6 +44,7 @@ const AlphaCube = () => {
     })
   };
   
+  // Fix the glowVariants type issue by explicitly typing repeatType as one of the allowed values
   const glowVariants = {
     initial: { opacity: 0.5, boxShadow: '0 0 20px rgba(0, 255, 150, 0.3)' },
     animate: { 
@@ -52,7 +53,7 @@ const AlphaCube = () => {
       transition: {
         duration: 4,
         repeat: Infinity,
-        repeatType: "reverse"  // "reverse" is one of the allowed values: "loop" | "reverse" | "mirror"
+        repeatType: "reverse" as const  // Using 'as const' to specify this is a literal value, not just any string
       }
     }
   };
