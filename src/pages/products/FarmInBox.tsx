@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock, ShoppingCart, Info } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
-import Footer from '@/components/ui/footer';
-import { useScrollAnimation, useParallax } from '@/lib/animations';
+ import Footer from '@/components/ui/footer';
+import { useScrollAnimation } from '@/lib/animations';
 import { Toaster } from '@/components/ui/sonner';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +13,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 const FarmInBox = () => {
   useScrollAnimation();
-  useParallax();
   
   useEffect(() => {
     document.title = "Farm In Box | Alpha Bits";
@@ -64,7 +63,7 @@ const FarmInBox = () => {
         </video>
         
         <div className="container mx-auto px-4 h-full flex items-center relative z-20">
-          <div className="max-w-2xl parallax-element" data-speed="0.2">
+          <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-slide-up">
               Farm In Box
             </h1>
@@ -144,6 +143,7 @@ const FarmInBox = () => {
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button size="lg" className="w-full bg-brand-teal hover:bg-brand-teal/90 text-white font-semibold py-4">
+                      <ShoppingCart size={20} className="mr-2" />
                       Pre-order Your Farm In Box
                     </Button>
                   </DialogTrigger>
@@ -265,7 +265,7 @@ const FarmInBox = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/5 via-brand-blue/5 to-brand-teal/5 rounded-3xl blur-3xl pointer-events-none"></div>
             
             <div className="max-w-4xl mx-auto glassmorphism p-8 rounded-2xl shadow-2xl relative z-10 transform hover:translate-y-[-5px] transition-all duration-500">
-              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Live Public Demo</h2>
+              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Live Demo</h2>
               
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="group">
