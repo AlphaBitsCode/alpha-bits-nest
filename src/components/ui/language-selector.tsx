@@ -16,15 +16,15 @@ interface Language {
 
 const languages: Language[] = [
   { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt' },
-  { code: 'ko', name: 'Korean', nativeName: '한국어' },
-  { code: 'ja', name: 'Japanese', nativeName: '日本語' },
-  { code: 'de', name: 'German', nativeName: 'Deutsch' },
-  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia' },
-  { code: 'tl', name: 'Filipino', nativeName: 'Filipino' },
   { code: 'th', name: 'Thai', nativeName: 'ไทย' },
-  { code: 'zh-TW', name: 'Mandarin (Traditional)', nativeName: '繁體中文' },
-  { code: 'es', name: 'Spanish', nativeName: 'Español' },
+  { code: 'ja', name: 'Japanese', nativeName: '日本語' },
+  { code: 'ko', name: 'Korean', nativeName: '한국어' },
+  { code: 'tl', name: 'Filipino', nativeName: 'Filipino' },
+  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia' },
   { code: 'ms', name: 'Malaysian', nativeName: 'Bahasa Melayu' },
+  { code: 'zh-TW', name: 'Mandarin', nativeName: '繁體中文' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español' },
+  { code: 'de', name: 'German', nativeName: 'Deutsch' },
   { code: 'pt', name: 'Portuguese', nativeName: 'Português' },
 ];
 
