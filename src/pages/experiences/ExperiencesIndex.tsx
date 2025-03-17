@@ -6,12 +6,21 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Trees, Calendar } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
+import { ensureGoogleTranslateLoaded, getSelectedLanguage, changeLanguage } from '@/lib/language-utils';
 
 const ExperiencesIndex = () => {
   useScrollAnimation();
   
   useEffect(() => {
     document.title = "Experiences | Alpha Bits";
+    
+    // Apply saved language preference if not English
+    const savedLanguage = getSelectedLanguage();
+    if (savedLanguage !== 'en') {
+      ensureGoogleTranslateLoaded(() => {
+        changeLanguage(savedLanguage);
+      });
+    }
   }, []);
   
   return (

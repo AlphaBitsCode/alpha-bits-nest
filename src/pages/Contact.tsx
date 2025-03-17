@@ -5,6 +5,7 @@ import { MapPin, Phone, Mail, Calendar, Clock } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
+import { ensureGoogleTranslateLoaded, getSelectedLanguage, changeLanguage } from '@/lib/language-utils';
 
 const ContactPage = () => {
   useScrollAnimation();
@@ -23,13 +24,18 @@ const ContactPage = () => {
         });
       }, 100);
     }
+    
+    // Apply saved language preference if not English
+    const savedLanguage = getSelectedLanguage();
+    if (savedLanguage !== 'en') {
+      ensureGoogleTranslateLoaded(() => {
+        changeLanguage(savedLanguage);
+      });
+    }
   }, [location]);
 
   return (
     <div className="min-h-screen">
-      {/* Google Translate Element - Hidden but functional */}
-      <div id="google_translate_element" className="fixed top-0 left-0 opacity-0 pointer-events-none"></div>
-      
       <Navbar1 />
 
       <div className="pt-16">
