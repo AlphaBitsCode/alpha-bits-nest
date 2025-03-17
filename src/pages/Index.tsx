@@ -36,16 +36,7 @@ const Index = () => {
     
     fetchLatestPosts();
     
-    // Ensure Google Translate element exists
-    if (!document.getElementById('google_translate_element')) {
-      const translateDiv = document.createElement('div');
-      translateDiv.id = 'google_translate_element';
-      translateDiv.style.display = 'none';
-      document.body.appendChild(translateDiv);
-    }
-  }, []);
-  
-  useEffect(() => {
+    // Handle hash navigation
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
@@ -60,7 +51,6 @@ const Index = () => {
     };
 
     handleHashChange();
-
     window.addEventListener('hashchange', handleHashChange);
     
     return () => {
@@ -167,8 +157,8 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      {/* Google Translate Element Container - hidden but accessible */}
-      <div id="google_translate_element" className="hidden" aria-hidden="true"></div>
+      {/* Google Translate Element - Hidden but functional */}
+      <div id="google_translate_element" className="fixed top-0 left-0 opacity-0 pointer-events-none"></div>
       
       <Navbar1 />
       <Hero />

@@ -1,4 +1,3 @@
-
 import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSelector } from "./language-selector";
@@ -406,6 +405,8 @@ const Navbar1 = ({
           </div>
         </div>
       </div>
+      {/* Make sure Google Translate element is accessible */}
+      <div id="google_translate_element" className="hidden"></div>
     </section>
   );
 };

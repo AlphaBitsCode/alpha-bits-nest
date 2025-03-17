@@ -8,12 +8,24 @@
     <meta name="description" content="Alpha Bits specializes in AIoT product development, bridging artificial intelligence and IoT to create smart, scalable solutions. From digital twins to edge computing, we help businesses innovate and transform." />
     <meta name="author" content="Alpha Bits Team" />
     <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          autoDisplay: false,
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- Placeholder for Google Translate -->
-    <div id="google_translate_element" style="display: none;"></div>
+    <!-- Visible Google Translate Element -->
+    <div id="google_translate_element" class="hidden"></div>
     
     <script>
       window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Start discussion"};
