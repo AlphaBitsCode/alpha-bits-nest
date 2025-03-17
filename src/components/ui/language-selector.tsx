@@ -100,7 +100,7 @@ export function LanguageSelector() {
           
           {/* Asian languages - most relevant for your audience */}
           <div className="px-2 py-1.5 text-xs font-semibold">Asian Languages</div>
-          {languages.filter(lang => ['vi', 'th', 'ja', 'ko', 'zh-TW', 'zh-CN', 'id', 'ms'].includes(lang.code)).map((lang) => (
+          {languages.filter(lang => ['vi', 'th', 'ja', 'ko', 'tl', 'zh-TW', 'id', 'ms'].includes(lang.code)).map((lang) => (
             <DropdownMenuItem
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
@@ -115,7 +115,7 @@ export function LanguageSelector() {
           
           {/* European languages */}
           <div className="px-2 py-1.5 text-xs font-semibold">European Languages</div>
-          {languages.filter(lang => ['es', 'de', 'pt', 'tl'].includes(lang.code)).map((lang) => (
+          {languages.filter(lang => ['es', 'de', 'pt'].includes(lang.code)).map((lang) => (
             <DropdownMenuItem
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
