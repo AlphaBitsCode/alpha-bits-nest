@@ -1,4 +1,12 @@
 
+// Define TypeScript declarations at the top of the file
+declare global {
+  interface Window {
+    google: any;
+    googleTranslateElementInit: () => void;
+  }
+}
+
 interface Language {
   code: string;
   name: string;
@@ -87,7 +95,7 @@ export const changeLanguage = (langCode: string): boolean => {
     
     // Method 3: Try using Google's API
     if (window.google && window.google.translate) {
-      const element = google.translate.TranslateElement.getInstance();
+      const element = window.google.translate.TranslateElement.getInstance();
       if (element) {
         element.showBanner(langCode);
         return true;
@@ -100,11 +108,3 @@ export const changeLanguage = (langCode: string): boolean => {
     return false;
   }
 };
-
-// Add TypeScript declarations
-declare global {
-  interface Window {
-    google: any;
-    googleTranslateElementInit: () => void;
-  }
-}
