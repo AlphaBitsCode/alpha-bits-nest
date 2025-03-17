@@ -1,5 +1,5 @@
 
-import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb } from "lucide-react";
+import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { LanguageSelector } from "./language-selector";
 
@@ -78,22 +78,64 @@ const Navbar1 = ({
     title: "Alpha Bits",
   },
   menu = [
-    { title: "Home", url: "/" },
+    { title: "Home", url: "/", icon: <Home className="size-5 shrink-0" /> },
     {
       title: "Products",
       url: "/products",
       items: [
         {
-          title: "Mushroom-in-a-Box",
-          description: "A complete kit for growing gourmet mushrooms at home",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/products/mushroom-in-a-box",
+          title: "Commercial IoT Solutions",
+          description: "Smart digital twin solutions for businesses and organizations",
+          icon: <Server className="size-5 shrink-0" />,
+          items: [
+            {
+              title: "Digital Twin for Office & Home",
+              description: "Smart monitoring and optimization system for energy management",
+              icon: <Home className="size-5 shrink-0" />,
+              url: "/products/office-home",
+            },
+            {
+              title: "Digital Twin for Farm",
+              description: "Comprehensive digital modeling for agricultural operations",
+              icon: <Trees className="size-5 shrink-0" />,
+              url: "/products/farm",
+            },
+            {
+              title: "Digital Twin for Factory",
+              description: "End-to-end manufacturing process simulation and optimization",
+              icon: <Factory className="size-5 shrink-0" />,
+              url: "/products/factory",
+            },
+          ]
         },
         {
-          title: "Farm In Box",
-          description: "Educational package for schools to teach sustainable farming",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/products/farm-in-box",
+          title: "Education Products",
+          description: "Interactive learning solutions for educational institutions",
+          icon: <GraduationCap className="size-5 shrink-0" />,
+          items: [
+            {
+              title: "Mushroom-in-a-Box",
+              description: "A complete kit for growing gourmet mushrooms at home",
+              icon: <Package className="size-5 shrink-0" />,
+              url: "/products/mushroom-in-box",
+            },
+            {
+              title: "Farm In Box",
+              description: "Educational package for schools to teach sustainable farming",
+              icon: <Book className="size-5 shrink-0" />,
+              url: "/products/farm-in-box",
+            },
+            {
+              title: "Alpha Cube",
+              description: "Coming Summer 2025 - Our most innovative educational product yet",
+              icon: <Box className="size-5 shrink-0" />,
+              url: "/products/alpha-cube",
+              badge: {
+                text: "Coming Soon",
+                icon: <Clock className="size-3 mr-1" />
+              }
+            },
+          ]
         },
       ],
     },
@@ -113,12 +155,36 @@ const Navbar1 = ({
           icon: <Users className="size-5 shrink-0" />,
           url: "/services/cto-as-a-service",
         },
+        {
+          title: "Software Development",
+          description: "Custom ERP, CRM, HRM systems and AI-powered solutions",
+          icon: <Code className="size-5 shrink-0" />,
+          url: "/services/software-development",
+        },
       ],
     },
-    { title: "About", url: "/about" },
-    { title: "Experience", url: "/experience" },
-    { title: "Locations", url: "/locations" },
-    { title: "Contact", url: "/contact" },
+    {
+      title: "Experiences",
+      url: "/experiences",
+      items: [
+        {
+          title: "AO Farm",
+          description: "Visit our sustainable agriculture research facility",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/experiences/ao-farm",
+        },
+        {
+          title: "Events & Meet-ups",
+          description: "Join our community events and technology discussions",
+          icon: <Calendar className="size-5 shrink-0" />,
+          url: "/experiences/events",
+        },
+      ],
+    },
+    { title: "Blog", url: "/blog", icon: <FileText className="size-5 shrink-0" /> },
+    { title: "About", url: "/about", icon: <InfoIcon className="size-5 shrink-0" /> },
+    { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
+    { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
   ],
   mobileExtraLinks = [
     { name: "About", url: "/about" },
@@ -397,6 +463,7 @@ const renderMenuItem = (item: MenuItem) => {
         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
         to={item.url || "#"}
       >
+        {item.icon && <span className="mr-2">{item.icon}</span>}
         {item.title}
       </Link>
     </NavigationMenuItem>
