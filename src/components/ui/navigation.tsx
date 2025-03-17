@@ -1,8 +1,9 @@
 
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText, Server, GraduationCap, Box } from 'lucide-react';
+import { Home, Package, Briefcase, Users, Info, MapPin, PhoneCall, Factory, Trees, BookOpen, Lightbulb, Code, Calendar, FileText, Server, GraduationCap, Box, Clock } from 'lucide-react';
 import { Navbar1 } from './shadcnblocks-com-navbar1';
+import { Badge } from './badge';
 
 const Navigation = () => {
   const location = useLocation();
@@ -52,7 +53,6 @@ const Navigation = () => {
             title: "Commercial IoT Solutions",
             description: "Smart digital twin solutions for businesses and organizations",
             icon: <Server className="size-5 shrink-0" />,
-            url: "#",
             items: [
               {
                 title: "Digital Twin for Office & Home",
@@ -78,7 +78,6 @@ const Navigation = () => {
             title: "Education Products",
             description: "Interactive learning solutions for educational institutions",
             icon: <GraduationCap className="size-5 shrink-0" />,
-            url: "#",
             items: [
               {
                 title: "Mushroom-in-a-Box",
@@ -97,6 +96,10 @@ const Navigation = () => {
                 description: "Coming Summer 2025 - Our most innovative educational product yet",
                 icon: <Box className="size-5 shrink-0" />,
                 url: "/products/alpha-cube",
+                badge: {
+                  text: "Coming Soon",
+                  icon: <Clock className="size-3 mr-1" />
+                }
               },
             ]
           },

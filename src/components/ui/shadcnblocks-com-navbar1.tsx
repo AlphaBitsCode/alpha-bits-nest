@@ -1,3 +1,4 @@
+
 import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -23,13 +24,25 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
+import { 
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent
+} from "@/components/ui/hover-card";
+
+interface Badge {
+  text: string;
+  icon?: JSX.Element;
+}
 
 interface MenuItem {
   title: string;
-  url: string;
+  url?: string;
   description?: string;
   icon?: JSX.Element;
   items?: MenuItem[];
+  badge?: Badge;
 }
 
 interface Navbar1Props {
@@ -310,39 +323,56 @@ const Navbar1 = ({
 
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
+    // Handle first level of nested items
     return (
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger className="z-50 data-[state=open]:bg-accent/50">
-          <Link to={item.url} className="text-muted-foreground hover:text-brand-teal transition-colors duration-200">
+          <Link to={item.url || "#"} className="text-muted-foreground hover:text-brand-teal transition-colors duration-200">
             {item.title}
           </Link>
         </NavigationMenuTrigger>
         <NavigationMenuContent className="z-[1000]">
-          <ul className="w-80 p-3">
-            <NavigationMenuLink asChild>
-              <div className="grid gap-2">
-                {item.items.map((subItem) => (
-                  <li key={subItem.title}>
-                    <Link
-                      className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
-                      to={subItem.url}
-                    >
-                      {subItem.icon}
-                      <div>
-                        <div className="text-sm font-semibold">
-                          {subItem.title}
+          <ul className="grid gap-3 p-4 w-[500px] md:w-[600px] grid-cols-2">
+            {item.items.map((category) => (
+              <li key={category.title} className="col-span-1">
+                <div className="font-medium mb-1 text-sm text-muted-foreground flex items-center">
+                  {category.icon && <span className="mr-2">{category.icon}</span>}
+                  {category.title}
+                </div>
+                <p className="text-xs text-muted-foreground mb-2">{category.description}</p>
+                
+                <ul className="space-y-2">
+                  {category.items?.map((subItem) => (
+                    <li key={subItem.title}>
+                      <Link
+                        className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
+                        to={subItem.url || "#"}
+                      >
+                        <div className="flex items-center gap-2">
+                          {subItem.icon && <span>{subItem.icon}</span>}
+                          <div className="flex-grow">
+                            <div className="flex items-center">
+                              <span className="text-sm font-medium">{subItem.title}</span>
+                              {subItem.badge && (
+                                <Badge className="ml-2 bg-brand-teal/20 text-brand-teal hover:bg-brand-teal/30 px-2 py-0 text-[10px] flex items-center">
+                                  {subItem.badge.icon}
+                                  <span>{subItem.badge.text}</span>
+                                </Badge>
+                              )}
+                            </div>
+                            {subItem.description && (
+                              <p className="text-xs leading-snug text-muted-foreground mt-0.5">
+                                {subItem.description}
+                              </p>
+                            )}
+                          </div>
                         </div>
-                        {subItem.description && (
-                          <p className="text-sm leading-snug text-muted-foreground">
-                            {subItem.description}
-                          </p>
-                        )}
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </div>
-            </NavigationMenuLink>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
           </ul>
         </NavigationMenuContent>
       </NavigationMenuItem>
@@ -353,7 +383,7 @@ const renderMenuItem = (item: MenuItem) => {
     <NavigationMenuItem key={item.title}>
       <Link
         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
-        to={item.url}
+        to={item.url || "#"}
       >
         {item.title}
       </Link>
