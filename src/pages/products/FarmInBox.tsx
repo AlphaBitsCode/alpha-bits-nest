@@ -192,11 +192,11 @@ const FarmInBox = () => {
               </div>
               
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md flex justify-center items-center h-[600px]">
-                <div className="w-full max-w-[350px] h-full">
+                <div className="w-full max-w-[320px] h-full">
                   <iframe 
                     className="w-full h-full"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1&rel=0"
-                    title="Farm In Box Trailer"
+                    src="https://www.youtube.com/embed/YAEJn9OzoWo?controls=1&rel=0"
+                    title="Farm In Box - March 2025"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
