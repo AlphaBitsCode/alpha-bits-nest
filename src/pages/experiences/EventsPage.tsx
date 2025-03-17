@@ -247,9 +247,9 @@ const EventsPage = () => {
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name *</FormLabel>
+                            <FormLabel>Your Name *</FormLabel>
                             <FormControl>
-                              <Input placeholder="John Doe" {...field} />
+                              <Input placeholder="David Something" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -263,7 +263,7 @@ const EventsPage = () => {
                           <FormItem>
                             <FormLabel>Email *</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="john@example.com" {...field} />
+                              <Input type="email" placeholder="david@email.com" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

@@ -39,17 +39,15 @@ export function NotificationForm({ className = "" }: NotificationFormProps) {
     setIsSubmitting(true);
     
     try {
-      // Insert data into Supabase
+      // Insert data into Supabase leads table
       const { error } = await supabase
-        .from('preorders')
+        .from('leads')
         .insert({
           name: data.name,
-          email: data.email,
-          product: "Alpha-Cube",
-          quantity: 1,
-          country: "Notification Only",
-          address: "Notification Only",
-          message: "Notification signup"
+        email: data.email,
+          source: "Alpha-Cube",
+          type: "notification",
+          status: "new"
         });
 
       if (error) {
@@ -82,9 +80,9 @@ export function NotificationForm({ className = "" }: NotificationFormProps) {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-white">Full Name</FormLabel>
+                <FormLabel className="text-white">Your Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="David Something" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -98,7 +96,7 @@ export function NotificationForm({ className = "" }: NotificationFormProps) {
               <FormItem>
                 <FormLabel className="text-white">Email Address</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="john@example.com" {...field} />
+                  <Input type="email" placeholder="david@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

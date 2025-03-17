@@ -133,9 +133,9 @@ export function PreorderForm({
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>Your Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="david@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
