@@ -24,6 +24,14 @@ const ContactPage = () => {
         });
       }, 100);
     }
+    
+    // Ensure Google Translate element exists
+    if (!document.getElementById('google_translate_element')) {
+      const translateDiv = document.createElement('div');
+      translateDiv.id = 'google_translate_element';
+      translateDiv.style.display = 'none';
+      document.body.appendChild(translateDiv);
+    }
   }, [location]);
 
   return (
@@ -32,6 +40,9 @@ const ContactPage = () => {
 
       <div className="pt-16">
         <section id="contact" ref={contactSectionRef} className="py-16 bg-gradient-to-b from-white/95 to-gray-50/95 relative">
+          {/* Google Translate Element Container - hidden but accessible */}
+          <div id="google_translate_element" className="hidden" aria-hidden="true"></div>
+          
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 scrolled-section">
               <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-navy/10 text-brand-navy rounded-full mb-3">
@@ -131,7 +142,6 @@ const ContactPage = () => {
             </div>
           </div>
         </section>
-
       </div>
 
       <Footer />

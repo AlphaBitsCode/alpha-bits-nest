@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
@@ -36,6 +35,14 @@ const Index = () => {
     };
     
     fetchLatestPosts();
+    
+    // Ensure Google Translate element exists
+    if (!document.getElementById('google_translate_element')) {
+      const translateDiv = document.createElement('div');
+      translateDiv.id = 'google_translate_element';
+      translateDiv.style.display = 'none';
+      document.body.appendChild(translateDiv);
+    }
   }, []);
   
   useEffect(() => {
@@ -160,6 +167,9 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
+      {/* Google Translate Element Container - hidden but accessible */}
+      <div id="google_translate_element" className="hidden" aria-hidden="true"></div>
+      
       <Navbar1 />
       <Hero />
       
