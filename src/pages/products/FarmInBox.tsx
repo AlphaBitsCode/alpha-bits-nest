@@ -1,13 +1,14 @@
 
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { LeadForm } from '@/components/ui/lead-form';
 import { Toaster } from '@/components/ui/sonner';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const FarmInBox = () => {
   useScrollAnimation();
@@ -22,6 +23,23 @@ const FarmInBox = () => {
     'STEM curriculum integration',
     'Digital monitoring tools',
     'Teacher support resources'
+  ];
+
+  const productSpecs = [
+    'Monitor Soil Health with 7 Parameters',
+    'Auto Watering based on soil conditions',
+    '24/7 continuous care',
+    'Customisable grow layout by software, 21 slots as default',
+    'Individual slot with individual web & app account login',
+    'Timelapse playback',
+    'Super Admin account with full manual control',
+    'Remote monitoring app'
+  ];
+
+  const eduFeatures = [
+    'Scratch plugins available',
+    'Custom LMS integration is possible',
+    'Made in Vietnam'
   ];
 
   return (
@@ -108,10 +126,15 @@ const FarmInBox = () => {
                 ))}
               </ul>
 
+              <div className="flex items-center mb-8 bg-brand-teal/10 px-5 py-3 rounded-lg">
+                <Clock size={20} className="text-brand-teal mr-3 flex-shrink-0" />
+                <span className="text-brand-navy font-medium">Ready to ship! Lead time: 4-6 weeks</span>
+              </div>
+
               <div className="mt-8">
                 <LeadForm 
                   productName="Farm In Box" 
-                  buttonText="Request Information"
+                  buttonText="Request Pricing & Delivery"
                   className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
                 />
               </div>
@@ -128,6 +151,56 @@ const FarmInBox = () => {
                       className="w-full h-96 object-cover object-center"
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Product Features/Specs Section */}
+          <div className="mt-16 scrolled-section">
+            <h2 className="text-2xl font-bold text-brand-navy mb-8 text-center">Product Features & Specifications</h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <Card className="border-0 shadow-lg">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-xl text-brand-teal">Technical Specifications</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {productSpecs.map((spec, index) => (
+                        <li key={index} className="flex items-start">
+                          <Check size={18} className="text-brand-green mr-2 flex-shrink-0 mt-1" />
+                          <span>{spec}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                      <h3 className="font-medium text-brand-navy mb-3">Educational Features</h3>
+                      <ul className="space-y-3">
+                        {eduFeatures.map((feature, index) => (
+                          <li key={index} className="flex items-start">
+                            <Check size={18} className="text-brand-green mr-2 flex-shrink-0 mt-1" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md flex justify-center items-center h-[600px]">
+                <div className="w-full max-w-[350px] h-full">
+                  <iframe 
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=1&rel=0"
+                    title="Farm In Box Trailer"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -226,7 +299,7 @@ const FarmInBox = () => {
                 <div className="text-center mt-8">
                   <LeadForm 
                     productName="Farm In Box" 
-                    buttonText="Request Information"
+                    buttonText="Request Pricing & Delivery"
                     className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
                   />
                 </div>
