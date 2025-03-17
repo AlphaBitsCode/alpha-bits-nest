@@ -410,24 +410,24 @@ const renderMenuItem = (item: MenuItem) => {
               <li key={category.title} className="col-span-1">
                 <Link 
                   to={category.url || "#"}
-                  className="block font-medium mb-1 text-sm text-muted-foreground hover:text-brand-teal transition-colors duration-200"
+                  className="block font-medium mb-2 text-lg bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent hover:from-brand-blue hover:to-brand-teal transition-all duration-300"
                 >
-                  <div className="flex items-center">
-                    {category.icon && <span className="mr-2">{category.icon}</span>}
+                  <div className="flex items-center gap-2">
+                    {category.icon && <span className="p-1.5 rounded-lg bg-gradient-to-r from-brand-teal/20 to-brand-blue/20 hover:from-brand-teal/30 hover:to-brand-blue/30 transition-all duration-300">{category.icon}</span>}
                     {category.title}
                   </div>
                 </Link>
-                <p className="text-xs text-muted-foreground mb-2">{category.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">{category.description}</p>
                 
                 <ul className="space-y-2">
                   {category.items?.map((subItem) => (
                     <li key={subItem.title}>
                       <Link
-                        className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
+                        className="flex select-none gap-2 rounded-md p-1.5 leading-none outline-none transition-colors hover:bg-brand-teal/10 hover:text-brand-teal"
                         to={subItem.url || "#"}
                       >
                         <div className="flex items-center gap-2">
-                          {subItem.icon && <span>{subItem.icon}</span>}
+                          {subItem.icon && <span className="bg-gradient-to-r from-brand-teal/10 to-brand-blue/10 hover:from-brand-teal/20 hover:to-brand-blue/20 p-1.5 rounded-lg transition-all duration-300">{subItem.icon}</span>}
                           <div className="flex-grow">
                             <div className="flex items-center">
                               <span className="text-sm font-medium">{subItem.title}</span>
