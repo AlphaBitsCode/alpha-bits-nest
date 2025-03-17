@@ -1,6 +1,7 @@
 
 import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LanguageSelector } from "./language-selector";
 
 import {
   Accordion,
@@ -147,20 +148,23 @@ const Navbar1 = ({
               </NavigationMenu>
             </div>
           </div>
-          {(auth.login.text || auth.signup.text) && (
-            <div className="flex gap-2">
-              {auth.login.text && (
-                <Button asChild variant="outline" size="sm">
-                  <Link to={auth.login.url}>{auth.login.text}</Link>
-                </Button>
-              )}
-              {auth.signup.text && (
-                <Button asChild size="sm">
-                  <Link to={auth.signup.url}>{auth.signup.text}</Link>
-                </Button>
-              )}
-            </div>
-          )}
+          <div className="flex gap-2">
+            <LanguageSelector />
+            {(auth.login.text || auth.signup.text) && (
+              <div className="flex gap-2">
+                {auth.login.text && (
+                  <Button asChild variant="outline" size="sm">
+                    <Link to={auth.login.url}>{auth.login.text}</Link>
+                  </Button>
+                )}
+                {auth.signup.text && (
+                  <Button asChild size="sm">
+                    <Link to={auth.signup.url}>{auth.signup.text}</Link>
+                  </Button>
+                )}
+              </div>
+            )}          
+          </div>
         </nav>
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
@@ -306,6 +310,9 @@ const Navbar1 = ({
                     Contact
                   </Link>
                   
+                  <div className="flex justify-center mt-4 mb-2">
+                    <LanguageSelector />
+                  </div>
                   <div className="border-t border-gray-200/30 mt-2 pt-4 text-center">
                     <p className="text-sm text-muted-foreground">
                       <span className="italic font-medium">Alpha Bits</span> - Turning Ideas into Reality
