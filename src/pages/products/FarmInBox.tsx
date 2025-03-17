@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, ExternalLink, Check, Clock } from 'lucide-react';
 import Navigation from '@/components/ui/navigation';
 import Footer from '@/components/ui/footer';
-import { useScrollAnimation } from '@/lib/animations';
+import { useScrollAnimation, useParallax } from '@/lib/animations';
 import { LeadForm } from '@/components/ui/lead-form';
 import { Toaster } from '@/components/ui/sonner';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
 
 const FarmInBox = () => {
   useScrollAnimation();
+  useParallax();
   
   useEffect(() => {
     document.title = "Farm In Box | Alpha Bits";
@@ -43,15 +45,15 @@ const FarmInBox = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navigation />
       <Toaster />
 
-      {/* Hero Section with Video Background */}
-      <section className="relative w-full h-[80vh] overflow-hidden">
-        <div className="absolute inset-0 bg-brand-navy/40 z-10"></div>
+      {/* Hero Section with Video Background and Parallax Effect */}
+      <section className="relative w-full h-[85vh] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-brand-navy/40 to-transparent z-10"></div>
         <video 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-[1.02] transition-transform duration-[20s] hover:scale-[1.05]"
           autoPlay 
           muted 
           loop 
@@ -62,21 +64,21 @@ const FarmInBox = () => {
         </video>
         
         <div className="container mx-auto px-4 h-full flex items-center relative z-20">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <div className="max-w-2xl parallax-element" data-speed="0.2">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-slide-up">
               Farm In Box
             </h1>
-            <p className="text-xl text-white/85 mb-8">
+            <p className="text-xl text-white/85 mb-8 animate-slide-up" style={{animationDelay: '0.2s'}}>
               Watch the fascinating journey of growth and sustainability with our educational farming kit. 
               Perfect for classrooms, bringing hands-on learning to life.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90">
+            <div className="flex flex-wrap gap-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
+              <Button size="lg" className="bg-brand-teal hover:bg-brand-teal/90 transition-all duration-500 transform hover:scale-105">
                 <Link to="#info" className="flex items-center">
                   Learn More <ChevronRight size={16} className="ml-1" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white/20 hover:bg-white/20"
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:scale-105"
                 onClick={(e) => {
                   e.preventDefault();
                   const demoSection = document.querySelector('#demo');
@@ -92,13 +94,20 @@ const FarmInBox = () => {
             </div>
           </div>
         </div>
+        
+        {/* Subtle gradient overlay at bottom for smooth transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent z-10"></div>
       </section>
       
-      <section id="info" className="py-12 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <section id="info" className="py-12 flex-grow relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white pointer-events-none"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="mb-6">
+          <div className="mb-6 animate-fade-in">
             <Link to="/products" className="inline-flex items-center text-brand-navy hover:text-brand-teal transition-colors duration-300">
               <ArrowLeft size={16} className="mr-2" />
               Back to Products
@@ -119,36 +128,36 @@ const FarmInBox = () => {
               
               <ul className="space-y-3 mb-8">
                 {features.map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <ChevronRight size={20} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                    <span>{item}</span>
+                  <li key={index} className="flex items-start group">
+                    <ChevronRight size={20} className="text-brand-teal mr-2 flex-shrink-0 mt-1 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    <span className="group-hover:text-brand-navy transition-colors duration-300">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="flex items-center mb-8 bg-brand-teal/10 px-5 py-3 rounded-lg">
+              <div className="flex items-center mb-8 bg-gradient-to-r from-brand-teal/10 to-brand-teal/5 px-5 py-3 rounded-lg backdrop-blur-sm border border-brand-teal/10 animate-pulse">
                 <Clock size={20} className="text-brand-teal mr-3 flex-shrink-0" />
                 <span className="text-brand-navy font-medium">Ready to ship! Lead time: 4-6 weeks</span>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-8 transform hover:scale-[1.02] transition-transform duration-300">
                 <LeadForm 
                   productName="Farm In Box" 
                   buttonText="Request Pricing & Delivery"
-                  className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105"
+                  className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
                 />
               </div>
             </div>
             
             <div className="flex justify-center">
-              <div className="relative w-full max-w-md">
+              <div className="relative w-full max-w-md transform hover:scale-[1.02] transition-all duration-700 hover:rotate-1">
                 <div className="absolute -inset-2 bg-gradient-to-r from-brand-teal to-brand-blue rounded-lg opacity-30 blur-lg animate-pulse"></div>
-                <div className="relative glassmorphism overflow-hidden rounded-lg p-1">
+                <div className="relative glassmorphism overflow-hidden rounded-lg p-1 shadow-2xl">
                   <div className="bg-white rounded-lg overflow-hidden">
                     <img 
                       src="/images/farminbox/farminbox_box2.jpg" 
                       alt="Farm in Box Educational Kit" 
-                      className="w-full h-96 object-cover object-center"
+                      className="w-full h-96 object-cover object-center hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
@@ -156,22 +165,31 @@ const FarmInBox = () => {
             </div>
           </div>
           
-          {/* Product Features/Specs Section */}
-          <div className="mt-16 scrolled-section">
-            <h2 className="text-2xl font-bold text-brand-navy mb-8 text-center">Product Features & Specifications</h2>
+          {/* Product Features/Specs Section with Glassmorphism */}
+          <div className="mt-24 scrolled-section relative">
+            <div className="absolute -inset-10 bg-gradient-to-r from-brand-blue/5 via-brand-teal/5 to-brand-green/5 rounded-3xl blur-3xl pointer-events-none"></div>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <Card className="border-0 shadow-lg">
+            <h2 className="text-2xl font-bold text-brand-navy mb-12 text-center relative">
+              <span className="relative inline-block">
+                Product Features & Specifications
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-teal to-brand-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+              </span>
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center relative">
+              <div className="transform hover:translate-y-[-5px] transition-all duration-500">
+                <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-xl text-brand-teal">Technical Specifications</CardTitle>
+                    <CardTitle className="text-xl text-transparent bg-gradient-to-r from-brand-teal to-brand-green bg-clip-text">Technical Specifications</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {productSpecs.map((spec, index) => (
-                        <li key={index} className="flex items-start">
-                          <Check size={18} className="text-brand-green mr-2 flex-shrink-0 mt-1" />
-                          <span>{spec}</span>
+                        <li key={index} className="flex items-start group">
+                          <div className="mt-0.5 mr-2 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-brand-teal to-brand-green flex items-center justify-center text-white transform group-hover:scale-110 transition-transform duration-300">
+                            <Check size={12} />
+                          </div>
+                          <span className="group-hover:text-brand-navy transition-colors duration-300">{spec}</span>
                         </li>
                       ))}
                     </ul>
@@ -180,9 +198,11 @@ const FarmInBox = () => {
                       <h3 className="font-medium text-brand-navy mb-3">Educational Features</h3>
                       <ul className="space-y-3">
                         {eduFeatures.map((feature, index) => (
-                          <li key={index} className="flex items-start">
-                            <Check size={18} className="text-brand-green mr-2 flex-shrink-0 mt-1" />
-                            <span>{feature}</span>
+                          <li key={index} className="flex items-start group">
+                            <div className="mt-0.5 mr-2 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-brand-green to-brand-blue flex items-center justify-center text-white transform group-hover:scale-110 transition-transform duration-300">
+                              <Check size={12} />
+                            </div>
+                            <span className="group-hover:text-brand-navy transition-colors duration-300">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -191,33 +211,40 @@ const FarmInBox = () => {
                 </Card>
               </div>
               
-              <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md flex justify-center items-center h-[600px]">
-                <div className="w-full max-w-[320px] h-full">
-                  <iframe 
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/YAEJn9OzoWo?controls=1&rel=0"
-                    title="Farm In Box - March 2025"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+              <div className="bg-gradient-to-b from-gray-50 to-white rounded-2xl overflow-hidden shadow-xl transform hover:translate-y-[-5px] transition-all duration-500">
+                <div className="w-full max-w-md mx-auto p-4">
+                  <div className="relative rounded-xl overflow-hidden shadow-lg border border-white/30">
+                    <iframe 
+                      className="w-full aspect-[9/16]"
+                      src="https://www.youtube.com/embed/YAEJn9OzoWo?controls=1&rel=0"
+                      title="Farm In Box - March 2025"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                    <div className="absolute inset-0 pointer-events-none border border-white/20 rounded-xl"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           
           {/* Live Demo Section */}
-          <div id="demo" className="mt-16 scrolled-section">
-            <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+          <div id="demo" className="mt-24 mb-12 scrolled-section relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/5 via-brand-blue/5 to-brand-teal/5 rounded-3xl blur-3xl pointer-events-none"></div>
+            
+            <div className="max-w-4xl mx-auto glassmorphism p-8 rounded-2xl shadow-2xl relative z-10 transform hover:translate-y-[-5px] transition-all duration-500">
               <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Live Public Demo</h2>
               
               <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <img 
-                    src="/images/farminbox/farminbox_screenshot2.png" 
-                    alt="Farm in Box Dashboard Screenshot" 
-                    className="w-full rounded-lg shadow-md"
-                  />
+                <div className="group">
+                  <div className="overflow-hidden rounded-lg border border-white/30">
+                    <img 
+                      src="/images/farminbox/farminbox_screenshot2.png" 
+                      alt="Farm in Box Dashboard Screenshot" 
+                      className="w-full rounded-lg shadow-md group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
                 </div>
                 
                 <div>
@@ -230,22 +257,36 @@ const FarmInBox = () => {
                     This is the exact same monitoring system that comes with every Farm In Box kit, allowing students and educators to track and analyze their growing projects.
                   </p>
                   
-                  <a 
-                    href="https://farminbox.alphabits.team/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center px-6 py-3 bg-brand-navy hover:bg-brand-navy/90 text-white font-medium rounded-lg transition-all duration-300"
-                  >
-                    Visit Live Dashboard <ExternalLink size={16} className="ml-2" />
-                  </a>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <a 
+                        href="https://farminbox.alphabits.team/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-navy via-brand-blue to-brand-navy text-white font-medium rounded-lg transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg"
+                      >
+                        Visit Live Dashboard <ExternalLink size={16} className="ml-2" />
+                      </a>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="bg-white/95 backdrop-blur-md border border-white/20 shadow-xl">
+                      <div className="flex flex-col gap-2">
+                        <p className="text-sm text-gray-600">See real-time data from our mushroom growing experiment</p>
+                        <img 
+                          src="/images/farminbox/farminbox_screenshot1.png" 
+                          alt="Dashboard Preview" 
+                          className="w-full h-24 object-cover rounded-md"
+                        />
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="mt-16 scrolled-section">
-            <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold text-brand-navy mb-6 text-center">Why Farm In Box?</h2>
+          <div className="mt-24 mb-12 scrolled-section">
+            <div className="max-w-3xl mx-auto bg-gradient-to-br from-white to-gray-50/80 p-8 rounded-2xl shadow-xl border border-white/50 transform hover:translate-y-[-5px] transition-all duration-500">
+              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text mb-6 text-center">Why Farm In Box?</h2>
               
               <div className="space-y-4">
                 <p className="text-gray-600">
@@ -259,48 +300,44 @@ const FarmInBox = () => {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg shadow-md border border-white/50 backdrop-blur-sm transform hover:translate-y-[-3px] hover:shadow-lg transition-all duration-300">
                     <h3 className="font-semibold text-brand-navy mb-2">For Educators</h3>
                     <ul className="space-y-2">
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Ready-to-use curriculum materials</span>
-                      </li>
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Professional development resources</span>
-                      </li>
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Assessment tools and rubrics</span>
-                      </li>
+                      {[
+                        'Ready-to-use curriculum materials',
+                        'Professional development resources',
+                        'Assessment tools and rubrics'
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start group">
+                          <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1 transform group-hover:translate-x-1 transition-transform duration-300" />
+                          <span className="text-sm group-hover:text-brand-navy transition-colors duration-300">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
-                  <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="bg-white p-4 rounded-lg shadow-md border border-white/50 backdrop-blur-sm transform hover:translate-y-[-3px] hover:shadow-lg transition-all duration-300">
                     <h3 className="font-semibold text-brand-navy mb-2">For Students</h3>
                     <ul className="space-y-2">
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Hands-on learning experience</span>
-                      </li>
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Development of practical skills</span>
-                      </li>
-                      <li className="flex items-start">
-                        <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1" />
-                        <span className="text-sm">Understanding of sustainable practices</span>
-                      </li>
+                      {[
+                        'Hands-on learning experience',
+                        'Development of practical skills',
+                        'Understanding of sustainable practices'
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start group">
+                          <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1 transform group-hover:translate-x-1 transition-transform duration-300" />
+                          <span className="text-sm group-hover:text-brand-navy transition-colors duration-300">{item}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </div>
                 
-                <div className="text-center mt-8">
+                <div className="text-center mt-10 transform hover:scale-[1.02] transition-transform duration-300">
                   <LeadForm 
                     productName="Farm In Box" 
                     buttonText="Request Pricing & Delivery"
-                    className="px-6 py-3 bg-brand-teal hover:bg-brand-teal/90 text-white font-medium rounded-lg transition-all duration-300"
+                    className="px-6 py-3 bg-gradient-to-r from-brand-teal to-brand-green hover:from-brand-green hover:to-brand-teal text-white font-medium rounded-lg transition-all duration-500 shadow-lg hover:shadow-xl"
                   />
                 </div>
               </div>
