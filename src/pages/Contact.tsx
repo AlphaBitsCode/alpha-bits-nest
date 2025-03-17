@@ -4,7 +4,6 @@ import Footer from '@/components/ui/footer';
 import { MapPin, Phone, Mail, Calendar, Clock } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
-import { WorldMap } from '@/components/ui/world-map';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
@@ -12,11 +11,11 @@ const ContactPage = () => {
   useScrollAnimation();
   const location = useLocation();
   const contactSectionRef = useRef<HTMLElement>(null);
-  
+
   useEffect(() => {
     // Scroll to top when the page loads
     window.scrollTo(0, 0);
-    
+
     // Check if there's a hash in the URL
     if (location.hash === '#contact') {
       setTimeout(() => {
@@ -26,13 +25,13 @@ const ContactPage = () => {
       }, 100);
     }
   }, [location]);
-  
+
   return (
     <div className="min-h-screen">
       <Navbar1 />
-      
+
       <div className="pt-16">
-        <section id="contact" ref={contactSectionRef} className="py-16 bg-gradient-to-b from-white to-gray-50 relative">
+        <section id="contact" ref={contactSectionRef} className="py-16 bg-gradient-to-b from-white/95 to-gray-50/95 relative">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 scrolled-section">
               <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-navy/10 text-brand-navy rounded-full mb-3">
@@ -45,30 +44,33 @@ const ContactPage = () => {
                 Have questions about our products or services? Reach out to us and our team will be happy to assist you.
               </p>
             </div>
-            
-            <div className="grid md:grid-cols-1 gap-12 scrolled-section max-w-2xl mx-auto">
-                <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-bold text-brand-navy">Schedule a Meeting</h3>
-                    <Calendar size={24} className="text-brand-teal" />
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6">
-                    Book a 30-minute consultation with our team to discuss your project or learn more about our services.
-                  </p>
-                  
-                  <Button asChild className="w-full">
-                    <a href="https://cal.com/alphabits/mini" target="_blank" rel="noopener noreferrer">
-                      Book a 30-Minute Call
-                    </a>
-                  </Button>
+
+            <div className="grid md:grid-cols-2 gap-12 scrolled-section max-w-6xl mx-auto">
+              <div className="bg-white/20 backdrop-blur-lg rounded-xl shadow-xl p-8 border border-white/20 hover:border-white/40 transition-all">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-brand-navy">Schedule a Meeting</h3>
+                  <Calendar size={24} className="text-brand-teal" />
                 </div>
-              
+
+                <p className="text-gray-600 mb-6">
+                  Book a 30-minute consultation with our team to discuss your project or learn more about our services.
+                </p>
+
+                <Button asChild className="w-full">
+                  <a href="https://cal.com/alphabits/mini" target="_blank" rel="noopener noreferrer">
+                    Book a 30-Minute Call
+                  </a>
+                </Button>
+
+              </div>
+
+
+
               {/* Contact Information */}
               <div className="flex flex-col h-full">
-                <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-6">
+                <div className="bg-white/20 backdrop-blur-lg rounded-xl shadow-xl p-8 border border-white/20 hover:border-white/40 transition-all mb-6">
                   <h3 className="text-xl font-bold text-brand-navy mb-6">Contact Information</h3>
-                  
+
                   <div className="space-y-6">
                     <div className="flex items-start">
                       <Phone size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
@@ -77,7 +79,7 @@ const ContactPage = () => {
                         <p className="text-base text-gray-600">+84 868 000 317</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
                       <Mail size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
                       <div>
@@ -85,7 +87,7 @@ const ContactPage = () => {
                         <p className="text-base text-gray-600">contact@alphabits.team</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
                       <MapPin size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
                       <div>
@@ -93,7 +95,7 @@ const ContactPage = () => {
                         <p className="text-base text-gray-600">Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start">
                       <Clock size={24} className="text-brand-teal mr-4 flex-shrink-0 mt-1" />
                       <div>
@@ -104,18 +106,17 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-md p-8 border border-gray-100 mb-6">
+                <div className="bg-white/20 backdrop-blur-lg rounded-xl shadow-xl p-8 border border-white/20 hover:border-white/40 transition-all mb-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-brand-navy">Chat with AI Representative</h3>
-                    <img src="/images/AB_Logo_icon.png" alt="Alpha Bits AI" className="h-6 w-6" />
                   </div>
-                  
+
                   <p className="text-gray-600 mb-6">
                     Get instant assistance 24/7 by scanning the QR code below to chat with our AI representative on WhatsApp.
                   </p>
 
-                  <div className="flex justify-center">
-                    <div className="bg-white p-4 rounded-xl border-2 border-brand-teal/20 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex justify-center scrolled-section">
+                    <div className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border-2 border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
                       <img
                         src="/images/qr_whatsapp_ai.png"
                         alt="WhatsApp QR Code"
@@ -124,66 +125,15 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
 
               </div>
             </div>
           </div>
         </section>
-        
-        {/* World Map Hero Section */}
-        <div className="py-8 bg-white w-full">
-          <div className="max-w-7xl mx-auto text-center px-4">
-            <p className="font-bold text-xl md:text-4xl text-black">
-              Global{" "}
-              <span className="text-brand-teal">
-                {"Connections".split("").map((word, idx) => (
-                  <motion.span
-                    key={idx}
-                    className="inline-block"
-                    initial={{ x: -10, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: idx * 0.04 }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </span>
-            </p>
-            <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
-              We're building innovative solutions that connect people and businesses across continents. 
-              Based in Vietnam, we serve clients and partners worldwide.
-            </p>
-          </div>
-          <WorldMap
-            dots={[
-              {
-                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
-                end: { lat: 37.7749, lng: -122.4194 }, // San Francisco
-              },
-              {
-                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
-                end: { lat: 51.5074, lng: -0.1278 }, // London
-              },
-              {
-                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
-                end: { lat: 35.6762, lng: 139.6503 }, // Tokyo
-              },
-              {
-                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
-                end: { lat: 1.3521, lng: 103.8198 }, // Singapore
-              },
-              {
-                start: { lat: 10.762622, lng: 106.660172 }, // Ho Chi Minh City
-                end: { lat: -33.8688, lng: 151.2093 }, // Sydney
-              },
-            ]}
-            lineColor="#36b6ad" // Use brand-teal color
-          />
-        </div>
 
       </div>
-      
+
       <Footer />
     </div>
   );
