@@ -120,7 +120,7 @@ const FarmInBox = () => {
                 PRODUCT
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-                Farm In Box - Educational Kit
+                Farm In Box - School
               </h1>
               <p className="text-gray-600 mb-6 text-lg">
                 A comprehensive educational package designed for schools and learning institutions to teach sustainable farming practices, biology, and environmental science through hands-on experience.
@@ -150,9 +150,9 @@ const FarmInBox = () => {
             </div>
             
             <div className="flex justify-center">
-              <div className="relative w-full max-w-md transform hover:scale-[1.02] transition-all duration-700 hover:rotate-1">
+              <div className="relative w-full max-w-md transform hover:scale-[1.02] transition-all duration-500">
                 <div className="absolute -inset-2 bg-gradient-to-r from-brand-teal to-brand-blue rounded-lg opacity-30 blur-lg animate-pulse"></div>
-                <div className="relative glassmorphism overflow-hidden rounded-lg p-1 shadow-2xl">
+                <div className="relative glassmorphism overflow-hidden rounded-lg p-1 shadow-md">
                   <div className="bg-white rounded-lg overflow-hidden">
                     <img 
                       src="/images/farminbox/farminbox_box2.jpg" 
@@ -178,7 +178,7 @@ const FarmInBox = () => {
             
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
               <div className="transform hover:translate-y-[-5px] transition-all duration-500">
-                <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
+                <Card className="border-0 shadow-md bg-white/80 backdrop-blur-sm">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-xl text-transparent bg-gradient-to-r from-brand-teal to-brand-green bg-clip-text">Technical Specifications</CardTitle>
                   </CardHeader>
@@ -206,6 +206,25 @@ const FarmInBox = () => {
                           </li>
                         ))}
                       </ul>
+                      <div className="mt-6 pt-6 border-t border-gray-100">
+                        <h3 className="font-medium text-brand-navy mb-4">Early Adopters</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                          <a href="https://griteducation.edu.vn/" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-lg bg-white p-3 shadow-sm border border-gray-100 hover:border-brand-teal/20 transition-all duration-300">
+                            <img 
+                              src="/images/farminbox/partner_grit.png" 
+                              alt="Grit Education Logo"
+                              className="w-full h-12 object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </a>
+                          <a href="https://kdi.edu.vn/" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-lg bg-white p-3 shadow-sm border border-gray-100 hover:border-brand-teal/20 transition-all duration-300">
+                            <img 
+                              src="/images/farminbox/partner_kdi.png" 
+                              alt="KDI Education Logo"
+                              className="w-full h-12 object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -279,66 +298,6 @@ const FarmInBox = () => {
                       </div>
                     </HoverCardContent>
                   </HoverCard>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-24 mb-12 scrolled-section">
-            <div className="max-w-3xl mx-auto bg-gradient-to-br from-white to-gray-50/80 p-8 rounded-2xl shadow-xl border border-white/50 transform hover:translate-y-[-5px] transition-all duration-500">
-              <h2 className="text-2xl font-bold text-transparent bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text mb-6 text-center">Why Farm In Box?</h2>
-              
-              <div className="space-y-4">
-                <p className="text-gray-600">
-                  Farm In Box is designed to bridge the gap between theoretical education and practical experience in sustainable farming. 
-                  It provides students with a hands-on approach to learning about agriculture, biology, and environmental science.
-                </p>
-                
-                <p className="text-gray-600">
-                  Our comprehensive kit includes everything educators need to implement a successful farming program in their institutions,
-                  with step-by-step guides, curriculum integration materials, and ongoing support.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                  <div className="bg-white p-4 rounded-lg shadow-md border border-white/50 backdrop-blur-sm transform hover:translate-y-[-3px] hover:shadow-lg transition-all duration-300">
-                    <h3 className="font-semibold text-brand-navy mb-2">For Educators</h3>
-                    <ul className="space-y-2">
-                      {[
-                        'Ready-to-use curriculum materials',
-                        'Professional development resources',
-                        'Assessment tools and rubrics'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-start group">
-                          <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1 transform group-hover:translate-x-1 transition-transform duration-300" />
-                          <span className="text-sm group-hover:text-brand-navy transition-colors duration-300">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-white p-4 rounded-lg shadow-md border border-white/50 backdrop-blur-sm transform hover:translate-y-[-3px] hover:shadow-lg transition-all duration-300">
-                    <h3 className="font-semibold text-brand-navy mb-2">For Students</h3>
-                    <ul className="space-y-2">
-                      {[
-                        'Hands-on learning experience',
-                        'Development of practical skills',
-                        'Understanding of sustainable practices'
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-start group">
-                          <ChevronRight size={16} className="text-brand-teal mr-2 flex-shrink-0 mt-1 transform group-hover:translate-x-1 transition-transform duration-300" />
-                          <span className="text-sm group-hover:text-brand-navy transition-colors duration-300">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="text-center mt-10 transform hover:scale-[1.02] transition-transform duration-300">
-                  <LeadForm 
-                    productName="Farm In Box" 
-                    buttonText="Request Pricing & Delivery"
-                    className="px-6 py-3 bg-gradient-to-r from-brand-teal to-brand-green hover:from-brand-green hover:to-brand-teal text-white font-medium rounded-lg transition-all duration-500 shadow-lg hover:shadow-xl"
-                  />
                 </div>
               </div>
             </div>
