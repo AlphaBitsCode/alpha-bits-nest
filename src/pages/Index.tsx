@@ -1,22 +1,41 @@
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import { Hero } from '@/components/ui/animated-hero';
 import { CTOOfficeHours } from '@/components/ui/cto-office-hours';
 import { CTOChallenges } from '@/components/ui/cto-challenges';
-import { FeatureStepsSection } from '@/components/ui/feature-steps-section';
-import { HighlightedItemsSection } from '@/components/ui/highlighted-items-section';
+import { FeatureSteps } from '@/components/ui/feature-section';
+import { ProductsServicesGrid } from '@/components/ui/products-services-grid';
+import { LatestBlogPosts } from '@/components/ui/latest-blog-posts';
 import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
-import { Briefcase, Users, Package, BookOpen, Home, Factory, Code, Database, Server, Lightbulb, Puzzle, Search, MessageSquare } from 'lucide-react';
-import { NonTechnicalFounderSection } from '@/components/ui/non-technical-founder-section';
+import { supabase } from '@/integrations/supabase/client';
+import { BlogPost } from '@/components/ui/blog/masonry-layout';
+import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees } from 'lucide-react';
 
 const Index = () => {
   useParallax();
+  const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
   const location = useLocation();
   
   useEffect(() => {
+    // Fetch the latest blog posts
+    const fetchLatestPosts = async () => {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .order('published_at', { ascending: false })
+        .limit(3);
+        
+      if (error) {
+        console.error('Error fetching latest blog posts:', error);
+      } else {
+        setLatestPosts(data as BlogPost[]);
+      }
+    };
+    
+    fetchLatestPosts();
+    
     // Handle hash navigation
     const handleHashChange = () => {
       const hash = window.location.hash;
@@ -77,39 +96,6 @@ const Index = () => {
       problem: "Difficulty hiring and managing technical talent",
       solution: "Recruitment assistance and technical team leadership"
     }
-  ];
-  
-  const founderChallenges = [
-    {
-      icon: <Code className="h-8 w-8 text-red-500" />,
-      title: "Technology Stack Confusion",
-      description: "Overwhelmed by countless programming languages, frameworks, and platforms without knowing which ones are right for your business."
-    },
-    {
-      icon: <Database className="h-8 w-8 text-red-500" />,
-      title: "Infrastructure Decisions",
-      description: "Difficulty choosing between cloud providers, server configurations, and deployment options while trying to balance cost and scalability."
-    },
-    {
-      icon: <Server className="h-8 w-8 text-red-500" />,
-      title: "Technical Debt Blindness",
-      description: "Unable to identify when shortcuts taken by developers will lead to costly rebuilds and scaling problems in the future."
-    },
-    {
-      icon: <Lightbulb className="h-8 w-8 text-red-500" />,
-      title: "Innovation Paralysis",
-      description: "Struggling to evaluate which emerging technologies are worth investing in versus which ones are just hype with little business value."
-    },
-    {
-      icon: <Puzzle className="h-8 w-8 text-red-500" />,
-      title: "Integration Complexity",
-      description: "Facing difficulties connecting various software systems and ensuring data flows smoothly across your business operations."
-    },
-    {
-      icon: <Search className="h-8 w-8 text-red-500" />,
-      title: "Technical Talent Assessment",
-      description: "Lacking the expertise to properly evaluate developers' skills and determine if they're the right fit for your project requirements."
-    },
   ];
   
   const highlightedItems = [
@@ -177,15 +163,22 @@ const Index = () => {
       <Navbar1 />
       <Hero />
       
-      <NonTechnicalFounderSection challenges={founderChallenges} />
-      
       <CTOOfficeHours />
       
       <CTOChallenges painPoints={painPoints} />
       
-      <FeatureStepsSection features={features} />
+      <section className="py-20 bg-gray-50">
+        <FeatureSteps 
+          features={features}
+          title="How We Help Businesses"
+          autoPlayInterval={4000}
+          imageHeight="h-[400px]"
+        />
+      </section>
       
-      <HighlightedItemsSection items={highlightedItems} />
+      <ProductsServicesGrid items={highlightedItems} />
+      
+      <LatestBlogPosts posts={latestPosts} />
       
       <Footer />
     </div>
