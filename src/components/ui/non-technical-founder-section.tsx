@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { MessageQuestion } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 interface Challenge {
   icon: React.ReactNode;
@@ -32,7 +32,7 @@ export function NonTechnicalFounderSection({ challenges }: NonTechnicalFounderSe
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center gap-2 px-3 py-1 text-sm font-medium bg-red-100 text-red-800 rounded-full mb-4">
-            <MessageQuestion className="w-4 h-4" />
+            <MessageSquare className="w-4 h-4" />
             <span>THE TECH DILEMMA</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

@@ -11,7 +11,7 @@ import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/components/ui/blog/masonry-layout';
-import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees, Code, Database, Server, Lightbulb, Puzzle, Search, MessageQuestion } from 'lucide-react';
+import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees, Code, Database, Server, Lightbulb, Puzzle, Search, MessageSquare } from 'lucide-react';
 import { NonTechnicalFounderSection } from '@/components/ui/non-technical-founder-section';
 
 const Index = () => {
