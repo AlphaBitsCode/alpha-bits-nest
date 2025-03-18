@@ -113,51 +113,6 @@ const Index = () => {
   ];
   
   const highlightedItems = [
-    // Commercial IoT Solutions
-    {
-      type: 'product' as const,
-      title: 'Digital Twin for Office & Home',
-      description: 'Smart monitoring and optimization system for residential and office spaces.',
-      icon: <Home className="h-8 w-8 text-brand-teal" />,
-      image: '/images/aiot/energytwin_ss1.jpg',
-      color: 'from-brand-teal/20 to-brand-navy/10',
-      url: '/products/office-home',
-      category: 'Commercial IoT Solutions'
-    },
-    {
-      type: 'product' as const,
-      title: 'Digital Twin for Factory',
-      description: 'End-to-end manufacturing process simulation and optimization.',
-      icon: <Factory className="h-8 w-8 text-brand-blue" />,
-      image: '/images/aiot/digitalfactory_1.jpg',
-      color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/products/factory',
-      category: 'Commercial IoT Solutions'
-    },
-    
-    // Education Products
-    {
-      type: 'product' as const,
-      title: 'Farm In Box',
-      description: 'Educational package for schools to teach sustainable farming practices.',
-      icon: <BookOpen className="h-8 w-8 text-brand-green" />,
-      image: '/images/farminbox/farminbox_box1.jpg',
-      color: 'from-brand-green/20 to-brand-navy/10',
-      url: '/products/farm-in-box',
-      category: 'Education Products'
-    },
-    {
-      type: 'product' as const,
-      title: 'Mushroom-in-a-Box',
-      description: 'A complete kit for growing gourmet mushrooms at home.',
-      icon: <Package className="h-8 w-8 text-brand-green" />,
-      image: '/images/mushroom-box/mushroombox3.png',
-      color: 'from-brand-green/20 to-brand-navy/10',
-      url: '/products/mushroom-in-box',
-      category: 'Education Products'
-    },
-    
-    // Services
     {
       type: 'service' as const,
       title: 'CTO-as-a-Service',
@@ -165,8 +120,7 @@ const Index = () => {
       icon: <Users className="h-8 w-8 text-brand-blue" />,
       image: '/images/office/office_5.jpg',
       color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/services/cto-as-a-service',
-      category: 'Technical Leadership'
+      url: '/services/cto-as-a-service'
     },
     {
       type: 'service' as const,
@@ -175,8 +129,43 @@ const Index = () => {
       icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
       image: '/images/office/office_2.jpg',
       color: 'from-brand-teal/20 to-brand-navy/10',
-      url: '/services/aiot-product-development',
-      category: 'Development Services'
+      url: '/services/aiot-product-development'
+    },
+    {
+      type: 'product' as const,
+      title: 'Digital Twin for Office & Home',
+      description: 'Smart monitoring and optimization system for residential and office spaces.',
+      icon: <Home className="h-8 w-8 text-brand-teal" />,
+      image: '/images/aiot/energytwin_ss1.jpg',
+      color: 'from-brand-teal/20 to-brand-navy/10',
+      url: '/products/office-home'
+    },
+    {
+      type: 'product' as const,
+      title: 'Digital Twin for Factory',
+      description: 'End-to-end manufacturing process simulation and optimization.',
+      icon: <Factory className="h-8 w-8 text-brand-blue" />,
+      image: '/images/aiot/digitalfactory_1.jpg',
+      color: 'from-brand-blue/20 to-brand-navy/10',
+      url: '/products/factory'
+    },
+    {
+      type: 'product' as const,
+      title: 'Farm In Box',
+      description: 'Educational package for schools to teach sustainable farming practices.',
+      icon: <BookOpen className="h-8 w-8 text-brand-green" />,
+      image: '/images/farminbox/farminbox_box1.jpg',
+      color: 'from-brand-green/20 to-brand-navy/10',
+      url: '/products/farm-in-box'
+    },
+    {
+      type: 'product' as const,
+      title: 'Mushroom-in-a-Box',
+      description: 'A complete kit for growing gourmet mushrooms at home.',
+      icon: <Package className="h-8 w-8 text-brand-green" />,
+      image: '/images/mushroom-box/mushroombox3.png',
+      color: 'from-brand-green/20 to-brand-navy/10',
+      url: '/products/mushroom-in-box'
     },
   ];
   

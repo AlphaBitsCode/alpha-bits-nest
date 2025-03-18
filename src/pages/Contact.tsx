@@ -1,35 +1,16 @@
-
 import { useEffect, useRef } from 'react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { MapPin, Phone, Mail, Calendar, Clock } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ensureGoogleTranslateLoaded, getSelectedLanguage, changeLanguage } from '@/lib/language-utils';
 
 const ContactPage = () => {
   useScrollAnimation();
   const location = useLocation();
   const contactSectionRef = useRef<HTMLElement>(null);
-  const locationsSectionRef = useRef<HTMLElement>(null);
-  
-  const locations = [
-    {
-      name: 'HQ Office',
-      address: 'Lakeview 1, Thu Thiem, District 2, Ho Chi Minh, Vietnam',
-      phone: '+84 868 000 317',
-      image: 'images/office/office_1.jpg',
-      mapUrl: 'https://maps.app.goo.gl/Lqkdzj2wKofe11My9'
-    },
-    {
-      name: 'AO Farm',
-      address: 'Bien Hoa City, Dong Nai, Vietnam',
-      phone: '+84 868 000 317',
-      image: 'images/office/office_aofarm1.jpg',
-      mapUrl: 'https://maps.app.goo.gl/cbXZ6upchgHPwpWW8'
-    }
-  ];
 
   useEffect(() => {
     // Scroll to top when the page loads
@@ -39,12 +20,6 @@ const ContactPage = () => {
     if (location.hash === '#contact') {
       setTimeout(() => {
         contactSectionRef.current?.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }, 100);
-    } else if (location.hash === '#locations') {
-      setTimeout(() => {
-        locationsSectionRef.current?.scrollIntoView({
           behavior: 'smooth'
         });
       }, 100);
@@ -64,7 +39,6 @@ const ContactPage = () => {
       <Navbar1 />
 
       <div className="pt-16">
-        {/* Contact Section */}
         <section id="contact" ref={contactSectionRef} className="py-16 bg-gradient-to-b from-white/95 to-gray-50/95 relative">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 scrolled-section">
@@ -95,7 +69,10 @@ const ContactPage = () => {
                     Book a 30-Minute Call
                   </a>
                 </Button>
+
               </div>
+
+
 
               {/* Contact Information */}
               <div className="flex flex-col h-full">
@@ -156,77 +133,9 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Locations Section */}
-        <section id="locations" ref={locationsSectionRef} className="py-20 bg-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-50 to-transparent"></div>
-          
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 scrolled-section">
-              <span className="inline-block px-3 py-1 text-xs font-medium bg-brand-blue/10 text-brand-blue rounded-full mb-3">
-                OUR LOCATIONS
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-                Where to Find Us
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Visit our headquarters or farm location to experience our innovations firsthand.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-10 scrolled-section">
-              {locations.map((location, index) => (
-                <div key={index} className="group">
-                  <div className="relative overflow-hidden rounded-xl shadow-lg h-full transition-all duration-300 hover:shadow-xl">
-                    <div className="h-64 overflow-hidden">
-                      <img 
-                        src={location.image} 
-                        alt={location.name} 
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                      />
-                    </div>
-                    
-                    <div className="p-6 bg-white border-t border-gray-100">
-                      <h3 className="text-xl font-bold text-brand-navy mb-3">{location.name}</h3>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <MapPin size={20} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
-                          <div>
-                            <p className="text-gray-600">{location.address}</p>
-                            <a 
-                              href={location.mapUrl} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-sm text-brand-blue hover:text-brand-navy inline-block mt-1 transition-colors duration-300"
-                            >
-                              View on Google Maps →
-                            </a>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start">
-                          <Phone size={20} className="text-brand-teal mr-3 flex-shrink-0 mt-1" />
-                          <p className="text-gray-600">{location.phone}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-16 text-center scrolled-section">
-              <p className="text-gray-600 mb-6">
-                Planning a visit? Contact us in advance to schedule a meeting or tour.
-              </p>
-              <Button asChild onClick={() => contactSectionRef.current?.scrollIntoView({behavior: 'smooth'})}>
-                <a href="#contact">Contact Us</a>
-              </Button>
+
+              </div>
             </div>
           </div>
         </section>

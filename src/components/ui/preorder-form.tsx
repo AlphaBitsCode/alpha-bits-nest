@@ -134,7 +134,7 @@ export function PreorderForm({
               <FormItem>
                 <FormLabel>Your Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="David Something" {...field} />
+                  <Input placeholder="david@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
