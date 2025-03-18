@@ -39,7 +39,7 @@ export function ServicesShowcase() {
       ],
       color: 'from-brand-teal/20 to-brand-blue/20',
       accentColor: 'bg-brand-teal',
-      illustration: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop',
+      illustration: '/images/aiot/energytwin_ss1.jpg',
       challengeIcon: <Database className="w-8 h-8 text-brand-teal" />,
       url: '/services/aiot-product-development'
     },

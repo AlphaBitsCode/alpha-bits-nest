@@ -17,43 +17,43 @@ const AiotProductDevelopment = () => {
   }, []);
 
   const features = [
-    'Hardware prototype development',
-    'Firmware and software integration',
-    'Cloud connectivity and data analytics',
-    'Scalable production planning',
-    'User experience design'
+    'Data-driven hardware prototyping with real-time performance metrics',
+    'Analytics-powered firmware and software optimization',
+    'Advanced data collection and cloud analytics integration',
+    'Metric-based scalability and production planning',
+    'User behavior analytics and experience optimization'
   ];
   
   const processSteps = [
     {
-      step: "Discovery & Requirements",
-      title: "Step 1: Discovery",
-      content: "We work closely with your team to understand your business needs, market opportunities, and technical requirements.",
-      image: ""
+      step: "Vision & Strategy",
+      title: "Step 1: Vision",
+      content: "We analyze market data and industry trends to align your business goals with quantifiable opportunities, creating strategies backed by concrete metrics.",
+      image: "/images/aiot/digitalfactory_1.jpg"
     },
     {
-      step: "Concept & Design",
-      title: "Step 2: Concept & Design",
-      content: "Our expert designers and engineers develop initial concepts and technical specifications for your AIoT product.",
-      image: ""
+      step: "Value Creation",
+      title: "Step 2: Value Creation",
+      content: "Using predictive analytics and market insights, we transform your vision into measurable value propositions with clear KPIs and ROI targets.",
+      image: "/images/aiot/digitalfarm_aofarm1.png"
     },
     {
-      step: "Prototype Development",
-      title: "Step 3: Prototyping",
-      content: "We build functional prototypes to test and validate the core functionality and user experience.",
-      image: ""
+      step: "Rapid Innovation",
+      title: "Step 3: Innovation",
+      content: "We develop data-driven prototypes that demonstrate measurable value, using real-time analytics to validate features and performance metrics.",
+      image: "/images/aiot/aoit-inhouse-project-1.webp"
     },
     {
-      step: "Testing & Refinement",
-      title: "Step 4: Testing",
-      content: "Rigorous testing with real users helps us refine the product before moving to production.",
-      image: ""
+      step: "Market Validation",
+      title: "Step 4: Validation",
+      content: "Through comprehensive data collection and analysis, we validate product-market fit with quantifiable user feedback and performance benchmarks.",
+      image: "/images/aiot/energytwin_ss1.jpg"
     },
     {
-      step: "Production & Deployment",
-      title: "Step 5: Production",
-      content: "We guide you through the production process and help with deployment and ongoing support.",
-      image: ""
+      step: "Scale & Growth",
+      title: "Step 5: Growth",
+      content: "Leveraging advanced analytics, we help scale your product while continuously monitoring and optimizing key performance indicators for sustained growth.",
+      image: "/images/aiot/digitalfactory_1.jpg"
     }
   ];
 
@@ -287,7 +287,7 @@ const AiotProductDevelopment = () => {
               transition={{ duration: 0.3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" 
+                src="/images/aiot/digitalfarm_aofarm1.png" 
                 alt="Smart Agriculture System" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -303,7 +303,7 @@ const AiotProductDevelopment = () => {
               transition={{ duration: 0.3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop" 
+                src="/images/aiot/digitalfactory_1.jpg" 
                 alt="Industrial Monitoring Platform" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -319,8 +319,8 @@ const AiotProductDevelopment = () => {
               transition={{ duration: 0.3 }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop" 
-                alt="Smart Home Hub" 
+                src="/images/aiot/energytwin_ss1.jpg" 
+                alt="Smart Office/Home Hub" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
