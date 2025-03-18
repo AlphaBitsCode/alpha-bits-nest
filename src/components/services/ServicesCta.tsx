@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Rocket } from 'lucide-react';
+import { Calendar, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -21,7 +21,10 @@ export function ServicesCta() {
             Let's discuss how our services can help you overcome technical obstacles and drive innovation in your business.
           </p>
           <Button asChild size="lg" className="bg-brand-teal hover:bg-brand-teal/90 text-white px-8">
-            <Link to="/contact">Schedule a Free Consultation</Link>
+            <Link to="/contact" className="flex items-center gap-2">
+              <Calendar size={16} />
+              Schedule a Free Consultation
+            </Link>
           </Button>
         </motion.div>
       </div>

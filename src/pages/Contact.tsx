@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
-import { MapPin, Phone, Mail, Calendar, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Calendar, Clock, MessageCircle } from 'lucide-react';
 import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
@@ -65,7 +65,8 @@ const ContactPage = () => {
                 </p>
 
                 <Button asChild className="w-full">
-                  <a href="https://cal.com/alphabits/mini" target="_blank" rel="noopener noreferrer">
+                  <a href="https://cal.com/alphabits/mini" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                    <Calendar size={16} />
                     Book a 30-Minute Call
                   </a>
                 </Button>
@@ -122,6 +123,13 @@ const ContactPage = () => {
                   <p className="text-gray-600 mb-6">
                     Get instant assistance 24/7 by scanning the QR code below to chat with our AI representative on WhatsApp.
                   </p>
+
+                  <Button asChild className="w-full mb-6">
+                    <a href="https://wa.me/message/UXTQX3VXUWEQJ1" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                      <MessageCircle size={16} />
+                      Chat on WhatsApp
+                    </a>
+                  </Button>
 
                   <div className="flex justify-center scrolled-section">
                     <div className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border-2 border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
