@@ -69,7 +69,7 @@ function Hero() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-4 items-center">
-            <Link to="#cto-service">
+            <Link to="/contact">
               <Button size="lg" className="gap-4" variant="default">
                 Book Trial Office Hour <Calendar className="w-4 h-4" />
               </Button>
