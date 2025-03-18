@@ -93,7 +93,7 @@ const Index = () => {
       icon: <Factory className="h-8 w-8 text-brand-blue" />,
       image: '/images/aiot/digitalfactory_1.jpg',
       color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/services/commercial-iot'
+      url: '/services'
     },
     {
       type: 'service' as const,
@@ -120,7 +120,7 @@ const Index = () => {
       icon: <BookOpen className="h-8 w-8 text-brand-green" />,
       image: '/images/farminbox/farminbox_box1.jpg',
       color: 'from-brand-green/20 to-brand-navy/10',
-      url: '/products/education'
+      url: '/products'
     }
   ];
   
