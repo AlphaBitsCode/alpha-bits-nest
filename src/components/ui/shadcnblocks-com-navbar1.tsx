@@ -183,13 +183,11 @@ const Navbar1 = ({
     },
     { title: "Blog", url: "/blog", icon: <FileText className="size-5 shrink-0" /> },
     { title: "About", url: "/about", icon: <InfoIcon className="size-5 shrink-0" /> },
-    { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
     { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
   ],
   mobileExtraLinks = [
     { name: "About", url: "/about" },
     { name: "Experience", url: "/experience" },
-    { name: "Locations", url: "/locations" },
     { name: "Contact", url: "/contact" },
   ],
   auth = {
@@ -373,14 +371,6 @@ const Navbar1 = ({
                   >
                     <InfoIcon size={18} strokeWidth={2} className="text-brand-navy" />
                     About
-                  </Link>
-                  
-                  <Link 
-                    to="/locations" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
-                  >
-                    <MapPin size={18} strokeWidth={2} className="text-brand-blue" />
-                    Locations
                   </Link>
                   
                   <Link 

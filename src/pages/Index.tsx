@@ -113,24 +113,7 @@ const Index = () => {
   ];
   
   const highlightedItems = [
-    {
-      type: 'service' as const,
-      title: 'CTO-as-a-Service',
-      description: 'Access top-tier technical leadership without the overhead.',
-      icon: <Users className="h-8 w-8 text-brand-blue" />,
-      image: '/images/office/office_5.jpg',
-      color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/services/cto-as-a-service'
-    },
-    {
-      type: 'service' as const,
-      title: 'AIoT Product Development',
-      description: 'Smart, connected products that solve real-world problems.',
-      icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
-      image: '/images/office/office_2.jpg',
-      color: 'from-brand-teal/20 to-brand-navy/10',
-      url: '/services/aiot-product-development'
-    },
+    // Commercial IoT Solutions
     {
       type: 'product' as const,
       title: 'Digital Twin for Office & Home',
@@ -138,7 +121,8 @@ const Index = () => {
       icon: <Home className="h-8 w-8 text-brand-teal" />,
       image: '/images/aiot/energytwin_ss1.jpg',
       color: 'from-brand-teal/20 to-brand-navy/10',
-      url: '/products/office-home'
+      url: '/products/office-home',
+      category: 'Commercial IoT Solutions'
     },
     {
       type: 'product' as const,
@@ -147,8 +131,11 @@ const Index = () => {
       icon: <Factory className="h-8 w-8 text-brand-blue" />,
       image: '/images/aiot/digitalfactory_1.jpg',
       color: 'from-brand-blue/20 to-brand-navy/10',
-      url: '/products/factory'
+      url: '/products/factory',
+      category: 'Commercial IoT Solutions'
     },
+    
+    // Education Products
     {
       type: 'product' as const,
       title: 'Farm In Box',
@@ -156,7 +143,8 @@ const Index = () => {
       icon: <BookOpen className="h-8 w-8 text-brand-green" />,
       image: '/images/farminbox/farminbox_box1.jpg',
       color: 'from-brand-green/20 to-brand-navy/10',
-      url: '/products/farm-in-box'
+      url: '/products/farm-in-box',
+      category: 'Education Products'
     },
     {
       type: 'product' as const,
@@ -165,7 +153,30 @@ const Index = () => {
       icon: <Package className="h-8 w-8 text-brand-green" />,
       image: '/images/mushroom-box/mushroombox3.png',
       color: 'from-brand-green/20 to-brand-navy/10',
-      url: '/products/mushroom-in-box'
+      url: '/products/mushroom-in-box',
+      category: 'Education Products'
+    },
+    
+    // Services
+    {
+      type: 'service' as const,
+      title: 'CTO-as-a-Service',
+      description: 'Access top-tier technical leadership without the overhead.',
+      icon: <Users className="h-8 w-8 text-brand-blue" />,
+      image: '/images/office/office_5.jpg',
+      color: 'from-brand-blue/20 to-brand-navy/10',
+      url: '/services/cto-as-a-service',
+      category: 'Technical Leadership'
+    },
+    {
+      type: 'service' as const,
+      title: 'AIoT Product Development',
+      description: 'Smart, connected products that solve real-world problems.',
+      icon: <Briefcase className="h-8 w-8 text-brand-teal" />,
+      image: '/images/office/office_2.jpg',
+      color: 'from-brand-teal/20 to-brand-navy/10',
+      url: '/services/aiot-product-development',
+      category: 'Development Services'
     },
   ];
   

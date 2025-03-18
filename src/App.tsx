@@ -11,7 +11,6 @@ import MushroomInBox from "./pages/products/MushroomInBox";
 import FarmInBox from "./pages/products/FarmInBox";
 import AlphaCube from "./pages/products/AlphaCube";
 import Services from "./pages/Services";
-import LocationsPage from "./pages/Locations"
 import ContactPage from "./pages/Contact"
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -85,10 +84,12 @@ function App() {
             {/* Other main routes with alternative paths */}
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<Navigate to="/about" replace />} />
-            <Route path="/locations" element={<LocationsPage />} />
-            <Route path="/location" element={<Navigate to="/locations" replace />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
+            
+            {/* Locations redirects to Contact with locations hash */}
+            <Route path="/locations" element={<Navigate to="/contact#locations" replace />} />
+            <Route path="/location" element={<Navigate to="/contact#locations" replace />} />
             
             {/* Privacy, Terms, and Cookie Policy routes */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
