@@ -11,7 +11,8 @@ import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/components/ui/blog/masonry-layout';
-import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees } from 'lucide-react';
+import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees, Code, Database, Server, Lightbulb, Puzzle, Search, MessageQuestion } from 'lucide-react';
+import { NonTechnicalFounderSection } from '@/components/ui/non-technical-founder-section';
 
 const Index = () => {
   useParallax();
@@ -98,6 +99,39 @@ const Index = () => {
     }
   ];
   
+  const founderChallenges = [
+    {
+      icon: <Code className="h-8 w-8 text-red-500" />,
+      title: "Technology Stack Confusion",
+      description: "Overwhelmed by countless programming languages, frameworks, and platforms without knowing which ones are right for your business."
+    },
+    {
+      icon: <Database className="h-8 w-8 text-red-500" />,
+      title: "Infrastructure Decisions",
+      description: "Difficulty choosing between cloud providers, server configurations, and deployment options while trying to balance cost and scalability."
+    },
+    {
+      icon: <Server className="h-8 w-8 text-red-500" />,
+      title: "Technical Debt Blindness",
+      description: "Unable to identify when shortcuts taken by developers will lead to costly rebuilds and scaling problems in the future."
+    },
+    {
+      icon: <Lightbulb className="h-8 w-8 text-red-500" />,
+      title: "Innovation Paralysis",
+      description: "Struggling to evaluate which emerging technologies are worth investing in versus which ones are just hype with little business value."
+    },
+    {
+      icon: <Puzzle className="h-8 w-8 text-red-500" />,
+      title: "Integration Complexity",
+      description: "Facing difficulties connecting various software systems and ensuring data flows smoothly across your business operations."
+    },
+    {
+      icon: <Search className="h-8 w-8 text-red-500" />,
+      title: "Technical Talent Assessment",
+      description: "Lacking the expertise to properly evaluate developers' skills and determine if they're the right fit for your project requirements."
+    },
+  ];
+  
   const highlightedItems = [
     {
       type: 'service' as const,
@@ -162,6 +196,8 @@ const Index = () => {
       
       <Navbar1 />
       <Hero />
+      
+      <NonTechnicalFounderSection challenges={founderChallenges} />
       
       <CTOOfficeHours />
       
