@@ -38,9 +38,9 @@ export function ChallengesSection() {
       color: "bg-gradient-to-r from-gray-100 to-gray-200",
       icon: <Brain className="w-8 h-8 text-gray-700" />,
       challenges: [
-        "Keeping up with rapidly evolving technologies",
-        "Integrating complex systems across platforms",
-        "Securing data and devices in connected environments"
+        "Integrating AI into existing business processes",
+        "Building scalable data platforms for growth",
+        "Modernizing legacy systems with cutting-edge tech"
       ]
     },
     {
@@ -115,27 +115,7 @@ export function ChallengesSection() {
           ))}
         </motion.div>
 
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-gray-600 italic mb-8">
-              "The biggest challenge is staying ahead of the technology curve while keeping costs down. Alpha Bits has been instrumental in helping us achieve this balance."
-            </p>
-            <div className="inline-flex items-center justify-center space-x-2">
-              <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-                <img src="#" alt="Client" className="w-full h-full object-cover" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-gray-800">Sarah Chua</p>
-                <p className="text-sm text-gray-600">CEO, SmartRetail, MY</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+
       </div>
     </section>
   );

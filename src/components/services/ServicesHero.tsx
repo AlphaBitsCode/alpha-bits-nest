@@ -42,10 +42,10 @@ export function ServicesHero() {
             OUR SERVICES
           </span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Expert Solutions for Your <span className="text-brand-teal">Digital Challenges</span>
+            Transformative <span className="text-brand-teal">Software Solutions</span> for the AI Era
           </h1>
           <p className="text-white/70 max-w-2xl mx-auto mb-8">
-            Our specialized services help businesses innovate, adapt, and succeed in an increasingly digital world.
+            Led by Kent Nguyen, with over 20 years of strategic technology development experience, we deliver cutting-edge software and data integration solutions to accelerate your business growth.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-brand-teal hover:bg-brand-teal/90 text-white">

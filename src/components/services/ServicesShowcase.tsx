@@ -69,21 +69,21 @@ export function ServicesShowcase() {
     },
     {
       id: 'software-development',
-      title: 'Software Development Services',
-      description: 'Full-suite custom software solutions including ERP, CRM, HRM systems, AI platforms, business automation, and data mining led by experienced professionals.',
+      title: 'Enterprise Software Development',
+      description: 'Leveraging 20+ years of hands-on development expertise to deliver cutting-edge software solutions that drive business growth in the AI era.',
       icon: <Code size={40} className="text-brand-blue mb-4" />,
       features: [
-        'Custom ERP, CRM, and HRM solutions',
-        'AI platforms and business automation',
-        'Data mining and analytics systems',
-        'Data pipeline implementation',
-        'Remote development team'
+        'AI-powered enterprise applications',
+        'Advanced data platform integration',
+        'Cloud-native architecture design',
+        'Scalable microservices development',
+        'Real-time analytics systems'
       ],
       painPoints: [
-        'Inefficient business processes slowing down operations',
-        'Fragmented systems creating data silos',
-        'Inability to scale with existing software',
-        'High costs of off-the-shelf solutions with limited customization'
+        'Complex digital transformation challenges',
+        'Need for AI integration in legacy systems',
+        'Data silos limiting business intelligence',
+        'Scalability and performance bottlenecks'
       ],
       color: 'from-brand-navy/20 to-brand-blue/20',
       accentColor: 'bg-brand-navy',

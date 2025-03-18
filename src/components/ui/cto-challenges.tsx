@@ -13,28 +13,28 @@ interface CTOChallengesProps {
 
 export function CTOChallenges({ painPoints }: CTOChallengesProps) {
   return (
-    <section className="py-16 bg-brand-navy text-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Technical Challenges We Solve</h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Businesses face numerous obstacles in today's tech-driven world. 
-            See how our fractional CTO service addresses your most pressing challenges.
+          <h2 className="text-3xl font-bold mb-4 text-brand-navy">Business Challenges We Help You Overcome</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            In today's fast-moving business world, staying ahead with technology can be overwhelming.
+            See how we can help you turn tech challenges into opportunities for growth.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-6">
           {painPoints.map((item, index) => (
-            <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 transition-all duration-300 hover:transform hover:scale-[1.01]">
+            <div key={index} className="bg-gray-50 border border-gray-100 rounded-xl p-6 transition-all duration-300 hover:transform hover:scale-[1.01] hover:shadow-lg">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <AlertCircle className="w-6 h-6 text-red-400" />
+                  <AlertCircle className="w-6 h-6 text-brand-navy" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{item.problem}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-brand-navy">{item.problem}</h3>
                   <div className="mt-4 flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-brand-teal flex-shrink-0 mt-1" />
-                    <p className="text-white/80">{item.solution}</p>
+                    <p className="text-gray-700"><span className="text-red-800 font-medium">{item.solution.split(' ').slice(0, 2).join(' ')}</span> {item.solution.split(' ').slice(2).join(' ')}</p>
                   </div>
                 </div>
               </div>
