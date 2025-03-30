@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -21,7 +21,7 @@ interface GhibliServicesGridProps {
 }
 
 export function GhibliServicesGrid({ items }: GhibliServicesGridProps) {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -31,7 +31,7 @@ export function GhibliServicesGrid({ items }: GhibliServicesGridProps) {
     }
   };
 
-  const item = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
@@ -63,7 +63,7 @@ export function GhibliServicesGrid({ items }: GhibliServicesGridProps) {
             <motion.div 
               key={index}
               className="group"
-              variants={item}
+              variants={itemVariants}
             >
               <Link to={item.url} className="block h-full">
                 <div className="relative overflow-hidden rounded-xl shadow-lg h-full transform transition-transform duration-300 group-hover:scale-[1.02] group-hover:shadow-xl">
@@ -88,12 +88,7 @@ export function GhibliServicesGrid({ items }: GhibliServicesGridProps) {
                         item.type === 'service' ? 'bg-ghibli-grass/30' : 'bg-ghibli-sunset/30',
                         "backdrop-blur-sm"
                       )}>
-                        {React.cloneElement(item.icon as React.ReactElement, { 
-                          className: cn(
-                            "w-8 h-8", 
-                            item.type === 'service' ? 'text-white' : 'text-white'
-                          )
-                        })}
+                        {item.icon}
                       </div>
                       <span className={cn(
                         "px-3 py-1 rounded-full text-xs font-medium",

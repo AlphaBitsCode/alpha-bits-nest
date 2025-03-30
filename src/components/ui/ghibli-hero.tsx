@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Cloud, Sun, Tree, TreeDeciduous } from "lucide-react";
+import { Cloud, Sun, Trees, TreeDeciduous } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -79,7 +79,7 @@ export function GhibliHero() {
             animate={{ x: [0, -3, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           >
-            <Tree className="w-32 h-32 text-ghibli-forest" />
+            <Trees className="w-32 h-32 text-ghibli-forest" />
           </motion.div>
           
           <motion.div 
@@ -95,7 +95,7 @@ export function GhibliHero() {
             animate={{ x: [0, -5, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Tree className="w-44 h-44 text-ghibli-forest" />
+            <Trees className="w-44 h-44 text-ghibli-forest" />
           </motion.div>
         </div>
       </div>
