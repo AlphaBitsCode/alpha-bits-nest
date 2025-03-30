@@ -26,7 +26,6 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
-				ghibli: ['"Playfair Display"', 'serif'],
 			},
 			typography: {
 				DEFAULT: {
@@ -86,17 +85,6 @@ export default {
 					blue: '#314C79',
 					teal: '#2695A2',
 					green: '#58BEA2',
-				},
-				ghibli: {
-					sky: '#A5CFE1',     // Soft sky blue
-					cloud: '#F1EAE3',   // Warm off-white for clouds
-					sunset: '#F6B17A',  // Warm sunset/sunrise color
-					grass: '#B0D8B2',   // Soft grass green
-					forest: '#5D7A64',  // Deeper forest green
-					earth: '#D8B78A',   // Warm earth tone
-					accent: '#E88B6D',  // Warm accent color (Chihiro's outfit)
-					night: '#2D4263',   // Deep night blue
-					dream: '#F0DAF0',   // Soft lavender dream color
 				}
 			},
 			borderRadius: {
@@ -140,14 +128,6 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
-				},
-				'sway': {
-					'0%, 100%': { transform: 'rotate(-3deg)' },
-					'50%': { transform: 'rotate(3deg)' }
-				},
-				'clouds-drift': {
-					'0%': { transform: 'translateX(0)' },
-					'100%': { transform: 'translateX(100%)' }
 				}
 			},
 			animation: {
@@ -159,15 +139,7 @@ export default {
 				'slide-down': 'slide-down 0.7s ease-out',
 				'slide-left': 'slide-left 0.7s ease-out',
 				'slide-right': 'slide-right 0.7s ease-out',
-				'float': 'float 6s ease-in-out infinite',
-				'sway': 'sway 4s ease-in-out infinite',
-				'clouds-drift': 'clouds-drift 30s linear infinite'
-			},
-			backgroundImage: {
-				'ghibli-gradient': 'linear-gradient(to bottom, #A5CFE1, #F1EAE3)',
-				'sunset-gradient': 'linear-gradient(to bottom, #F6B17A, #F0DAF0)',
-				'forest-gradient': 'linear-gradient(to bottom, #B0D8B2, #5D7A64)',
-				'dream-clouds': 'url("/images/ghibli/dreamy-clouds.png")',
+				'float': 'float 6s ease-in-out infinite'
 			}
 		}
 	},

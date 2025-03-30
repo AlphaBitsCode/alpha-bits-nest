@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 44 35% 94%;
+    --background: 210 40% 98%;
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -16,14 +15,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 210 31% 33%;
+    --primary: 236 36% 27%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 186 62% 39%;
+    --secondary: 212 31% 33%;
     --secondary-foreground: 0 0% 98%;
 
-    --accent: 25 80% 69%;
-    --accent-foreground: 240 10% 3.9%;
+    --accent: 186 62% 39%;
+    --accent-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -46,9 +45,6 @@
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
     font-family: 'Inter', sans-serif;
-    background-image: url('/images/ghibli/dreamy-bg.jpg');
-    background-attachment: fixed;
-    background-size: cover;
   }
 }
 
@@ -57,24 +53,12 @@
     @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
   }
 
-  .ghibli-glass {
-    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-md rounded-xl;
-  }
-
   .gradient-bg {
-    @apply bg-gradient-to-br from-ghibli-sky via-ghibli-cloud to-ghibli-dream;
-  }
-
-  .sunset-gradient {
-    @apply bg-gradient-to-br from-ghibli-sunset to-ghibli-dream;
-  }
-
-  .forest-gradient {
-    @apply bg-gradient-to-br from-ghibli-grass to-ghibli-forest;
+    @apply bg-gradient-to-br from-brand-navy via-brand-blue to-brand-teal;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-br from-ghibli-forest to-ghibli-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-brand-navy to-brand-teal bg-clip-text text-transparent;
   }
 
   .section-container {
@@ -82,12 +66,12 @@
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-10 text-center relative font-ghibli;
+    @apply text-3xl md:text-4xl font-bold mb-10 text-center relative;
   }
 
   .section-heading::after {
     content: '';
-    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-ghibli-accent rounded-full;
+    @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-brand-teal rounded-full;
   }
 
   .nav-link {
@@ -96,7 +80,7 @@
 
   .nav-link::after {
     content: '';
-    @apply absolute left-0 right-0 bottom-0 h-0.5 bg-ghibli-accent scale-x-0 origin-center transition-transform duration-300;
+    @apply absolute left-0 right-0 bottom-0 h-0.5 bg-brand-teal scale-x-0 origin-center transition-transform duration-300;
   }
 
   .nav-link:hover::after {
@@ -113,30 +97,6 @@
   
   .scrolled-section.appear {
     @apply opacity-100;
-  }
-
-  .ghibli-card {
-    @apply bg-white/80 backdrop-blur-sm border border-white/30 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
-  }
-
-  .ghibli-button {
-    @apply px-6 py-3 rounded-full bg-ghibli-accent text-white font-medium transition-all duration-300 hover:shadow-md hover:brightness-105 focus:ring-2 focus:ring-ghibli-accent/50 focus:outline-none transform hover:-translate-y-1;
-  }
-
-  .floating-element {
-    @apply animate-float;
-  }
-
-  .swaying-element {
-    @apply animate-sway;
-  }
-
-  .ghibli-icon-bg {
-    @apply p-3 rounded-full bg-ghibli-dream/50;
-  }
-
-  .painterly-border {
-    border-image: url('/images/ghibli/brush-border.png') 30 stretch;
   }
 }
 
@@ -161,7 +121,7 @@
 
 .parallax-layer-back {
   transform: translateZ(0) scale(1);
-  background: linear-gradient(to bottom, rgba(165, 207, 225, 0.3), rgba(240, 218, 240, 0.3));
+  background: linear-gradient(to bottom, rgba(46, 51, 91, 0.2), rgba(38, 149, 162, 0.2));
 }
 
 .parallax-layer-base {
@@ -169,7 +129,7 @@
 }
 
 .animated-gradient {
-  background: linear-gradient(-45deg, #A5CFE1, #F6B17A, #B0D8B2, #F0DAF0);
+  background: linear-gradient(-45deg, #2E335B, #314C79, #2695A2, #58BEA2);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -191,20 +151,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
-}
-
-.ghibli-clouds {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background-image: url('/images/ghibli/clouds.png');
-  background-size: contain;
-  opacity: 0.6;
-  animation: clouds-drift 120s linear infinite;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* Make images fade-in on load */

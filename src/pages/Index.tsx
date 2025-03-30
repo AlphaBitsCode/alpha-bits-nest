@@ -1,12 +1,11 @@
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
-import { GhibliHero } from '@/components/ui/ghibli-hero';
-import { GhibliChallenges } from '@/components/ui/ghibli-challenges';
-import { GhibliOfficeHours } from '@/components/ui/ghibli-office-hours';
-import { GhibliFeatures } from '@/components/ui/ghibli-features';
-import { GhibliServicesGrid } from '@/components/ui/ghibli-services-grid';
+import { Hero } from '@/components/ui/animated-hero';
+import { CTOOfficeHours } from '@/components/ui/cto-office-hours';
+import { CTOChallenges } from '@/components/ui/cto-challenges';
+import { FeatureSteps } from '@/components/ui/feature-section';
+import { ProductsServicesGrid } from '@/components/ui/products-services-grid';
 import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees } from 'lucide-react';
@@ -91,7 +90,7 @@ const Index = () => {
       type: 'service' as const,
       title: 'Enterprise IoT',
       description: 'Complete IoT solutions for smart buildings and industrial automation, from prototyping to deployment.',
-      icon: <Factory className="h-8 w-8" />,
+      icon: <Factory className="h-8 w-8 text-brand-blue" />,
       image: '/images/aiot/digitalfactory_1.jpg',
       color: 'from-brand-blue/20 to-brand-navy/10',
       url: '/services'
@@ -100,7 +99,7 @@ const Index = () => {
       type: 'service' as const,
       title: 'AI & Software',
       description: 'Custom software development and AI solutions for business automation and growth.',
-      icon: <Package className="h-8 w-8" />,
+      icon: <Package className="h-8 w-8 text-brand-teal" />,
       image: '/images/office/office_2.jpg',
       color: 'from-brand-teal/20 to-brand-navy/10',
       url: '/services/software-development'
@@ -109,7 +108,7 @@ const Index = () => {
       type: 'service' as const,
       title: 'CTO Advisory',
       description: 'Expert technical leadership and strategic guidance for your digital transformation journey.',
-      icon: <Users className="h-8 w-8" />,
+      icon: <Users className="h-8 w-8 text-brand-blue" />,
       image: '/images/office/office_5.jpg',
       color: 'from-brand-blue/20 to-brand-navy/10',
       url: '/services/cto-as-a-service'
@@ -118,7 +117,7 @@ const Index = () => {
       type: 'product' as const,
       title: 'Education Solutions',
       description: 'Innovative STEM and AgriTech educational products for hands-on learning experiences.',
-      icon: <BookOpen className="h-8 w-8" />,
+      icon: <BookOpen className="h-8 w-8 text-brand-green" />,
       image: '/images/farminbox/farminbox_box1.jpg',
       color: 'from-brand-green/20 to-brand-navy/10',
       url: '/products'
@@ -131,20 +130,22 @@ const Index = () => {
       <div id="google_translate_element" className="fixed top-0 left-0 opacity-0 pointer-events-none"></div>
       
       <Navbar1 />
-      <GhibliHero />
+      <Hero />
       
-      <GhibliChallenges painPoints={painPoints} />
+      <CTOChallenges painPoints={painPoints} />
       
-      <GhibliOfficeHours />
+      <CTOOfficeHours />
       
-      <GhibliFeatures 
-        features={features}
-        title="How We Help Businesses"
-        autoPlayInterval={4000}
-        imageHeight="h-[400px]"
-      />
+      <section className="py-20 bg-gray-50">
+        <FeatureSteps 
+          features={features}
+          title="How We Help Businesses"
+          autoPlayInterval={4000}
+          imageHeight="h-[400px]"
+        />
+      </section>
       
-      <GhibliServicesGrid items={highlightedItems} />
+      <ProductsServicesGrid items={highlightedItems} />
       
       <Footer />
     </div>
