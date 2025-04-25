@@ -14,7 +14,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -164,20 +163,14 @@ const Navbar1 = ({
       ],
     },
     {
-      title: "Experiences",
-      url: "/experiences",
+      title: "Courses",
+      url: "/courses",
       items: [
         {
-          title: "AO Farm",
-          description: "Visit our sustainable agriculture research facility",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/experiences/ao-farm",
-        },
-        {
-          title: "Events & Meet-ups",
-          description: "Join our community events and technology discussions",
-          icon: <Calendar className="size-5 shrink-0" />,
-          url: "/experiences/events",
+          title: "Node-RED & AIoT Fundamentals",
+          description: "Learn automation & build your own AI Agent",
+          icon: <Code className="size-5 shrink-0" />,
+          url: "/courses",
         },
       ],
     },

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -36,6 +35,7 @@ import EventsPage from "./pages/experiences/EventsPage";
 // Import blog pages
 import BlogIndex from "./pages/blog/BlogIndex";
 import BlogPost from "./pages/blog/BlogPost";
+import CoursesIndex from "./pages/courses/CoursesIndex";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +94,9 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+            {/* Courses routes */}
+            <Route path="/courses" element={<CoursesIndex />} />
             
             {/* Catch-all route - must be last */}
             <Route path="*" element={<NotFound />} />
