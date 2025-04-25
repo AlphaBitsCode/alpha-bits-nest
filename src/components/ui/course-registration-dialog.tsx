@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
@@ -12,6 +13,21 @@ interface CourseRegistrationDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
+
+const countries = [
+  "Vietnam", "Singapore", "Malaysia", "Thailand", "Indonesia", "Philippines",
+  "Japan", "South Korea", "Other"
+];
+
+const referralSources = [
+  "Google Search",
+  "LinkedIn",
+  "Facebook",
+  "Friend/Colleague",
+  "Company Website",
+  "Tech Event",
+  "Other"
+];
 
 export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrationDialogProps) {
   const { toast } = useToast();
@@ -124,13 +140,21 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           
           <div className="space-y-2">
             <Label htmlFor="country">Country</Label>
-            <Input
-              id="country"
-              name="country"
-              required
-              value={formData.country}
-              onChange={handleInputChange}
-            />
+            <Select 
+              value={formData.country} 
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select your country" />
+              </SelectTrigger>
+              <SelectContent>
+                {countries.map((country) => (
+                  <SelectItem key={country} value={country}>
+                    {country}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           
           <div className="space-y-2">
@@ -155,12 +179,21 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           
           <div className="space-y-2">
             <Label htmlFor="referralSource">Where did you hear about us?</Label>
-            <Input
-              id="referralSource"
-              name="referralSource"
-              value={formData.referralSource}
-              onChange={handleInputChange}
-            />
+            <Select 
+              value={formData.referralSource} 
+              onValueChange={(value) => setFormData(prev => ({ ...prev, referralSource: value }))}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select source" />
+              </SelectTrigger>
+              <SelectContent>
+                {referralSources.map((source) => (
+                  <SelectItem key={source} value={source}>
+                    {source}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           
           <Button 

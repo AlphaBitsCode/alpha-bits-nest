@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Check } from "lucide-react";
 import { CourseRegistrationDialog } from "@/components/ui/course-registration-dialog";
+import { CourseSchedule } from "@/components/ui/course-schedule";
 import { useState } from "react";
 
 export default function CoursesIndex() {
@@ -76,22 +77,7 @@ export default function CoursesIndex() {
       <section className="py-16 px-4">
         <div className="container max-w-6xl mx-auto">
           <h2 className="text-3xl font-serif font-bold text-brand-navy mb-8 text-center">Course Schedule</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6, 7].map((session) => (
-              <div key={session} className="p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow">
-                <h3 className="font-bold mb-3">Session {session}</h3>
-                <p className="text-gray-600">
-                  {session === 1 && "Install Node-RED, setup MQTT"}
-                  {session === 2 && "Create Dashboards (Button, Chart, Layouts)"}
-                  {session === 3 && "Build HTTP API Endpoints, handle global variables"}
-                  {session === 4 && "Read sensor data (USB, MQTT, GPIO, simulated)"}
-                  {session === 5 && "Data cleaning, moving average, PID filtering"}
-                  {session === 6 && "Store data (SQLite/InfluxDB), connect BigQuery, send alerts via Telegram"}
-                  {session === 7 && "Final Demo: Students present their mini-projects"}
-                </p>
-              </div>
-            ))}
-          </div>
+          <CourseSchedule />
         </div>
       </section>
 
