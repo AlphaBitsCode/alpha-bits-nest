@@ -1,10 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Calendar, Check } from "lucide-react";
 import { CourseRegistrationDialog } from "@/components/ui/course-registration-dialog";
 import { CourseSchedule } from "@/components/ui/course-schedule";
 import { useState } from "react";
-import Navbar1 from "@/components/ui/shadcnblocks-com-navbar1";
+import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 
 export default function CoursesIndex() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
