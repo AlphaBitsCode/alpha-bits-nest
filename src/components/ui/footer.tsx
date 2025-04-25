@@ -54,18 +54,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6 text-white/90">Products</h3>
             <ul className="space-y-4">
               <li>
-                <Link to="/products/mushroom-in-a-box" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Mushroom-in-a-Box
-                </Link>
-              </li>
-              <li>
                 <Link to="/products/farm-in-box" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   Farm In Box
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Product Support
                 </Link>
               </li>
             </ul>
@@ -89,11 +79,6 @@ const Footer = () => {
                   CTO-as-a-Service
                 </Link>
               </li>
-              <li>
-                <Link to="/experiences" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Experiences
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -103,11 +88,6 @@ const Footer = () => {
               <li>
                 <Link to="/about" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/locations" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
-                  Locations
                 </Link>
               </li>
               <li>

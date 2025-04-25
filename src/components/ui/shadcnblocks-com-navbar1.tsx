@@ -77,7 +77,6 @@ const Navbar1 = ({
     title: "Alpha Bits",
   },
   menu = [
-    { title: "Home", url: "/", icon: <Home className="size-5 shrink-0" /> },
     {
       title: "Products",
       url: "/products",
@@ -125,7 +124,7 @@ const Navbar1 = ({
               url: "/products/farm-in-box",
             },
             {
-              title: "Alpha Cube",
+              title: "Alpha Block",
               description: "Coming Summer 2025 - Our most innovative educational product yet",
               icon: <Box className="size-5 shrink-0" />,
               url: "/products/alpha-cube",
@@ -174,15 +173,12 @@ const Navbar1 = ({
         },
       ],
     },
-    { title: "Blog", url: "/blog", icon: <FileText className="size-5 shrink-0" /> },
     { title: "About", url: "/about", icon: <InfoIcon className="size-5 shrink-0" /> },
-    { title: "Locations", url: "/locations", icon: <MapPin className="size-5 shrink-0" /> },
     { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
   ],
   mobileExtraLinks = [
     { name: "About", url: "/about" },
     { name: "Experience", url: "/experience" },
-    { name: "Locations", url: "/locations" },
     { name: "Contact", url: "/contact" },
   ],
   auth = {
@@ -264,14 +260,7 @@ const Navbar1 = ({
                   </SheetTitle>
                 </SheetHeader>
                 <div className="my-4 flex flex-col gap-1.5">
-                  <Link 
-                    to="/" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
-                  >
-                    <Home size={18} strokeWidth={2} className="text-brand-navy" />
-                    Home
-                  </Link>
-                  
+                  {/* Home removed */}
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="products" className="border-none">
                       <div className="flex items-center">
@@ -286,7 +275,7 @@ const Navbar1 = ({
                       </div>
                       <AccordionContent className="pt-1 pb-1 shadow-none">
                         <div className="bg-transparent p-1 rounded-lg space-y-1 shadow-none">
-                          {menu[1].items?.map((item) => (
+                          {menu[0].items?.map((item) => (
                             <Link
                               key={item.title}
                               to={item.url}
@@ -299,11 +288,7 @@ const Navbar1 = ({
                               )}
                               <div>
                                 <div className="text-sm font-medium">{item.title}</div>
-                                {item.description && (
-                                  <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
-                                    {item.description}
-                                  </p>
-                                )}
+                                <div className="text-xs text-muted-foreground">{item.description}</div>
                               </div>
                             </Link>
                           ))}
