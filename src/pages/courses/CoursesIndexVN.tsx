@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Check } from "lucide-react";
 import { CourseRegistrationDialog } from "@/components/ui/course-registration-dialog";
-import { CourseSchedule } from "@/components/ui/course-schedule";
 import { useState } from "react";
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
-import { Link } from "react-router-dom";
 
 export default function CoursesIndexVN() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -17,10 +15,11 @@ export default function CoursesIndexVN() {
         <section className="pt-20 pb-16 px-4">
           <div className="container max-w-6xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-6 animate-fade-in">
-              Khóa học Node-RED & AIoT Cơ bản
+              Khóa học AIoT Automation<br />
             </h1>
             <p className="text-xl md:text-2xl text-brand-blue mb-4 animate-slide-up">
-              Học tự động hóa quy trình & xây dựng AI Agent – chỉ trong 4 tuần!
+              Khóa học về tự động hóa Workflow và xây dựng AI Agent căn bản trên nền tảng Node-RED.<br />
+              Thuộc chuỗi 3 khóa học AI & IoT do các chuyên gia team Alpha Bits giảng dạy, cung cấp công cụ và thiết bị thực hành.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
@@ -35,103 +34,126 @@ export default function CoursesIndexVN() {
               className="animate-float bg-brand-teal hover:bg-brand-teal/90 text-white"
               onClick={() => setIsDialogOpen(true)}
             >
-              👉 Đăng ký ngay
+              👉 Đăng ký cho Khóa 1
             </Button>
-            
           </div>
         </section>
 
-        {/* Tổng quan khóa học */}
-        <section className="py-16 px-4 bg-white/50">
-          <div className="container max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        {/* Tổng quan chuỗi khóa học */}
+        <section className="py-12 px-4 bg-white/50">
+          <div className="container max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-brand-navy mb-6 text-center">Chuỗi khóa học AIoT & Automation</h2>
+            <ul className="space-y-4 text-lg">
+              <li>
+                <b>Khóa 1 – AIoT Automation căn bản, làm quen với Node-RED (Online)</b>
+              </li>
+              <li>
+                <b>Khóa 2A – IoT thực hành kèm bộ kit Alpha Block Pro (Offline)</b>
+              </li>
+              <li>
+                <b>Khóa 2B – Khóa chuyên sâu Data Dashboard & AI Agent (Online)</b>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Giới thiệu khóa học */}
+        <section className="py-12 px-4">
+          <div className="container max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-brand-navy mb-6">Bạn sẽ học được gì?</h2>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Thành thạo Node-RED và lập trình luồng trực quan</span>
+              <h2 className="text-2xl font-bold text-brand-navy mb-4">📘 Giới thiệu khóa học AIoT Automation</h2>
+              <ul className="space-y-3 text-lg">
+                <li>
+                  <b>Đối tượng:</b> Lập trình viên, kỹ sư phần mềm đã có kiến thức cơ bản về coding. Node-RED là nền tảng low-code.
                 </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Kết nối API, MQTT broker và cơ sở dữ liệu</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Xây dựng dashboard tương tác, tích hợp với AI như Telegram & WhatsApp</span>
+                <li>
+                  <b>Mục tiêu:</b>
+                  <ul className="list-disc ml-6">
+                    <li>Làm quen với Node-RED và lập trình workflow kéo thả (Visual Flow Programming với low-code)</li>
+                    <li>Kết nối API, Database, MQTT server căn bản</li>
+                    <li>Xử lý dữ liệu, xây dựng Dashboard UI căn bản</li>
+                    <li>Điều khiển thiết bị IoT căn bản qua Node-RED</li>
+                    <li>Xây dựng AI Agents tích hợp Telegram / WhatsApp…</li>
+                  </ul>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-brand-navy mb-6">Dành cho ai?</h2>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Lập trình viên, kỹ sư, chuyên gia tự động hóa</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Người có kiến thức lập trình cơ bản (JavaScript/Python/v.v.)</span>
-                </li>
+              <h2 className="text-2xl font-bold text-brand-navy mb-4">📘 Sau khóa học</h2>
+              <ul className="space-y-3 text-lg">
+                <li>Hỗ trợ một buổi tư vấn 1:1, giúp bạn tự xây dựng workflow trong công việc hằng ngày.</li>
+                <li>Tự động hóa các thao tác online (VD: Email, Google Sheets, Đăng content, Xuất báo cáo...)</li>
+                <li>Tự xây dựng AI Agent trên Slack, Web, WhatsApp, Zalo,...</li>
+                <li>Có nền tảng để học tiếp IoT Automation (Khóa 2A) hoặc Data/AI chuyên sâu (Khóa 2B).</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Lịch học */}
-        <section className="py-16 px-4">
-          <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Lịch học</h2>
-            <CourseSchedule />
-          </div>
-        </section>
-
-        {/* Hình ảnh phòng Lab IoT */}
-        <section className="py-16 px-4 bg-white/50">
-          <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Bên trong phòng Lab IoT</h2>
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_2.jpg" alt="Phòng Lab IoT 1" className="w-full h-56 object-cover" />
-              </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_7.jpg" alt="Phòng Lab IoT 2" className="w-full h-56 object-cover" />
-              </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_6.jpg" alt="Phòng Lab IoT 3" className="w-full h-56 object-cover" />
-              </div>
+        {/* Lịch học & lộ trình */}
+        <section className="py-12 px-4 bg-white/50">
+          <div className="container max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">🧭 Lộ trình 7 buổi học</h2>
+            <div className="overflow-x-auto">
+              <table className="min-w-full border text-center text-lg">
+                <thead>
+                  <tr className="bg-brand-teal text-white">
+                    <th className="py-2 px-3 border">Buổi</th>
+                    <th className="py-2 px-3 border">Ngày học</th>
+                    <th className="py-2 px-3 border">Thứ</th>
+                    <th className="py-2 px-3 border">Thời gian</th>
+                    <th className="py-2 px-3 border">Nội dung chính</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="border">1</td><td className="border">06/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Khởi động với Node-RED</td></tr>
+                  <tr><td className="border">2</td><td className="border">08/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">Xử lý dữ liệu & Lưu trữ dữ liệu</td></tr>
+                  <tr><td className="border">3</td><td className="border">13/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Xây dựng dashboard cơ bản</td></tr>
+                  <tr><td className="border">4</td><td className="border">15/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">API Endpoints. Tích hợp hệ thống bên ngoài</td></tr>
+                  <tr><td className="border">5</td><td className="border">20/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Điều khiển thiết bị IoT</td></tr>
+                  <tr><td className="border">6</td><td className="border">22/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">Xây dựng AI Agent căn bản với Telegram/WhatsApp</td></tr>
+                  <tr><td className="border">7</td><td className="border">27/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Demo & Q&A: Học viên trình bày dự án mini cá nhân</td></tr>
+                  <tr><td className="border">8</td><td className="border">-</td><td className="border">-</td><td className="border">45 phút</td><td className="border">Tư vấn 1:1 sau khóa học</td></tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-        </section>
-
-        {/* Bao gồm */}
-        <section className="py-16 px-4 bg-white/50">
-          <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Bạn nhận được gì?</h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              {["Slide + mã nguồn mẫu","Tài khoản Node-RED cloud 3 tháng","Hỗ trợ qua Zalo / Facebook group","Lộ trình lên các khóa nâng cao (phần cứng hoặc AI dữ liệu)"].map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span className="text-lg">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 px-4">
-          <div className="container max-w-6xl mx-auto text-center">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">Chỉ còn 10 chỗ mỗi lớp!</h2>
-              <p className="text-xl text-gray-600 mb-8">Đăng ký ngay để giữ chỗ và bắt đầu xây dựng hệ thống IoT tích hợp AI đầu tiên của bạn!</p>
+            <div className="text-center mt-8">
               <Button 
                 size="lg"
                 className="bg-brand-teal hover:bg-brand-teal/90 text-white"
                 onClick={() => setIsDialogOpen(true)}
               >
-                Đăng ký ngay
+                Đăng ký cho Khóa 1
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Tài liệu & hỗ trợ */}
+        <section className="py-12 px-4">
+          <div className="container max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-brand-navy mb-4">📕 Tài liệu & Hỗ trợ</h2>
+            <ul className="space-y-3 text-lg">
+              <li>Tài khoản sử dụng Node-RED trong 3 tháng</li>
+              <li>Slide tài liệu tham khảo, hướng dẫn cài Node-RED</li>
+              <li>Source-code mẫu, các workflow mẫu</li>
+              <li>Nhóm Zalo/Facebook trao đổi, hỗ trợ cộng đồng</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Chuẩn bị cho khóa tiếp theo */}
+        <section className="py-12 px-4 bg-white/50">
+          <div className="container max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-brand-navy mb-4">Chuẩn bị cho khóa tiếp theo</h2>
+            <ul className="space-y-3 text-lg">
+              <li>
+                <b>Khóa 2A Offline – IoT thực hành ESP32 + Linux Pi Computer:</b> Thực hành tại văn phòng Alpha Bits, Quận 2, HCM. Bao gồm 1 bộ kit Alpha Block Pro.
+              </li>
+              <li>
+                <b>Khóa 2B Online – Chuyên sâu Data Dashboard & AI Agent:</b> Xây dựng luồng xử lý dữ liệu Big Data, Realtime Data (NodeRED, BigQuery). Xây dựng Operation & Management Dashboard bằng Looker Studio / Metabase. Xây dựng AI Agents và Workflow phức tạp.
+              </li>
+            </ul>
           </div>
         </section>
       </main>
