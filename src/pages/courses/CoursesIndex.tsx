@@ -83,6 +83,24 @@ export default function CoursesIndex() {
           </div>
         </section>
 
+        {/* IoT Lab Visuals - Replace these images with your own later */}
+        <section className="py-16 px-4 bg-white/50">
+          <div className="container max-w-6xl mx-auto">
+            <h2 className="text-3xl font-serif font-bold text-brand-navy mb-8 text-center">Inside the IoT Lab</h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img src="images/office/office_2.jpg" alt="IoT Lab 1" className="w-full h-56 object-cover" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img src="images/office/office_7.jpg" alt="IoT Lab 2" className="w-full h-56 object-cover" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img src="images/office/office_6.jpg" alt="IoT Lab 3" className="w-full h-56 object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* What's Included */}
         <section className="py-16 px-4 bg-white/50">
           <div className="container max-w-6xl mx-auto">
