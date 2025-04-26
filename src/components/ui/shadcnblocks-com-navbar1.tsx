@@ -336,14 +336,48 @@ const Navbar1 = ({
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
+
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="courses" className="border-none">
+                      <div className="flex items-center">
+                        <Link 
+                          to="/courses" 
+                          className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
+                        >
+                          <Code size={18} strokeWidth={2} className="text-brand-navy" />
+                          Courses
+                        </Link>
+                        <AccordionTrigger className="py-0 pr-3" />
+                      </div>
+                      <AccordionContent className="pt-1 pb-1 shadow-none">
+                        <div className="bg-transparent p-1 rounded-lg space-y-1 shadow-none">
+                          {menu[2].items?.map((item) => (
+                            <Link
+                              key={item.title}
+                              to={item.url}
+                              className="flex select-none gap-2 rounded-md p-1.5 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
+                            >
+                              {item.icon && (
+                                <div className="bg-brand-navy/10 p-1.5 rounded-full">
+                                  {item.icon}
+                                </div>
+                              )}
+                              <div>
+                                <div className="text-sm font-medium">{item.title}</div>
+                                {item.description && (
+                                  <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
+                                    {item.description}
+                                  </p>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                   
-                  <Link 
-                    to="/experience" 
-                    className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
-                  >
-                    <Lightbulb size={18} strokeWidth={2} className="text-brand-green" />
-                    Experience
-                  </Link>
+                  {/* Removed Experience link */}
                   
                   <Link 
                     to="/about" 
