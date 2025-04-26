@@ -19,7 +19,7 @@ export default function CoursesIndex() {
               Node-RED & AIoT Fundamentals Course
             </h1>
             <p className="text-xl md:text-2xl text-brand-blue mb-4 animate-slide-up">
-              Learn automation & build your own AI Agent – starting today!
+              Learn to Automate your Workflow & build AI Agents – in 4 weeks!
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">

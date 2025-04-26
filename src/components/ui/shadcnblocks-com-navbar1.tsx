@@ -210,6 +210,8 @@ const Navbar1 = ({
               <img src={logo.src} className="w-8" alt={logo.alt} />
               <span className="text-lg font-semibold">{logo.title}</span>
             </Link>
+          </div>
+          <div className="flex flex-1 items-center justify-end gap-6">
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -217,8 +219,6 @@ const Navbar1 = ({
                 </NavigationMenuList>
               </NavigationMenu>
             </div>
-          </div>
-          <div className="flex gap-2">
             {/* Remove LanguageSelector here */}
             {(auth.login.text || auth.signup.text) && (
               <div className="flex gap-2">
@@ -311,7 +311,7 @@ const Navbar1 = ({
                       </div>
                       <AccordionContent className="pt-1 pb-1 shadow-none">
                         <div className="bg-transparent p-1 rounded-lg space-y-1 shadow-none">
-                          {menu[2].items?.map((item) => (
+                          {menu[1].items?.map((item) => (
                             <Link
                               key={item.title}
                               to={item.url}
