@@ -161,18 +161,6 @@ const Navbar1 = ({
         },
       ],
     },
-    {
-      title: "Courses",
-      url: "/courses",
-      items: [
-        {
-          title: "Node-RED & AIoT Fundamentals",
-          description: "Learn automation & build your own AI Agent",
-          icon: <Code className="size-5 shrink-0" />,
-          url: "/courses",
-        },
-      ],
-    },
     { title: "About", url: "/about", icon: <InfoIcon className="size-5 shrink-0" /> },
     { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
   ],

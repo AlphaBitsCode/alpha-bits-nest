@@ -4,116 +4,111 @@ import { CourseRegistrationDialog } from "@/components/ui/course-registration-di
 import { CourseSchedule } from "@/components/ui/course-schedule";
 import { useState } from "react";
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
+import { Link } from "react-router-dom";
 
-export default function CoursesIndex() {
+export default function CoursesIndexVN() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col">
       <Navbar1 />
-      <div className="mt-4 flex justify-end mr-8">
-        <a href="/courses-vn">
-          <Button variant="outline" className="border-brand-teal text-brand-teal" aria-label="Switch to Vietnamese">
-            🇻🇳
-          </Button>
-        </a>
-      </div>
       <main className="flex-1">
         {/* Hero Section */}
         <section className="pt-20 pb-16 px-4">
           <div className="container max-w-6xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-6 animate-fade-in">
-              Node-RED & AIoT Fundamentals Course
+              Khóa học Node-RED & AIoT Cơ bản
             </h1>
             <p className="text-xl md:text-2xl text-brand-blue mb-4 animate-slide-up">
-              Learn to Automate your Workflow & build AI Agents – in 4 weeks!
+              Học tự động hóa quy trình & xây dựng AI Agent – chỉ trong 4 tuần!
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Starts May 6, 2025</span>
+                <span>Bắt đầu: 6/5/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
-              <span>Every Tuesday & Thursday evening via Zoom</span>
+              <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
             </div>
             <Button 
               size="lg" 
               className="animate-float bg-brand-teal hover:bg-brand-teal/90 text-white"
               onClick={() => setIsDialogOpen(true)}
             >
-              👉 Register Now
+              👉 Đăng ký ngay
             </Button>
+            
           </div>
         </section>
 
-        {/* Course Overview */}
+        {/* Tổng quan khóa học */}
         <section className="py-16 px-4 bg-white/50">
           <div className="container max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-brand-navy mb-6">What you'll learn</h2>
+              <h2 className="text-3xl font-bold text-brand-navy mb-6">Bạn sẽ học được gì?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Master Node-RED and visual flow programming</span>
+                  <span>Thành thạo Node-RED và lập trình luồng trực quan</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Connect APIs, MQTT brokers, and databases</span>
+                  <span>Kết nối API, MQTT broker và cơ sở dữ liệu</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Build interactive dashboards and integrate with AI tools like Telegram & WhatsApp</span>
+                  <span>Xây dựng dashboard tương tác, tích hợp với AI như Telegram & WhatsApp</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-brand-navy mb-6">Who this course is for</h2>
+              <h2 className="text-3xl font-bold text-brand-navy mb-6">Dành cho ai?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Software developers, engineers, automation professionals</span>
+                  <span>Lập trình viên, kỹ sư, chuyên gia tự động hóa</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
-                  <span>Those with basic programming knowledge (JavaScript/Python/etc.)</span>
+                  <span>Người có kiến thức lập trình cơ bản (JavaScript/Python/v.v.)</span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Course Schedule */}
+        {/* Lịch học */}
         <section className="py-16 px-4">
           <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Course Schedule</h2>
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Lịch học</h2>
             <CourseSchedule />
           </div>
         </section>
 
-        {/* IoT Lab Visuals - Replace these images with your own later */}
+        {/* Hình ảnh phòng Lab IoT */}
         <section className="py-16 px-4 bg-white/50">
           <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Inside the IoT Lab</h2>
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Bên trong phòng Lab IoT</h2>
             <div className="grid gap-6 md:grid-cols-3">
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_2.jpg" alt="IoT Lab 1" className="w-full h-56 object-cover" />
+                <img src="images/office/office_2.jpg" alt="Phòng Lab IoT 1" className="w-full h-56 object-cover" />
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_7.jpg" alt="IoT Lab 2" className="w-full h-56 object-cover" />
+                <img src="images/office/office_7.jpg" alt="Phòng Lab IoT 2" className="w-full h-56 object-cover" />
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img src="images/office/office_6.jpg" alt="IoT Lab 3" className="w-full h-56 object-cover" />
+                <img src="images/office/office_6.jpg" alt="Phòng Lab IoT 3" className="w-full h-56 object-cover" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* What's Included */}
+        {/* Bao gồm */}
         <section className="py-16 px-4 bg-white/50">
           <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">What's Included</h2>
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Bạn nhận được gì?</h2>
             <div className="grid gap-6 md:grid-cols-2">
-              {["Slides + Sample flows and code","3-month Node-RED cloud account","Support via Zalo / Facebook group","Pathway to advanced courses (hardware or data AI)"].map((item, index) => (
+              {["Slide + mã nguồn mẫu","Tài khoản Node-RED cloud 3 tháng","Hỗ trợ qua Zalo / Facebook group","Lộ trình lên các khóa nâng cao (phần cứng hoặc AI dữ liệu)"].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <Check className="h-6 w-6 text-brand-teal mt-1" />
                   <span className="text-lg">{item}</span>
@@ -127,14 +122,14 @@ export default function CoursesIndex() {
         <section className="py-16 px-4">
           <div className="container max-w-6xl mx-auto text-center">
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl font-bold text-brand-navy mb-4">Limited seats available!</h2>
-              <p className="text-xl text-gray-600 mb-8">Only 10 students per cohort. Secure your spot today and start building your first AI-powered IoT system!</p>
+              <h2 className="text-3xl font-bold text-brand-navy mb-4">Chỉ còn 10 chỗ mỗi lớp!</h2>
+              <p className="text-xl text-gray-600 mb-8">Đăng ký ngay để giữ chỗ và bắt đầu xây dựng hệ thống IoT tích hợp AI đầu tiên của bạn!</p>
               <Button 
                 size="lg"
                 className="bg-brand-teal hover:bg-brand-teal/90 text-white"
                 onClick={() => setIsDialogOpen(true)}
               >
-                Register Now
+                Đăng ký ngay
               </Button>
             </div>
           </div>

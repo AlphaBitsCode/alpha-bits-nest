@@ -47,11 +47,11 @@ export function CTOOfficeHours() {
               CTO-AS-A-SERVICE
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-navy">
-              Book Your First <span className="text-brand-teal">Free Trial</span> Office Hour
+              Let's talk about your Tech challenges
             </h2>
             <p className="text-gray-600 mb-6">
               Facing technical challenges or need strategic guidance for your product development? 
-              Our experienced CTOs offer complimentary 30-minute consultations during weekly office hours.
+              Our experienced CTOs offer a quick consultations during weekly office hours for your immediate needs.
             </p>
             
             <div className="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-100">

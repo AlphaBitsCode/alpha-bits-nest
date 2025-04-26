@@ -36,6 +36,7 @@ import EventsPage from "./pages/experiences/EventsPage";
 import BlogIndex from "./pages/blog/BlogIndex";
 import BlogPost from "./pages/blog/BlogPost";
 import CoursesIndex from "./pages/courses/CoursesIndex";
+import CoursesIndexVN from "./pages/courses/CoursesIndexVN";
 
 const queryClient = new QueryClient();
 
@@ -97,7 +98,7 @@ function App() {
 
             {/* Courses routes */}
             <Route path="/courses" element={<CoursesIndex />} />
-            
+            <Route path="/courses-vn" element={<CoursesIndexVN />} />
             {/* Catch-all route - must be last */}
             <Route path="*" element={<NotFound />} />
           </Routes>
