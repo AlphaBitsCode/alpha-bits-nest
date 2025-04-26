@@ -24,7 +24,7 @@ export default function CoursesIndexVN() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Bắt đầu: 6/5/2025</span>
+                <span>Bắt đầu: 13/5/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
               <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
@@ -106,14 +106,14 @@ export default function CoursesIndexVN() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td className="border">1</td><td className="border">06/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Khởi động với Node-RED</td></tr>
-                  <tr><td className="border">2</td><td className="border">08/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">Xử lý dữ liệu & Lưu trữ dữ liệu</td></tr>
-                  <tr><td className="border">3</td><td className="border">13/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Xây dựng dashboard cơ bản</td></tr>
-                  <tr><td className="border">4</td><td className="border">15/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">API Endpoints. Tích hợp hệ thống bên ngoài</td></tr>
-                  <tr><td className="border">5</td><td className="border">20/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Điều khiển thiết bị IoT</td></tr>
-                  <tr><td className="border">6</td><td className="border">22/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td className="border">Xây dựng AI Agent căn bản với Telegram/WhatsApp</td></tr>
-                  <tr><td className="border">7</td><td className="border">27/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td className="border">Demo & Q&A: Học viên trình bày dự án mini cá nhân</td></tr>
-                  <tr><td className="border">8</td><td className="border">-</td><td className="border">-</td><td className="border">45 phút</td><td className="border">Tư vấn 1:1 sau khóa học</td></tr>
+                  <tr><td className="border">1</td><td className="border">13/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Khởi động với Node-RED</td></tr>
+                  <tr><td className="border">2</td><td className="border">15/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Xử lý dữ liệu & Lưu trữ dữ liệu</td></tr>
+                  <tr><td className="border">3</td><td className="border">20/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Xây dựng dashboard cơ bản</td></tr>
+                  <tr><td className="border">4</td><td className="border">22/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td align='left' className="border">API Endpoints. Tích hợp hệ thống bên ngoài</td></tr>
+                  <tr><td className="border">5</td><td className="border">27/05</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Điều khiển thiết bị IoT</td></tr>
+                  <tr><td className="border">6</td><td className="border">30/05</td><td className="border">Thứ 5</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Xây dựng AI Agent căn bản với Telegram/WhatsApp</td></tr>
+                  <tr><td className="border">7</td><td className="border">03/06</td><td className="border">Thứ 3</td><td className="border">19:30 - 21:00</td><td align='left' className="border">Demo & Q&A: Học viên trình bày dự án mini cá nhân</td></tr>
+                  <tr><td className="border">8</td><td className="border">-</td><td className="border">-</td><td className="border">45 phút</td><td align='left' className="border">Tư vấn 1:1 sau khóa học</td></tr>
                 </tbody>
               </table>
             </div>

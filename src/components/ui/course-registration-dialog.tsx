@@ -23,10 +23,10 @@ const referralSources = [
   "Google Search",
   "LinkedIn",
   "Facebook",
-  "Friend/Colleague",
-  "Company Website",
-  "Tech Event",
-  "Other"
+  "Bạn bè/Đồng nghiệp",
+  "Website công ty",
+  "Sự kiện công nghệ",
+  "Khác"
 ];
 
 export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrationDialogProps) {
@@ -36,7 +36,6 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     fullName: "",
     email: "",
     phone: "",
-    country: "",
     interest: "",
     codingBackground: "",
     referralSource: "",
@@ -58,7 +57,6 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           full_name: formData.fullName,
           email: formData.email,
           phone: formData.phone,
-          country: formData.country,
           interest: formData.interest,
           coding_background: formData.codingBackground,
           referral_source: formData.referralSource,
@@ -68,8 +66,8 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
       if (error) throw error;
 
       toast({
-        title: "Registration successful!",
-        description: "We'll be in touch with you soon with more details.",
+        title: "Đăng ký thành công!",
+        description: "Chúng tôi sẽ liên hệ với bạn sớm với thông tin chi tiết khoá học.",
       });
 
       onOpenChange(false);
@@ -77,7 +75,6 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
         fullName: "",
         email: "",
         phone: "",
-        country: "",
         interest: "",
         codingBackground: "",
         referralSource: "",
@@ -85,8 +82,8 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     } catch (error) {
       console.error('Error:', error);
       toast({
-        title: "Registration failed",
-        description: "Please try again or contact us directly.",
+        title: "Đăng ký thất bại",
+        description: "Vui lòng thử lại hoặc liên hệ trực tiếp với chúng tôi.",
         variant: "destructive",
       });
     } finally {
@@ -98,25 +95,25 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md mx-auto">
         <DialogHeader>
-          <DialogTitle>Register for Node-RED & AIoT Course</DialogTitle>
+          <DialogTitle>Đăng ký tham gia khoá học AIoT Automation</DialogTitle>
           <DialogDescription>
-            Fill out this form to secure your spot in our upcoming course starting May 6, 2025.
+            Điền thông tin để giữ chỗ cho khoá học bắt đầu từ ngày 6/5/2025. Chúng tôi sẽ liên hệ xác nhận qua email/số điện thoại của bạn.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name</Label>
+            <Label htmlFor="fullName">Họ và tên</Label>
             <Input
               id="fullName"
               name="fullName"
               required
               value={formData.fullName}
               onChange={handleInputChange}
+              placeholder="Nhập họ và tên của bạn"
             />
           </div>
-          
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
               id="email"
               name="email"
@@ -124,67 +121,48 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
               required
               value={formData.email}
               onChange={handleInputChange}
+              placeholder="Nhập email liên hệ"
             />
           </div>
-          
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label htmlFor="phone">Số điện thoại</Label>
             <Input
               id="phone"
               name="phone"
               required
               value={formData.phone}
               onChange={handleInputChange}
+              placeholder="Nhập số điện thoại của bạn"
             />
           </div>
-          
           <div className="space-y-2">
-            <Label htmlFor="country">Country</Label>
-            <Select 
-              value={formData.country} 
-              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select your country" />
-              </SelectTrigger>
-              <SelectContent>
-                {countries.map((country) => (
-                  <SelectItem key={country} value={country}>
-                    {country}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="interest">Why are you interested in this course?</Label>
+            <Label htmlFor="interest">Bạn mong muốn gì từ khoá học này?</Label>
             <Textarea
               id="interest"
               name="interest"
               value={formData.interest}
               onChange={handleInputChange}
+              placeholder="VD: Muốn tự động hoá công việc, tìm hiểu AI Agent, thực hành IoT..."
             />
           </div>
-          
           <div className="space-y-2">
-            <Label htmlFor="codingBackground">Brief coding background</Label>
+            <Label htmlFor="codingBackground">Kinh nghiệm lập trình/nghề nghiệp</Label>
             <Textarea
               id="codingBackground"
               name="codingBackground"
               value={formData.codingBackground}
               onChange={handleInputChange}
+              placeholder="VD: Đã học qua Python/JavaScript, làm kỹ sư phần mềm, chưa biết code..."
             />
           </div>
-          
           <div className="space-y-2">
-            <Label htmlFor="referralSource">Where did you hear about us?</Label>
+            <Label htmlFor="referralSource">Bạn biết đến khoá học qua kênh nào?</Label>
             <Select 
               value={formData.referralSource} 
               onValueChange={(value) => setFormData(prev => ({ ...prev, referralSource: value }))}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select source" />
+                <SelectValue placeholder="Chọn kênh thông tin" />
               </SelectTrigger>
               <SelectContent>
                 {referralSources.map((source) => (
@@ -195,13 +173,12 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
               </SelectContent>
             </Select>
           </div>
-          
           <Button 
             type="submit" 
             className="w-full bg-brand-teal hover:bg-brand-teal/90"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Submit Registration"}
+            {isSubmitting ? "Đang gửi..." : "Gửi đăng ký"}
           </Button>
         </form>
       </DialogContent>
