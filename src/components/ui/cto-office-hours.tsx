@@ -30,14 +30,6 @@ export function CTOOfficeHours() {
                       <Calendar className="w-5 h-5 text-brand-teal" />
                       <span className="text-gray-700">Every Tuesday & Thursday</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="w-5 h-5 text-brand-teal" />
-                      <span className="text-gray-700">3:00 PM Vietnam Time (GMT+7)</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Users className="w-5 h-5 text-brand-teal" />
-                      <span className="text-gray-700">Free 30-minute consultation</span>
-                    </div>
                   </div>
                 </div>
               </div>
