@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Calendar, Check } from "lucide-react";
 import { CourseRegistrationDialog } from "@/components/ui/course-registration-dialog";
@@ -16,15 +17,16 @@ export default function CoursesIndexVN() {
           <div className="container max-w-6xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-navy mb-6 animate-fade-in">
               Khóa học AIoT Automation<br />
+              cùng Node-RED
             </h1>
             <p className="text-xl md:text-2xl text-brand-blue mb-4 animate-slide-up">
-              Khóa học về tự động hóa Workflow và xây dựng AI Agent căn bản trên nền tảng Node-RED.<br />
+              Học trực quan – Xây dựng quy trình tự động hóa – Tạo AI Agent cho riêng bạn!<br />
               Thuộc chuỗi 3 khóa học AI & IoT do các chuyên gia team Alpha Bits giảng dạy, cung cấp công cụ và thiết bị thực hành.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Bắt đầu: 13/5/2025</span>
+                <span>Bắt đầu: 6/5/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
               <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
@@ -34,7 +36,7 @@ export default function CoursesIndexVN() {
               className="animate-float bg-brand-teal hover:bg-brand-teal/90 text-white"
               onClick={() => setIsDialogOpen(true)}
             >
-              👉 Đăng ký cho Khóa 1
+              👉 Đăng ký ngay
             </Button>
           </div>
         </section>
