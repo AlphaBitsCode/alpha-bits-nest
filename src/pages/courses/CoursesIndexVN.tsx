@@ -262,6 +262,14 @@ export default function CoursesIndexVN() {
                         <li>Kết nối hệ thống Node-RED điều khiển từ xa</li>
                         <li>Kèm bộ IoT thực hành cao cấp Alpha Block</li>
                       </ul>
+                      <div className="relative mt-4 flex justify-end">
+                        <img
+                          src="/images/courses/ablock-preview.jpg"
+                          alt="Alpha Block"
+                          className="w-24 h-16 object-cover rounded-lg shadow-lg border-2 border-white -mr-6 -mb-6 z-10 opacity-90 hover:scale-125 transition-transform duration-300"
+                          style={{boxShadow: '0 8px 24px -8px #0002', transform: 'rotate(-8deg)'}}
+                        />
+                      </div>
                     </div>
                   </div>
                 </CardContent>
