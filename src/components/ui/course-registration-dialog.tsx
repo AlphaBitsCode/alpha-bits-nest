@@ -67,16 +67,6 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
 
       if (error) throw error;
 
-      // Send confirmation email through edge function
-      await supabase.functions.invoke('send-course-confirmation', {
-        body: {
-          name: formData.fullName,
-          email: formData.email,
-          course: 'Khóa học AIoT Automation căn bản cùng Node-RED',
-          startDate: '13/05/2025'
-        }
-      });
-
       toast({
         title: "Đăng ký thành công!",
         description: "Chúng tôi sẽ liên hệ với bạn sớm với thông tin chi tiết khoá học.",
