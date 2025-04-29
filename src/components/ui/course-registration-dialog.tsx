@@ -67,6 +67,16 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
 
       if (error) throw error;
 
+      // Send confirmation email through edge function
+      await supabase.functions.invoke('send-course-confirmation', {
+        body: {
+          name: formData.fullName,
+          email: formData.email,
+          course: 'Khóa học AIoT Automation căn bản cùng Node-RED',
+          startDate: '13/05/2025'
+        }
+      });
+
       toast({
         title: "Đăng ký thành công!",
         description: "Chúng tôi sẽ liên hệ với bạn sớm với thông tin chi tiết khoá học.",
@@ -96,11 +106,11 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md mx-auto">
+      <DialogContent className="max-w-md mx-auto max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Đăng ký tham gia khoá học Workflow Automation & AI Agent</DialogTitle>
           <DialogDescription>
-            Điền thông tin để giữ chỗ cho khoá học bắt đầu từ ngày 6/5/2025. Chúng tôi sẽ liên hệ xác nhận qua email/số điện thoại của bạn.
+            Điền thông tin để giữ chỗ cho khoá học bắt đầu từ ngày 13/5/2025. Chúng tôi sẽ liên hệ xác nhận qua email/số điện thoại của bạn.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">

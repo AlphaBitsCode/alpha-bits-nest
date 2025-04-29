@@ -25,6 +25,9 @@ export default function CoursesIndexVN() {
               Dành cho người đi làm muốn ứng dụng tự động hóa và AI vào công việc hằng ngày<br />
               <span className="font-semibold">– dễ học, thực hành thực tế!</span>
             </p>
+            <p className="text-sm text-gray-500 mb-4">
+              Thuộc chuỗi 3 khóa học AI & IoT do các chuyên gia team Alpha Bits giảng dạy
+            </p>
             <div className="flex justify-center gap-8 my-8">
               <div className="flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-2">
@@ -48,7 +51,7 @@ export default function CoursesIndexVN() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Bắt đầu: 6/5/2025</span>
+                <span>Bắt đầu: 13/5/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
               <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
@@ -60,6 +63,24 @@ export default function CoursesIndexVN() {
             >
               👉 Đăng ký ngay
             </Button>
+          </div>
+        </section>
+
+        {/* NodeRED Demo GIF */}
+        <section className="py-8 px-4 bg-white">
+          <div className="container max-w-5xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-brand-navy mb-6">Trực quan và dễ sử dụng - Kéo thả để tạo workflow</h2>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/images/nodered-demo.gif" 
+                alt="Node-RED Demo" 
+                className="w-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://nodered.org/images/nr-image-1.gif";
+                }}
+              />
+            </div>
           </div>
         </section>
 
@@ -115,6 +136,12 @@ export default function CoursesIndexVN() {
               <div className="bg-brand-teal text-white p-6">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">Khóa học hiện tại: Node-RED & AIoT Workflow Automation</h2>
                 <p className="text-lg opacity-90">Khóa Căn bản Online - 6 buổi</p>
+                <div className="mt-4 bg-white/10 p-3 rounded-lg">
+                  <p className="text-xl font-bold">
+                    <span className="line-through opacity-70 mr-2">9,500,000 VND</span>
+                    <span className="text-white">8,000,000 VND</span>
+                  </p>
+                </div>
               </div>
               <div className="p-6">
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -128,7 +155,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Khai giảng</span>
-                    <span className="font-medium">06/05/2025</span>
+                    <span className="font-medium">13/05/2025</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số buổi</span>
@@ -203,13 +230,13 @@ export default function CoursesIndexVN() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td className="border py-3">1</td><td className="border">06/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Cài Node-RED, MQTT, làm quen flow</td></tr>
-                  <tr><td className="border py-3">2</td><td className="border">08/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Xây dựng Dashboard cơ bản</td></tr>
-                  <tr><td className="border py-3">3</td><td className="border">13/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">API Endpoint, xử lý dữ liệu từ ngoài</td></tr>
-                  <tr><td className="border py-3">4</td><td className="border">15/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Đọc sensor từ thiết bị / mô phỏng</td></tr>
-                  <tr><td className="border py-3">5</td><td className="border">20/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Xử lý dữ liệu, logic filter</td></tr>
-                  <tr><td className="border py-3">6</td><td className="border">22/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Lưu trữ dữ liệu, tích hợp AI Agent</td></tr>
-                  <tr><td className="border py-3">7</td><td className="border">27/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Demo & Feedback dự án cá nhân</td></tr>
+                  <tr><td className="border py-3">1</td><td className="border">13/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Cài Node-RED, MQTT, làm quen flow</td></tr>
+                  <tr><td className="border py-3">2</td><td className="border">15/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Xây dựng Dashboard cơ bản</td></tr>
+                  <tr><td className="border py-3">3</td><td className="border">20/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">API Endpoint, xử lý dữ liệu từ ngoài</td></tr>
+                  <tr><td className="border py-3">4</td><td className="border">22/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Đọc sensor từ thiết bị / mô phỏng</td></tr>
+                  <tr><td className="border py-3">5</td><td className="border">27/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Xử lý dữ liệu, logic filter</td></tr>
+                  <tr><td className="border py-3">6</td><td className="border">29/05</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Lưu trữ dữ liệu, tích hợp AI Agent</td></tr>
+                  <tr><td className="border py-3">7</td><td className="border">03/06</td><td className="border">19:30 - 21:00</td><td className="border text-left px-4">Demo & Feedback dự án cá nhân</td></tr>
                 </tbody>
               </table>
             </div>
@@ -233,6 +260,7 @@ export default function CoursesIndexVN() {
                         <li>Làm việc với ESP32, Raspberry Pi</li>
                         <li>Đọc cảm biến thực tế, giao tiếp MQTT</li>
                         <li>Kết nối hệ thống Node-RED điều khiển từ xa</li>
+                        <li>Kèm bộ IoT thực hành cao cấp Alpha Block</li>
                       </ul>
                     </div>
                   </div>
@@ -271,30 +299,30 @@ export default function CoursesIndexVN() {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                    <span className="text-xl font-bold text-brand-teal">MA</span>
+                    <span className="text-xl font-bold text-brand-teal">TH</span>
                   </div>
                   <div>
-                    <h3 className="font-bold">Minh Anh</h3>
-                    <p className="text-sm text-gray-500">Chuyên viên Marketing</p>
+                    <h3 className="font-bold">Trọng Hiếu</h3>
+                    <p className="text-sm text-gray-500">Backend Developer</p>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  "Trước khi học mình chưa từng biết đến Node-RED, sau khóa học mình đã tự động hóa các quy trình nội bộ và thiết lập AI trả lời khách hàng qua Telegram chỉ sau vài ngày!"
+                  "Là lập trình viên Java, tôi thấy Node-RED cực kỳ hiệu quả để prototype và triển khai nhanh các RESTful API. Khóa học giúp tôi hiểu cách kết nối Node-RED với các hệ thống khác mà không cần viết nhiều code."
                 </p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-xl font-bold text-brand-teal">TN</span>
+                    <span className="text-xl font-bold text-brand-teal">MT</span>
                   </div>
                   <div>
-                    <h3 className="font-bold">Trọng Nghĩa</h3>
-                    <p className="text-sm text-gray-500">Chuyên viên Kinh doanh</p>
+                    <h3 className="font-bold">Minh Tuấn</h3>
+                    <p className="text-sm text-gray-500">Frontend Developer</p>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  "Khoá học rất thực tế, bài tập dễ hiểu. Ứng dụng được luôn cho công việc tự động gửi báo cáo sales qua chat nhóm!"
+                  "Tôi làm việc nhiều với React và đã sử dụng Node-RED để tạo backend API đơn giản mà không cần phát triển toàn bộ Node.js server. Kiến thức về webhook và endpoint từ khóa học giúp tôi tích hợp hệ thống dễ dàng hơn nhiều!"
                 </p>
               </div>
             </div>
@@ -342,7 +370,7 @@ export default function CoursesIndexVN() {
                   <h3 className="text-lg font-medium text-left">Tôi cần biết lập trình trước không?</h3>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4">
-                  <p className="text-gray-700">Không cần. Chỉ cần tư duy logic cơ bản và khả năng sử dụng máy tính. Node-RED là công cụ lập trình trực quan, kéo thả, rất dễ tiếp cận cho người mới.</p>
+                  <p className="text-gray-700">Khóa học phù hợp nhất với những bạn đã có kiến thức căn bản về lập trình, API hoặc xây dựng phần mềm. Node-RED là công cụ trực quan hóa lập trình, giúp bạn triển khai dự án nhanh hơn so với việc code thủ công.</p>
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
@@ -351,14 +379,6 @@ export default function CoursesIndexVN() {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4">
                   <p className="text-gray-700">Có, bạn sẽ được vào nhóm hỗ trợ riêng qua Zalo/Facebook và được hỗ trợ kỹ thuật sau khóa học. Ngoài ra còn có buổi tư vấn 1:1 với giảng viên.</p>
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <h3 className="text-lg font-medium text-left">Khóa học có cấp chứng nhận không?</h3>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  <p className="text-gray-700">Có chứng nhận nội bộ của Alpha Bits khi hoàn thành dự án mini cuối khóa. Đây là minh chứng quan trọng cho kỹ năng thực tế của bạn.</p>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -381,7 +401,7 @@ export default function CoursesIndexVN() {
         </section>
       </main>
       
-      {/* Fix the CourseRegistrationDialog component to handle country field */}
+      {/* Registration dialog with fixes for mobile scrolling */}
       <CourseRegistrationDialog
         open={isDialogOpen}
         onOpenChange={setIsDialogOpen}
