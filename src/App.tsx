@@ -98,7 +98,7 @@ function App() {
 
             {/* Courses routes */}
             <Route path="/courses" element={<CoursesIndex />} />
-            <Route path="/courses-vn" element={<CoursesIndexVN />} />
+            <Route path="/khoa-hoc-ai-workflow-automation" element={<CoursesIndexVN />} />
             {/* Catch-all route - must be last */}
             <Route path="*" element={<NotFound />} />
           </Routes>

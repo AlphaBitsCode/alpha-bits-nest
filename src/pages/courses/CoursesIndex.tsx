@@ -12,7 +12,7 @@ export default function CoursesIndex() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col">
       <Navbar1 />
       <div className="mt-4 flex justify-end mr-8">
-        <a href="/courses-vn">
+        <a href="/khoa-hoc-ai-workflow-automation">
           <Button variant="outline" className="border-brand-teal text-brand-teal" aria-label="Switch to Vietnamese">
             🇻🇳
           </Button>
