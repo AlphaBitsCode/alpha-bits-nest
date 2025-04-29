@@ -1,4 +1,4 @@
-import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar } from "lucide-react";
+import { Book, Home, Menu, Briefcase, Package, Users, InfoIcon, MapPin, PhoneCall, Factory, Trees, Lightbulb, Server, GraduationCap, Box, Clock, FileText, Code, Calendar, Cpu } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 // Remove the LanguageSelector import
 import { useEffect } from "react";
@@ -158,6 +158,41 @@ const Navbar1 = ({
           description: "Custom ERP, CRM, HRM systems and AI-powered solutions",
           icon: <Code className="size-5 shrink-0" />,
           url: "/services/software-development",
+        },
+      ],
+    },
+    {
+      title: "Courses",
+      url: "/courses",
+      icon: <GraduationCap className="size-5 shrink-0" />,
+      items: [
+        {
+          title: "Node-RED & AIoT Workflow Automation",
+          description: "Learn to build AI agents and automate workflows",
+          icon: <Code className="size-5 shrink-0" />,
+          url: "/khoa-hoc-ai-workflow-automation",
+          badge: {
+            text: "Vietnamese",
+            icon: null
+          }
+        },
+        {
+          title: "IoT Hardware Course",
+          description: "Coming Soon - Hands-on IoT hardware training",
+          icon: <Cpu className="size-5 shrink-0" />,
+          badge: {
+            text: "Coming Soon",
+            icon: <Clock className="size-3 mr-1" />
+          }
+        },
+        {
+          title: "Advanced Dashboard & Database",
+          description: "Coming Soon - Master data visualization and management",
+          icon: <Server className="size-5 shrink-0" />,
+          badge: {
+            text: "Coming Soon",
+            icon: <Clock className="size-3 mr-1" />
+          }
         },
       ],
     },
@@ -342,7 +377,7 @@ const Navbar1 = ({
                           {menu[2].items?.map((item) => (
                             <Link
                               key={item.title}
-                              to={item.url}
+                              to={item.url || "#"}
                               className="flex select-none gap-2 rounded-md p-1.5 leading-none outline-none transition-colors hover:bg-white/40 hover:text-primary"
                             >
                               {item.icon && (
@@ -356,6 +391,12 @@ const Navbar1 = ({
                                   <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
                                     {item.description}
                                   </p>
+                                )}
+                                {item.badge && (
+                                  <Badge variant="outline" className="mt-1 text-xs border-brand-navy/30 text-brand-navy/70">
+                                    {item.badge.icon}
+                                    <span>{item.badge.text}</span>
+                                  </Badge>
                                 )}
                               </div>
                             </Link>
