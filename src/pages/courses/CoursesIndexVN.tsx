@@ -72,7 +72,7 @@ export default function CoursesIndexVN() {
             <h2 className="text-2xl font-bold text-brand-navy mb-6">Trực quan và dễ sử dụng - Kéo thả để tạo workflow</h2>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
-                src="/images/nodered-demo.gif" 
+                src="/images/courses/nodered-demo.gif" 
                 alt="Node-RED Demo" 
                 className="w-full object-cover"
                 onError={(e) => {
@@ -359,26 +359,39 @@ export default function CoursesIndexVN() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-12 px-4 bg-gray-50">
-          <div className="container max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Các câu hỏi thường gặp</h2>
-            
-            <Accordion type="single" collapsible className="bg-white rounded-lg shadow-sm">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <h3 className="text-lg font-medium text-left">Tôi cần biết lập trình trước không?</h3>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  <p className="text-gray-700">Khóa học phù hợp nhất với những bạn đã có kiến thức căn bản về lập trình, API hoặc xây dựng phần mềm. Node-RED là công cụ trực quan hóa lập trình, giúp bạn triển khai dự án nhanh hơn so với việc code thủ công.</p>
+        {/* FAQ Section */}
+        <section className="py-12 px-4 bg-white">
+          <div className="container max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Câu hỏi thường gặp</h2>
+            <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+              <AccordionItem value="faq-1">
+                <AccordionTrigger>Khóa học này dành cho ai?</AccordionTrigger>
+                <AccordionContent>
+                  Khóa học phù hợp cho người đi làm, kỹ sư, sinh viên muốn ứng dụng tự động hóa và AI vào công việc thực tế mà không cần biết lập trình phức tạp.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <h3 className="text-lg font-medium text-left">Sau khóa học có hỗ trợ kỹ thuật không?</h3>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4">
-                  <p className="text-gray-700">Có, bạn sẽ được vào nhóm hỗ trợ riêng qua Zalo/Facebook và được hỗ trợ kỹ thuật sau khóa học. Ngoài ra còn có buổi tư vấn 1:1 với giảng viên.</p>
+              <AccordionItem value="faq-2">
+                <AccordionTrigger>Tôi cần chuẩn bị gì trước khi tham gia?</AccordionTrigger>
+                <AccordionContent>
+                  Bạn chỉ cần máy tính cá nhân, kết nối internet ổn định và tinh thần ham học hỏi. Không yêu cầu kiến thức lập trình chuyên sâu.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-3">
+                <AccordionTrigger>Học xong tôi có thể ứng dụng vào đâu?</AccordionTrigger>
+                <AccordionContent>
+                  Bạn có thể áp dụng vào công việc văn phòng, sản xuất, nông nghiệp, xây dựng chatbot, tự động hóa quy trình cá nhân hoặc doanh nghiệp.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-4">
+                <AccordionTrigger>Hỗ trợ tài khoản hosting Node-RED trong 3 tháng.</AccordionTrigger>
+                <AccordionContent>
+                  Học viên được cung cấp tài khoản Node-RED cloud miễn phí sử dụng trong 3 tháng để thực hành và triển khai các bài tập, dự án cá nhân.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-5">
+                <AccordionTrigger>Hỗ trợ cài đặt tài khoản Node-RED ở các hosting thông dụng GCP, Digital Ocean, AWS, Azure, onprem,...</AccordionTrigger>
+                <AccordionContent>
+                  Đội ngũ Alpha Bits sẽ hướng dẫn chi tiết cách cài đặt Node-RED trên các nền tảng cloud phổ biến như GCP, Digital Ocean, AWS, Azure hoặc máy chủ riêng (on-premises) theo nhu cầu học viên.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
