@@ -137,9 +137,9 @@ export default function CoursesIndexVN() {
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">Khóa học hiện tại: Node-RED & AIoT Workflow Automation</h2>
                 <p className="text-lg opacity-90">Khóa Căn bản Online - 6 buổi</p>
                 <div className="mt-4 bg-white/10 p-3 rounded-lg">
-                  <p className="text-xl font-bold">
-                    <span className="line-through opacity-70 mr-2">9,500,000 VND</span>
-                    <span className="text-white">8,000,000 VND</span>
+                  <p className="text-2xl font-extrabold flex items-center justify-center gap-3">
+                    <span className="line-through text-gray-200 font-semibold mr-3 text-lg opacity-80">9,500,000 VND</span>
+                    <span className="text-yellow-300 font-extrabold text-3xl drop-shadow-lg">8,000,000 VND</span>
                   </p>
                 </div>
               </div>
@@ -368,10 +368,10 @@ export default function CoursesIndexVN() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 px-4 bg-white">
+        <section className="py-12 px-4 bg-gray-50">
           <div className="container max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Câu hỏi thường gặp</h2>
-            <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="faq-1">
                 <AccordionTrigger>Khóa học này dành cho ai?</AccordionTrigger>
                 <AccordionContent>
@@ -403,6 +403,61 @@ export default function CoursesIndexVN() {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
+          </div>
+        </section>
+
+        {/* Ứng dụng thực tế sau khóa học */}
+        <section className="py-12 px-4 bg-white">
+          <div className="container max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-brand-navy mb-8 text-center">Ứng dụng thực tế sau khóa học</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-brand-teal mb-2">Sales Automation</h3>
+                <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Tự động tạo (nháp) hợp đồng, báo giá</li>
+                  <li>Đồng bộ CRM, cảnh báo khi có khách hàng tiềm năng</li>
+                  <li>Tự động nhắc nhở, theo dõi tiến trình chốt deal</li>
+                  <li>Tạo bảng báo cáo chỉ tiêu, trực quan hóa funnel bán hàng</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-brand-teal mb-2">Marketing Automation</h3>
+                <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Khởi động chiến dịch email, tin nhắn tự động</li>
+                  <li>Dùng AI tạo bài blog, nội dung sản phẩm, mạng xã hội</li>
+                  <li>Chấm điểm, phân loại khách hàng trong CRM</li>
+                  <li>Theo dõi hiệu quả quảng cáo, SEO, email</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-brand-teal mb-2">HR / People Ops</h3>
+                <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Tự động onboarding nhân sự mới (tài khoản, tài liệu, đào tạo)</li>
+                  <li>Thiết lập hệ thống xin nghỉ phép, đồng bộ bảng lương</li>
+                  <li>Kích hoạt khảo sát, đánh giá hiệu suất định kỳ</li>
+                  <li>Tự động hóa quy trình tài liệu tuân thủ</li>
+                  <li>Trợ lý AI cho xin nghỉ phép, khai báo chi phí</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-brand-teal mb-2">Quản lý - Mọi phòng ban</h3>
+                <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Tự động tổng hợp báo cáo, dashboard cho lãnh đạo</li>
+                  <li>Tự động hóa quy trình phê duyệt, ra quyết định</li>
+                  <li>Tập trung dữ liệu từ nhiều phòng ban</li>
+                  <li>Lập kế hoạch phát triển dựa trên dữ liệu thời gian thực</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-brand-teal mb-2">Chăm sóc khách hàng</h3>
+                <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Trả lời tự động, phân loại ticket bằng AI</li>
+                  <li>Tự động chuyển cấp xử lý theo SLA hoặc cảm xúc khách hàng</li>
+                  <li>Chatbot FAQ cho email, web, ứng dụng nhắn tin</li>
+                  <li>Kết nối dữ liệu hỗ trợ với phản hồi sản phẩm</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
