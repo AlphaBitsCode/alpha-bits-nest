@@ -115,34 +115,6 @@ const ContactPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/20 backdrop-blur-lg rounded-xl shadow-xl p-8 border border-white/20 hover:border-white/40 transition-all mb-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-bold text-brand-navy">Chat with AI Representative</h3>
-                  </div>
-
-                  <p className="text-gray-600 mb-6">
-                    Get instant assistance 24/7 by scanning the QR code below to chat with our AI representative on WhatsApp.
-                  </p>
-
-                  <Button asChild className="w-full mb-6">
-                    <a href="https://wa.me/message/UXTQX3VXUWEQJ1" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                      <MessageCircle size={16} />
-                      Chat on WhatsApp
-                    </a>
-                  </Button>
-
-                  <div className="flex justify-center scrolled-section">
-                    <div className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl border-2 border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300">
-                      <img
-                        src="/images/qr_whatsapp_ai.png"
-                        alt="WhatsApp QR Code"
-                        className="w-48 h-48 object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-
               </div>
             </div>
           </div>
