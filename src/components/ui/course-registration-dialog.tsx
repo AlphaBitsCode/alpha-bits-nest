@@ -15,7 +15,7 @@ interface CourseRegistrationDialogProps {
 }
 
 const countries = [
-  "Vietnam", "Singapore", "Malaysia", "Thailand", "Indonesia", "Philippines",
+  "Việt Nam", "Singapore", "Malaysia", "Thailand", "Indonesia", "Philippines",
   "Japan", "South Korea", "Other"
 ];
 
@@ -39,6 +39,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     interest: "",
     codingBackground: "",
     referralSource: "",
+    country: "Việt Nam", // Default country
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -60,6 +61,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           interest: formData.interest,
           coding_background: formData.codingBackground,
           referral_source: formData.referralSource,
+          country: formData.country,
           course_id: 'node-red-aiot-2025-05'
         });
 
@@ -78,6 +80,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
         interest: "",
         codingBackground: "",
         referralSource: "",
+        country: "Việt Nam",
       });
     } catch (error) {
       console.error('Error:', error);
@@ -95,7 +98,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md mx-auto">
         <DialogHeader>
-          <DialogTitle>Đăng ký tham gia khoá học AIoT Automation</DialogTitle>
+          <DialogTitle>Đăng ký tham gia khoá học Workflow Automation & AI Agent</DialogTitle>
           <DialogDescription>
             Điền thông tin để giữ chỗ cho khoá học bắt đầu từ ngày 6/5/2025. Chúng tôi sẽ liên hệ xác nhận qua email/số điện thoại của bạn.
           </DialogDescription>
@@ -134,6 +137,24 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
               onChange={handleInputChange}
               placeholder="Nhập số điện thoại của bạn"
             />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="country">Quốc gia</Label>
+            <Select 
+              value={formData.country} 
+              onValueChange={(value) => setFormData(prev => ({ ...prev, country: value }))}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Chọn quốc gia" />
+              </SelectTrigger>
+              <SelectContent>
+                {countries.map((country) => (
+                  <SelectItem key={country} value={country}>
+                    {country}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div className="space-y-2">
             <Label htmlFor="interest">Bạn mong muốn gì từ khoá học này?</Label>
