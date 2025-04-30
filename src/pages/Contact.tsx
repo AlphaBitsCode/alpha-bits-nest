@@ -7,7 +7,7 @@ import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 import { ensureGoogleTranslateLoaded, getSelectedLanguage, changeLanguage } from '@/lib/language-utils';
-import { Helmet } from "react-helmet-async";
+// Removed: import { Helmet } from "react-helmet-async";
 
 const ContactPage = () => {
   useScrollAnimation();
@@ -38,7 +38,6 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen">
-      <Helmet>
         <title>Contact Alpha Bits | AIoT Solutions</title>
         <meta name="description" content="Get in touch with Alpha Bits for expert advice on AIoT solutions, digital transformation, and technology implementation for your business." />
         <meta name="keywords" content="Contact Alpha Bits, AIoT Consultation, Technology Advisory, Vietnam Tech Company, Ho Chi Minh City" />
@@ -48,7 +47,6 @@ const ContactPage = () => {
         <meta property="og:url" content="https://alphabits.team/contact" />
         <meta property="og:image" content="/images/office/office_1.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-      </Helmet>
 
       <Navbar1 />
 
