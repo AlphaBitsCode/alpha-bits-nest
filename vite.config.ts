@@ -20,4 +20,20 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    include: ['react-helmet-async'],
+    // Force CommonJS dependencies that don't support ESM
+    esbuildOptions: {
+      mainFields: ['module', 'main']
+    }
+  },
+  ssr: {
+    // Ensure these CommonJS packages work in SSR
+    noExternal: ['react-helmet-async']
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true
+    }
+  }
 }));

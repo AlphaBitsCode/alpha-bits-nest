@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronRight, Calendar, Clock, Store, Info, Leaf, Users, Camera, Thermometer, Monitor, Lightbulb, Battery, Smartphone } from 'lucide-react';
@@ -12,14 +11,11 @@ import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from 'sonner';
+import { Helmet } from 'react-helmet-async';
 
 const MushroomInBox = () => {
   useScrollAnimation();
   const { toast } = useToast();
-  
-  useEffect(() => {
-    document.title = "Mushroom-in-a-Box | Alpha Bits";
-  }, []);
   
   const [form, setForm] = useState({
     name: '',
@@ -205,6 +201,33 @@ const MushroomInBox = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Mushroom-in-a-Box | Innovative Mushroom Growing Kit | Alpha Bits</title>
+        <meta name="description" content="A modern, AI-powered mushroom growing device that allows enthusiasts to easily monitor and control the growing environment from home or office. Perfect for beginners and educational settings." />
+        <meta name="keywords" content="mushroom growing kit, mushroom cultivation, smart agriculture, indoor farming, educational kit, STEM learning, gourmet mushrooms, sustainable farming, Alpha Bits" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="https://alphabits.team/products/mushroom-in-a-box" />
+        <meta property="og:title" content="Mushroom-in-a-Box | Innovative Mushroom Growing Kit" />
+        <meta property="og:description" content="A modern mushroom-growing device with integrated sensors and monitoring system, providing a convenient and scientific mushroom-growing experience." />
+        <meta property="og:image" content="https://alphabits.team/images/mushroom-box/mushroombox5.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mushroom-in-a-Box | Alpha Bits" />
+        <meta name="twitter:description" content="A modern, AI-powered mushroom growing device with integrated sensors and monitoring system. Perfect for beginners and educational settings." />
+        <meta name="twitter:image" content="https://alphabits.team/images/mushroom-box/mushroombox5.jpg" />
+        
+        {/* Additional Meta Tags */}
+        <meta name="product:price:amount" content="499" />
+        <meta name="product:price:currency" content="USD" />
+        <meta name="product:availability" content="preorder" />
+        <meta name="product:brand" content="Alpha Bits" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://alphabits.team/products/mushroom-in-a-box" />
+      </Helmet>
       <Navbar1 />
       <section className="py-24 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
