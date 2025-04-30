@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Helmet } from "react-helmet";
 
 export default function CoursesIndexVN() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
