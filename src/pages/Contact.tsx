@@ -6,6 +6,7 @@ import { useScrollAnimation } from '@/lib/animations';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'react-router-dom';
 import { ensureGoogleTranslateLoaded, getSelectedLanguage, changeLanguage } from '@/lib/language-utils';
+import { Helmet } from "react-helmet";
 
 const ContactPage = () => {
   useScrollAnimation();

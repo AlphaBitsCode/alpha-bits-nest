@@ -5,6 +5,7 @@ import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Serv
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
+import { Helmet } from "react-helmet";
 
 const Products = () => {
   useScrollAnimation();

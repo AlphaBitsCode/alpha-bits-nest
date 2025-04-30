@@ -8,6 +8,7 @@ import { ServicesHero } from '@/components/services/ServicesHero';
 import { ChallengesSection } from '@/components/services/ChallengesSection';
 import { ServicesShowcase } from '@/components/services/ServicesShowcase';
 import { ServicesCta } from '@/components/services/ServicesCta';
+import { Helmet } from "react-helmet";
 
 const Services = () => {
   useScrollAnimation();

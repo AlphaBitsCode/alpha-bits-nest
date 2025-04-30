@@ -4,6 +4,7 @@ import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { motion } from 'framer-motion';
+import { Helmet } from "react-helmet";
 
 const About = () => {
   useScrollAnimation();
