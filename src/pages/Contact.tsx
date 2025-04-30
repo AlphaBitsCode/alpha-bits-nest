@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
@@ -37,6 +38,18 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Contact Alpha Bits | AIoT Solutions</title>
+        <meta name="description" content="Get in touch with Alpha Bits for expert advice on AIoT solutions, digital transformation, and technology implementation for your business." />
+        <meta name="keywords" content="Contact Alpha Bits, AIoT Consultation, Technology Advisory, Vietnam Tech Company, Ho Chi Minh City" />
+        <meta property="og:title" content="Contact Alpha Bits | AIoT Solutions" />
+        <meta property="og:description" content="Get in touch with Alpha Bits for expert advice on AIoT solutions, digital transformation, and technology implementation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alphabits.team/contact" />
+        <meta property="og:image" content="/images/office/office_1.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       <Navbar1 />
 
       <div className="pt-16">

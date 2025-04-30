@@ -13,6 +13,19 @@ export default function CoursesIndexVN() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col">
+      <Helmet>
+        <title>Học Tự động hóa Workflow & AI Agent | Alpha Bits</title>
+        <meta name="description" content="Khóa học Node-RED & AIoT Workflow Automation dành cho người đi làm muốn ứng dụng tự động hóa và AI vào công việc hằng ngày - dễ học, thực hành thực tế." />
+        <meta name="keywords" content="Node-RED, AIoT, Workflow Automation, AI Agent, Khóa học, Alpha Bits, Học tự động hóa" />
+        <meta property="og:title" content="Học Tự động hóa Workflow & AI Agent | Alpha Bits" />
+        <meta property="og:description" content="Khóa học Node-RED & AIoT Workflow Automation dành cho người đi làm muốn ứng dụng tự động hóa và AI vào công việc hằng ngày." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alphabits.team/khoa-hoc-ai-workflow-automation" />
+        <meta property="og:image" content="/images/courses/nodered-demo.gif" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="language" content="vi-VN" />
+      </Helmet>
+      
       <Navbar1 />
       <main className="flex-1">
         {/* Hero Section */}

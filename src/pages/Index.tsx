@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
@@ -127,6 +128,18 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Alpha Bits | Innovative AIoT Solutions for Business Transformation</title>
+        <meta name="description" content="Alpha Bits helps businesses leverage AI and IoT technologies with innovative solutions for digital transformation, including CTO advisory, enterprise IoT, and custom software development." />
+        <meta name="keywords" content="AIoT, Alpha Bits, IoT Solutions, Digital Transformation, CTO Advisory, Business Technology, AI Solutions" />
+        <meta property="og:title" content="Alpha Bits | Innovative AIoT Solutions" />
+        <meta property="og:description" content="Transform your business with AI and IoT technologies. Alpha Bits provides expert CTO advisory and custom technology solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alphabits.team" />
+        <meta property="og:image" content="/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      
       {/* Google Translate Element - Hidden but functional */}
       <div id="google_translate_element" className="fixed top-0 left-0 opacity-0 pointer-events-none"></div>
       

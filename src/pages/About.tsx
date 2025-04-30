@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Building, Users, Lightbulb, Image, ChevronRight, MapPin } from 'lucide-react';
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
@@ -15,6 +16,18 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>About Alpha Bits | Our Vision and Team</title>
+        <meta name="description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions and services." />
+        <meta name="keywords" content="Alpha Bits Team, Kent Nguyen, AIoT Innovation, Tech Startup Vietnam, Sustainable Technology" />
+        <meta property="og:title" content="About Alpha Bits | Our Vision and Team" />
+        <meta property="og:description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alphabits.team/about" />
+        <meta property="og:image" content="/images/office/profile.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      
       <Navbar1 />
       
       {/* Hero Section */}
