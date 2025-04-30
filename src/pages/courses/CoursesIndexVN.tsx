@@ -6,12 +6,14 @@ import { useState } from "react";
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Helmet } from "react-helmet";
 
 export default function CoursesIndexVN() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col">
+      <Helmet>
         <title>Học Tự động hóa Workflow & AI Agent | Alpha Bits</title>
         <meta name="description" content="Khóa học Node-RED & AIoT Workflow Automation dành cho người đi làm muốn ứng dụng tự động hóa và AI vào công việc hằng ngày - dễ học, thực hành thực tế." />
         <meta name="keywords" content="Node-RED, AIoT, Workflow Automation, AI Agent, Khóa học, Alpha Bits, Học tự động hóa" />
@@ -22,6 +24,7 @@ export default function CoursesIndexVN() {
         <meta property="og:image" content="/images/courses/nodered-demo.gif" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="language" content="vi-VN" />
+      </Helmet>
       
       <Navbar1 />
       <main className="flex-1">

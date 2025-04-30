@@ -5,6 +5,7 @@ import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Serv
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
+import { Helmet } from "react-helmet-async";
 
 const Products = () => {
   useScrollAnimation();
@@ -77,6 +78,7 @@ const Products = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
         <title>Innovative AIoT Products | Alpha Bits</title>
         <meta name="description" content="Discover Alpha Bits' cutting-edge products designed to revolutionize agriculture, energy management, and education - from Digital Twin technologies to Farm In Box educational kits." />
         <meta name="keywords" content="AIoT Products, Digital Twin, Farm In Box, IoT Solutions, Smart Agriculture, Alpha Bits, Educational Products" />
@@ -86,6 +88,7 @@ const Products = () => {
         <meta property="og:url" content="https://alphabits.team/products" />
         <meta property="og:image" content="/images/aiot/digitalfactory_1.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       
       <Navbar1 />
       <section className="py-16 flex-grow bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">

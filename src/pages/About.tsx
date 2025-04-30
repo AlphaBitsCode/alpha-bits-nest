@@ -5,7 +5,7 @@ import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { motion } from 'framer-motion';
-// Removed: import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   useScrollAnimation();
@@ -17,15 +17,17 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <title>About Alpha Bits | Our Vision and Team</title>
-      <meta name="description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions and services." />
-      <meta name="keywords" content="Alpha Bits Team, Kent Nguyen, AIoT Innovation, Tech Startup Vietnam, Sustainable Technology" />
-      <meta property="og:title" content="About Alpha Bits | Our Vision and Team" />
-      <meta property="og:description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://alphabits.team/about" />
-      <meta property="og:image" content="/images/office/profile.jpg" />
-      <meta name="twitter:card" content="summary_large_image" />
+      <Helmet>
+        <title>About Alpha Bits | Our Vision and Team</title>
+        <meta name="description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions and services." />
+        <meta name="keywords" content="Alpha Bits Team, Kent Nguyen, AIoT Innovation, Tech Startup Vietnam, Sustainable Technology" />
+        <meta property="og:title" content="About Alpha Bits | Our Vision and Team" />
+        <meta property="og:description" content="Learn about Alpha Bits' journey, our vision for sustainable technology innovation, and the team behind our cutting-edge AIoT solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alphabits.team/about" />
+        <meta property="og:image" content="/images/office/profile.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       
       <Navbar1 />
       

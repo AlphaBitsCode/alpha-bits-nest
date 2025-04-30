@@ -8,6 +8,7 @@ import { ServicesHero } from '@/components/services/ServicesHero';
 import { ChallengesSection } from '@/components/services/ChallengesSection';
 import { ServicesShowcase } from '@/components/services/ServicesShowcase';
 import { ServicesCta } from '@/components/services/ServicesCta';
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   useScrollAnimation();
@@ -29,6 +30,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
         <title>Professional AIoT Services | Alpha Bits</title>
         <meta name="description" content="Alpha Bits delivers expert technology services including CTO advisory, enterprise IoT solutions, and custom software development to transform your business operations." />
         <meta name="keywords" content="CTO Advisory, Enterprise IoT, Software Development, AIoT Services, Digital Transformation, Alpha Bits" />
@@ -38,6 +40,7 @@ const Services = () => {
         <meta property="og:url" content="https://alphabits.team/services" />
         <meta property="og:image" content="/images/office/office_5.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       
       <Navbar1 />
       <ServicesHero />
