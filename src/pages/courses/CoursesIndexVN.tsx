@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Helmet } from "react-helmet";
 
 export default function CoursesIndexVN() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -20,7 +19,7 @@ export default function CoursesIndexVN() {
       <meta property="og:description" content="Khóa học Node-RED & AIoT Workflow Automation dành cho người đi làm muốn ứng dụng tự động hóa và AI vào công việc hằng ngày." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://alphabits.team/khoa-hoc-ai-workflow-automation" />
-      <meta property="og:image" content="/images/courses/nodered-demo.gif" />
+      <meta property="og:image" content="https://alphabits.team/images/courses/nodered-demo.gif" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="language" content="vi-VN" />
       
