@@ -5,13 +5,14 @@ import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
 import { motion } from 'framer-motion';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   useScrollAnimation();
   
   useEffect(() => {
-    document.title = "About Us | Alpha Bits";
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
   }, []);
 
   return (

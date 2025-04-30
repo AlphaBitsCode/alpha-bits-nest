@@ -10,7 +10,7 @@ import { ProductsServicesGrid } from '@/components/ui/products-services-grid';
 import Footer from '@/components/ui/footer';
 import { useParallax } from '@/lib/animations';
 import { Briefcase, Users, Package, BookOpen, Home, Factory, Trees } from 'lucide-react';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   useParallax();

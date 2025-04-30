@@ -8,7 +8,7 @@ import { ServicesHero } from '@/components/services/ServicesHero';
 import { ChallengesSection } from '@/components/services/ChallengesSection';
 import { ServicesShowcase } from '@/components/services/ServicesShowcase';
 import { ServicesCta } from '@/components/services/ServicesCta';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   useScrollAnimation();
@@ -16,8 +16,6 @@ const Services = () => {
   const contactRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    document.title = "Services | Alpha Bits";
-    
     // Scroll to top when page loads
     window.scrollTo(0, 0);
     

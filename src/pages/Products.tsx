@@ -5,13 +5,14 @@ import { ChevronRight, Package, BookOpen, Home, Factory, Trees, Microscope, Serv
 import { Navbar1 } from '@/components/ui/shadcnblocks-com-navbar1';
 import Footer from '@/components/ui/footer';
 import { useScrollAnimation } from '@/lib/animations';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Products = () => {
   useScrollAnimation();
   
   useEffect(() => {
-    document.title = "Products | Alpha Bits";
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
   }, []);
   
   const productCategories = [
