@@ -152,8 +152,8 @@ export default function CoursesIndexVN() {
                 <p className="text-lg opacity-90">Khóa Căn bản Online - 6 buổi</p>
                 <div className="mt-4 bg-white/10 p-3 rounded-lg">
                   <p className="text-2xl font-extrabold flex items-center justify-center gap-3">
-                    <span className="line-through text-gray-200 font-semibold mr-3 text-lg opacity-80">9,500,000 VND</span>
-                    <span className="text-yellow-300 font-extrabold text-3xl drop-shadow-lg">8,000,000 VND</span>
+                    <span className="line-through text-gray-200 font-semibold mr-3 text-lg opacity-80">12,000,000</span>
+                    <span className="text-yellow-300 font-extrabold text-3xl drop-shadow-lg">9,000,000</span>
                   </p>
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Giảng viên</span>
-                    <span className="font-medium">Alpha Bits Expert Team</span>
+                    <span className="font-medium">Kent Nguyen & Alpha Bits Team</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số lượng</span>
@@ -479,7 +479,7 @@ export default function CoursesIndexVN() {
         <section className="py-16 px-4">
           <div className="container max-w-4xl mx-auto text-center bg-white rounded-xl shadow-lg p-10">
             <h2 className="text-3xl font-bold text-brand-navy mb-4">Sẵn sàng bắt đầu hành trình tự động hóa và xây dựng AI Agent?</h2>
-            <p className="text-xl text-gray-700 mb-8">Chỉ còn 10 suất cho khoá 1!</p>
+            <p className="text-xl text-gray-700 mb-8">Chỉ có 10 suất cho khoá 1!</p>
             <Button 
               size="lg" 
               className="bg-brand-teal hover:bg-brand-teal/90 text-white"
