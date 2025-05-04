@@ -413,6 +413,18 @@ export default function CoursesIndexVN() {
                   Đội ngũ Alpha Bits sẽ hướng dẫn chi tiết cách cài đặt Node-RED trên các nền tảng cloud phổ biến như GCP, Digital Ocean, AWS, Azure hoặc máy chủ riêng (on-premises) theo nhu cầu học viên.
                 </AccordionContent>
               </AccordionItem>
+              <AccordionItem value="faq-6">
+                <AccordionTrigger>Tại sao nên chọn Node-RED thay vì n8n?</AccordionTrigger>
+                <AccordionContent>
+                Node-RED mạnh ở khả năng xử lý dữ liệu real-time, làm việc với phần cứng (GPIO, MQTT, cảm biến…), và rất dễ mở rộng bằng JavaScript. Nếu bạn cần xây hệ thống automation nội bộ, kết nối thiết bị thật, hoặc tự do thiết kế dashboard UI theo ý mình, Node-RED là lựa chọn tốt hơn.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="faq-7">
+                <AccordionTrigger>n8n có hiện đại hơn, vậy Node-RED còn phù hợp không?</AccordionTrigger>
+                <AccordionContent>
+                n8n rất mạnh với các dịch vụ SaaS, nhưng Node-RED lại cực kỳ phù hợp nếu bạn muốn kiểm soát toàn bộ luồng dữ liệu, chạy offline, hoặc tích hợp với hệ thống vật lý như nhà thông minh, nông nghiệp, thiết bị IoT… Khóa học này giúp bạn xây được nền tảng vững chắc trước khi mở rộng sang các công cụ khác như n8n nếu cần.
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
           </div>
         </section>
