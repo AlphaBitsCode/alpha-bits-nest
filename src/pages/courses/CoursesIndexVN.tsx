@@ -62,7 +62,7 @@ export default function CoursesIndexVN() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Bắt đầu: 13/5/2025</span>
+                <span>Bắt đầu: Tuần thứ 3 Tháng 5/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
               <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
@@ -166,7 +166,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Khai giảng</span>
-                    <span className="font-medium">13/05/2025</span>
+                    <span className="font-medium">Tuần thứ 3 của Tháng 5/2025</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số buổi</span>
@@ -241,13 +241,13 @@ export default function CoursesIndexVN() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td className="border py-3">1</td><td className="border">13/05</td><td className="border text-left px-4">Cài Node-RED, MQTT, làm quen flow</td></tr>
-                  <tr><td className="border py-3">2</td><td className="border">15/05</td><td className="border text-left px-4">Xây dựng Dashboard cơ bản</td></tr>
-                  <tr><td className="border py-3">3</td><td className="border">20/05</td><td className="border text-left px-4">API Endpoint, xử lý dữ liệu từ ngoài</td></tr>
-                  <tr><td className="border py-3">4</td><td className="border">22/05</td><td className="border text-left px-4">Đọc sensor từ thiết bị / mô phỏng</td></tr>
-                  <tr><td className="border py-3">5</td><td className="border">27/05</td><td className="border text-left px-4">Xử lý dữ liệu, logic filter</td></tr>
-                  <tr><td className="border py-3">6</td><td className="border">29/05</td><td className="border text-left px-4">Lưu trữ dữ liệu, tích hợp AI Agent</td></tr>
-                  <tr><td className="border py-3">7</td><td className="border">03/06</td><td className="border text-left px-4">Demo & Feedback dự án cá nhân</td></tr>
+                  <tr><td className="border py-3">1</td><td className="border text-left px-4">Cài Node-RED, MQTT, làm quen flow</td></tr>
+                  <tr><td className="border py-3">2</td><td className="border text-left px-4">Xây dựng Dashboard cơ bản</td></tr>
+                  <tr><td className="border py-3">3</td><td className="border text-left px-4">API Endpoint, xử lý dữ liệu từ ngoài</td></tr>
+                  <tr><td className="border py-3">4</td><td className="border text-left px-4">Đọc sensor từ thiết bị / mô phỏng</td></tr>
+                  <tr><td className="border py-3">5</td><td className="border text-left px-4">Xử lý dữ liệu, logic filter</td></tr>
+                  <tr><td className="border py-3">6</td><td className="border text-left px-4">Lưu trữ dữ liệu, tích hợp AI Agent</td></tr>
+                  <tr><td className="border py-3">7</td><td className="border text-left px-4">Demo & Feedback dự án cá nhân</td></tr>
                 </tbody>
               </table>
             </div>
