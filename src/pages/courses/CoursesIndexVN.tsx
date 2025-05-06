@@ -236,7 +236,6 @@ export default function CoursesIndexVN() {
                 <thead>
                   <tr className="bg-brand-teal text-white">
                     <th className="py-3 px-4 border">Buổi</th>
-                    <th className="py-3 px-4 border">Ngày học</th>
                     <th className="py-3 px-4 border">Nội dung</th>
                   </tr>
                 </thead>
