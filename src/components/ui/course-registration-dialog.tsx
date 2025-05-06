@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -40,9 +40,21 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     codingBackground: "",
     referralSource: "",
     country: "Việt Nam", // Default country
+    referralCode: "", // New field for referral code
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // Extract referral code from URL when component mounts
+  useEffect(() => {
+    if (open) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const referralCode = urlParams.get('referral');
+      if (referralCode) {
+        setFormData(prev => ({ ...prev, referralCode }));
+      }
+    }
+  }, [open]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -52,6 +64,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
     setIsSubmitting(true);
 
     try {
+      // Insert the registration into Supabase
       const { error } = await supabase
         .from('class_registrations')
         .insert({
@@ -62,10 +75,21 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           coding_background: formData.codingBackground,
           referral_source: formData.referralSource,
           country: formData.country,
-          course_id: 'node-red-aiot-2025-05'
+          course_id: 'node-red-aiot-2025-05',
+          referral_code: formData.referralCode || null, // Save referral code to database
         });
 
       if (error) throw error;
+
+      // Send confirmation email
+      await supabase.functions.invoke('send-course-confirmation', {
+        body: {
+          name: formData.fullName,
+          email: formData.email,
+          course: "Node-RED & AIoT Workflow Automation",
+          startDate: "13/5/2025",
+        },
+      });
 
       toast({
         title: "Đăng ký thành công!",
@@ -81,6 +105,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
         codingBackground: "",
         referralSource: "",
         country: "Việt Nam",
+        referralCode: "",
       });
     } catch (error) {
       console.error('Error:', error);
@@ -193,6 +218,16 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
                 ))}
               </SelectContent>
             </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="referralCode">Mã giới thiệu (nếu có)</Label>
+            <Input
+              id="referralCode"
+              name="referralCode"
+              value={formData.referralCode}
+              onChange={handleInputChange}
+              placeholder="Nhập mã giới thiệu"
+            />
           </div>
           <Button 
             type="submit" 
