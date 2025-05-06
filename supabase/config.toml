@@ -69,4 +69,3 @@ additionalScopes = []
 
 [functions.send-course-confirmation]
 verify_jwt = false
-

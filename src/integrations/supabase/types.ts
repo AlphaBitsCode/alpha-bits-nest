@@ -131,6 +131,7 @@ export type Database = {
           id: string
           interest: string | null
           phone: string
+          referral_code: string | null
           referral_source: string | null
         }
         Insert: {
@@ -143,6 +144,7 @@ export type Database = {
           id?: string
           interest?: string | null
           phone: string
+          referral_code?: string | null
           referral_source?: string | null
         }
         Update: {
@@ -155,6 +157,7 @@ export type Database = {
           id?: string
           interest?: string | null
           phone?: string
+          referral_code?: string | null
           referral_source?: string | null
         }
         Relationships: []

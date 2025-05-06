@@ -14,6 +14,7 @@ interface CourseConfirmationRequest {
   email: string;
   course: string;
   startDate: string;
+  referralCode?: string;
 }
 
 serve(async (req) => {
@@ -23,14 +24,14 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, course, startDate }: CourseConfirmationRequest = await req.json();
+    const { name, email, course, startDate, referralCode }: CourseConfirmationRequest = await req.json();
 
     // Simple validation
     if (!name || !email || !course) {
       throw new Error("Missing required fields");
     }
 
-    console.log(`Sending course confirmation email to ${email}`);
+    console.log(`Sending course confirmation email to ${email}${referralCode ? ` with referral code ${referralCode}` : ''}`);
 
     const emailResponse = await resend.emails.send({
       from: "Alpha Bits <no-reply@alphabits.vn>",
@@ -57,6 +58,12 @@ serve(async (req) => {
               <li>Thời gian: 19:30 - 21:00, Thứ 3 & Thứ 5 hàng tuần</li>
             </ul>
           </div>
+          ${referralCode ? `
+          <div style="background-color: #fff8e6; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #fbd38d;">
+            <h3 style="color: #c27803; margin-bottom: 10px;">Mã giới thiệu của bạn:</h3>
+            <p style="font-size: 16px; margin-bottom: 0; font-weight: bold;">${referralCode}</p>
+          </div>
+          ` : ''}
           
           <p style="font-size: 16px; margin-bottom: 20px;">
             Để chuẩn bị tốt nhất cho khóa học, bạn có thể tham khảo trước về Node-RED tại <a href="https://nodered.org/" style="color: #0d9488; text-decoration: none;">nodered.org</a> hoặc thử cài đặt môi trường phát triển theo hướng dẫn của chúng tôi (sẽ được gửi trong email tiếp theo).

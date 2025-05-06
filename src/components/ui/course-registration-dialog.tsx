@@ -88,6 +88,7 @@ export function CourseRegistrationDialog({ open, onOpenChange }: CourseRegistrat
           email: formData.email,
           course: "Node-RED & AIoT Workflow Automation",
           startDate: "13/5/2025",
+          referralCode: formData.referralCode || undefined,
         },
       });
 
