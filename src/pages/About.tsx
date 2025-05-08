@@ -148,7 +148,11 @@ const About = () => {
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
-                      <span>Founder/CEO of Second Brains, 2024 – present</span>
+                      <span>Founder/CEO of Alpha Bits Technology, 2023 – present</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
+                      <span>Founder/CEO of Alpha Block, 2025 – present</span>
                     </li>
                     <li className="flex items-start">
                       <ChevronRight size={16} className="text-brand-blue mr-2 flex-shrink-0 mt-1" />
