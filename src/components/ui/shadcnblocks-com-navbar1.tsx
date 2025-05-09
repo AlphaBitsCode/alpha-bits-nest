@@ -69,14 +69,13 @@ interface Navbar1Props {
   };
 }
 
-const Navbar1 = ({
+function Navbar1({
   logo = {
     url: "/",
     src: "/images/AB_Logo_icon.png",
     alt: "Alpha Bits Logo",
     title: "Alpha Bits",
-  },
-  menu = [
+  }, menu = [
     {
       title: "Products",
       url: "/products",
@@ -196,19 +195,19 @@ const Navbar1 = ({
         },
       ],
     },
-    { title: "About", url: "/about", icon: <InfoIcon className="size-5 shrink-0" /> },
-    { title: "Contact", url: "/contact", icon: <PhoneCall className="size-5 shrink-0" /> },
-  ],
-  mobileExtraLinks = [
+    { title: "About", url: "/about" },
+    { title: "Contact", url: "/contact" },
+    { title: "Tech Hotpot 🍲", url: "https://blog.alphabits.team" },
+
+  ], mobileExtraLinks = [
     { name: "About", url: "/about" },
     { name: "Experience", url: "/experience" },
     { name: "Contact", url: "/contact" },
-  ],
-  auth = {
+  ], auth = {
     login: { text: "", url: "" },
     signup: { text: "", url: "" },
   },
-}: Navbar1Props) => {
+}: Navbar1Props) {
   const location = useLocation();
 
   useEffect(() => {
@@ -256,7 +255,7 @@ const Navbar1 = ({
                   </Button>
                 )}
               </div>
-            )}          
+            )}
           </div>
         </nav>
         <div className="block lg:hidden">
@@ -287,8 +286,8 @@ const Navbar1 = ({
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="products" className="border-none">
                       <div className="flex items-center">
-                        <Link 
-                          to="/products" 
+                        <Link
+                          to="/products"
                           className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
                         >
                           <Package size={18} strokeWidth={2} className="text-brand-teal" />
@@ -319,12 +318,12 @@ const Navbar1 = ({
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                  
+
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="services" className="border-none">
                       <div className="flex items-center">
-                        <Link 
-                          to="/services" 
+                        <Link
+                          to="/services"
                           className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
                         >
                           <Briefcase size={18} strokeWidth={2} className="text-brand-blue" />
@@ -363,8 +362,8 @@ const Navbar1 = ({
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="courses" className="border-none">
                       <div className="flex items-center">
-                        <Link 
-                          to="/courses" 
+                        <Link
+                          to="/courses"
                           className="flex-1 px-4 py-1.5 font-medium flex items-center gap-2"
                         >
                           <Code size={18} strokeWidth={2} className="text-brand-navy" />
@@ -405,33 +404,33 @@ const Navbar1 = ({
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                  
+
                   {/* Removed Experience link */}
-                  
-                  <Link 
-                    to="/about" 
+
+                  <Link
+                    to="/about"
                     className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <InfoIcon size={18} strokeWidth={2} className="text-brand-navy" />
                     About
                   </Link>
-                  
-                  <Link 
-                    to="/locations" 
+
+                  <Link
+                    to="/locations"
                     className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <MapPin size={18} strokeWidth={2} className="text-brand-blue" />
                     Locations
                   </Link>
-                  
-                  <Link 
-                    to="/contact" 
+
+                  <Link
+                    to="/contact"
                     className="bg-white/30 backdrop-blur-sm px-4 py-1.5 rounded-lg hover:bg-white/40 transition-all duration-300 flex items-center gap-2 font-medium"
                   >
                     <PhoneCall size={18} strokeWidth={2} className="text-brand-teal" />
                     Contact
                   </Link>
-                  
+
                   {/* Remove the flex container for LanguageSelector */}
                   <div className="border-t border-gray-200/30 mt-2 pt-4 text-center">
                     <p className="text-sm text-muted-foreground">
@@ -448,7 +447,7 @@ const Navbar1 = ({
       <div id="google_translate_element" className="hidden"></div>
     </section>
   );
-};
+}
 
 const renderMenuItem = (item: MenuItem) => {
   if (item.items) {
