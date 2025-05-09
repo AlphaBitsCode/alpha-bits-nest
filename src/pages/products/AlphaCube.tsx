@@ -12,7 +12,7 @@ const AlphaCube = () => {
   const isInView = useInView(ref, { once: true });
   
   useEffect(() => {
-    document.title = "Alpha Cube | Alpha Bits";
+    document.title = "Alpha Block by Alpha Bits";
     
     if (isInView) {
       controls.start('visible');
@@ -116,7 +116,7 @@ const AlphaCube = () => {
               className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-green-300">
-                Alpha Cube
+                Alpha Block
               </span>
             </motion.h1>
             
@@ -140,7 +140,7 @@ const AlphaCube = () => {
             className="max-w-xl w-full mx-auto bg-black/70 backdrop-blur-lg border border-teal-500/20 p-6 md:p-8 rounded-xl"
           >
             <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              Get notified about <span className="text-teal-400">Alpha Cube</span>
+              Get notified about <span className="text-teal-400">Alpha Block</span>
             </h2>
             <NotificationForm className="text-white" />
           </motion.div>

@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Facebook } from 'lucide-react'; // Added Facebook icon
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,25 +28,24 @@ const Footer = () => {
                 href="https://github.com/AlphaBitsCode/alpha-bits-nest" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-white/70 hover:text-brand-teal transition-colors duration-200"
+                className="inline-flex items-center text-white/40 hover:text-brand-teal transition-colors duration-200"
               >
                 <Github className="h-5 w-5 mr-2" />
                 <span>GitHub Repository</span>
                 <ExternalLink className="h-4 w-4 ml-1" />
               </a>
-              
-              {/* GitHub Star Button */}
-              <div className="mt-2">
-                <iframe 
-                  src="https://ghbtns.com/github-btn.html?user=AlphaBitsCode&repo=alpha-bits-nest&type=star&count=true" 
-                  frameBorder="0" 
-                  scrolling="0" 
-                  width="150" 
-                  height="20" 
-                  title="GitHub Stars"
-                  className="mt-1"
-                />
-              </div>
+
+              {/* Facebook Link */}
+              <a 
+                href="https://www.facebook.com/alphabits001/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-white/40 hover:text-brand-teal transition-colors duration-200"
+              >
+                <Facebook className="h-5 w-5 mr-2" />
+                <span>Facebook</span>
+                <ExternalLink className="h-4 w-4 ml-1" />
+              </a>
             </div>
           </div>
           
@@ -56,6 +55,18 @@ const Footer = () => {
               <li>
                 <Link to="/products/farm-in-box" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
                   Farm In Box
+                </Link>
+              </li>
+              <li>
+                <Link to="https://www.thealphablock.com/?utm_source=abweb"
+                      target="_blank"
+                      className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Alpha Block
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  IoT Courses
                 </Link>
               </li>
             </ul>
