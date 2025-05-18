@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,6 +28,7 @@ import DigitalTwinFactory from "./pages/products/DigitalTwinFactory";
 import AiotProductDevelopment from "./pages/services/AiotProductDevelopment";
 import CtoAsAService from "./pages/services/CtoAsAService";
 import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
+import BusinessAutomation from "./pages/services/BusinessAutomation";
 
 // Import the experiences pages
 import ExperiencesIndex from "./pages/experiences/ExperiencesIndex";
@@ -72,6 +74,7 @@ function App() {
             <Route path="/services/aiot-product-development" element={<AiotProductDevelopment />} />
             <Route path="/services/cto-as-a-service" element={<CtoAsAService />} />
             <Route path="/services/software-development" element={<SoftwareDevelopment />} />
+            <Route path="/services/business-automation" element={<BusinessAutomation />} />
             <Route path="/services/cto-as-service" element={<Navigate to="/services/cto-as-a-service" replace />} />
             
             {/* Experiences routes */}

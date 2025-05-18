@@ -90,6 +90,11 @@ const Footer = () => {
                   CTO-as-a-Service
                 </Link>
               </li>
+              <li>
+                <Link to="/services/business-automation" className="text-white/70 hover:text-brand-teal transition-colors duration-200">
+                  Business Automation
+                </Link>
+              </li>
             </ul>
           </div>
           
