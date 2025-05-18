@@ -10,7 +10,7 @@ import { CheckCircle, ArrowRight, Clock, DollarSign, TrendingUp, Heart, BarChart
 
 const BusinessAutomation = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.1 });
+  const isInView = useInView(ref, { once: true });
   
   useEffect(() => {
     document.title = "Business Automation | Alpha Bits";
