@@ -30,14 +30,7 @@ import CtoAsAService from "./pages/services/CtoAsAService";
 import SoftwareDevelopment from "./pages/services/SoftwareDevelopment";
 import BusinessAutomation from "./pages/services/BusinessAutomation";
 
-// Import the experiences pages
-import ExperiencesIndex from "./pages/experiences/ExperiencesIndex";
-import AoFarmPage from "./pages/experiences/AoFarmPage";
-import EventsPage from "./pages/experiences/EventsPage";
-
 // Import blog pages
-import BlogIndex from "./pages/blog/BlogIndex";
-import BlogPost from "./pages/blog/BlogPost";
 import CoursesIndex from "./pages/courses/CoursesIndex";
 import CoursesIndexVN from "./pages/courses/CoursesIndexVN";
 
@@ -52,7 +45,7 @@ function App() {
           <Sonner />
           <Routes>
             {/* Base route */}
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<BusinessAutomation />} />
             
             {/* Products routes */}
             <Route path="/products" element={<Products />} />
@@ -76,17 +69,7 @@ function App() {
             <Route path="/services/software-development" element={<SoftwareDevelopment />} />
             <Route path="/services/business-automation" element={<BusinessAutomation />} />
             <Route path="/services/cto-as-service" element={<Navigate to="/services/cto-as-a-service" replace />} />
-            
-            {/* Experiences routes */}
-            <Route path="/experiences" element={<ExperiencesIndex />} />
-            <Route path="/experience" element={<Navigate to="/experiences" replace />} />
-            <Route path="/experiences/ao-farm" element={<AoFarmPage />} />
-            <Route path="/experiences/events" element={<EventsPage />} />
-            
-            {/* Blog routes */}
-            <Route path="/blog" element={<BlogIndex />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            
+           
             {/* Other main routes with alternative paths */}
             <Route path="/about" element={<About />} />
             <Route path="/about-us" element={<Navigate to="/about" replace />} />

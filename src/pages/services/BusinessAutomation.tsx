@@ -172,7 +172,7 @@ const BusinessAutomation = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-brand-blue to-brand-teal rounded-lg opacity-20 blur-lg"></div>
               <img 
-                src="/images/office/office_5.jpg" 
+                src="/images/office/automation_2.jpg" 
                 alt="Business owner frustration" 
                 className="rounded-lg shadow-lg relative z-10 w-full h-auto"
               />
