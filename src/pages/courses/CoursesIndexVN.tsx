@@ -81,6 +81,7 @@ export default function CoursesIndexVN() {
         <section className="py-8 px-4 bg-white">
           <div className="container max-w-5xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-brand-navy mb-6">Trực quan và dễ sử dụng - Kéo thả để tạo workflow</h2>
+            <h3>Tham khảo ví dụ thực tế tại <a href='https://blog.alphabits.team/tag/automation/?utm_source=aiotcourse' target="_blank">Tech Hotpot</a></h3>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
                 src="/images/courses/nodered-demo.gif" 
@@ -166,7 +167,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Khai giảng</span>
-                    <span className="font-medium">Tuần thứ 3 của Tháng 5/2025</span>
+                    <span className="font-medium">29/5/2025</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số buổi</span>
@@ -174,7 +175,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Giảng viên</span>
-                    <span className="font-medium">Kent Nguyen & Alpha Bits Team</span>
+                    <span className="font-medium">Alpha Bits Team</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số lượng</span>
