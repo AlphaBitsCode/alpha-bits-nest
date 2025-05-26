@@ -167,7 +167,7 @@ export default function CoursesIndexVN() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Khai giảng</span>
-                    <span className="font-medium">29/5/2025</span>
+                    <span className="font-medium">03/06/2025</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-gray-500 mb-1">Số buổi</span>
