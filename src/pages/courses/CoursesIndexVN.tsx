@@ -62,7 +62,7 @@ export default function CoursesIndexVN() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-lg text-gray-600 mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-brand-teal" />
-                <span>Bắt đầu: Tuần thứ 3 Tháng 5/2025</span>
+                <span>Bắt đầu: 03/06/2025</span>
               </div>
               <span className="hidden md:inline">•</span>
               <span>Thứ 3 & Thứ 5 hàng tuần qua Zoom</span>
