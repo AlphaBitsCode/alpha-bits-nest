@@ -71,7 +71,7 @@ export default function CoursesIndex() {
                 </ul>
                 <div className="flex items-center gap-3 mb-4">
                   <Calendar className="h-5 w-5 text-brand-teal" />
-                  <span>Next cohort: May 13, 2025 - Vietnamese language</span>
+                  <span>Next cohort: June 10th, 2025 - Vietnamese language</span>
                 </div>
                 <Link to="/khoa-hoc-ai-workflow-automation">
                   <Button className="bg-brand-teal hover:bg-brand-teal/90 text-white">
